@@ -3,7 +3,7 @@ package com.example.trippocket.ui.navigation
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -14,7 +14,7 @@ import com.example.trippocket.viewmodel.TripsViewModel
 @Composable
 fun TripPocketNavHost() {
     val navController = rememberNavController()
-    val tripsViewModel: TripsViewModel = viewModel()
+    val tripsViewModel: TripsViewModel = hiltViewModel()
 
     val trips by tripsViewModel.trips.collectAsState()
 
