@@ -118,7 +118,6 @@ fun CreateTripScreen(
                         endDate ?: return@Button
 
                     val trip = Trip(
-                        id = System.currentTimeMillis(),
                         name = tripName,
                         startDate = selectedStartDate,
                         endDate = selectedEndDate

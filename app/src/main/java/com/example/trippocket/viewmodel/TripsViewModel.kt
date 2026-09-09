@@ -1,17 +1,41 @@
 package com.example.trippocket.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.trippocket.data.model.Trip
+import com.example.trippocket.data.repository.TripRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TripsViewModel : ViewModel() {
-    private val _trips = MutableStateFlow<List<Trip>>(emptyList())
+@HiltViewModel
+class TripsViewModel @Inject constructor(
+    private val repository: TripRepository
+) : ViewModel() {
 
-    val trips: StateFlow<List<Trip>> = _trips
+    val trips: StateFlow<List<Trip>> =
+        repository
+            .getTrips()
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5_000),
+                initialValue = emptyList()
+            )
 
     fun addTrip(trip: Trip) {
-        _trips.update { it + trip }
+        viewModelScope.launch {
+            repository.addTrip(trip)
+        }
+    }
+
+    fun deleteTrip(trip: Trip) {
+        viewModelScope.launch {
+            repository.deleteTrip(trip)
+        }
     }
 }
