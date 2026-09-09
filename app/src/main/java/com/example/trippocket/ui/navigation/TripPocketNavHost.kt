@@ -8,14 +8,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.trippocket.ui.create_trip.CreateTripScreen
+import com.example.trippocket.ui.trip_details.TripDetailsScreen
 import com.example.trippocket.ui.trips.TripsScreen
 import com.example.trippocket.viewmodel.TripsViewModel
 
 @Composable
 fun TripPocketNavHost() {
     val navController = rememberNavController()
-    val tripsViewModel: TripsViewModel = hiltViewModel()
 
+    val tripsViewModel: TripsViewModel = hiltViewModel()
     val trips by tripsViewModel.trips.collectAsState()
 
     NavHost(
@@ -27,6 +28,9 @@ fun TripPocketNavHost() {
                 trips = trips,
                 onAddTripClick = {
                     navController.navigate("create_trip")
+                },
+                onTripClick = { trip ->
+                    navController.navigate("trip/${trip.id}")
                 }
             )
         }
@@ -41,6 +45,21 @@ fun TripPocketNavHost() {
                     navController.popBackStack()
                 }
             )
+        }
+
+        composable("trip/{tripId}") { backStackEntry ->
+            val tripId = backStackEntry
+                .arguments
+                ?.getString("tripId")
+                ?.toLongOrNull()
+
+            if (tripId != null) {
+                TripDetailsScreen(
+                    onBackClick = {
+                        navController.popBackStack()
+                    }
+                )
+            }
         }
     }
 }

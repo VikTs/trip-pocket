@@ -11,6 +11,10 @@ class TripRepository(
         return tripDao.getTrips()
     }
 
+    fun getTripById(tripId: Long): Flow<Trip?> {
+        return tripDao.getTripById(tripId)
+    }
+
     suspend fun addTrip(trip: Trip) {
         tripDao.insertTrip(trip)
     }

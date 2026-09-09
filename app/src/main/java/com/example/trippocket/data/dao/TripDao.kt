@@ -12,6 +12,9 @@ interface TripDao {
     @Query("SELECT * FROM trips ORDER BY startDate ASC")
     fun getTrips(): Flow<List<Trip>>
 
+    @Query("SELECT * FROM trips WHERE id = :tripId")
+    fun getTripById(tripId: Long): Flow<Trip?>
+
     @Insert
     suspend fun insertTrip(trip: Trip)
 

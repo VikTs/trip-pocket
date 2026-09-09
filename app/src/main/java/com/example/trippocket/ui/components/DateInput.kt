@@ -11,7 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.trippocket.utils.toTripDateString
+import com.example.trippocket.utils.formatTripDate
 import java.time.LocalDate
 
 @Composable
@@ -29,7 +29,7 @@ fun DateInput(
         modifier = Modifier.fillMaxWidth()
     ) {
         OutlinedTextField(
-            value = selectedDate?.toTripDateString() ?: "",
+            value = selectedDate?.let { formatTripDate(it) } ?: "",
             onValueChange = {},
             label = {
                 Text(label)

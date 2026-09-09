@@ -27,7 +27,8 @@ import com.example.trippocket.data.model.Trip
 @Composable
 fun TripsScreen(
     trips: List<Trip>,
-    onAddTripClick: () -> Unit
+    onAddTripClick: () -> Unit,
+    onTripClick: (Trip) -> Unit
 ) {
     val colors = MaterialTheme.colorScheme
 
@@ -75,7 +76,7 @@ fun TripsScreen(
                 items(trips) { trip ->
                     TripCard(
                         trip = trip,
-                        onClick = {}
+                        onClick = { onTripClick(trip) }
                     )
                 }
 

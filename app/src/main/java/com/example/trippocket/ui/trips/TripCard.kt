@@ -16,7 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Trip
-import com.example.trippocket.utils.toTripDateString
+import com.example.trippocket.utils.formatTripDates
 
 @Composable
 fun TripCard(
@@ -47,18 +47,11 @@ fun TripCard(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
-                    text = trip.startDate.toTripDateString(),
-                    style = MaterialTheme.typography.bodyLarge
-                )
-
-                Text(
-                    text = "—",
-                    style = MaterialTheme.typography.bodyLarge
-                )
-
-                Text(
-                    text = trip.endDate.toTripDateString(),
-                    style = MaterialTheme.typography.bodyLarge
+                    text = formatTripDates(
+                        startDate = trip.startDate,
+                        endDate = trip.endDate
+                    ),
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         }

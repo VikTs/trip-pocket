@@ -1,6 +1,8 @@
 package com.example.trippocket.di
 
+import com.example.trippocket.data.dao.TransportTicketDao
 import com.example.trippocket.data.dao.TripDao
+import com.example.trippocket.data.repository.TransportTicketRepository
 import com.example.trippocket.data.repository.TripRepository
 import dagger.Module
 import dagger.Provides
@@ -15,5 +17,12 @@ object RepositoryModule {
         tripDao: TripDao
     ): TripRepository {
         return TripRepository(tripDao)
+    }
+
+    @Provides
+    fun provideTransportTicketRepository(
+        transportTicketDao: TransportTicketDao
+    ): TransportTicketRepository {
+        return TransportTicketRepository(transportTicketDao)
     }
 }
