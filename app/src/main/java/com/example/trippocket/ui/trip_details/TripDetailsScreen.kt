@@ -1,13 +1,20 @@
 package com.example.trippocket.ui.trip_details
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -17,10 +24,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.trippocket.ui.trips.TransportTicketCard
 import com.example.trippocket.utils.formatTripDates
 import com.example.trippocket.viewmodel.TripDetailsViewModel
 
@@ -28,6 +37,7 @@ import com.example.trippocket.viewmodel.TripDetailsViewModel
 @Composable
 fun TripDetailsScreen(
     onBackClick: () -> Unit,
+    onAddTransportClick: () -> Unit,
     viewModel: TripDetailsViewModel = hiltViewModel()
 ) {
     val trip by viewModel.trip.collectAsStateWithLifecycle()
@@ -58,11 +68,16 @@ fun TripDetailsScreen(
             )
         }
     ) { innerPadding ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(16.dp)
+                .padding(
+                    start = 16.dp,
+                    end = 16.dp,
+                    top = 16.dp
+                )
         ) {
             Text(
                 text = trip?.name ?: "",
@@ -83,10 +98,49 @@ fun TripDetailsScreen(
                 )
             }
 
-            tickets.forEach { ticket ->
-                Text(
-                    text = "${ticket.from.city} → ${ticket.to.city}"
-                )
+            Spacer(
+                modifier = Modifier.height(16.dp)
+            )
+
+            Box(
+                modifier = Modifier.weight(1f)
+            ) {
+                if (tickets.isEmpty()) {
+                    EmptyTripContent(
+                        modifier = Modifier.fillMaxSize(),
+                        onAddTransportClick = onAddTransportClick
+                    )
+                } else {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(
+                            top = 24.dp,
+                            bottom = 88.dp
+                        ),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        items(
+                            items = tickets,
+                            key = { ticket -> ticket.id }
+                        ) { ticket ->
+                            TransportTicketCard(
+                                ticket = ticket
+                            )
+                        }
+                    }
+
+                    FloatingActionButton(
+                        onClick = onAddTransportClick,
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(16.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Add,
+                            contentDescription = "Add transport"
+                        )
+                    }
+                }
             }
         }
     }
