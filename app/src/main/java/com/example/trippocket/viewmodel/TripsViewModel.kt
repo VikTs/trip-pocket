@@ -5,11 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.data.repository.TripRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,7 +15,6 @@ import javax.inject.Inject
 class TripsViewModel @Inject constructor(
     private val repository: TripRepository
 ) : ViewModel() {
-
     val trips: StateFlow<List<Trip>> =
         repository
             .getTrips()
