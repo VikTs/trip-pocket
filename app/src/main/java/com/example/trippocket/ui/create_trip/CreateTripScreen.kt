@@ -6,8 +6,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -30,7 +34,7 @@ import java.time.LocalDate
 @Composable
 fun CreateTripScreen(
     onTripCreated: (Trip) -> Unit,
-    onCancel: () -> Unit
+    onBackClick: () -> Unit,
 ) {
     val colors = MaterialTheme.colorScheme
 
@@ -55,7 +59,18 @@ fun CreateTripScreen(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = colors.primary,
                     titleContentColor = colors.onPrimary
-                )
+                ),
+                navigationIcon = {
+                    IconButton(
+                        onClick = onBackClick
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = colors.onPrimary
+                        )
+                    }
+                }
             )
         }
     ) { innerPadding ->
@@ -131,17 +146,6 @@ fun CreateTripScreen(
                         endDate != null
             ) {
                 Text("Create trip")
-            }
-
-            Spacer(
-                modifier = Modifier.height(12.dp)
-            )
-
-            OutlinedButton(
-                onClick = onCancel,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Cancel")
             }
         }
     }

@@ -11,13 +11,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class TripDetailsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     tripRepository: TripRepository,
-    transportTicketRepository: TransportTicketRepository
+    private val transportTicketRepository: TransportTicketRepository
 ) : ViewModel() {
 
     private val tripId: Long =
@@ -40,4 +41,10 @@ class TripDetailsViewModel @Inject constructor(
                 started = SharingStarted.WhileSubscribed(5_000),
                 initialValue = emptyList()
             )
+
+    fun addTicket(ticket: TransportTicket) {
+        viewModelScope.launch {
+            transportTicketRepository.addTicket(ticket)
+        }
+    }
 }

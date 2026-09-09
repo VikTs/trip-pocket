@@ -11,18 +11,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.trippocket.utils.formatTripDate
-import java.time.LocalDate
+import com.example.trippocket.utils.formatTripTime
+import java.time.LocalTime
 
 @Composable
-fun DateInput(
+fun TimeInput(
     label: String,
-    selectedDate: LocalDate?,
-    onDateSelected: (LocalDate) -> Unit,
-    modifier: Modifier = Modifier.fillMaxWidth(),
-    minDate: LocalDate? = null
-    ) {
-    var showDatePicker by remember {
+    selectedTime: LocalTime?,
+    onTimeSelected: (LocalTime) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    var showTimePicker by remember {
         mutableStateOf(false)
     }
 
@@ -30,15 +29,15 @@ fun DateInput(
         modifier = modifier
     ) {
         OutlinedTextField(
-            value = selectedDate?.let { formatTripDate(it) } ?: "",
+            value = selectedTime?.let { formatTripTime(it) } ?: "",
             onValueChange = {},
             label = {
                 Text(label)
             },
             placeholder = {
-                Text("Select date")
+                Text("Select time")
             },
-            modifier = modifier,
+            modifier = Modifier.fillMaxWidth(),
             readOnly = true
         )
 
@@ -46,21 +45,20 @@ fun DateInput(
             modifier = Modifier
                 .matchParentSize()
                 .clickable {
-                    showDatePicker = true
+                    showTimePicker = true
                 }
         )
     }
 
-    if (showDatePicker) {
-        DatePickerDialog(
-            selectedDate = selectedDate,
-            minDate = minDate,
-            onDateSelected = { date ->
-                onDateSelected(date)
-                showDatePicker = false
+    if (showTimePicker) {
+        TimePickerDialog(
+            selectedTime = selectedTime,
+            onTimeSelected = { time ->
+                onTimeSelected(time)
+                showTimePicker = false
             },
             onDismiss = {
-                showDatePicker = false
+                showTimePicker = false
             }
         )
     }
