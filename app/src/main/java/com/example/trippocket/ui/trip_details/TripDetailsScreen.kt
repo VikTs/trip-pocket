@@ -35,6 +35,7 @@ import com.example.trippocket.viewmodel.TripDetailsViewModel
 fun TripDetailsScreen(
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
+    onEditClick: (tripId: Long) -> Unit,
     viewModel: TripDetailsViewModel = hiltViewModel()
 ) {
     val trip by viewModel.trip.collectAsStateWithLifecycle()
@@ -45,6 +46,14 @@ fun TripDetailsScreen(
             TopBar(
                 onBackClick = onBackClick,
                 title = "Trip details",
+                actions = {
+                    trip?.let { trip ->
+                        TripActionsMenu(
+                            tripId = trip.id,
+                            onEdit = onEditClick,
+                        )
+                    }
+                },
             )
         },
     ) { innerPadding ->
@@ -124,6 +133,3 @@ fun TripDetailsScreen(
         }
     }
 }
-
-
-

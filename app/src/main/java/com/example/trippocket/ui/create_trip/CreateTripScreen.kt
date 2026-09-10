@@ -6,19 +6,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,26 +26,29 @@ import java.time.LocalDate
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CreateTripScreen(
-    onTripCreated: (Trip) -> Unit,
+    editTrip: Trip? = null,
+    onTripSaved: (Trip) -> Unit,
     onBackClick: () -> Unit,
 ) {
-    val colors = MaterialTheme.colorScheme
-
-    var tripName by remember {
-        mutableStateOf("")
+    val isEditMode = editTrip != null
+    var tripName by remember(editTrip?.id) {
+        mutableStateOf(editTrip?.name ?: "")
     }
 
-    var startDate by remember {
-        mutableStateOf<LocalDate?>(null)
+    var startDate by remember(editTrip?.id) {
+        mutableStateOf<LocalDate?>(editTrip?.startDate)
     }
 
-    var endDate by remember {
-        mutableStateOf<LocalDate?>(null)
+    var endDate by remember(editTrip?.id) {
+        mutableStateOf<LocalDate?>(editTrip?.endDate)
     }
 
     Scaffold(
         topBar = {
-            TopBar(title = "Create trip", onBackClick = onBackClick)
+            TopBar(
+                title = if (isEditMode) "Edit trip" else "Create trip",
+                onBackClick = onBackClick
+            )
         }
     ) { innerPadding ->
         Column(
@@ -115,19 +110,20 @@ fun CreateTripScreen(
                         endDate ?: return@Button
 
                     val trip = Trip(
+                        id = editTrip?.id ?: 0,
                         name = tripName,
                         startDate = selectedStartDate,
                         endDate = selectedEndDate
                     )
 
-                    onTripCreated(trip)
+                    onTripSaved(trip)
                 },
                 modifier = Modifier.fillMaxWidth(),
                 enabled = tripName.isNotBlank() &&
                         startDate != null &&
                         endDate != null
             ) {
-                Text("Create trip")
+                Text(if (isEditMode) "Edit trip" else "Create trip")
             }
         }
     }

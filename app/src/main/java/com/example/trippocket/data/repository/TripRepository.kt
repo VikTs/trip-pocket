@@ -19,6 +19,10 @@ class TripRepository(
         tripDao.insertTrip(trip)
     }
 
+    suspend fun updateTrip(trip: Trip) {
+        tripDao.updateTrip(trip)
+    }
+
     suspend fun deleteTrip(trip: Trip) {
         tripDao.deleteTrip(trip)
     }

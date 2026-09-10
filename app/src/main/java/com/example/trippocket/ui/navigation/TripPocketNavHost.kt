@@ -5,6 +5,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -40,7 +42,7 @@ fun TripPocketNavHost() {
 
         composable("create_trip") {
             CreateTripScreen(
-                onTripCreated = { trip ->
+                onTripSaved = { trip ->
                     tripsViewModel.addTrip(trip)
                     navController.popBackStack()
                 },
@@ -50,8 +52,34 @@ fun TripPocketNavHost() {
             )
         }
 
-        composable("trip/{tripId}") { backStackEntry ->
+        composable("edit_trip/{tripId}") { backStackEntry ->
+            val tripId = backStackEntry
+                .arguments
+                ?.getString("tripId")
+                ?.toLongOrNull()
 
+            if (tripId != null) {
+                val trip by tripsViewModel
+                    .getTripById(tripId)
+                    .collectAsStateWithLifecycle(
+                        initialValue = null,
+                        lifecycle = LocalLifecycleOwner.current.lifecycle
+                    )
+
+                CreateTripScreen(
+                    editTrip = trip,
+                    onTripSaved = { trip ->
+                        tripsViewModel.updateTrip(trip)
+                        navController.popBackStack()
+                    },
+                    onBackClick = {
+                        navController.popBackStack()
+                    }
+                )
+            }
+        }
+
+        composable("trip/{tripId}") { backStackEntry ->
             val tripId = backStackEntry
                 .arguments
                 ?.getString("tripId")
@@ -61,6 +89,9 @@ fun TripPocketNavHost() {
                 val viewModel: TripDetailsViewModel = hiltViewModel()
 
                 TripDetailsScreen(
+                    onEditClick = { tripId ->
+                        navController.navigate("edit_trip/${tripId}")
+                    },
                     onBackClick = {
                         navController.popBackStack()
                     },
