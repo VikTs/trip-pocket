@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.DateInput
+import com.example.trippocket.ui.components.TopBar
 import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,34 +53,15 @@ fun CreateTripScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text("Create trip")
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = colors.primary,
-                    titleContentColor = colors.onPrimary
-                ),
-                navigationIcon = {
-                    IconButton(
-                        onClick = onBackClick
-                    ) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                            tint = colors.onPrimary
-                        )
-                    }
-                }
-            )
+            TopBar(title = "Create trip", onBackClick = onBackClick)
         }
     ) { innerPadding ->
         Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding)
-                    .padding(24.dp)
-            ) {
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(24.dp)
+        ) {
             OutlinedTextField(
                 value = tripName,
                 onValueChange = { newValue ->

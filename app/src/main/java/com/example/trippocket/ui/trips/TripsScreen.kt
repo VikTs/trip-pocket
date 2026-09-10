@@ -14,13 +14,12 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Trip
+import com.example.trippocket.ui.components.TopBar
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,15 +33,7 @@ fun TripsScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text("My trips")
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = colors.primary,
-                    titleContentColor = colors.onPrimary
-                )
-            )
+            TopBar(title = "My trips")
         }
     ) { innerPadding ->
 
