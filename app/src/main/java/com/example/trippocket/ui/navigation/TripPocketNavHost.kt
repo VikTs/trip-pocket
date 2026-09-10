@@ -92,6 +92,10 @@ fun TripPocketNavHost() {
                     onEditClick = { tripId ->
                         navController.navigate("edit_trip/${tripId}")
                     },
+                    onDeleteClick = { tripId ->
+                            tripsViewModel.deleteTrip(tripId)
+                            navController.popBackStack()
+                    },
                     onBackClick = {
                         navController.popBackStack()
                     },
