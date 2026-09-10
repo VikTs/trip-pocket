@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TripActionsMenu(
     tripId: Long,
+    onDelete: (tripId: Long) -> Unit,
     onEdit: (tripId: Long) -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -44,6 +45,10 @@ fun TripActionsMenu(
             DropdownMenuItem(
                 text = { Text("Edit") },
                 onClick = { onEdit(tripId) }
+            )
+            DropdownMenuItem(
+                text = { Text("Delete") },
+                onClick = { onDelete(tripId) }
             )
         }
     }

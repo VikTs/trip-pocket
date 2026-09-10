@@ -41,9 +41,9 @@ class TripsViewModel @Inject constructor(
         }
     }
 
-    fun deleteTrip(trip: Trip) {
+    fun deleteTrip(tripId: Long) {
         viewModelScope.launch {
-            repository.deleteTrip(trip)
+            repository.deleteTrip(tripId)
         }
     }
 }

@@ -36,6 +36,7 @@ fun TripDetailsScreen(
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
     onEditClick: (tripId: Long) -> Unit,
+    onDeleteClick: (tripId: Long) -> Unit,
     viewModel: TripDetailsViewModel = hiltViewModel()
 ) {
     val trip by viewModel.trip.collectAsStateWithLifecycle()
@@ -51,6 +52,7 @@ fun TripDetailsScreen(
                         TripActionsMenu(
                             tripId = trip.id,
                             onEdit = onEditClick,
+                            onDelete = onDeleteClick,
                         )
                     }
                 },

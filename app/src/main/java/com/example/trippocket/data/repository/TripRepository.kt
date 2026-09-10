@@ -23,7 +23,7 @@ class TripRepository(
         tripDao.updateTrip(trip)
     }
 
-    suspend fun deleteTrip(trip: Trip) {
-        tripDao.deleteTrip(trip)
+    suspend fun deleteTrip(tripId: Long) {
+        tripDao.deleteTrip(tripId)
     }
 }
