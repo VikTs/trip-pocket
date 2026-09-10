@@ -36,6 +36,7 @@ import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.DateInput
 import com.example.trippocket.ui.components.Dropdown
 import com.example.trippocket.ui.components.TimeInput
+import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.TripDetailsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -83,26 +84,7 @@ fun AddTransportScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text("Add transport")
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = colors.primary,
-                    titleContentColor = colors.onPrimary
-                ),
-                navigationIcon = {
-                    IconButton(
-                        onClick = onBackClick
-                    ) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                            tint = colors.onPrimary
-                        )
-                    }
-                }
-            )
+            TopBar(title = "Add transport", onBackClick = onBackClick)
         }
     ) { innerPadding ->
         Column(

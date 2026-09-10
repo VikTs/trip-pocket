@@ -16,7 +16,7 @@ private val timeFormatter =
     DateTimeFormatter.ofPattern("HH:mm")
 
 private val dateTimeFormatter =
-    DateTimeFormatter.ofPattern("d MMM HH:mm")
+    DateTimeFormatter.ofPattern("d MMM HH:mm", Locale.ENGLISH)
 
 fun formatTripDates(
     startDate: LocalDate,
