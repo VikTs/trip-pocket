@@ -22,6 +22,7 @@ data class TransportTicket(
     val id: Long = 0,
     val tripId: Long,
     val type: TransportType,
+    val documentPath: String? = null,
 
     @Embedded(prefix = "from_")
     val from: TransportStop,
