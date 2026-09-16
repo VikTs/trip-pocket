@@ -36,6 +36,7 @@ import com.example.trippocket.ui.components.Dropdown
 import com.example.trippocket.ui.components.TimeInput
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.utils.copyFileToInternalStorage
+import com.example.trippocket.utils.getFileName
 import com.example.trippocket.viewmodel.TripDetailsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -85,12 +86,21 @@ fun AddTransportScreen(
         mutableStateOf<String?>(null)
     }
 
+    var documentName by remember {
+        mutableStateOf<String?>(null)
+    }
+
     val filePickerLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) { result ->
         val uri = result.data?.data ?: return@rememberLauncherForActivityResult
 
         documentPath = copyFileToInternalStorage(
+            context = context,
+            uri = uri
+        )
+
+        documentName = getFileName(
             context = context,
             uri = uri
         )
@@ -237,6 +247,13 @@ fun AddTransportScreen(
                 style = MaterialTheme.typography.titleMedium
             )
 
+            documentName?.let { name ->
+                Text(
+                    text = name,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+
             Button(
                 onClick = {
                     val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
@@ -268,14 +285,14 @@ fun AddTransportScreen(
                         type = selectedType,
                         documentPath = documentPath,
                         from = TransportStop(
-                            city = fromCity,
+                            city = fromCity.trim(),
                             time = LocalDateTime.of(
                                 fromDate,
                                 fromTime
                             ),
                         ),
                         to = TransportStop(
-                            city = toCity,
+                            city = toCity.trim(),
                             time = LocalDateTime.of(
                                 toDate,
                                 toTime
@@ -287,8 +304,8 @@ fun AddTransportScreen(
                     onBackClick()
                 },
                 modifier = Modifier.fillMaxWidth(),
-                enabled = fromCity.isNotBlank() &&
-                        toCity.isNotBlank() &&
+                enabled = fromCity.trim().isNotBlank() &&
+                        toCity.trim().isNotBlank() &&
                         fromDate != null &&
                         toDate != null &&
                         fromTime != null &&

@@ -15,6 +15,8 @@ private val LightColorScheme = lightColorScheme(
     onSurface = TextPrimary,
     primaryContainer = PrimaryLight,
     onPrimaryContainer = TextPrimary,
+    surfaceVariant = SurfaceVariant,
+    onSurfaceVariant = OnSurfaceVariant,
 )
 
 private val DarkColorScheme = darkColorScheme(

@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.room3.runtime)
     implementation(libs.androidx.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.compose.material.icons.extended)
     ksp(libs.hilt.compiler)
     ksp(libs.androidx.room3.compiler)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
