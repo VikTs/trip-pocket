@@ -268,14 +268,14 @@ fun AddTransportScreen(
                         type = selectedType,
                         documentPath = documentPath,
                         from = TransportStop(
-                            city = fromCity,
+                            city = fromCity.trim(),
                             time = LocalDateTime.of(
                                 fromDate,
                                 fromTime
                             ),
                         ),
                         to = TransportStop(
-                            city = toCity,
+                            city = toCity.trim(),
                             time = LocalDateTime.of(
                                 toDate,
                                 toTime

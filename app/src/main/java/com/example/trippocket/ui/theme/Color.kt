@@ -7,6 +7,8 @@ val PrimaryDark = Color(0xFF087565)
 
 val Background = Color(0xFFF5F7F4)
 val Surface = Color(0xFFFFFFFF)
+val SurfaceVariant = Color(0xFFE5E9E7)
+val OnSurfaceVariant = Color(0xFF5F6965)
 
 val TextPrimary = Color(0xFF1E2927)
 val TextSecondary = Color(0xFF68736F)

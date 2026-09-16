@@ -12,7 +12,6 @@ navigationCompose = "2.9.8"
 desugarJdkLibs = "2.1.5"
 room3 = "3.0.2"
 ksp = "2.0.21-1.0.28"
-sqlite = "2.9.0"
 hilt = "2.57.1"
 hiltNavigationCompose = "1.2.0"
 
@@ -34,9 +33,9 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-room3-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room3" }
 androidx-room3-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room3" }
-androidx-sqlite-framework = { module = "androidx.sqlite:sqlite-framework", version.ref = "sqlite" }
 androidx-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdkLibs" }
 
