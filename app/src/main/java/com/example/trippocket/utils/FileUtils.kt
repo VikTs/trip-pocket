@@ -3,6 +3,7 @@ package com.example.trippocket.utils
 import android.content.Context
 import android.net.Uri
 import android.content.Intent
+import android.provider.OpenableColumns
 import androidx.core.content.FileProvider
 import java.io.File
 
@@ -68,4 +69,27 @@ fun openTicket(
     }
 
     context.startActivity(intent)
+}
+
+fun getFileName(
+    context: Context,
+    uri: Uri
+): String? {
+    val cursor = context.contentResolver.query(
+        uri,
+        arrayOf(OpenableColumns.DISPLAY_NAME),
+        null,
+        null,
+        null
+    )
+
+    return cursor?.use {
+        if (it.moveToFirst()) {
+            it.getString(
+                it.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME)
+            )
+        } else {
+            null
+        }
+    }
 }
