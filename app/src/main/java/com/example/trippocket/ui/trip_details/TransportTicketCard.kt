@@ -49,7 +49,7 @@ fun TransportTicketCard(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = when (ticket.type) {
+                    text = when (ticket.transportType) {
                         TransportType.BUS -> "🚌 Bus"
                         TransportType.TRAIN -> "🚆 Train"
                     },

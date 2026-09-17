@@ -21,7 +21,9 @@ data class TransportTicket(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val tripId: Long,
-    val type: TransportType,
+    val transportType: TransportType,
+    val transportNumber: String?,
+    val place: String?,
     val documentPath: String? = null,
 
     @Embedded(prefix = "from_")
@@ -39,4 +41,5 @@ enum class TransportType {
 data class TransportStop(
     val city: String,
     val time: LocalDateTime,
+    val address: String?,
 )
