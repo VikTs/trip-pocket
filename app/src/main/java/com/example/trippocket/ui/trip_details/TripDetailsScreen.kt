@@ -13,36 +13,32 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.trippocket.data.model.TransportTicket
+import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.ui.trips.TransportTicketCard
 import com.example.trippocket.utils.formatTripDates
-import com.example.trippocket.viewmodel.TripDetailsViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TripDetailsScreen(
+    trip: Trip,
+    tickets: List<TransportTicket>,
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
+    onTransportClick: (transportId: Long) -> Unit,
     onEditClick: (tripId: Long) -> Unit,
-    onDeleteClick: (tripId: Long) -> Unit,
-    viewModel: TripDetailsViewModel = hiltViewModel()
+    onDeleteClick: (tripId: Long) -> Unit
 ) {
     val colors = MaterialTheme.colorScheme
-    val trip by viewModel.trip.collectAsStateWithLifecycle()
-    val tickets by viewModel.tickets.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -50,17 +46,16 @@ fun TripDetailsScreen(
                 onBackClick = onBackClick,
                 title = "Trip details",
                 actions = {
-                    trip?.let { trip ->
-                        TripActionsMenu(
-                            tripId = trip.id,
-                            onEdit = onEditClick,
-                            onDelete = onDeleteClick,
-                        )
-                    }
-                },
+                    TripActionsMenu(
+                        tripId = trip.id,
+                        onEdit = onEditClick,
+                        onDelete = onDeleteClick
+                    )
+                }
             )
-        },
+        }
     ) { innerPadding ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -72,7 +67,7 @@ fun TripDetailsScreen(
                 )
         ) {
             Text(
-                text = trip?.name ?: "",
+                text = trip.name,
                 style = MaterialTheme.typography.titleLarge
             )
 
@@ -80,15 +75,13 @@ fun TripDetailsScreen(
                 modifier = Modifier.height(8.dp)
             )
 
-            trip?.let { currentTrip ->
-                Text(
-                    text = formatTripDates(
-                        startDate = currentTrip.startDate,
-                        endDate = currentTrip.endDate
-                    ),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
+            Text(
+                text = formatTripDates(
+                    startDate = trip.startDate,
+                    endDate = trip.endDate
+                ),
+                style = MaterialTheme.typography.bodyMedium
+            )
 
             Spacer(
                 modifier = Modifier.height(16.dp)
@@ -116,7 +109,10 @@ fun TripDetailsScreen(
                             key = { ticket -> ticket.id }
                         ) { ticket ->
                             TransportTicketCard(
-                                ticket = ticket
+                                ticket = ticket,
+                                onClick = { id ->
+                                    onTransportClick(id)
+                                }
                             )
                         }
                     }

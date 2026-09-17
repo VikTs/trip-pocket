@@ -25,7 +25,7 @@ import com.example.trippocket.data.model.TransportStop
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.viewmodel.TripDetailsViewModel
+import com.example.trippocket.viewmodel.TransportTicketsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -35,7 +35,7 @@ import java.time.LocalTime
 fun AddTransportScreen(
     tripId: Long,
     onBackClick: () -> Unit,
-    viewModel: TripDetailsViewModel,
+    viewModel: TransportTicketsViewModel,
 ) {
     val context = LocalContext.current
     var state by remember {
@@ -55,7 +55,7 @@ fun AddTransportScreen(
                     state.fromDate,
                     state.fromTime
                 ),
-                address = state.fromAddress,
+                address = state.fromAddress
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -73,7 +73,10 @@ fun AddTransportScreen(
 
     Scaffold(
         topBar = {
-            TopBar(title = "Add transport", onBackClick = onBackClick)
+            TopBar(
+                title = "Add transport",
+                onBackClick = onBackClick
+            )
         }
     ) { innerPadding ->
         Column(
@@ -94,7 +97,9 @@ fun AddTransportScreen(
                 onTransportNumberChange = {
                     state = state.copy(transportNumber = it)
                 },
-                onPlaceChange = {state = state.copy(place = it)}
+                onPlaceChange = {
+                    state = state.copy(place = it)
+                }
             )
 
             TransportStopInputSection(
@@ -103,7 +108,7 @@ fun AddTransportScreen(
                 date = state.fromDate,
                 time = state.fromTime,
                 address = state.fromAddress,
-                minDate = state.fromDate,
+                minDate = null,
                 onCityChange = { state = state.copy(fromCity = it)},
                 onDateChange = { state = state.copy(fromDate = it)},
                 onTimeChange = { state = state.copy(fromTime = it)},
@@ -131,7 +136,7 @@ fun AddTransportScreen(
             )
 
             Button(
-                onClick = { onAddTransport() },
+                onClick = ::onAddTransport,
                 modifier = Modifier.fillMaxWidth(),
                 enabled = state.isValid
             ) {

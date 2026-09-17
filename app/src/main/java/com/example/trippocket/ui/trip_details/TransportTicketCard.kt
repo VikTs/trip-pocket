@@ -31,12 +31,16 @@ import com.example.trippocket.utils.openTicket
 
 @Composable
 fun TransportTicketCard(
-    ticket: TransportTicket
+    ticket: TransportTicket,
+    onClick: (ticketId: Long) -> Unit
 ) {
     val colors = MaterialTheme.colorScheme
     val context = LocalContext.current
 
     Card(
+        onClick = {
+            onClick(ticket.id)
+        },
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = colors.primaryContainer
