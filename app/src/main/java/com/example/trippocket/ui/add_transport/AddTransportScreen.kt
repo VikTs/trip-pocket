@@ -25,7 +25,7 @@ import com.example.trippocket.data.model.TransportStop
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.viewmodel.TripDetailsViewModel
+import com.example.trippocket.viewmodel.TransportTicketsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -35,73 +35,74 @@ import java.time.LocalTime
 fun AddTransportScreen(
     tripId: Long,
     onBackClick: () -> Unit,
-    viewModel: TripDetailsViewModel,
+    viewModel: TransportTicketsViewModel,
+    transportId: Long? = null
 ) {
+    val editTransport =
+        transportId?.let { id -> viewModel.tickets.value.firstOrNull { it.id == id } }
+
+    val isEditMode = editTransport != null
     val context = LocalContext.current
-    var transportType by remember {
-        mutableStateOf(TransportType.BUS)
+    var state by remember(editTransport) {
+        mutableStateOf(editTransport?.let { ticket ->
+            AddTransportState(
+                transportType = ticket.transportType,
+                transportNumber = ticket.transportNumber.orEmpty(),
+                place = ticket.place.orEmpty(),
+                fromCity = ticket.from.city,
+                fromDate = ticket.from.time.toLocalDate(),
+                fromTime = ticket.from.time.toLocalTime(),
+                fromAddress = ticket.from.address,
+                toCity = ticket.to.city,
+                toDate = ticket.to.time.toLocalDate(),
+                toTime = ticket.to.time.toLocalTime(),
+                toAddress = ticket.to.address,
+                documentPath = ticket.documentPath
+            )
+        } ?: AddTransportState())
     }
 
-    var fromCity by remember {
-        mutableStateOf("")
-    }
-
-    var fromDate by remember {
-        mutableStateOf<LocalDate?>(null)
-    }
-
-    var fromTime by remember {
-        mutableStateOf<LocalTime?>(null)
-    }
-
-    var toCity by remember {
-        mutableStateOf("")
-    }
-
-    var toDate by remember {
-        mutableStateOf<LocalDate?>(null)
-    }
-
-    var toTime by remember {
-        mutableStateOf<LocalTime?>(null)
-    }
-
-    var documentPath by remember {
-        mutableStateOf<String?>(null)
-    }
-
-    var documentName by remember {
-        mutableStateOf<String?>(null)
-    }
-
-    fun onAddTransport() {
+    fun onSaveTransport() {
         val ticket = TransportTicket(
+            id = editTransport?.id ?: 0,
             tripId = tripId,
-            type = transportType,
-            documentPath = documentPath,
+            transportType = state.transportType,
+            transportNumber = state.transportNumber,
+            documentPath = state.documentPath,
+            place = state.place,
             from = TransportStop(
-                city = fromCity.trim(),
+                city = state.fromCity.trim(),
                 time = LocalDateTime.of(
-                    fromDate,
-                    fromTime
+                    state.fromDate,
+                    state.fromTime
                 ),
+                address = state.fromAddress
             ),
             to = TransportStop(
-                city = toCity.trim(),
+                city = state.toCity.trim(),
                 time = LocalDateTime.of(
-                    toDate,
-                    toTime
+                    state.toDate,
+                    state.toTime
                 ),
+                address = state.toAddress
             )
         )
 
-        viewModel.addTicket(ticket)
+        if (isEditMode) {
+            viewModel.updateTicket(ticket)
+        } else {
+            viewModel.addTicket(ticket)
+        }
+
         onBackClick()
     }
 
     Scaffold(
         topBar = {
-            TopBar(title = "Add transport", onBackClick = onBackClick)
+            TopBar(
+                title = if (isEditMode) "Edit transport" else "Add transport",
+                onBackClick = onBackClick
+            )
         }
     ) { innerPadding ->
         Column(
@@ -113,52 +114,59 @@ fun AddTransportScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             TransportInputSection(
-                transportType,
+                transportType = state.transportType,
+                transportNumber = state.transportNumber,
+                place = state.place,
                 onTransportTypeChange = {
-                    transportType = it
+                    state = state.copy(transportType = it)
                 },
+                onTransportNumberChange = {
+                    state = state.copy(transportNumber = it)
+                },
+                onPlaceChange = {
+                    state = state.copy(place = it)
+                }
             )
 
             TransportStopInputSection(
                 title = "From",
-                city = fromCity,
-                date = fromDate,
-                time = fromTime,
-                minDate = fromDate,
-                onCityChange = { fromCity = it },
-                onDateChange = { fromDate = it },
-                onTimeChange = { fromTime = it }
+                city = state.fromCity,
+                date = state.fromDate,
+                time = state.fromTime,
+                address = state.fromAddress,
+                minDate = null,
+                onCityChange = { state = state.copy(fromCity = it) },
+                onDateChange = { state = state.copy(fromDate = it) },
+                onTimeChange = { state = state.copy(fromTime = it) },
+                onAddressChange = { state = state.copy(fromAddress = it) },
             )
 
             TransportStopInputSection(
                 title = "To",
-                city = toCity,
-                date = toDate,
-                time = toTime,
-                minDate = fromDate,
-                onCityChange = { toCity = it },
-                onDateChange = { toDate = it },
-                onTimeChange = { toTime = it }
+                city = state.toCity,
+                date = state.toDate,
+                time = state.toTime,
+                address = state.toAddress,
+                minDate = state.fromDate,
+                onCityChange = { state = state.copy(toCity = it) },
+                onDateChange = { state = state.copy(toDate = it) },
+                onTimeChange = { state = state.copy(toTime = it) },
+                onAddressChange = { state = state.copy(toAddress = it) },
             )
 
             TicketInputSection(
                 context = context,
-                documentName = documentName,
-                onDocumentPathChange = { documentPath = it },
-                onDocumentNameChange = { documentName = it },
+                documentName = state.documentName,
+                onDocumentPathChange = { state = state.copy(documentPath = it) },
+                onDocumentNameChange = { state = state.copy(documentName = it) },
             )
 
             Button(
-                onClick = { onAddTransport() },
+                onClick = ::onSaveTransport,
                 modifier = Modifier.fillMaxWidth(),
-                enabled = fromCity.trim().isNotBlank() &&
-                        toCity.trim().isNotBlank() &&
-                        fromDate != null &&
-                        toDate != null &&
-                        fromTime != null &&
-                        toTime != null
+                enabled = state.isValid
             ) {
-                Text("Add transport")
+                Text(if (isEditMode) "Edit transport" else "Add transport")
             }
 
             Spacer(
@@ -166,4 +174,29 @@ fun AddTransportScreen(
             )
         }
     }
+}
+
+data class AddTransportState(
+    val transportType: TransportType = TransportType.BUS,
+    val transportNumber: String? = null,
+    val place: String? = null,
+    val fromCity: String = "",
+    val fromDate: LocalDate? = null,
+    val fromTime: LocalTime? = null,
+    val fromAddress: String? = null,
+    val toCity: String = "",
+    val toDate: LocalDate? = null,
+    val toTime: LocalTime? = null,
+    val toAddress: String? = null,
+    val documentPath: String? = null,
+    val documentName: String? = null
+) {
+    val isValid: Boolean
+        get() =
+            fromCity.trim().isNotBlank() &&
+                    toCity.trim().isNotBlank() &&
+                    fromDate != null &&
+                    fromTime != null &&
+                    toDate != null &&
+                    toTime != null
 }

@@ -1,9 +1,9 @@
 package com.example.trippocket.data.dao
 
 import androidx.room3.Dao
-import androidx.room3.Delete
 import androidx.room3.Insert
 import androidx.room3.Query
+import androidx.room3.Update
 import com.example.trippocket.data.model.TransportTicket
 import kotlinx.coroutines.flow.Flow
 
@@ -20,6 +20,9 @@ interface TransportTicketDao {
     @Insert
     suspend fun insertTicket(ticket: TransportTicket)
 
-    @Delete
-    suspend fun deleteTicket(ticket: TransportTicket)
+    @Update
+    suspend fun updateTicket(ticket: TransportTicket)
+
+    @Query("DELETE FROM transport_tickets WHERE id = :id")
+    suspend fun deleteTicket(id: Long)
 }

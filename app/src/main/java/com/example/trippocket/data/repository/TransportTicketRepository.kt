@@ -15,7 +15,11 @@ class TransportTicketRepository(
         transportTicketDao.insertTicket(ticket)
     }
 
-    suspend fun deleteTicket(ticket: TransportTicket) {
-        transportTicketDao.deleteTicket(ticket)
+    suspend fun updateTicket(ticket: TransportTicket) {
+        transportTicketDao.updateTicket(ticket)
+    }
+
+    suspend fun deleteTicket(id: Long) {
+        transportTicketDao.deleteTicket(id)
     }
 }

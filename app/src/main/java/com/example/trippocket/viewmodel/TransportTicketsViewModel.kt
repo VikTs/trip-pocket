@@ -3,9 +3,7 @@ package com.example.trippocket.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.trippocket.data.model.Trip
 import com.example.trippocket.data.model.TransportTicket
-import com.example.trippocket.data.repository.TripRepository
 import com.example.trippocket.data.repository.TransportTicketRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -15,26 +13,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TripDetailsViewModel @Inject constructor(
+class TransportTicketsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    tripRepository: TripRepository,
-    private val transportTicketRepository: TransportTicketRepository
+    private val repository: TransportTicketRepository
 ) : ViewModel() {
-
     private val tripId: Long =
         checkNotNull(savedStateHandle.get<String>("tripId")).toLong()
 
-    val trip: StateFlow<Trip?> =
-        tripRepository
-            .getTripById(tripId)
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(5_000),
-                initialValue = null
-            )
-
     val tickets: StateFlow<List<TransportTicket>> =
-        transportTicketRepository
+        repository
             .getTicketsForTrip(tripId)
             .stateIn(
                 scope = viewModelScope,
@@ -44,7 +31,19 @@ class TripDetailsViewModel @Inject constructor(
 
     fun addTicket(ticket: TransportTicket) {
         viewModelScope.launch {
-            transportTicketRepository.addTicket(ticket)
+            repository.addTicket(ticket)
+        }
+    }
+
+    fun updateTicket(ticket: TransportTicket) {
+        viewModelScope.launch {
+            repository.updateTicket(ticket)
+        }
+    }
+
+    fun deleteTicket(id: Long) {
+        viewModelScope.launch {
+            repository.deleteTicket(id)
         }
     }
 }

@@ -22,10 +22,12 @@ fun TransportStopInputSection(
     city: String,
     date: LocalDate?,
     time: LocalTime?,
+    address: String?,
     minDate: LocalDate?,
     onCityChange: (String) -> Unit,
     onDateChange: (LocalDate) -> Unit,
-    onTimeChange: (LocalTime) -> Unit
+    onTimeChange: (LocalTime) -> Unit,
+    onAddressChange: (String?) -> Unit,
 ) {
     Text(
         text = title,
@@ -36,7 +38,7 @@ fun TransportStopInputSection(
         value = city,
         onValueChange = onCityChange,
         label = {
-            Text("City")
+            Text("City*")
         },
         singleLine = true,
         modifier = Modifier.fillMaxWidth()
@@ -46,11 +48,11 @@ fun TransportStopInputSection(
         modifier = Modifier.fillMaxWidth()
     ) {
         DateInput(
-            label = "Date",
+            label = "Date*",
             selectedDate = date,
             onDateSelected = onDateChange,
             minDate = minDate,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(2f)
         )
 
         Spacer(
@@ -58,12 +60,22 @@ fun TransportStopInputSection(
         )
 
         TimeInput(
-            label = "Time",
+            label = "Time*",
             selectedTime = time,
             onTimeSelected = onTimeChange,
             modifier = Modifier.weight(1f)
         )
     }
+
+    OutlinedTextField(
+        value = address ?: "",
+        onValueChange = onAddressChange,
+        label = {
+            Text("Address")
+        },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth()
+    )
 
     Spacer(
         modifier = Modifier.height(8.dp)
