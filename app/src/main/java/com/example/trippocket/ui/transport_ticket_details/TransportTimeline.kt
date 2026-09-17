@@ -63,13 +63,11 @@ fun TransportTimeline(
                     style = MaterialTheme.typography.titleMedium
                 )
 
-                ticket.from.address?.let {
-                    Text(
-                        text = it,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
+                Text(
+                    text = ticket.from.address ?: "",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
 
             Column {
@@ -78,13 +76,11 @@ fun TransportTimeline(
                     style = MaterialTheme.typography.titleMedium
                 )
 
-                ticket.to.address?.let {
-                    Text(
-                        text = it,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
+                Text(
+                    text = ticket.to.address ?: "",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
         }
     }

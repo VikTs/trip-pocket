@@ -27,12 +27,15 @@ import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
+import com.example.trippocket.ui.trip_details.TripActionsMenu
 import com.example.trippocket.utils.openTicket
 
 @Composable
 fun TransportTicketDetailsScreen(
     transportTicket: TransportTicket,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onDeleteClick: (id: Long) -> Unit,
+    onEditClick: (id: Long) -> Unit,
 ) {
     val context = LocalContext.current
     val transportIcon = when (transportTicket.transportType) {
@@ -45,7 +48,15 @@ fun TransportTicketDetailsScreen(
             TopBar(
                 onBackClick = onBackClick,
                 title = "Transport details",
-            )
+                actions = {
+                    TransportTicketActionsMenu(
+                        transportTicketId = transportTicket.id,
+                        onEdit = onEditClick,
+                        onDelete = onDeleteClick
+                    )
+                },
+
+                )
         }
     ) { innerPadding ->
         Column(
@@ -70,7 +81,9 @@ fun TransportTicketDetailsScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.height(4.dp))
+            transportTicket.transportNumber?.let {
+                Spacer(modifier = Modifier.height(4.dp))
+            }
 
             transportTicket.place?.let { place ->
                 Row(

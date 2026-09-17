@@ -35,9 +35,15 @@ class TransportTicketsViewModel @Inject constructor(
         }
     }
 
-    fun deleteTicket(ticket: TransportTicket) {
+    fun updateTicket(ticket: TransportTicket) {
         viewModelScope.launch {
-            repository.deleteTicket(ticket)
+            repository.updateTicket(ticket)
+        }
+    }
+
+    fun deleteTicket(id: Long) {
+        viewModelScope.launch {
+            repository.deleteTicket(id)
         }
     }
 }

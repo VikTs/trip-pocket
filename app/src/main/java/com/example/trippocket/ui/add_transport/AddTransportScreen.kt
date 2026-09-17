@@ -36,14 +36,35 @@ fun AddTransportScreen(
     tripId: Long,
     onBackClick: () -> Unit,
     viewModel: TransportTicketsViewModel,
+    transportId: Long? = null
 ) {
+    val editTransport =
+        transportId?.let { id -> viewModel.tickets.value.firstOrNull { it.id == id } }
+
+    val isEditMode = editTransport != null
     val context = LocalContext.current
-    var state by remember {
-        mutableStateOf(AddTransportState())
+    var state by remember(editTransport) {
+        mutableStateOf(editTransport?.let { ticket ->
+            AddTransportState(
+                transportType = ticket.transportType,
+                transportNumber = ticket.transportNumber.orEmpty(),
+                place = ticket.place.orEmpty(),
+                fromCity = ticket.from.city,
+                fromDate = ticket.from.time.toLocalDate(),
+                fromTime = ticket.from.time.toLocalTime(),
+                fromAddress = ticket.from.address,
+                toCity = ticket.to.city,
+                toDate = ticket.to.time.toLocalDate(),
+                toTime = ticket.to.time.toLocalTime(),
+                toAddress = ticket.to.address,
+                documentPath = ticket.documentPath
+            )
+        } ?: AddTransportState())
     }
 
-    fun onAddTransport() {
+    fun onSaveTransport() {
         val ticket = TransportTicket(
+            id = editTransport?.id ?: 0,
             tripId = tripId,
             transportType = state.transportType,
             transportNumber = state.transportNumber,
@@ -67,14 +88,19 @@ fun AddTransportScreen(
             )
         )
 
-        viewModel.addTicket(ticket)
+        if (isEditMode) {
+            viewModel.updateTicket(ticket)
+        } else {
+            viewModel.addTicket(ticket)
+        }
+
         onBackClick()
     }
 
     Scaffold(
         topBar = {
             TopBar(
-                title = "Add transport",
+                title = if (isEditMode) "Edit transport" else "Add transport",
                 onBackClick = onBackClick
             )
         }
@@ -109,10 +135,10 @@ fun AddTransportScreen(
                 time = state.fromTime,
                 address = state.fromAddress,
                 minDate = null,
-                onCityChange = { state = state.copy(fromCity = it)},
-                onDateChange = { state = state.copy(fromDate = it)},
-                onTimeChange = { state = state.copy(fromTime = it)},
-                onAddressChange = { state = state.copy(fromAddress = it)},
+                onCityChange = { state = state.copy(fromCity = it) },
+                onDateChange = { state = state.copy(fromDate = it) },
+                onTimeChange = { state = state.copy(fromTime = it) },
+                onAddressChange = { state = state.copy(fromAddress = it) },
             )
 
             TransportStopInputSection(
@@ -122,25 +148,25 @@ fun AddTransportScreen(
                 time = state.toTime,
                 address = state.toAddress,
                 minDate = state.fromDate,
-                onCityChange = { state = state.copy(toCity = it)},
-                onDateChange = { state = state.copy(toDate = it)},
-                onTimeChange = { state = state.copy(toTime = it)},
-                onAddressChange = { state = state.copy(toAddress = it)},
+                onCityChange = { state = state.copy(toCity = it) },
+                onDateChange = { state = state.copy(toDate = it) },
+                onTimeChange = { state = state.copy(toTime = it) },
+                onAddressChange = { state = state.copy(toAddress = it) },
             )
 
             TicketInputSection(
                 context = context,
                 documentName = state.documentName,
                 onDocumentPathChange = { state = state.copy(documentPath = it) },
-                onDocumentNameChange = { state = state.copy(documentName = it)},
+                onDocumentNameChange = { state = state.copy(documentName = it) },
             )
 
             Button(
-                onClick = ::onAddTransport,
+                onClick = ::onSaveTransport,
                 modifier = Modifier.fillMaxWidth(),
                 enabled = state.isValid
             ) {
-                Text("Add transport")
+                Text(if (isEditMode) "Edit transport" else "Add transport")
             }
 
             Spacer(
