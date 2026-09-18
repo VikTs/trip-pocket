@@ -22,11 +22,7 @@ fun formatTripDates(
     startDate: LocalDate,
     endDate: LocalDate
 ): String {
-    return if (startDate.year == endDate.year) {
-        "${startDate.format(shortDateFormatter)} — ${endDate.format(fullDateFormatter)}"
-    } else {
-        "${startDate.format(fullDateFormatter)} — ${endDate.format(fullDateFormatter)}"
-    }
+    return "${startDate.format(shortDateFormatter)} — ${endDate.format(shortDateFormatter)}"
 }
 
 fun formatTripDate(date: LocalDate): String {

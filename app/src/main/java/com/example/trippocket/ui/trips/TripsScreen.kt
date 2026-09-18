@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
-
+import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,14 +29,11 @@ fun TripsScreen(
     onAddTripClick: () -> Unit,
     onTripClick: (Trip) -> Unit
 ) {
-    val colors = MaterialTheme.colorScheme
-
     Scaffold(
         topBar = {
             TopBar(title = "My trips")
         }
     ) { innerPadding ->
-
         if (trips.isEmpty()) {
             Column(
                 modifier = Modifier
@@ -57,6 +54,14 @@ fun TripsScreen(
                 }
             }
         } else {
+            val currentYear = LocalDate.now().year
+
+            val tripsByYear = trips
+                .sortedBy { it.startDate }
+                .groupBy { it.startDate.year }
+
+            val showYears = tripsByYear.keys.any { it != currentYear }
+
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
@@ -64,11 +69,22 @@ fun TripsScreen(
                     .padding(horizontal = 24.dp, vertical = 18.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(trips) { trip ->
-                    TripCard(
-                        trip = trip,
-                        onClick = { onTripClick(trip) }
-                    )
+                tripsByYear.forEach { (year, yearTrips) ->
+                    if (showYears) {
+                        item {
+                            Text(
+                                text = year.toString(),
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                        }
+                    }
+
+                    items(yearTrips) { trip ->
+                        TripCard(
+                            trip = trip,
+                            onClick = { onTripClick(trip) }
+                        )
+                    }
                 }
 
                 item {
