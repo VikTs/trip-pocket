@@ -1,20 +1,23 @@
 package com.example.trippocket.ui.trips
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -29,72 +32,80 @@ fun TripsScreen(
     onAddTripClick: () -> Unit,
     onTripClick: (Trip) -> Unit
 ) {
+    val colors = MaterialTheme.colorScheme
+
     Scaffold(
         topBar = {
             TopBar(title = "My trips")
         }
     ) { innerPadding ->
         if (trips.isEmpty()) {
+            EmptyTrips(
+                onAddTripClick = onAddTripClick,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+            )
+        } else {
+            var showUpcoming by remember { mutableStateOf(true) }
+
+            val today = LocalDate.now()
+
+            val filteredTrips = trips
+                .filter { trip ->
+                    if (showUpcoming) {
+                        !trip.endDate.isBefore(today)
+                    } else {
+                        trip.endDate.isBefore(today)
+                    }
+                }
+                .sortedBy { it.startDate }
+
+            val tripsByYear = filteredTrips.groupBy { it.startDate.year }
+
+            val currentYear = today.year
+            val showYears = tripsByYear.keys.any { it != currentYear }
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding)
-                    .padding(horizontal = 24.dp, vertical = 18.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
             ) {
-                Text("You don't have planned trips")
-                Spacer(
-                    modifier = Modifier.height(16.dp)
+                TripFilterToggle(
+                    showUpcoming = showUpcoming,
+                    onUpcomingClick = { showUpcoming = true },
+                    onPastClick = { showUpcoming = false },
+                    modifier = Modifier.padding(
+                        horizontal = 24.dp,
+                        vertical = 18.dp
+                    )
                 )
-                Button(
-                    onClick = onAddTripClick
+
+                Spacer(
+                    modifier = Modifier.height(8.dp)
+                )
+
+                TripsList(
+                    tripsByYear = tripsByYear,
+                    showYears = showYears,
+                    onTripClick = onTripClick,
+                    modifier = Modifier.weight(1f)
+                )
+
+                FloatingActionButton(
+                    onClick = onAddTripClick,
+                    containerColor = colors.primary,
+                    shape = CircleShape,
+                    modifier = Modifier
+                        .align(Alignment.End)
+                        .padding(16.dp)
                 ) {
-                    Text("Add trip")
-                }
-            }
-        } else {
-            val currentYear = LocalDate.now().year
-
-            val tripsByYear = trips
-                .sortedBy { it.startDate }
-                .groupBy { it.startDate.year }
-
-            val showYears = tripsByYear.keys.any { it != currentYear }
-
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding)
-                    .padding(horizontal = 24.dp, vertical = 18.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                tripsByYear.forEach { (year, yearTrips) ->
-                    if (showYears) {
-                        item {
-                            Text(
-                                text = year.toString(),
-                                style = MaterialTheme.typography.titleMedium
-                            )
-                        }
-                    }
-
-                    items(yearTrips) { trip ->
-                        TripCard(
-                            trip = trip,
-                            onClick = { onTripClick(trip) }
-                        )
-                    }
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add trip"
+                    )
                 }
 
-                item {
-                    Button(
-                        onClick = onAddTripClick,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text("Add trip")
-                    }
-                }
             }
         }
     }
