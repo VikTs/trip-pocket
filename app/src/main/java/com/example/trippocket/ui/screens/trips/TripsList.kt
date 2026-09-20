@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.trips
+package com.example.trippocket.ui.screens.trips
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

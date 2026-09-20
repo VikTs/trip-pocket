@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.add_transport
+package com.example.trippocket.ui.screens.add_transport
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height

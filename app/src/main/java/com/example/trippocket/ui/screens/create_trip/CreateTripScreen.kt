@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.create_trip
+package com.example.trippocket.ui.screens.create_trip
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

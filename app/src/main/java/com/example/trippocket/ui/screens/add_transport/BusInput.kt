@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.add_transport
+package com.example.trippocket.ui.screens.add_transport
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,35 +12,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TrainInput(
+fun BusInput(
     transportNumber: String?,
-    coach: String?,
     place: String?,
     onTransportNumberChange: (String?) -> Unit,
-    onCoachChange: (String?) -> Unit,
     onPlaceChange: (String?) -> Unit,
 ) {
-    OutlinedTextField(
-        value = transportNumber ?: "",
-        onValueChange = onTransportNumberChange,
-        label = {
-            Text("Train number*")
-        },
-        singleLine = true,
-        modifier = Modifier.fillMaxWidth()
-    )
-
     Row(
         modifier = Modifier.fillMaxWidth()
     ) {
         OutlinedTextField(
-            value = coach ?: "",
-            onValueChange = onCoachChange,
+            value = transportNumber ?: "",
+            onValueChange = onTransportNumberChange,
             label = {
-                Text("Coach")
+                Text("Bus number")
             },
             singleLine = true,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(2f)
         )
 
         Spacer(
