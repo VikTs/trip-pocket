@@ -3,18 +3,17 @@ package com.example.trippocket.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.trippocket.ui.add_transport.AddTransportScreen
-import com.example.trippocket.ui.create_trip.CreateTripScreen
-import com.example.trippocket.ui.transport_ticket_details.TransportTicketDetailsScreen
-import com.example.trippocket.ui.trip_details.TripDetailsScreen
-import com.example.trippocket.ui.trips.TripsScreen
+import com.example.trippocket.ui.screens.add_transport.AddTransportScreen
+import com.example.trippocket.ui.screens.create_trip.CreateTripScreen
+import com.example.trippocket.ui.screens.transport_ticket_details.TransportTicketDetailsScreen
+import com.example.trippocket.ui.screens.trip_details.TripDetailsScreen
+import com.example.trippocket.ui.screens.trips.TripsScreen
 import com.example.trippocket.viewmodel.TransportTicketsViewModel
 import com.example.trippocket.viewmodel.TripsViewModel
 

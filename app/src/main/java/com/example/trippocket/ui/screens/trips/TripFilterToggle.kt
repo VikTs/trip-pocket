@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.trips
+package com.example.trippocket.ui.screens.trips
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

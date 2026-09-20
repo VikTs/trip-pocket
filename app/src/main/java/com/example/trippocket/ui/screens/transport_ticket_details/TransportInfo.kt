@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.transport_ticket_details
+package com.example.trippocket.ui.screens.transport_ticket_details
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

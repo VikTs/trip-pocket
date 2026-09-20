@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.transport_ticket_details
+package com.example.trippocket.ui.screens.trip_details
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -19,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TransportTicketActionsMenu(
-    transportTicketId: Long,
+fun TripActionsMenu(
+    tripId: Long,
     onDelete: (tripId: Long) -> Unit,
     onEdit: (tripId: Long) -> Unit,
 ) {
@@ -44,11 +44,11 @@ fun TransportTicketActionsMenu(
         ) {
             DropdownMenuItem(
                 text = { Text("Edit") },
-                onClick = { onEdit(transportTicketId) }
+                onClick = { onEdit(tripId) }
             )
             DropdownMenuItem(
                 text = { Text("Delete") },
-                onClick = { onDelete(transportTicketId) }
+                onClick = { onDelete(tripId) }
             )
         }
     }
