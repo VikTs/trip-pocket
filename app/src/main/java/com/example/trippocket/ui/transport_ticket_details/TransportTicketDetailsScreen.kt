@@ -55,7 +55,7 @@ fun TransportTicketDetailsScreen(
         ) {
             TransportInfo(transportTicket = transportTicket)
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(40.dp))
 
             TransportTimeline(
                 ticket = transportTicket

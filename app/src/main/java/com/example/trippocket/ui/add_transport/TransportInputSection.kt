@@ -1,12 +1,8 @@
 package com.example.trippocket.ui.add_transport
 
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -17,15 +13,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.Dropdown
+import com.example.trippocket.ui.extensions.toDisplayName
 
 @Composable
 fun TransportInputSection(
     transportType: TransportType,
     transportNumber: String?,
+    coach: String?,
     place: String?,
     onTransportTypeChange: (TransportType) -> Unit,
     onTransportNumberChange: (String?) -> Unit,
     onPlaceChange: (String?) -> Unit,
+    onCoachChange: (String?) -> Unit,
 ) {
     var typeExpanded by remember {
         mutableStateOf(false)
@@ -40,11 +39,8 @@ fun TransportInputSection(
         selectedItem = transportType,
         items = TransportType.entries,
         label = "Type*",
-        itemText = { type ->
-            when (type) {
-                TransportType.BUS -> "Bus"
-                TransportType.TRAIN -> "Train"
-            }
+        itemText = {
+            it.toDisplayName()
         },
         expanded = typeExpanded,
         onExpandedChange = {
@@ -53,31 +49,19 @@ fun TransportInputSection(
         onItemSelected = onTransportTypeChange
     )
 
-    Row(
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        OutlinedTextField(
-            value = transportNumber ?: "",
-            onValueChange = onTransportNumberChange,
-            label = {
-                Text("Transport number")
-            },
-            singleLine = true,
-            modifier = Modifier.weight(2f)
-        )
 
-        Spacer(
-            modifier = Modifier.width(12.dp)
+    if (transportType == TransportType.TRAIN) {
+        TrainInput(
+            transportNumber,
+            coach,
+            place,
+            onTransportNumberChange,
+            onCoachChange,
+            onPlaceChange
         )
-
-        OutlinedTextField(
-            value = place ?: "",
-            onValueChange = onPlaceChange,
-            label = {
-                Text("Place")
-            },
-            singleLine = true,
-            modifier = Modifier.weight(1f)
+    } else {
+        BusInput(
+            transportNumber, place, onTransportNumberChange, onPlaceChange
         )
     }
 

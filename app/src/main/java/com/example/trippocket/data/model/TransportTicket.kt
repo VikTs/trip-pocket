@@ -23,6 +23,7 @@ data class TransportTicket(
     val tripId: Long,
     val transportType: TransportType,
     val transportNumber: String?,
+    val coach: String?,
     val place: String?,
     val documentPath: String? = null,
 
