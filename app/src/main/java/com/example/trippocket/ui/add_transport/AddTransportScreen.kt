@@ -67,16 +67,16 @@ fun AddTransportScreen(
             id = editTransport?.id ?: 0,
             tripId = tripId,
             transportType = state.transportType,
-            transportNumber = state.transportNumber,
+            transportNumber = state.transportNumber?.ifBlank { null },
+            place = state.place?.ifBlank { null },
             documentPath = state.documentPath,
-            place = state.place,
             from = TransportStop(
                 city = state.fromCity.trim(),
                 time = LocalDateTime.of(
                     state.fromDate,
                     state.fromTime
                 ),
-                address = state.fromAddress
+                address = state.fromAddress?.ifBlank { null }
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -84,7 +84,7 @@ fun AddTransportScreen(
                     state.toDate,
                     state.toTime
                 ),
-                address = state.toAddress
+                address = state.toAddress?.ifBlank { null }
             )
         )
 
