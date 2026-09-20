@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -25,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.ui.trips.TransportTicketCard
+import com.example.trippocket.ui.trip_details.TransportTicketCard
 import com.example.trippocket.utils.formatTripDates
 
 @Composable
@@ -55,7 +56,6 @@ fun TripDetailsScreen(
             )
         }
     ) { innerPadding ->
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -104,14 +104,17 @@ fun TripDetailsScreen(
                         ),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        items(
+                        itemsIndexed(
                             items = tickets,
-                            key = { ticket -> ticket.id }
-                        ) { ticket ->
+                            key = { _, ticket -> ticket.id }
+                        ) { index, ticket ->
+
                             TransportTicketCard(
                                 ticket = ticket,
-                                onClick = { id ->
-                                    onTransportClick(id)
+                                isFirst = index == 0,
+                                isLast = index == tickets.lastIndex,
+                                onClick = {
+                                    onTransportClick(ticket.id)
                                 }
                             )
                         }

@@ -1,6 +1,5 @@
 package com.example.trippocket.ui.screens.transport_ticket_details
 
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.ui.components.TopBar
+import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.utils.openTicket
 
 @Composable
@@ -35,7 +35,7 @@ fun TransportTicketDetailsScreen(
         topBar = {
             TopBar(
                 onBackClick = onBackClick,
-                title = "Transport details",
+                title = "${transportTicket.transportType.toDisplayName()} details",
                 actions = {
                     TransportTicketActionsMenu(
                         transportTicketId = transportTicket.id,
@@ -43,7 +43,6 @@ fun TransportTicketDetailsScreen(
                         onDelete = onDeleteClick
                     )
                 },
-
                 )
         }
     ) { innerPadding ->
