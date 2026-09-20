@@ -6,7 +6,7 @@ val Primary = Color(0xFF159A83)
 val PrimaryDark = Color(0xFF087565)
 
 val Background = Color(0xFFEDF1EE)
-val Surface = Color(0xFFFFFFFF)
+val Surface = Color(0xFFF8FAF9)
 val SurfaceVariant = Color(0xFFE1E7E4)
 val OnSurfaceVariant = Color(0xFF5F6965)
 

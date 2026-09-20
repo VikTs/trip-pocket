@@ -29,9 +29,8 @@ fun formatTripDate(date: LocalDate): String {
     return date.format(fullDateFormatter)
 }
 
-fun formatTripTime(date: LocalTime): String {
-    return date.format(timeFormatter)
-}
+fun formatTripTime(time: LocalTime): String =
+    time.format(timeFormatter)
 
 fun formatTripDateTime(date: LocalDateTime): String {
     return date.format(dateTimeFormatter)
