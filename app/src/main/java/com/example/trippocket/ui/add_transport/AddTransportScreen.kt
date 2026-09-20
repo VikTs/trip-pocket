@@ -49,6 +49,7 @@ fun AddTransportScreen(
                 transportType = ticket.transportType,
                 transportNumber = ticket.transportNumber.orEmpty(),
                 place = ticket.place.orEmpty(),
+                coach = ticket.coach.orEmpty(),
                 fromCity = ticket.from.city,
                 fromDate = ticket.from.time.toLocalDate(),
                 fromTime = ticket.from.time.toLocalTime(),
@@ -68,6 +69,7 @@ fun AddTransportScreen(
             tripId = tripId,
             transportType = state.transportType,
             transportNumber = state.transportNumber?.ifBlank { null },
+            coach = state.coach?.ifBlank { null },
             place = state.place?.ifBlank { null },
             documentPath = state.documentPath,
             from = TransportStop(
@@ -116,12 +118,22 @@ fun AddTransportScreen(
             TransportInputSection(
                 transportType = state.transportType,
                 transportNumber = state.transportNumber,
+                coach = state.coach,
                 place = state.place,
                 onTransportTypeChange = {
-                    state = state.copy(transportType = it)
+                    if (it != state.transportType)
+                        state = state.copy(
+                            transportType = it,
+                            transportNumber = null,
+                            place = null,
+                            coach = null
+                        )
                 },
                 onTransportNumberChange = {
                     state = state.copy(transportNumber = it)
+                },
+                onCoachChange = {
+                    state = state.copy(coach = it)
                 },
                 onPlaceChange = {
                     state = state.copy(place = it)
@@ -180,6 +192,7 @@ data class AddTransportState(
     val transportType: TransportType = TransportType.BUS,
     val transportNumber: String? = null,
     val place: String? = null,
+    val coach: String? = null,
     val fromCity: String = "",
     val fromDate: LocalDate? = null,
     val fromTime: LocalTime? = null,
@@ -198,5 +211,7 @@ data class AddTransportState(
                     fromDate != null &&
                     fromTime != null &&
                     toDate != null &&
-                    toTime != null
+                    toTime != null &&
+                    (transportType != TransportType.TRAIN ||
+                            !transportNumber.isNullOrBlank())
 }
