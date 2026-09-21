@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.screens.transport_ticket_details
+package com.example.trippocket.ui.screens.transport_details
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,20 +13,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.TransportTicket
+import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.ui.extensions.toIcon
 
 @Composable
-fun TransportInfo(transportTicket: TransportTicket) {
+fun TransportInfo(transport: Transport) {
     val typography = MaterialTheme.typography
 
     Row(
         verticalAlignment = Alignment.Top
     ) {
         Icon(
-            imageVector = transportTicket.transportType.toIcon(),
+            imageVector = transport.transportType.toIcon(),
             contentDescription = "Transport type",
             modifier = Modifier
                 .padding(top = 2.dp)
@@ -39,19 +39,19 @@ fun TransportInfo(transportTicket: TransportTicket) {
 
         Column {
             Text(
-                transportTicket.transportNumber ?: transportTicket.transportType.toDisplayName(),
+                transport.transportNumber ?: transport.transportType.toDisplayName(),
                 style = typography.titleLarge
             )
 
-            if (transportTicket.transportType == TransportType.TRAIN) {
+            if (transport.transportType == TransportType.TRAIN) {
                 Text(
-                    "Coach: ${transportTicket.coach ?: '-'}",
+                    "Coach: ${transport.coach ?: '-'}",
                     style = typography.bodyLarge
                 )
             }
 
             Text(
-                "Seat: ${transportTicket.place ?: '-'}",
+                "Seat: ${transport.place ?: '-'}",
                 style = typography.bodyLarge
             )
         }

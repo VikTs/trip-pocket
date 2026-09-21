@@ -7,7 +7,7 @@ import androidx.room3.PrimaryKey
 import java.time.LocalDateTime
 
 @Entity(
-    tableName = "transport_tickets",
+    tableName = "transports",
     foreignKeys = [
         ForeignKey(
             entity = Trip::class,
@@ -17,7 +17,7 @@ import java.time.LocalDateTime
         )
     ]
 )
-data class TransportTicket(
+data class Transport(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val tripId: Long,
@@ -25,7 +25,7 @@ data class TransportTicket(
     val transportNumber: String?,
     val coach: String?,
     val place: String?,
-    val documentPath: String? = null,
+    val ticketPath: String? = null,
 
     @Embedded(prefix = "from_")
     val from: TransportStop,

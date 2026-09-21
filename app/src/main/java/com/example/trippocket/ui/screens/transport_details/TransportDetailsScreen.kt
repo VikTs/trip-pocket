@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.screens.transport_ticket_details
+package com.example.trippocket.ui.screens.transport_details
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,14 +17,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.TransportTicket
+import com.example.trippocket.data.model.Transport
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.utils.openFile
 
 @Composable
-fun TransportTicketDetailsScreen(
-    transportTicket: TransportTicket,
+fun TransportDetailsScreen(
+    transport: Transport,
     onBackClick: () -> Unit,
     onDeleteClick: (id: Long) -> Unit,
     onEditClick: (id: Long) -> Unit,
@@ -35,10 +35,10 @@ fun TransportTicketDetailsScreen(
         topBar = {
             TopBar(
                 onBackClick = onBackClick,
-                title = "${transportTicket.transportType.toDisplayName()} info",
+                title = "${transport.transportType.toDisplayName()} info",
                 actions = {
-                    TransportTicketActionsMenu(
-                        transportTicketId = transportTicket.id,
+                    TransportActionsMenu(
+                        transportId = transport.id,
                         onEdit = onEditClick,
                         onDelete = onDeleteClick
                     )
@@ -52,17 +52,17 @@ fun TransportTicketDetailsScreen(
                 .padding(innerPadding)
                 .padding(16.dp)
         ) {
-            TransportInfo(transportTicket = transportTicket)
+            TransportInfo(transport = transport)
 
             Spacer(modifier = Modifier.height(40.dp))
 
             TransportTimeline(
-                ticket = transportTicket
+                transport = transport
             )
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            transportTicket.documentPath?.let {
+            transport.ticketPath?.let {
                 Spacer(modifier = Modifier.height(24.dp))
 
                 OutlinedButton(

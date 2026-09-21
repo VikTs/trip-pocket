@@ -3,8 +3,8 @@ package com.example.trippocket.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.trippocket.data.model.TransportTicket
-import com.example.trippocket.data.repository.TransportTicketRepository
+import com.example.trippocket.data.model.Transport
+import com.example.trippocket.data.repository.TransportRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -13,37 +13,37 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TransportTicketsViewModel @Inject constructor(
+class TransportsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val repository: TransportTicketRepository
+    private val repository: TransportRepository
 ) : ViewModel() {
     private val tripId: Long =
         checkNotNull(savedStateHandle.get<String>("tripId")).toLong()
 
-    val tickets: StateFlow<List<TransportTicket>> =
+    val transports: StateFlow<List<Transport>> =
         repository
-            .getTicketsForTrip(tripId)
+            .getTripTransports(tripId)
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5_000),
                 initialValue = emptyList()
             )
 
-    fun addTicket(ticket: TransportTicket) {
+    fun addTransport(transport: Transport) {
         viewModelScope.launch {
-            repository.addTicket(ticket)
+            repository.addTransport(transport)
         }
     }
 
-    fun updateTicket(ticket: TransportTicket) {
+    fun updateTransport(transport: Transport) {
         viewModelScope.launch {
-            repository.updateTicket(ticket)
+            repository.updateTransport(transport)
         }
     }
 
-    fun deleteTicket(id: Long) {
+    fun deleteTransport(id: Long) {
         viewModelScope.launch {
-            repository.deleteTicket(id)
+            repository.deleteTransport(id)
         }
     }
 }

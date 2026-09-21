@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.screens.transport_ticket_details
+package com.example.trippocket.ui.screens.transport_details
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,12 +15,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.TransportTicket
+import com.example.trippocket.data.model.Transport
 import com.example.trippocket.utils.formatTripTime
 
 @Composable
 fun TransportTimeline(
-    ticket: TransportTicket,
+    transport: Transport,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -30,7 +30,7 @@ fun TransportTimeline(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = formatTripTime(ticket.from.time),
+                text = formatTripTime(transport.from.time),
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -44,7 +44,7 @@ fun TransportTimeline(
             )
 
             Text(
-                text = formatTripTime(ticket.to.time),
+                text = formatTripTime(transport.to.time),
                 style = MaterialTheme.typography.titleMedium
             )
         }
@@ -57,12 +57,12 @@ fun TransportTimeline(
         ) {
             Column {
                 Text(
-                    text = ticket.from.city,
+                    text = transport.from.city,
                     style = MaterialTheme.typography.titleMedium
                 )
 
                 Text(
-                    text = ticket.from.address ?: "",
+                    text = transport.from.address ?: "",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -70,12 +70,12 @@ fun TransportTimeline(
 
             Column {
                 Text(
-                    text = ticket.to.city,
+                    text = transport.to.city,
                     style = MaterialTheme.typography.titleMedium
                 )
 
                 Text(
-                    text = ticket.to.address ?: "",
+                    text = transport.to.address ?: "",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
