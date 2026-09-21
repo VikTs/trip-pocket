@@ -11,7 +11,6 @@ fun copyFileToInternalStorage(
     context: Context,
     uri: Uri
 ): String {
-
     val ticketsDirectory = File(
         context.filesDir,
         "tickets"
@@ -45,7 +44,7 @@ fun copyFileToInternalStorage(
     return destinationFile.absolutePath
 }
 
-fun openTicket(
+fun openFile(
     context: Context,
     path: String
 ) {
@@ -92,4 +91,38 @@ fun getFileName(
             null
         }
     }
+}
+
+fun createFilePickerIntent(): Intent {
+    return Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+        addCategory(Intent.CATEGORY_OPENABLE)
+        type = "*/*"
+        putExtra(
+            Intent.EXTRA_MIME_TYPES,
+            arrayOf(
+                "application/pdf",
+                "image/*"
+            )
+        )
+    }
+}
+
+fun handlePickedFile(
+    context: Context,
+    uri: Uri,
+    onPathChange: ((String) -> Unit),
+    onNameChange: ((String?) -> Unit)? = null
+) {
+    val path = copyFileToInternalStorage(
+        context = context,
+        uri = uri
+    )
+
+    val name = getFileName(
+        context = context,
+        uri = uri
+    )
+
+    onPathChange(path)
+    onNameChange?.invoke(name)
 }

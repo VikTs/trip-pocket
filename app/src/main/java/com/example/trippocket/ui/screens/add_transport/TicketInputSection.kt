@@ -12,8 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.utils.copyFileToInternalStorage
-import com.example.trippocket.utils.getFileName
+import com.example.trippocket.utils.createFilePickerIntent
+import com.example.trippocket.utils.handlePickedFile
 
 
 @Composable
@@ -21,27 +21,20 @@ fun TicketInputSection(
     context: Context,
     documentName: String?,
     onDocumentPathChange: (String) -> Unit,
-    onDocumentNameChange: (String) -> Unit,
+    onDocumentNameChange: (String?) -> Unit,
 ) {
     val filePickerLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        val uri = result.data?.data ?: return@rememberLauncherForActivityResult
+        val uri = result.data?.data
+            ?: return@rememberLauncherForActivityResult
 
-        val path = copyFileToInternalStorage(
+        handlePickedFile(
             context = context,
-            uri = uri
+            uri = uri,
+            onPathChange = onDocumentPathChange,
+            onNameChange = onDocumentNameChange
         )
-
-        val name = getFileName(
-            context = context,
-            uri = uri
-        )
-
-        onDocumentPathChange(path)
-        if (name != null) {
-            onDocumentNameChange(name)
-        }
     }
 
     Text(
@@ -58,19 +51,8 @@ fun TicketInputSection(
 
     Button(
         onClick = {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-                addCategory(Intent.CATEGORY_OPENABLE)
-                type = "*/*"
-                putExtra(
-                    Intent.EXTRA_MIME_TYPES,
-                    arrayOf(
-                        "application/pdf",
-                        "image/*"
-                    )
-                )
-            }
-
-            filePickerLauncher.launch(intent);
+            val intent = createFilePickerIntent()
+            filePickerLauncher.launch(intent)
         }
     ) {
         Text("+ Upload ticket")
