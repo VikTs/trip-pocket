@@ -25,7 +25,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.utils.formatTripDateTime
-import com.example.trippocket.utils.openTicket
+import com.example.trippocket.utils.openFile
 
 @Composable
 fun TransportTicketCard(
@@ -106,7 +106,7 @@ fun TransportTicketCard(
                         color = colors.surfaceVariant,
                         shadowElevation = 2.dp,
                         onClick = {
-                            openTicket(
+                            openFile(
                                 context = context,
                                 path = path
                             )

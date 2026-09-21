@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.ui.extensions.toDisplayName
-import com.example.trippocket.utils.openTicket
+import com.example.trippocket.utils.openFile
 
 @Composable
 fun TransportTicketDetailsScreen(
@@ -67,7 +67,7 @@ fun TransportTicketDetailsScreen(
 
                 OutlinedButton(
                     onClick = {
-                        openTicket(
+                        openFile(
                             context = context,
                             path = it
                         )
