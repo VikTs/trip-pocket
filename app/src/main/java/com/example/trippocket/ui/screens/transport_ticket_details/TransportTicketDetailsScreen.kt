@@ -35,7 +35,7 @@ fun TransportTicketDetailsScreen(
         topBar = {
             TopBar(
                 onBackClick = onBackClick,
-                title = "${transportTicket.transportType.toDisplayName()} details",
+                title = "${transportTicket.transportType.toDisplayName()} info",
                 actions = {
                     TransportTicketActionsMenu(
                         transportTicketId = transportTicket.id,
@@ -43,7 +43,7 @@ fun TransportTicketDetailsScreen(
                         onDelete = onDeleteClick
                     )
                 },
-                )
+            )
         }
     ) { innerPadding ->
         Column(

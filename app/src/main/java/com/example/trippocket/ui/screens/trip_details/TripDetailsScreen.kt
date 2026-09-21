@@ -1,12 +1,9 @@
 package com.example.trippocket.ui.screens.trip_details
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -25,7 +22,8 @@ import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.utils.formatTripDates
+import com.example.trippocket.utils.formatDayOfWeekDate
+import java.time.LocalDateTime
 
 @Composable
 fun TripDetailsScreen(
@@ -64,26 +62,7 @@ fun TripDetailsScreen(
                     top = 16.dp
                 )
         ) {
-            Text(
-                text = trip.name,
-                style = MaterialTheme.typography.titleLarge
-            )
-
-            Spacer(
-                modifier = Modifier.height(8.dp)
-            )
-
-            Text(
-                text = formatTripDates(
-                    startDate = trip.startDate,
-                    endDate = trip.endDate
-                ),
-                style = MaterialTheme.typography.bodyMedium
-            )
-
-            Spacer(
-                modifier = Modifier.height(16.dp)
-            )
+            TripDetailsHeader(trip)
 
             Box(
                 modifier = Modifier.weight(1f)
@@ -97,40 +76,60 @@ fun TripDetailsScreen(
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(
-                            top = 24.dp,
-                            bottom = 88.dp
+                            top = 16.dp,
+                            bottom = 60.dp
                         ),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        itemsIndexed(
-                            items = tickets,
-                            key = { _, ticket -> ticket.id }
-                        ) { index, ticket ->
+                        val ticketsByDay =
+                            tickets.groupBy { ticket -> ticket.from.time.toLocalDate() }
+                        val firstTicketId = ticketsByDay.values.firstOrNull()?.firstOrNull()?.id
+                        val lastTicketId = ticketsByDay.values.lastOrNull()?.lastOrNull()?.id
 
-                            TransportTicketCard(
-                                ticket = ticket,
-                                isFirst = index == 0,
-                                isLast = index == tickets.lastIndex,
-                                onClick = {
-                                    onTransportClick(ticket.id)
-                                }
-                            )
+                        val today = LocalDateTime.now()
+                        var isPrevActive = false
+
+                        ticketsByDay.forEach { (date, tickets) ->
+                            item {
+                                Text(
+                                    formatDayOfWeekDate(date),
+                                    style = MaterialTheme.typography.titleMedium,
+                                    modifier = Modifier.padding(vertical = 6.dp)
+                                )
+                            }
+                            itemsIndexed(
+                                items = tickets,
+                                key = { _, ticket -> ticket.id }
+                            ) { _, ticket ->
+                                val isActive = ticket.to.time > today
+
+                                TransportTicketCard(
+                                    ticket = ticket,
+                                    isFirst = ticket.id == firstTicketId,
+                                    isLast = ticket.id == lastTicketId,
+                                    isActive = isActive,
+                                    isPrevActive = isPrevActive,
+                                    onClick = {
+                                        onTransportClick(ticket.id)
+                                    }
+                                )
+
+                                isPrevActive = isActive
+                            }
                         }
                     }
-
-                    FloatingActionButton(
-                        onClick = onAddTransportClick,
-                        containerColor = colors.primary,
-                        shape = CircleShape,
-                        modifier = Modifier
-                            .align(Alignment.BottomEnd)
-                            .padding(16.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = "Add transport"
-                        )
-                    }
+                }
+                FloatingActionButton(
+                    onClick = onAddTransportClick,
+                    containerColor = colors.primary,
+                    shape = CircleShape,
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(bottom = 16.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add transport"
+                    )
                 }
             }
         }

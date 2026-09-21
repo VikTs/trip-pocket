@@ -16,9 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
-import java.time.format.DateTimeFormatter
-
-private val TimeFormatter = DateTimeFormatter.ofPattern("H:mm")
+import com.example.trippocket.utils.formatTripTime
 
 @Composable
 fun TransportTimeline(
@@ -32,7 +30,7 @@ fun TransportTimeline(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = ticket.from.time.format(TimeFormatter),
+                text = formatTripTime(ticket.from.time),
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -46,7 +44,7 @@ fun TransportTimeline(
             )
 
             Text(
-                text = ticket.to.time.format(TimeFormatter),
+                text = formatTripTime(ticket.to.time),
                 style = MaterialTheme.typography.titleMedium
             )
         }
