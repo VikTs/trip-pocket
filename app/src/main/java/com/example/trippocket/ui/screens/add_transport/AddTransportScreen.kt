@@ -22,10 +22,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportStop
-import com.example.trippocket.data.model.TransportTicket
+import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.viewmodel.TransportTicketsViewModel
+import com.example.trippocket.viewmodel.TransportsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -35,43 +35,43 @@ import java.time.LocalTime
 fun AddTransportScreen(
     tripId: Long,
     onBackClick: () -> Unit,
-    viewModel: TransportTicketsViewModel,
+    viewModel: TransportsViewModel,
     transportId: Long? = null
 ) {
     val editTransport =
-        transportId?.let { id -> viewModel.tickets.value.firstOrNull { it.id == id } }
+        transportId?.let { id -> viewModel.transports.value.firstOrNull { it.id == id } }
 
     val isEditMode = editTransport != null
     val context = LocalContext.current
     var state by remember(editTransport) {
-        mutableStateOf(editTransport?.let { ticket ->
+        mutableStateOf(editTransport?.let { transport ->
             AddTransportState(
-                transportType = ticket.transportType,
-                transportNumber = ticket.transportNumber.orEmpty(),
-                place = ticket.place.orEmpty(),
-                coach = ticket.coach.orEmpty(),
-                fromCity = ticket.from.city,
-                fromDate = ticket.from.time.toLocalDate(),
-                fromTime = ticket.from.time.toLocalTime(),
-                fromAddress = ticket.from.address,
-                toCity = ticket.to.city,
-                toDate = ticket.to.time.toLocalDate(),
-                toTime = ticket.to.time.toLocalTime(),
-                toAddress = ticket.to.address,
-                documentPath = ticket.documentPath
+                transportType = transport.transportType,
+                transportNumber = transport.transportNumber.orEmpty(),
+                place = transport.place.orEmpty(),
+                coach = transport.coach.orEmpty(),
+                fromCity = transport.from.city,
+                fromDate = transport.from.time.toLocalDate(),
+                fromTime = transport.from.time.toLocalTime(),
+                fromAddress = transport.from.address,
+                toCity = transport.to.city,
+                toDate = transport.to.time.toLocalDate(),
+                toTime = transport.to.time.toLocalTime(),
+                toAddress = transport.to.address,
+                documentPath = transport.ticketPath
             )
         } ?: AddTransportState())
     }
 
     fun onSaveTransport() {
-        val ticket = TransportTicket(
+        val transport = Transport(
             id = editTransport?.id ?: 0,
             tripId = tripId,
             transportType = state.transportType,
             transportNumber = state.transportNumber?.ifBlank { null },
             coach = state.coach?.ifBlank { null },
             place = state.place?.ifBlank { null },
-            documentPath = state.documentPath,
+            ticketPath = state.documentPath,
             from = TransportStop(
                 city = state.fromCity.trim(),
                 time = LocalDateTime.of(
@@ -91,9 +91,9 @@ fun AddTransportScreen(
         )
 
         if (isEditMode) {
-            viewModel.updateTicket(ticket)
+            viewModel.updateTransport(transport)
         } else {
-            viewModel.addTicket(ticket)
+            viewModel.addTransport(transport)
         }
 
         onBackClick()

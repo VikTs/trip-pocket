@@ -11,10 +11,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.trippocket.ui.screens.add_transport.AddTransportScreen
 import com.example.trippocket.ui.screens.create_trip.CreateTripScreen
-import com.example.trippocket.ui.screens.transport_ticket_details.TransportTicketDetailsScreen
+import com.example.trippocket.ui.screens.transport_details.TransportDetailsScreen
 import com.example.trippocket.ui.screens.trip_details.TripDetailsScreen
 import com.example.trippocket.ui.screens.trips.TripsScreen
-import com.example.trippocket.viewmodel.TransportTicketsViewModel
+import com.example.trippocket.viewmodel.TransportsViewModel
 import com.example.trippocket.viewmodel.TripsViewModel
 
 @Composable
@@ -88,14 +88,14 @@ fun TripPocketNavHost() {
             val trip = trips.firstOrNull { it.id == tripId }
 
             if (tripId != null && trip != null) {
-                val transportTicketsViewModel: TransportTicketsViewModel =
+                val transportViewModel: TransportsViewModel =
                     hiltViewModel()
 
-                val tickets by transportTicketsViewModel.tickets.collectAsStateWithLifecycle()
+                val transports by transportViewModel.transports.collectAsStateWithLifecycle()
 
                 TripDetailsScreen(
                     trip = trip,
-                    tickets = tickets,
+                    transports = transports,
                     onEditClick = {
                         navController.navigate("edit_trip/$tripId")
                     },
@@ -131,7 +131,7 @@ fun TripPocketNavHost() {
                     navController.getBackStackEntry("trip/$tripId")
                 }
 
-                val viewModel: TransportTicketsViewModel =
+                val viewModel: TransportsViewModel =
                     hiltViewModel(tripEntry)
 
                 AddTransportScreen(
@@ -160,16 +160,16 @@ fun TripPocketNavHost() {
                     navController.getBackStackEntry("trip/$tripId")
                 }
 
-                val viewModel: TransportTicketsViewModel =
+                val viewModel: TransportsViewModel =
                     hiltViewModel(tripEntry)
 
-                val tickets by viewModel.tickets
+                val transports by viewModel.transports
                     .collectAsStateWithLifecycle()
 
-                val transportTicket = tickets
+                val transport = transports
                     .firstOrNull { it.id == transportId }
 
-                if (transportTicket != null) {
+                if (transport != null) {
                     AddTransportScreen(
                         tripId = tripId,
                         transportId = transportId,
@@ -198,18 +198,18 @@ fun TripPocketNavHost() {
                     navController.getBackStackEntry("trip/$tripId")
                 }
 
-                val transportTicketsViewModel: TransportTicketsViewModel =
+                val transportViewModel: TransportsViewModel =
                     hiltViewModel(tripEntry)
 
-                val transportTickets by transportTicketsViewModel.tickets
+                val transports by transportViewModel.transports
                     .collectAsStateWithLifecycle()
 
-                val transportTicket = transportTickets
+                val transport = transports
                     .firstOrNull { it.id == transportId }
 
-                if (transportTicket != null) {
-                    TransportTicketDetailsScreen(
-                        transportTicket = transportTicket,
+                if (transport != null) {
+                    TransportDetailsScreen(
+                        transport = transport,
                         onBackClick = {
                             navController.popBackStack()
                         },
@@ -217,7 +217,7 @@ fun TripPocketNavHost() {
                             navController.navigate("trip/$tripId/edit_transport/$transportId")
                         },
                         onDeleteClick = {
-                            transportTicketsViewModel.deleteTicket(transportId)
+                            transportViewModel.deleteTransport(transportId)
                             navController.popBackStack()
                         },
                     )

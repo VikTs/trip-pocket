@@ -24,15 +24,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.TransportTicket
+import com.example.trippocket.data.model.Transport
 import com.example.trippocket.utils.formatTripDateTime
 import com.example.trippocket.utils.formatTripTime
 import com.example.trippocket.utils.openFile
 import java.time.LocalDateTime
 
 @Composable
-fun TransportTicketCard(
-    ticket: TransportTicket,
+fun TransportCard(
+    transport: Transport,
     onClick: (ticketId: Long) -> Unit,
     isFirst: Boolean,
     isLast: Boolean,
@@ -43,8 +43,8 @@ fun TransportTicketCard(
     val context = LocalContext.current
 
     val today = LocalDateTime.now()
-    val departureTime = ticket.from.time
-    val arrivalTime = ticket.to.time
+    val departureTime = transport.from.time
+    val arrivalTime = transport.to.time
 
     val arrivalTimeString =
         if (arrivalTime.toLocalDate() == departureTime.toLocalDate())
@@ -52,9 +52,9 @@ fun TransportTicketCard(
         else formatTripDateTime(arrivalTime)
 
     val departureInfo = listOfNotNull(
-        ticket.transportNumber,
-        ticket.coach?.let { "coach: $it" },
-        ticket.place?.let { "seat: $it" }
+        transport.transportNumber,
+        transport.coach?.let { "coach: $it" },
+        transport.place?.let { "seat: $it" }
     ).joinToString(", ")
 
 
@@ -67,7 +67,7 @@ fun TransportTicketCard(
         Spacer(modifier = Modifier.width(8.dp))
 
         TimelineNode(
-            transportType = ticket.transportType,
+            transportType = transport.transportType,
             isFirst = isFirst,
             isLast = isLast,
             isActive = isActive,
@@ -78,7 +78,7 @@ fun TransportTicketCard(
 
         Card(
             modifier = Modifier.weight(1f),
-            onClick = { onClick(ticket.id) },
+            onClick = { onClick(transport.id) },
         ) {
             Box(
                 modifier = Modifier.fillMaxWidth()
@@ -107,7 +107,7 @@ fun TransportTicketCard(
                         }
 
                         Text(
-                            text = ticket.from.city,
+                            text = transport.from.city,
                             style = MaterialTheme.typography.titleLarge
                         )
 
@@ -120,7 +120,7 @@ fun TransportTicketCard(
                         )
 
                         Text(
-                            text = ticket.to.city,
+                            text = transport.to.city,
                             style = MaterialTheme.typography.titleLarge
                         )
                     }
@@ -139,7 +139,7 @@ fun TransportTicketCard(
                     )
                 }
 
-                ticket.documentPath?.let { path ->
+                transport.ticketPath?.let { path ->
                     Surface(
                         modifier = Modifier
                             .align(Alignment.TopEnd)

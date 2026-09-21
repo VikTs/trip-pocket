@@ -19,7 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.TransportTicket
+import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.utils.formatDayOfWeekDate
@@ -28,7 +28,7 @@ import java.time.LocalDateTime
 @Composable
 fun TripDetailsScreen(
     trip: Trip,
-    tickets: List<TransportTicket>,
+    transports: List<Transport>,
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
     onTransportClick: (transportId: Long) -> Unit,
@@ -67,7 +67,7 @@ fun TripDetailsScreen(
             Box(
                 modifier = Modifier.weight(1f)
             ) {
-                if (tickets.isEmpty()) {
+                if (transports.isEmpty()) {
                     EmptyTripContent(
                         modifier = Modifier.fillMaxSize(),
                         onAddTransportClick = onAddTransportClick
@@ -80,15 +80,15 @@ fun TripDetailsScreen(
                             bottom = 60.dp
                         ),
                     ) {
-                        val ticketsByDay =
-                            tickets.groupBy { ticket -> ticket.from.time.toLocalDate() }
-                        val firstTicketId = ticketsByDay.values.firstOrNull()?.firstOrNull()?.id
-                        val lastTicketId = ticketsByDay.values.lastOrNull()?.lastOrNull()?.id
+                        val transportsByDay =
+                            transports.groupBy { transport -> transport.from.time.toLocalDate() }
+                        val firstTransportId = transportsByDay.values.firstOrNull()?.firstOrNull()?.id
+                        val lastTransportId = transportsByDay.values.lastOrNull()?.lastOrNull()?.id
 
                         val today = LocalDateTime.now()
                         var isPrevActive = false
 
-                        ticketsByDay.forEach { (date, tickets) ->
+                        transportsByDay.forEach { (date, transports) ->
                             item {
                                 Text(
                                     formatDayOfWeekDate(date),
@@ -97,19 +97,19 @@ fun TripDetailsScreen(
                                 )
                             }
                             itemsIndexed(
-                                items = tickets,
-                                key = { _, ticket -> ticket.id }
-                            ) { _, ticket ->
-                                val isActive = ticket.to.time > today
+                                items = transports,
+                                key = { _, transport -> transport.id }
+                            ) { _, transport ->
+                                val isActive = transport.to.time > today
 
-                                TransportTicketCard(
-                                    ticket = ticket,
-                                    isFirst = ticket.id == firstTicketId,
-                                    isLast = ticket.id == lastTicketId,
+                                TransportCard(
+                                    transport = transport,
+                                    isFirst = transport.id == firstTransportId,
+                                    isLast = transport.id == lastTransportId,
                                     isActive = isActive,
                                     isPrevActive = isPrevActive,
                                     onClick = {
-                                        onTransportClick(ticket.id)
+                                        onTransportClick(transport.id)
                                     }
                                 )
 
