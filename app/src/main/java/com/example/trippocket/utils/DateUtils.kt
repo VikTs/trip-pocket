@@ -12,6 +12,9 @@ private val shortDateFormatter =
 private val fullDateFormatter =
     DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH)
 
+private val dayOfWeekDateFormatter =
+    DateTimeFormatter.ofPattern("EEEE, MMM d", Locale.ENGLISH)
+
 private val timeFormatter =
     DateTimeFormatter.ofPattern("HH:mm")
 
@@ -29,7 +32,13 @@ fun formatTripDate(date: LocalDate): String {
     return date.format(fullDateFormatter)
 }
 
+fun formatDayOfWeekDate(date: LocalDate): String {
+    return date.format(dayOfWeekDateFormatter)
+}
+
 fun formatTripTime(time: LocalTime): String =
+    time.format(timeFormatter)
+fun formatTripTime(time: LocalDateTime): String =
     time.format(timeFormatter)
 
 fun formatTripDateTime(date: LocalDateTime): String {

@@ -1,5 +1,6 @@
 package com.example.trippocket.ui.screens.trip_details
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,33 +26,59 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportTicket
 import com.example.trippocket.utils.formatTripDateTime
+import com.example.trippocket.utils.formatTripTime
 import com.example.trippocket.utils.openFile
+import java.time.LocalDateTime
 
 @Composable
 fun TransportTicketCard(
     ticket: TransportTicket,
     onClick: (ticketId: Long) -> Unit,
     isFirst: Boolean,
-    isLast: Boolean
+    isLast: Boolean,
+    isActive: Boolean,
+    isPrevActive: Boolean
 ) {
-    val colors = MaterialTheme.colorScheme
+    val colorScheme = MaterialTheme.colorScheme
     val context = LocalContext.current
+
+    val today = LocalDateTime.now()
+    val departureTime = ticket.from.time
+    val arrivalTime = ticket.to.time
+
+    val arrivalTimeString =
+        if (arrivalTime.toLocalDate() == departureTime.toLocalDate())
+            formatTripTime(arrivalTime)
+        else formatTripDateTime(arrivalTime)
+
+    val departureInfo = listOfNotNull(
+        ticket.transportNumber,
+        ticket.coach?.let { "coach: $it" },
+        ticket.place?.let { "seat: $it" }
+    ).joinToString(", ")
+
 
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
+        Text(formatTripTime(departureTime), style = MaterialTheme.typography.titleSmall)
+
+        Spacer(modifier = Modifier.width(8.dp))
+
         TimelineNode(
             transportType = ticket.transportType,
             isFirst = isFirst,
-            isLast = isLast
+            isLast = isLast,
+            isActive = isActive,
+            isPrevActive = isPrevActive
         )
 
         Spacer(modifier = Modifier.width(12.dp))
 
         Card(
             modifier = Modifier.weight(1f),
-            onClick = { onClick(ticket.id) }
+            onClick = { onClick(ticket.id) },
         ) {
             Box(
                 modifier = Modifier.fillMaxWidth()
@@ -62,6 +89,23 @@ fun TransportTicketCard(
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
+                        if (
+                            isActive &&
+                            !isPrevActive &&
+                            (!isFirst || departureTime <= today.plusDays(1))
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(8.dp)
+                                    .background(
+                                        color = MaterialTheme.colorScheme.primary,
+                                        shape = CircleShape
+                                    )
+                            )
+
+                            Spacer(modifier = Modifier.width(8.dp))
+                        }
+
                         Text(
                             text = ticket.from.city,
                             style = MaterialTheme.typography.titleLarge
@@ -83,13 +127,14 @@ fun TransportTicketCard(
 
                     Spacer(modifier = Modifier.height(8.dp))
 
+                    if (departureInfo.isNotBlank()) {
+                        Text(
+                            text = "Dep.: $departureInfo",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
                     Text(
-                        text = "Dep. ${formatTripDateTime(ticket.from.time)}",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-
-                    Text(
-                        text = "Arrival: ${formatTripDateTime(ticket.to.time)}",
+                        text = "Arrival: $arrivalTimeString",
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
@@ -103,7 +148,7 @@ fun TransportTicketCard(
                                 top = 4.dp
                             ),
                         shape = CircleShape,
-                        color = colors.surfaceVariant,
+                        color = colorScheme.surfaceVariant,
                         shadowElevation = 2.dp,
                         onClick = {
                             openFile(

@@ -20,20 +20,28 @@ import com.example.trippocket.ui.extensions.toIcon
 fun TimelineNode(
     transportType: TransportType,
     isFirst: Boolean,
-    isLast: Boolean
+    isLast: Boolean,
+    isActive: Boolean,
+    isPrevActive: Boolean
 ) {
+    val colorScheme = MaterialTheme.colorScheme
+    val nodeColor = if (isActive) colorScheme.primary else colorScheme.onSurfaceVariant
+    val prevNodeColor = if (isPrevActive) colorScheme.primary else colorScheme.onSurfaceVariant
+    val backgroundColor =
+        if (isActive) colorScheme.primaryContainer else colorScheme.surfaceContainer
+
     Box(
         modifier = Modifier
             .width(32.dp)
-            .height(120.dp)
+            .height(130.dp)
     ) {
         if (!isFirst) {
             Box(
                 modifier = Modifier
                     .width(2.dp)
-                    .height(60.dp)
+                    .height(65.dp)
                     .align(Alignment.TopCenter)
-                    .background(MaterialTheme.colorScheme.outlineVariant)
+                    .background(prevNodeColor)
             )
         }
 
@@ -41,9 +49,9 @@ fun TimelineNode(
             Box(
                 modifier = Modifier
                     .width(2.dp)
-                    .height(60.dp)
+                    .height(65.dp)
                     .align(Alignment.BottomCenter)
-                    .background(MaterialTheme.colorScheme.outlineVariant)
+                    .background(nodeColor)
             )
         }
 
@@ -52,12 +60,12 @@ fun TimelineNode(
                 .size(32.dp)
                 .align(Alignment.Center)
                 .background(
-                    color = MaterialTheme.colorScheme.primaryContainer,
+                    color = backgroundColor,
                     shape = CircleShape
                 )
                 .border(
                     width = 1.dp,
-                    color = MaterialTheme.colorScheme.primary,
+                    color = nodeColor,
                     shape = CircleShape
                 ),
             contentAlignment = Alignment.Center
@@ -65,7 +73,7 @@ fun TimelineNode(
             Icon(
                 imageVector = transportType.toIcon(),
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
+                tint = nodeColor,
                 modifier = Modifier.size(20.dp)
             )
         }
