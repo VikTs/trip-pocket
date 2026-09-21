@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun TripFilterToggle(
@@ -29,38 +29,51 @@ fun TripFilterToggle(
             .clip(RoundedCornerShape(12.dp))
             .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .clickable(onClick = onUpcomingClick)
-                .background(
-                    if (showUpcoming) {
-                        MaterialTheme.colorScheme.surface
-                    } else {
-                        Color.Transparent
-                    }
-                )
-                .padding(vertical = 12.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text("Upcoming")
-        }
+        ToggleItem(
+            text = "Upcoming",
+            selected = showUpcoming,
+            onClick = onUpcomingClick,
+            modifier = Modifier.weight(1f)
+        )
 
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .clickable(onClick = onPastClick)
-                .background(
-                    if (!showUpcoming) {
-                        MaterialTheme.colorScheme.surface
-                    } else {
-                        Color.Transparent
-                    }
-                )
-                .padding(vertical = 12.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text("Past")
-        }
+        ToggleItem(
+            text = "Past",
+            selected = !showUpcoming,
+            onClick = onPastClick,
+            modifier = Modifier.weight(1f)
+        )
+    }
+}
+
+@Composable
+private fun ToggleItem(
+    text: String,
+    selected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val colors = MaterialTheme.colorScheme
+
+    val background = if (selected) colors.surface else colors.surfaceVariant
+    val textColor = if (selected) colors.primary else colors.onSurfaceVariant
+    val textStyle = if (selected) {
+        MaterialTheme.typography.titleMedium
+    } else {
+        MaterialTheme.typography.bodyLarge
+    }
+
+    Box(
+        modifier = modifier
+            .clickable(onClick = onClick)
+            .background(background)
+            .padding(vertical = 12.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text,
+            style = textStyle,
+            color = textColor,
+            lineHeight = 18.sp
+        )
     }
 }
