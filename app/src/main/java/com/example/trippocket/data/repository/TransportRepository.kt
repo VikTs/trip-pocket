@@ -11,8 +11,8 @@ class TransportRepository(
         return transportDao.getTripTransports(tripId)
     }
 
-    suspend fun addTransport(transport: Transport) {
-        transportDao.insertTransport(transport)
+    suspend fun addTransport(transport: Transport): Long {
+        return transportDao.insertTransport(transport)
     }
 
     suspend fun updateTransport(transport: Transport) {

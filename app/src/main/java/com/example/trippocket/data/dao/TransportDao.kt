@@ -18,7 +18,7 @@ interface TransportDao {
     fun getTripTransports(tripId: Long): Flow<List<Transport>>
 
     @Insert
-    suspend fun insertTransport(transport: Transport)
+    suspend fun insertTransport(transport: Transport): Long
 
     @Update
     suspend fun updateTransport(transport: Transport)
