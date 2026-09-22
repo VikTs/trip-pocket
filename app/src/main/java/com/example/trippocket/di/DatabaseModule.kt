@@ -3,6 +3,7 @@ package com.example.trippocket.di
 import android.content.Context
 import androidx.room3.Room
 import androidx.sqlite.driver.AndroidSQLiteDriver
+import com.example.trippocket.data.dao.NotificationDao
 import com.example.trippocket.data.dao.TransportDao
 import com.example.trippocket.data.dao.TripDao
 import com.example.trippocket.data.database.TripDatabase
@@ -42,5 +43,12 @@ object DatabaseModule {
         database: TripDatabase
     ): TransportDao {
         return database.transportDao()
+    }
+
+    @Provides
+    fun provideNotificationDao(
+        database: TripDatabase
+    ): NotificationDao {
+        return database.notificationDao()
     }
 }
