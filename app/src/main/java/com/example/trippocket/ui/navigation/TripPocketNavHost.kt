@@ -9,11 +9,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.trippocket.ui.screens.add_accommodation.AddAccommodationScreen
 import com.example.trippocket.ui.screens.add_transport.AddTransportScreen
 import com.example.trippocket.ui.screens.create_trip.CreateTripScreen
 import com.example.trippocket.ui.screens.transport_details.TransportDetailsScreen
 import com.example.trippocket.ui.screens.trip_details.TripDetailsScreen
 import com.example.trippocket.ui.screens.trips.TripsScreen
+import com.example.trippocket.viewmodel.AccommodationViewModel
 import com.example.trippocket.viewmodel.TransportsViewModel
 import com.example.trippocket.viewmodel.TripsViewModel
 
@@ -112,14 +114,39 @@ fun TripPocketNavHost() {
                         )
                     },
                     onAddAccommodationClick = {
-//                        navController.navigate(
-//                            "trip/$tripId/add_accommodation"
-//                        )
+                        navController.navigate(
+                            "trip/$tripId/add_accommodation"
+                        )
                     },
                     onTransportClick = { transportId ->
                         navController.navigate(
                             "trip/$tripId/transport/$transportId"
                         )
+                    }
+                )
+            }
+        }
+        composable("trip/{tripId}/add_accommodation") { backStackEntry ->
+            val tripId = backStackEntry
+                .arguments
+                ?.getString("tripId")
+                ?.toLongOrNull()
+
+            if (tripId != null) {
+                val viewModel: AccommodationViewModel = hiltViewModel()
+
+                AddAccommodationScreen(
+                    tripId = tripId,
+                    onBackClick = {
+                        navController.popBackStack()
+                    },
+                    onAddClick = { accommodation ->
+                        viewModel.addAccommodation(
+                            tripId = tripId,
+                            accommodation = accommodation
+                        )
+
+                        navController.popBackStack()
                     }
                 )
             }
