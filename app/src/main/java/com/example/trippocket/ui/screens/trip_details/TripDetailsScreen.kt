@@ -82,7 +82,8 @@ fun TripDetailsScreen(
                     ) {
                         val transportsByDay =
                             transports.groupBy { transport -> transport.from.time.toLocalDate() }
-                        val firstTransportId = transportsByDay.values.firstOrNull()?.firstOrNull()?.id
+                        val firstTransportId =
+                            transportsByDay.values.firstOrNull()?.firstOrNull()?.id
                         val lastTransportId = transportsByDay.values.lastOrNull()?.lastOrNull()?.id
 
                         val today = LocalDateTime.now()
@@ -117,19 +118,19 @@ fun TripDetailsScreen(
                             }
                         }
                     }
-                }
-                FloatingActionButton(
-                    onClick = onAddTransportClick,
-                    containerColor = colors.primary,
-                    shape = CircleShape,
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(bottom = 16.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Add,
-                        contentDescription = "Add transport"
-                    )
+                    FloatingActionButton(
+                        onClick = onAddTransportClick,
+                        containerColor = colors.primary,
+                        shape = CircleShape,
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(bottom = 16.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Add,
+                            contentDescription = "Add transport"
+                        )
+                    }
                 }
             }
         }
