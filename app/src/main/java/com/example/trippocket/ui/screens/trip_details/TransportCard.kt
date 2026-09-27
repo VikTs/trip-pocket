@@ -1,6 +1,5 @@
 package com.example.trippocket.ui.screens.trip_details
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,10 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Transport
+import com.example.trippocket.ui.extensions.toIcon
 import com.example.trippocket.utils.formatTripDateTime
 import com.example.trippocket.utils.formatTripTime
 import com.example.trippocket.utils.openFile
-import java.time.LocalDateTime
 
 @Composable
 fun TransportCard(
@@ -42,7 +41,6 @@ fun TransportCard(
     val colorScheme = MaterialTheme.colorScheme
     val context = LocalContext.current
 
-    val today = LocalDateTime.now()
     val departureTime = transport.from.time
     val arrivalTime = transport.to.time
 
@@ -67,7 +65,7 @@ fun TransportCard(
         Spacer(modifier = Modifier.width(8.dp))
 
         TimelineNode(
-            transportType = transport.transportType,
+            icon = transport.transportType.toIcon(),
             isFirst = isFirst,
             isLast = isLast,
             isActive = isActive,
@@ -89,23 +87,6 @@ fun TransportCard(
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        if (
-                            isActive &&
-                            !isPrevActive &&
-                            (!isFirst || departureTime <= today.plusDays(1))
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(8.dp)
-                                    .background(
-                                        color = MaterialTheme.colorScheme.primary,
-                                        shape = CircleShape
-                                    )
-                            )
-
-                            Spacer(modifier = Modifier.width(8.dp))
-                        }
-
                         Text(
                             text = transport.from.city,
                             style = MaterialTheme.typography.titleLarge

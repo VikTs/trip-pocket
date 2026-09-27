@@ -12,13 +12,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.TransportType
-import com.example.trippocket.ui.extensions.toIcon
 
 @Composable
 fun TimelineNode(
-    transportType: TransportType,
+    icon: ImageVector,
     isFirst: Boolean,
     isLast: Boolean,
     isActive: Boolean,
@@ -71,7 +70,7 @@ fun TimelineNode(
             contentAlignment = Alignment.Center
         ) {
             Icon(
-                imageVector = transportType.toIcon(),
+                imageVector = icon,
                 contentDescription = null,
                 tint = nodeColor,
                 modifier = Modifier.size(20.dp)

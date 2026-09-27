@@ -92,12 +92,18 @@ fun TripPocketNavHost() {
             if (tripId != null && trip != null) {
                 val transportViewModel: TransportsViewModel =
                     hiltViewModel()
-
                 val transports by transportViewModel.transports.collectAsStateWithLifecycle()
+
+                val accommodationViewModel: AccommodationViewModel =
+                    hiltViewModel()
+                val accommodations by accommodationViewModel
+                    .accommodations
+                    .collectAsStateWithLifecycle()
 
                 TripDetailsScreen(
                     trip = trip,
                     transports = transports,
+                    accommodations=accommodations,
                     onEditClick = {
                         navController.navigate("edit_trip/$tripId")
                     },
@@ -122,7 +128,8 @@ fun TripPocketNavHost() {
                         navController.navigate(
                             "trip/$tripId/transport/$transportId"
                         )
-                    }
+                    },
+                    onAccommodationClick = {}
                 )
             }
         }
