@@ -111,6 +111,11 @@ fun TripPocketNavHost() {
                             "trip/$tripId/add_transport"
                         )
                     },
+                    onAddAccommodationClick = {
+//                        navController.navigate(
+//                            "trip/$tripId/add_accommodation"
+//                        )
+                    },
                     onTransportClick = { transportId ->
                         navController.navigate(
                             "trip/$tripId/transport/$transportId"
