@@ -1,6 +1,7 @@
 package com.example.trippocket.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -9,6 +10,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.trippocket.ui.screens.accommodation_details.AccommodationDetailsScreen
 import com.example.trippocket.ui.screens.add_accommodation.AddAccommodationScreen
 import com.example.trippocket.ui.screens.add_transport.AddTransportScreen
 import com.example.trippocket.ui.screens.create_trip.CreateTripScreen
@@ -103,7 +105,7 @@ fun TripPocketNavHost() {
                 TripDetailsScreen(
                     trip = trip,
                     transports = transports,
-                    accommodations=accommodations,
+                    accommodations = accommodations,
                     onEditClick = {
                         navController.navigate("edit_trip/$tripId")
                     },
@@ -129,10 +131,15 @@ fun TripPocketNavHost() {
                             "trip/$tripId/transport/$transportId"
                         )
                     },
-                    onAccommodationClick = {}
+                    onAccommodationClick = {
+                        navController.navigate(
+                            "trip/$tripId/accommodation/$it"
+                        )
+                    }
                 )
             }
         }
+
         composable("trip/{tripId}/add_accommodation") { backStackEntry ->
             val tripId = backStackEntry
                 .arguments
@@ -147,7 +154,7 @@ fun TripPocketNavHost() {
                     onBackClick = {
                         navController.popBackStack()
                     },
-                    onAddClick = { accommodation ->
+                    onSaveClick = { accommodation ->
                         viewModel.addAccommodation(
                             tripId = tripId,
                             accommodation = accommodation
@@ -156,6 +163,93 @@ fun TripPocketNavHost() {
                         navController.popBackStack()
                     }
                 )
+            }
+        }
+
+        composable(
+            "trip/{tripId}/accommodation/{accommodationId}/edit"
+        ) { backStackEntry ->
+            val tripId = backStackEntry
+                .arguments
+                ?.getString("tripId")
+                ?.toLongOrNull()
+
+            val accommodationId = backStackEntry
+                .arguments
+                ?.getString("accommodationId")
+                ?.toLongOrNull()
+
+            if (tripId != null && accommodationId != null) {
+
+                val viewModel: AccommodationViewModel = hiltViewModel()
+
+                val accommodation by viewModel.accommodation
+                    .collectAsStateWithLifecycle()
+
+                LaunchedEffect(accommodationId) {
+                    viewModel.loadAccommodation(accommodationId)
+                }
+
+                accommodation?.let { existingAccommodation ->
+
+                    AddAccommodationScreen(
+                        tripId = tripId,
+                        accommodation = existingAccommodation,
+                        onBackClick = {
+                            navController.popBackStack()
+                        },
+                        onSaveClick = { updatedAccommodation ->
+                            viewModel.updateAccommodation(
+                                updatedAccommodation
+                            )
+
+                            navController.popBackStack()
+                        }
+                    )
+                }
+            }
+        }
+
+        composable("trip/{tripId}/accommodation/{accommodationId}") { backStackEntry ->
+            val tripId = backStackEntry
+                .arguments
+                ?.getString("tripId")
+                ?.toLongOrNull()
+
+            val accommodationId = backStackEntry
+                .arguments
+                ?.getString("accommodationId")
+                ?.toLongOrNull()
+
+            if (tripId != null && accommodationId != null) {
+                val viewModel: AccommodationViewModel = hiltViewModel()
+
+                val accommodation by viewModel.accommodation
+                    .collectAsStateWithLifecycle()
+
+                LaunchedEffect(accommodationId) {
+                    viewModel.loadAccommodation(accommodationId)
+                }
+
+                accommodation?.let {
+                    AccommodationDetailsScreen(
+                        accommodation = it,
+                        onBackClick = {
+                            navController.popBackStack()
+                        },
+                        onEditClick = { id ->
+                            navController.navigate(
+                                "trip/$tripId/accommodation/$id/edit"
+                            )
+                        },
+                        onDeleteClick = {
+                            viewModel.deleteAccommodation(
+                                accommodationId
+                            )
+                            navController.popBackStack()
+                        }
+                    )
+                }
             }
         }
 

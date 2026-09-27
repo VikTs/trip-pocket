@@ -23,11 +23,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
-import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.DateInput
-import com.example.trippocket.ui.components.DatePickerDialog
 import com.example.trippocket.ui.components.TimeInput
-import com.example.trippocket.ui.components.TimePickerDialog
 import com.example.trippocket.ui.components.TopBar
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -36,21 +33,38 @@ import java.time.LocalTime
 @Composable
 fun AddAccommodationScreen(
     tripId: Long,
+    accommodation: Accommodation? = null,
     onBackClick: () -> Unit,
-    onAddClick: (Accommodation) -> Unit
+    onSaveClick: (Accommodation) -> Unit
 ) {
+    val isEditing = accommodation != null
+
     var state by remember {
-        mutableStateOf(AddAccommodationState())
+        mutableStateOf(
+            AddAccommodationState(
+                name = accommodation?.name.orEmpty(),
+                address = accommodation?.address.orEmpty(),
+                checkInDate = accommodation?.checkIn?.toLocalDate(),
+                checkInTime = accommodation?.checkIn?.toLocalTime(),
+                checkOutDate = accommodation?.checkOut?.toLocalDate(),
+                checkOutTime = accommodation?.checkOut?.toLocalTime(),
+            )
+        )
     }
 
     Scaffold(
         topBar = {
             TopBar(
-                title = "Add accommodation",
+                title = if (isEditing) {
+                    "Edit accommodation"
+                } else {
+                    "Add accommodation"
+                },
                 onBackClick = onBackClick
             )
         }
     ) { innerPadding ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -59,6 +73,7 @@ fun AddAccommodationScreen(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+
             Text(
                 text = "Accommodation",
                 style = MaterialTheme.typography.titleMedium
@@ -154,19 +169,37 @@ fun AddAccommodationScreen(
             Button(
                 enabled = state.isValid,
                 onClick = {
-                    val checkInDate = state.checkInDate ?: return@Button
-                    val checkInTime = state.checkInTime ?: return@Button
-                    val checkOutDate = state.checkOutDate ?: return@Button
-                    val checkOutTime = state.checkOutTime ?: return@Button
+                    val checkInDate =
+                        state.checkInDate ?: return@Button
 
-                    val checkIn = LocalDateTime.of(checkInDate, checkInTime)
-                    val checkOut = LocalDateTime.of(checkOutDate, checkOutTime)
+                    val checkInTime =
+                        state.checkInTime ?: return@Button
 
-                    onAddClick(
+                    val checkOutDate =
+                        state.checkOutDate ?: return@Button
+
+                    val checkOutTime =
+                        state.checkOutTime ?: return@Button
+
+                    val checkIn =
+                        LocalDateTime.of(
+                            checkInDate,
+                            checkInTime
+                        )
+
+                    val checkOut =
+                        LocalDateTime.of(
+                            checkOutDate,
+                            checkOutTime
+                        )
+
+                    onSaveClick(
                         Accommodation(
+                            id = accommodation?.id ?: 0,
                             tripId = tripId,
                             name = state.name,
-                            address = state.address.ifBlank { null },
+                            address = state.address
+                                .ifBlank { null },
                             checkIn = checkIn,
                             checkOut = checkOut,
                         )
@@ -174,7 +207,13 @@ fun AddAccommodationScreen(
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Add accommodation")
+                Text(
+                    text = if (isEditing) {
+                        "Save changes"
+                    } else {
+                        "Add accommodation"
+                    }
+                )
             }
         }
     }
@@ -187,6 +226,8 @@ data class AddAccommodationState(
     val checkInTime: LocalTime? = null,
     val checkOutDate: LocalDate? = null,
     val checkOutTime: LocalTime? = null,
+    val bookingNumber: String = "",
+    val documentPath: String? = null
 ) {
     val isValid: Boolean
         get() =
