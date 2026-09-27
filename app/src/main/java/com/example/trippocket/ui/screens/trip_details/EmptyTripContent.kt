@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun EmptyTripContent(
     modifier: Modifier = Modifier,
-    onAddTransportClick: () -> Unit
+    onAddClick: () -> Unit
 ) {
     Column(
         modifier = modifier,
@@ -36,7 +36,7 @@ fun EmptyTripContent(
         )
 
         Button(
-            onClick = onAddTransportClick
+            onClick = onAddClick
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
@@ -47,7 +47,7 @@ fun EmptyTripContent(
                 modifier = Modifier.width(8.dp)
             )
 
-            Text("Add transport")
+            Text("Add")
         }
     }
 }

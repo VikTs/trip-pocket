@@ -178,7 +178,7 @@ fun AddTransportScreen(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = state.isValid
             ) {
-                Text(if (isEditMode) "Edit transport" else "Add transport")
+                Text(if (isEditMode) "Save changes" else "Add transport")
             }
 
             Spacer(

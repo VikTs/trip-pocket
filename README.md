@@ -5,7 +5,7 @@ A travel organizer for keeping trips, transport tickets, and travel details in o
 ## Features
 
 - Create and manage trips
-- Add transport for the trip
+- Add transport/accomodation for the trip
 - Receive departure notification 1h in advance
 
 ## Tech Stack

@@ -123,7 +123,7 @@ fun CreateTripScreen(
                         startDate != null &&
                         endDate != null
             ) {
-                Text(if (isEditMode) "Edit trip" else "Create trip")
+                Text(if (isEditMode) "Save changes" else "Create trip")
             }
         }
     }
