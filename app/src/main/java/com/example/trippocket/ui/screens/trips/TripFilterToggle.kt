@@ -13,8 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.trippocket.R
 
 @Composable
 fun TripFilterToggle(
@@ -30,14 +32,14 @@ fun TripFilterToggle(
             .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
         ToggleItem(
-            text = "Upcoming",
+            text = stringResource(R.string.trips_toggle_upcoming_label),
             selected = showUpcoming,
             onClick = onUpcomingClick,
             modifier = Modifier.weight(1f)
         )
 
         ToggleItem(
-            text = "Past",
+            text = stringResource(R.string.trips_toggle_past_label),
             selected = !showUpcoming,
             onClick = onPastClick,
             modifier = Modifier.weight(1f)

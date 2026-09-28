@@ -19,11 +19,13 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
+import com.example.trippocket.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -75,7 +77,7 @@ fun TripDetailsScreen(
         topBar = {
             TopBar(
                 onBackClick = onBackClick,
-                title = "Trip details",
+                title = stringResource(R.string.trip_details_title),
                 actions = {
                     TripActionsMenu(
                         tripId = trip.id,

@@ -19,7 +19,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.trippocket.R
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.utils.formatTripDates
 import java.time.LocalDate
@@ -33,34 +36,33 @@ fun TripCard(
     val typography = MaterialTheme.typography
     val colorScheme = MaterialTheme.colorScheme
 
-    fun getTripStatus(
-        startDate: LocalDate,
-        endDate: LocalDate
-    ): String {
-        val today = LocalDate.now()
+    val tripStatus = when {
+        LocalDate.now().isBefore(trip.startDate) -> {
+            val daysUntil = ChronoUnit.DAYS.between(
+                LocalDate.now(),
+                trip.startDate
+            ).toInt()
 
-        return when {
-            today.isBefore(startDate) -> {
-                val daysUntil = ChronoUnit.DAYS.between(today, startDate)
-                "In $daysUntil days"
-            }
+            pluralStringResource(
+                R.plurals.trips_trip_card_in_days_label,
+                daysUntil,
+                daysUntil
+            )
+        }
 
-            !today.isAfter(endDate) -> {
-                "Today"
-            }
+        !LocalDate.now().isAfter(trip.endDate) -> {
+            stringResource(R.string.trips_trip_card_today_label)
+        }
 
-            else -> {
-                "Completed"
-            }
+        else -> {
+            stringResource(R.string.trips_trip_card_completed_label)
         }
     }
 
-    fun getTripDuration(
-        startDate: LocalDate,
-        endDate: LocalDate
-    ): Long {
-        return ChronoUnit.DAYS.between(startDate, endDate) + 1
-    }
+    val tripDuration = ChronoUnit.DAYS.between(
+        trip.startDate,
+        trip.endDate
+    ) + 1
 
     Card(
         onClick = onClick,
@@ -83,12 +85,14 @@ fun TripCard(
             )
 
             Text(
-                text = "${getTripDuration(trip.startDate, trip.endDate)} days  |  ${
+                text = stringResource(
+                    R.string.trips_trip_card_duration_and_dates_label,
+                    tripDuration,
                     formatTripDates(
                         startDate = trip.startDate,
                         endDate = trip.endDate
                     )
-                }",
+                ),
                 style = typography.bodyMedium,
                 color = colorScheme.onSurface
             )
@@ -109,10 +113,7 @@ fun TripCard(
                 )
 
                 Text(
-                    text = getTripStatus(
-                        startDate = trip.startDate,
-                        endDate = trip.endDate
-                    ),
+                    text = tripStatus,
                     style = typography.bodyMedium,
                     color = colorScheme.onSurfaceVariant
                 )

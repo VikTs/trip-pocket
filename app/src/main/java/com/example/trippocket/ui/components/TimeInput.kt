@@ -11,8 +11,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import com.example.trippocket.utils.formatTripTime
 import java.time.LocalTime
+import com.example.trippocket.R
 
 @Composable
 fun TimeInput(
@@ -35,7 +37,7 @@ fun TimeInput(
                 Text(label)
             },
             placeholder = {
-                Text("Select time")
+                Text(stringResource(R.string.time_input_placeholder))
             },
             modifier = Modifier.fillMaxWidth(),
             readOnly = true

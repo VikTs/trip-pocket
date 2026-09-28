@@ -16,11 +16,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.utils.openFile
+import com.example.trippocket.R
+import com.example.trippocket.data.model.TransportType
 
 @Composable
 fun TransportDetailsScreen(
@@ -31,11 +34,19 @@ fun TransportDetailsScreen(
 ) {
     val context = LocalContext.current
 
+    val title = when (transport.transportType) {
+        TransportType.BUS ->
+            stringResource(R.string.transport_details_bus_info_title)
+
+        TransportType.TRAIN ->
+            stringResource(R.string.transport_details_train_info_title)
+    }
+
     Scaffold(
         topBar = {
             TopBar(
                 onBackClick = onBackClick,
-                title = "${transport.transportType.toDisplayName()} info",
+                title = title,
                 actions = {
                     TransportActionsMenu(
                         transportId = transport.id,
@@ -81,7 +92,7 @@ fun TransportDetailsScreen(
 
                     Spacer(modifier = Modifier.width(8.dp))
 
-                    Text("Open ticket")
+                    Text(stringResource(R.string.transport_details_open_ticket_btn_label))
                 }
 
             }

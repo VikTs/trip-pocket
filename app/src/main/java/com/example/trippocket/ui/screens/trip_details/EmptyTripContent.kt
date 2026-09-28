@@ -14,7 +14,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.trippocket.R
 
 @Composable
 fun EmptyTripContent(
@@ -27,7 +29,7 @@ fun EmptyTripContent(
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Your trip is empty",
+            text = stringResource(R.string.trip_details_empty_message),
             style = MaterialTheme.typography.titleLarge
         )
 
@@ -47,7 +49,7 @@ fun EmptyTripContent(
                 modifier = Modifier.width(8.dp)
             )
 
-            Text("Add")
+            Text(stringResource(R.string.trip_details_add_btn_label))
         }
     }
 }

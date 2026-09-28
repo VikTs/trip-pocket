@@ -1,7 +1,6 @@
 package com.example.trippocket.ui.screens.add_transport
 
 import android.content.Context
-import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Spacer
@@ -11,10 +10,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.utils.createFilePickerIntent
 import com.example.trippocket.utils.handlePickedFile
-
+import com.example.trippocket.R
 
 @Composable
 fun TicketInputSection(
@@ -38,7 +38,7 @@ fun TicketInputSection(
     }
 
     Text(
-        text = "Ticket",
+        text = stringResource(R.string.add_transport_ticket_section_title),
         style = MaterialTheme.typography.titleMedium
     )
 
@@ -55,7 +55,7 @@ fun TicketInputSection(
             filePickerLauncher.launch(intent)
         }
     ) {
-        Text("+ Upload ticket")
+        Text("+ ${stringResource(R.string.add_transport_ticket_upload_label)}")
     }
 
     Spacer(

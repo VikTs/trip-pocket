@@ -20,10 +20,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
 import java.time.LocalDate
+import com.example.trippocket.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -36,7 +38,7 @@ fun TripsScreen(
 
     Scaffold(
         topBar = {
-            TopBar(title = "My trips")
+            TopBar(title = stringResource(R.string.trips_title))
         }
     ) { innerPadding ->
         if (trips.isEmpty()) {

@@ -21,6 +21,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.ui.components.DateInput
@@ -29,6 +30,7 @@ import com.example.trippocket.ui.components.TopBar
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
+import com.example.trippocket.R
 
 @Composable
 fun AddAccommodationScreen(
@@ -56,9 +58,9 @@ fun AddAccommodationScreen(
         topBar = {
             TopBar(
                 title = if (isEditing) {
-                    "Edit accommodation"
+                    stringResource(R.string.edit_accommodation_title)
                 } else {
-                    "Add accommodation"
+                    stringResource(R.string.add_accommodation_title)
                 },
                 onBackClick = onBackClick
             )
@@ -75,7 +77,7 @@ fun AddAccommodationScreen(
         ) {
 
             Text(
-                text = "Accommodation",
+                text = stringResource(R.string.add_accommodation_general_section_title),
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -85,7 +87,7 @@ fun AddAccommodationScreen(
                     state = state.copy(name = it)
                 },
                 label = {
-                    Text("Name*")
+                    Text(stringResource(R.string.add_accommodation_name_label))
                 },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
@@ -97,14 +99,14 @@ fun AddAccommodationScreen(
                     state = state.copy(address = it)
                 },
                 label = {
-                    Text("Address")
+                    Text(stringResource(R.string.add_accommodation_address_label))
                 },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
 
             Text(
-                text = "Check-in",
+                text = stringResource(R.string.add_accommodation_check_in_section_title),
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -112,7 +114,7 @@ fun AddAccommodationScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 DateInput(
-                    label = "Date*",
+                    label = stringResource(R.string.add_accommodation_date_label),
                     selectedDate = state.checkInDate,
                     onDateSelected = {
                         state = state.copy(checkInDate = it)
@@ -125,7 +127,7 @@ fun AddAccommodationScreen(
                 )
 
                 TimeInput(
-                    label = "Time*",
+                    label = stringResource(R.string.add_accommodation_time_label),
                     selectedTime = state.checkInTime,
                     onTimeSelected = {
                         state = state.copy(checkInTime = it)
@@ -135,7 +137,7 @@ fun AddAccommodationScreen(
             }
 
             Text(
-                text = "Check-out",
+                text = stringResource(R.string.add_accommodation_check_out_section_title),
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -143,7 +145,7 @@ fun AddAccommodationScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 DateInput(
-                    label = "Date*",
+                    label = stringResource(R.string.add_accommodation_date_label),
                     minDate = state.checkInDate,
                     selectedDate = state.checkOutDate,
                     onDateSelected = {
@@ -157,7 +159,7 @@ fun AddAccommodationScreen(
                 )
 
                 TimeInput(
-                    label = "Time*",
+                    label = stringResource(R.string.add_accommodation_time_label),
                     selectedTime = state.checkOutTime,
                     onTimeSelected = {
                         state = state.copy(checkOutTime = it)
@@ -209,9 +211,9 @@ fun AddAccommodationScreen(
             ) {
                 Text(
                     text = if (isEditing) {
-                        "Save changes"
+                        stringResource(R.string.common_save_changes)
                     } else {
-                        "Add accommodation"
+                        stringResource(R.string.add_accommodation_btn_label)
                     }
                 )
             }

@@ -19,7 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.trippocket.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,7 +43,7 @@ fun AddToTripBottomSheet(
                 )
         ) {
             Text(
-                text = "Add to trip",
+                text = stringResource(R.string.add_to_trip_bottom_sheet_title),
                 style = MaterialTheme.typography.titleLarge
             )
 
@@ -51,7 +53,7 @@ fun AddToTripBottomSheet(
 
             ListItem(
                 headlineContent = {
-                    Text("Transport")
+                    Text(stringResource(R.string.add_to_trip_bottom_sheet_transport_label))
                 },
                 leadingContent = {
                     Icon(
@@ -69,7 +71,7 @@ fun AddToTripBottomSheet(
 
             ListItem(
                 headlineContent = {
-                    Text("Accommodation")
+                    Text(stringResource(R.string.add_to_trip_bottom_sheet_accommodation_label))
                 },
                 leadingContent = {
                     Icon(

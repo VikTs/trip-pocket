@@ -13,6 +13,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
+import com.example.trippocket.R
 
 @Composable
 fun AccommodationActionsMenu(
@@ -45,7 +47,7 @@ fun AccommodationActionsMenu(
     ) {
         DropdownMenuItem(
             text = {
-                Text("Edit")
+                Text(stringResource(R.string.common_edit))
             },
             onClick = {
                 expanded = false
@@ -55,7 +57,7 @@ fun AccommodationActionsMenu(
 
         DropdownMenuItem(
             text = {
-                Text("Delete")
+                Text(stringResource(R.string.common_delete))
             },
             onClick = {
                 expanded = false

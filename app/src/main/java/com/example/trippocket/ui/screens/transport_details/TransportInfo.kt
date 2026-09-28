@@ -12,11 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.ui.extensions.toIcon
+import com.example.trippocket.R
 
 @Composable
 fun TransportInfo(transport: Transport) {
@@ -45,13 +47,13 @@ fun TransportInfo(transport: Transport) {
 
             if (transport.transportType == TransportType.TRAIN) {
                 Text(
-                    "Coach: ${transport.coach ?: '-'}",
+                    "${stringResource(R.string.transport_details_coach_label)}: ${transport.coach ?: '-'}",
                     style = typography.bodyLarge
                 )
             }
 
             Text(
-                "Seat: ${transport.place ?: '-'}",
+                "${stringResource(R.string.transport_details_seat_label)}: ${transport.place ?: '-'}",
                 style = typography.bodyLarge
             )
         }
