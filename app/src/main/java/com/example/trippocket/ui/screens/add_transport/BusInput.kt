@@ -9,7 +9,9 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.trippocket.R
 
 @Composable
 fun BusInput(
@@ -25,7 +27,7 @@ fun BusInput(
             value = transportNumber ?: "",
             onValueChange = onTransportNumberChange,
             label = {
-                Text("Bus number")
+                Text(stringResource(R.string.add_transport_bus_number_label))
             },
             singleLine = true,
             modifier = Modifier.weight(2f)
@@ -39,7 +41,7 @@ fun BusInput(
             value = place ?: "",
             onValueChange = onPlaceChange,
             label = {
-                Text("Place")
+                Text(stringResource(R.string.add_transport_place_label))
             },
             singleLine = true,
             modifier = Modifier.weight(1f)

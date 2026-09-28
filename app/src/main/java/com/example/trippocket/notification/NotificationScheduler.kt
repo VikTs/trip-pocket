@@ -4,8 +4,10 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import com.example.trippocket.R
 import com.example.trippocket.data.model.Notification
 import com.example.trippocket.data.model.Transport
+import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.utils.formatTripTime
 import java.time.ZoneId
@@ -36,16 +38,47 @@ class NotificationScheduler(
             return
         }
 
+        val title = when (transport.transportType) {
+            TransportType.BUS ->
+                context.getString(
+                    R.string.notification_upcoming_bus,
+                    transport.to.city
+                )
+
+            TransportType.TRAIN ->
+                context.getString(
+                    R.string.notification_upcoming_train,
+                    transport.to.city
+                )
+        }
+
+        val transportType = title.lowercase()
+
         val intent = Intent(
             context,
             NotificationReceiver::class.java
         ).apply {
-            putExtra("notificationId", notification.id)
+            putExtra(
+                "notificationId",
+                notification.id
+            )
+
             putExtra(
                 "title",
-                "Upcoming ${transport.transportType.toDisplayName().lowercase()} to ${transport.to.city}"
+                context.getString(
+                    R.string.notification_upcoming_transport,
+                    transportType,
+                    transport.to.city
+                )
             )
-            putExtra("message", "Departure time: ${formatTripTime(transport.from.time)}")
+
+            putExtra(
+                "message",
+                context.getString(
+                    R.string.notification_departure_time,
+                    formatTripTime(transport.from.time)
+                )
+            )
         }
 
         val pendingIntent = PendingIntent.getBroadcast(

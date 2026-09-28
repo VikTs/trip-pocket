@@ -16,7 +16,7 @@ fun <T> Dropdown(
     selectedItem: T,
     items: List<T>,
     label: String,
-    itemText: (T) -> String,
+    itemText: @Composable (T) -> String,
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     onItemSelected: (T) -> Unit,

@@ -11,6 +11,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.trippocket.R
 import com.example.trippocket.utils.formatTripDate
 import java.time.LocalDate
 
@@ -36,7 +38,7 @@ fun DateInput(
                 Text(label)
             },
             placeholder = {
-                Text("Select date")
+                Text(stringResource(R.string.date_input_placeholder))
             },
             modifier = modifier,
             readOnly = true

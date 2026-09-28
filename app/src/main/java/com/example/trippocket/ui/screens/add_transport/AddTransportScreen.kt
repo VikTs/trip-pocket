@@ -20,12 +20,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportStop
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.TransportsViewModel
+import com.example.trippocket.R
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -102,7 +104,11 @@ fun AddTransportScreen(
     Scaffold(
         topBar = {
             TopBar(
-                title = if (isEditMode) "Edit transport" else "Add transport",
+                title = if (isEditMode)
+                    stringResource(R.string.edit_transport_title)
+                else stringResource(
+                    R.string.add_transport_title
+                ),
                 onBackClick = onBackClick
             )
         }
@@ -141,7 +147,7 @@ fun AddTransportScreen(
             )
 
             TransportStopInputSection(
-                title = "From",
+                title = stringResource(R.string.add_transport_from_section_title),
                 city = state.fromCity,
                 date = state.fromDate,
                 time = state.fromTime,
@@ -154,7 +160,7 @@ fun AddTransportScreen(
             )
 
             TransportStopInputSection(
-                title = "To",
+                title = stringResource(R.string.add_transport_to_section_title),
                 city = state.toCity,
                 date = state.toDate,
                 time = state.toTime,
@@ -178,7 +184,10 @@ fun AddTransportScreen(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = state.isValid
             ) {
-                Text(if (isEditMode) "Save changes" else "Add transport")
+                Text(
+                    if (isEditMode) stringResource(R.string.common_save_changes)
+                    else stringResource(R.string.add_transport_btn_label)
+                )
             }
 
             Spacer(

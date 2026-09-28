@@ -10,11 +10,13 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.ui.components.DateInput
 import com.example.trippocket.ui.components.TimeInput
 import java.time.LocalDate
 import java.time.LocalTime
+import com.example.trippocket.R
 
 @Composable
 fun TransportStopInputSection(
@@ -38,7 +40,7 @@ fun TransportStopInputSection(
         value = city,
         onValueChange = onCityChange,
         label = {
-            Text("City*")
+            Text(stringResource(R.string.add_transport_city_label))
         },
         singleLine = true,
         modifier = Modifier.fillMaxWidth()
@@ -48,7 +50,7 @@ fun TransportStopInputSection(
         modifier = Modifier.fillMaxWidth()
     ) {
         DateInput(
-            label = "Date*",
+            label = stringResource(R.string.add_transport_date_label),
             selectedDate = date,
             onDateSelected = onDateChange,
             minDate = minDate,
@@ -60,7 +62,7 @@ fun TransportStopInputSection(
         )
 
         TimeInput(
-            label = "Time*",
+            label = stringResource(R.string.add_transport_time_label),
             selectedTime = time,
             onTimeSelected = onTimeChange,
             modifier = Modifier.weight(1f)
@@ -71,7 +73,7 @@ fun TransportStopInputSection(
         value = address ?: "",
         onValueChange = onAddressChange,
         label = {
-            Text("Address")
+            Text(stringResource(R.string.add_transport_address_label))
         },
         singleLine = true,
         modifier = Modifier.fillMaxWidth()

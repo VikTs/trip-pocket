@@ -10,10 +10,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.Dropdown
 import com.example.trippocket.ui.extensions.toDisplayName
+import com.example.trippocket.R
 
 @Composable
 fun TransportInputSection(
@@ -31,16 +33,22 @@ fun TransportInputSection(
     }
 
     Text(
-        text = "Transport",
+        text = stringResource(R.string.add_transport_transport_section_title),
         style = MaterialTheme.typography.titleMedium
     )
 
     Dropdown(
         selectedItem = transportType,
         items = TransportType.entries,
-        label = "Type*",
+        label = stringResource(R.string.add_transport_type_label),
         itemText = {
-            it.toDisplayName()
+            when (it) {
+                TransportType.BUS ->
+                    stringResource(R.string.transport_type_bus)
+
+                TransportType.TRAIN ->
+                    stringResource(R.string.transport_type_train)
+            }
         },
         expanded = typeExpanded,
         onExpandedChange = {

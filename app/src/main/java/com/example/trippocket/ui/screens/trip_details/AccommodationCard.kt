@@ -16,10 +16,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.utils.formatTripDateTime
 import com.example.trippocket.utils.formatTripTime
+import com.example.trippocket.R
 
 @Composable
 fun AccommodationCard(
@@ -64,13 +66,20 @@ fun AccommodationCard(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "Check in: ${formatTripTime(accommodation.checkOut)}",
+                        text = "${stringResource(R.string.trip_details_accommodation_checkin_label)}: ${
+                            formatTripTime(
+                                accommodation.checkOut
+                            )
+                        }",
                         style = MaterialTheme.typography.bodyMedium
                     )
 
-
                     Text(
-                        text = "Check out: ${formatTripDateTime(accommodation.checkOut)}",
+                        text = "${stringResource(R.string.trip_details_accommodation_checkout_label)}: ${
+                            formatTripDateTime(
+                                accommodation.checkOut
+                            )
+                        }",
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }

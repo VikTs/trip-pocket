@@ -17,11 +17,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.DateInput
 import com.example.trippocket.ui.components.TopBar
 import java.time.LocalDate
+import com.example.trippocket.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,7 +48,11 @@ fun CreateTripScreen(
     Scaffold(
         topBar = {
             TopBar(
-                title = if (isEditMode) "Edit trip" else "Create trip",
+                title = if (isEditMode)
+                    stringResource(R.string.edit_trip_title)
+                else stringResource(
+                    R.string.create_trip_title
+                ),
                 onBackClick = onBackClick
             )
         }
@@ -63,7 +69,7 @@ fun CreateTripScreen(
                     tripName = newValue
                 },
                 label = {
-                    Text("Trip name")
+                    Text(stringResource(R.string.create_trip_name_label))
                 },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -73,7 +79,7 @@ fun CreateTripScreen(
             )
 
             DateInput(
-                label = "Start date",
+                label = stringResource(R.string.create_trip_start_date_label),
                 selectedDate = startDate,
                 onDateSelected = { date ->
                     startDate = date
@@ -89,7 +95,7 @@ fun CreateTripScreen(
             )
 
             DateInput(
-                label = "End date",
+                label = stringResource(R.string.create_trip_end_date_label),
                 selectedDate = endDate,
                 minDate = startDate,
                 onDateSelected = { date ->
@@ -123,7 +129,10 @@ fun CreateTripScreen(
                         startDate != null &&
                         endDate != null
             ) {
-                Text(if (isEditMode) "Save changes" else "Create trip")
+                Text(
+                    if (isEditMode) stringResource(R.string.common_save_changes)
+                    else stringResource(R.string.create_trip_btn_label)
+                )
             }
         }
     }

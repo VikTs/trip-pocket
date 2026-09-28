@@ -1,3 +1,94 @@
 <resources>
     <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Save changes</string>
+    <string name="common_edit">Edit</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="transport_type_bus">Bus</string>
+    <string name="transport_type_train">Train</string>
+    <string name="date_input_placeholder">Select date</string>
+    <string name="time_input_placeholder">Select date</string>
+
+    <string name="edit_transport_title">Edit transport</string>
+    <string name="add_transport_title">Add transport</string>
+    <string name="add_transport_from_section_title">From</string>
+    <string name="add_transport_to_section_title">To</string>
+    <string name="add_transport_btn_label">Add transport</string>
+    <string name="add_transport_bus_number_label">Bus number</string>
+    <string name="add_transport_place_label">Place</string>
+    <string name="add_transport_ticket_section_title">Ticket</string>
+    <string name="add_transport_ticket_upload_label">Upload ticket</string>
+    <string name="add_transport_train_number_label">Train number*</string>
+    <string name="add_transport_coach_label">Coach</string>
+    <string name="add_transport_transport_section_title">Transport</string>
+    <string name="add_transport_type_label">Type*</string>
+    <string name="add_transport_date_label">Date*</string>
+    <string name="add_transport_time_label">Time*</string>
+    <string name="add_transport_address_label">Address</string>
+    <string name="add_transport_city_label">City*</string>
+
+    <string name="edit_trip_title">Edit trip</string>
+    <string name="create_trip_title">Create trip</string>
+    <string name="create_trip_name_label">Trip name</string>
+    <string name="create_trip_start_date_label">Start date</string>
+    <string name="create_trip_end_date_label">End date</string>
+    <string name="create_trip_btn_label">Create trip</string>
+
+    <string name="transport_details_open_ticket_btn_label">Open ticket</string>
+    <string name="transport_details_bus_info_title">Bus info</string>
+    <string name="transport_details_train_info_title">Train info</string>
+    <string name="transport_details_coach_label">Coach</string>
+    <string name="transport_details_seat_label">Seat</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Add to trip</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Transport</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Accommodation</string>
+
+    <string name="trip_details_title">Trip details</string>
+    <string name="trip_details_accommodation_checkin_label">Check in</string>
+    <string name="trip_details_accommodation_checkout_label">Check out</string>
+    <string name="trip_details_empty_message">Your trip is empty</string>
+    <string name="trip_details_add_btn_label">Add/string</string>
+    <string name="trip_details_transport_card_coach_label">coach</string>
+    <string name="trip_details_transport_card_seat_label">seat</string>
+    <string name="trip_details_transport_card_department_label">Dep.</string>
+    <string name="trip_details_transport_card_arrival_label">Arrival</string>
+
+    <string name="trips_empty_message">You don\'t have planned trips</string>
+    <string name="trips_add_btn_label">Add trip</string>
+    <string name="trips_trip_card_today_label">Today</string>
+    <string name="trips_trip_card_completed_label">Completed</string>
+    <string name="trips_trip_card_duration_and_dates_label">%1$d days  |  %2$s</string>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">In %d day</item>
+        <item quantity="other">In %d days</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Past</string>
+    <string name="trips_toggle_upcoming_label">Upcoming</string>
+    <string name="trips_toggle_empty_message">No trips found</string>
+    <string name="trips_title">My trips</string>
+
+    <string name="add_accommodation_title">Add accommodation</string>
+    <string name="edit_accommodation_title">Edit accommodation</string>
+    <string name="add_accommodation_general_section_title">Accommodation</string>
+    <string name="add_accommodation_name_label">Name*</string>
+    <string name="add_accommodation_address_label">Address</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Date*</string>
+    <string name="add_accommodation_time_label">Time*</string>
+    <string name="add_accommodation_btn_label">Add accommodation</string>
+
+    <string name="accommodation_details_title">Accommodation info</string>
+    <string name="accommodation_details_address_label">Address</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+
+    <string name="notification_upcoming_transport">Upcoming %1$s to %2$s</string>
+    <string name="notification_upcoming_bus">Upcoming bus to %1$s</string>
+    <string name="notification_upcoming_train">Upcoming train to %1$s</string>
+    <string name="notification_departure_time">Departure time: %1$s</string>
+    <string name="notification_default_message">You have an upcoming event</string>
 </resources>

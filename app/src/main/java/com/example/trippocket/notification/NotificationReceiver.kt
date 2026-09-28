@@ -25,7 +25,10 @@ class NotificationReceiver : BroadcastReceiver() {
         }
 
         val notificationId =
-            intent.getLongExtra("notificationId", 0L)
+            intent.getLongExtra(
+                "notificationId",
+                0L
+            )
 
         val title =
             intent.getStringExtra("title")
@@ -33,7 +36,9 @@ class NotificationReceiver : BroadcastReceiver() {
 
         val message =
             intent.getStringExtra("message")
-                ?: "You have an upcoming event"
+                ?: context.getString(
+                    R.string.notification_default_message
+                )
 
         val notification = NotificationCompat.Builder(
             context,
@@ -42,7 +47,9 @@ class NotificationReceiver : BroadcastReceiver() {
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle(title)
             .setContentText(message)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(
+                NotificationCompat.PRIORITY_DEFAULT
+            )
             .setAutoCancel(true)
             .build()
 

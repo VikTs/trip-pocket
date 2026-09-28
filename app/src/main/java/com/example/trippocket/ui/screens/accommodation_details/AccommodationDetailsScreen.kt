@@ -17,11 +17,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.utils.formatTripDate
 import com.example.trippocket.utils.formatTripTime
+import com.example.trippocket.R
 
 @Composable
 fun AccommodationDetailsScreen(
@@ -33,7 +35,7 @@ fun AccommodationDetailsScreen(
     Scaffold(
         topBar = {
             TopBar(
-                title = "Accommodation",
+                title = stringResource(R.string.accommodation_details_title),
                 onBackClick = onBackClick,
                 actions = {
                     AccommodationActionsMenu(
@@ -80,19 +82,19 @@ fun AccommodationDetailsScreen(
                 ?.takeIf { it.isNotBlank() }
                 ?.let {
                     DetailRow(
-                        label = "Address",
+                        label = stringResource(R.string.accommodation_details_address_label),
                         value = it
                     )
                 }
 
             DetailRow(
-                label = "Check-in",
+                label = stringResource(R.string.accommodation_details_check_in_label),
                 value = "${formatTripDate(accommodation.checkIn.toLocalDate())}, " +
                         formatTripTime(accommodation.checkIn)
             )
 
             DetailRow(
-                label = "Check-out",
+                label = stringResource(R.string.accommodation_details_check_out_label),
                 value = "${formatTripDate(accommodation.checkOut.toLocalDate())}, " +
                         formatTripTime(accommodation.checkOut)
             )
