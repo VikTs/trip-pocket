@@ -28,6 +28,7 @@ import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.TransportsViewModel
 import com.example.trippocket.R
+import com.example.trippocket.data.model.Document
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -60,12 +61,16 @@ fun AddTransportScreen(
                 toDate = transport.to.time.toLocalDate(),
                 toTime = transport.to.time.toLocalTime(),
                 toAddress = transport.to.address,
-                documentPath = transport.ticketPath
+                documentPath = transport.document?.path,
+                documentName = transport.document?.name
             )
         } ?: AddTransportState())
     }
 
     fun onSaveTransport() {
+        val documentName = state.documentName
+        val documentPath = state.documentPath
+
         val transport = Transport(
             id = editTransport?.id ?: 0,
             tripId = tripId,
@@ -73,14 +78,24 @@ fun AddTransportScreen(
             transportNumber = state.transportNumber?.ifBlank { null },
             coach = state.coach?.ifBlank { null },
             place = state.place?.ifBlank { null },
-            ticketPath = state.documentPath,
+            document = if (
+                documentName != null &&
+                documentPath != null
+            ) {
+                Document(
+                    name = documentName,
+                    path = documentPath
+                )
+            } else {
+                null
+            },
             from = TransportStop(
                 city = state.fromCity.trim(),
                 time = LocalDateTime.of(
                     state.fromDate,
                     state.fromTime
                 ),
-                address = state.fromAddress?.ifBlank { null }
+                address = state.fromAddress
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -88,7 +103,7 @@ fun AddTransportScreen(
                     state.toDate,
                     state.toTime
                 ),
-                address = state.toAddress?.ifBlank { null }
+                address = state.toAddress
             )
         )
 
@@ -205,11 +220,11 @@ data class AddTransportState(
     val fromCity: String = "",
     val fromDate: LocalDate? = null,
     val fromTime: LocalTime? = null,
-    val fromAddress: String? = null,
+    val fromAddress: String = "",
     val toCity: String = "",
     val toDate: LocalDate? = null,
     val toTime: LocalTime? = null,
-    val toAddress: String? = null,
+    val toAddress: String = "",
     val documentPath: String? = null,
     val documentName: String? = null
 ) {
@@ -217,6 +232,8 @@ data class AddTransportState(
         get() =
             fromCity.trim().isNotBlank() &&
                     toCity.trim().isNotBlank() &&
+                    fromAddress.trim().isNotBlank() &&
+                    toAddress.trim().isNotBlank() &&
                     fromDate != null &&
                     fromTime != null &&
                     toDate != null &&

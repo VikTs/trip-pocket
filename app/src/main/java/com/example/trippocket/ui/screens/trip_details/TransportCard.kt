@@ -122,7 +122,7 @@ fun TransportCard(
                     )
                 }
 
-                transport.ticketPath?.let { path ->
+                transport.document?.let {
                     Surface(
                         modifier = Modifier
                             .align(Alignment.TopEnd)
@@ -136,7 +136,7 @@ fun TransportCard(
                         onClick = {
                             openFile(
                                 context = context,
-                                path = path
+                                path = it.path
                             )
                         }
                     ) {

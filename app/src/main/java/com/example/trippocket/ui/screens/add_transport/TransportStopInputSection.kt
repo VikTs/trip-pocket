@@ -29,7 +29,7 @@ fun TransportStopInputSection(
     onCityChange: (String) -> Unit,
     onDateChange: (LocalDate) -> Unit,
     onTimeChange: (LocalTime) -> Unit,
-    onAddressChange: (String?) -> Unit,
+    onAddressChange: (String) -> Unit,
 ) {
     Text(
         text = title,
@@ -76,7 +76,10 @@ fun TransportStopInputSection(
             Text(stringResource(R.string.add_transport_address_label))
         },
         singleLine = true,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        placeholder = {
+            Text(stringResource(R.string.add_transport_address_placeholder))
+        },
     )
 
     Spacer(

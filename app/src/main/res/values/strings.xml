@@ -26,7 +26,8 @@
     <string name="add_transport_type_label">Type*</string>
     <string name="add_transport_date_label">Date*</string>
     <string name="add_transport_time_label">Time*</string>
-    <string name="add_transport_address_label">Address</string>
+    <string name="add_transport_address_label">Location*</string>
+    <string name="add_transport_address_placeholder">Address or station</string>
     <string name="add_transport_city_label">City*</string>
 
     <string name="edit_trip_title">Edit trip</string>
@@ -91,4 +92,13 @@
     <string name="notification_upcoming_train">Upcoming train to %1$s</string>
     <string name="notification_departure_time">Departure time: %1$s</string>
     <string name="notification_default_message">You have an upcoming event</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
 </resources>
