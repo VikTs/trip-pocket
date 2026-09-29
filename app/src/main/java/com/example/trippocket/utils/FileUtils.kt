@@ -3,18 +3,27 @@ package com.example.trippocket.utils
 import android.content.Context
 import android.net.Uri
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.pdf.PdfRenderer
+import android.os.ParcelFileDescriptor
 import android.provider.OpenableColumns
 import androidx.core.content.FileProvider
+import androidx.core.graphics.createBitmap
 import java.io.File
+import kotlin.use
 
 fun copyFileToInternalStorage(
     context: Context,
-    uri: Uri
+    uri: Uri,
+    name: String?
 ): String {
     val ticketsDirectory = File(
         context.filesDir,
         "tickets"
     )
+
+    val fileName = name ?: "ticket_${System.currentTimeMillis()}"
 
     ticketsDirectory.mkdirs()
 
@@ -29,7 +38,7 @@ fun copyFileToInternalStorage(
 
     val destinationFile = File(
         ticketsDirectory,
-        "ticket_${System.currentTimeMillis()}$extension"
+        "${fileName}$extension"
     )
 
     context.contentResolver
@@ -113,16 +122,69 @@ fun handlePickedFile(
     onPathChange: ((String) -> Unit),
     onNameChange: ((String?) -> Unit)? = null
 ) {
-    val path = copyFileToInternalStorage(
-        context = context,
-        uri = uri
-    )
-
     val name = getFileName(
         context = context,
         uri = uri
     )
 
+    val path = copyFileToInternalStorage(
+        context = context,
+        uri = uri,
+        name = name
+    )
+
     onPathChange(path)
     onNameChange?.invoke(name)
+}
+
+fun loadFilePreview(path: String): Bitmap? {
+    val file = File(path)
+
+    if (!file.exists()) {
+        return null
+    }
+
+    return when {
+        file.extension.equals("pdf", ignoreCase = true) -> {
+            loadPdfPreview(file)
+        }
+
+        else -> {
+            BitmapFactory.decodeFile(file.absolutePath)
+        }
+    }
+}
+
+private fun loadPdfPreview(file: File): Bitmap? {
+    val descriptor = ParcelFileDescriptor.open(
+        file,
+        ParcelFileDescriptor.MODE_READ_ONLY
+    )
+
+    descriptor.use {
+        PdfRenderer(it).use { renderer ->
+            if (renderer.pageCount == 0) {
+                return null
+            }
+
+            renderer.openPage(0).use { page ->
+                val scale = 2
+
+                val bitmap = createBitmap(
+                    page.width * scale,
+                    page.height * scale,
+                    Bitmap.Config.ARGB_8888
+                )
+
+                page.render(
+                    bitmap,
+                    null,
+                    null,
+                    PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY
+                )
+
+                return bitmap
+            }
+        }
+    }
 }

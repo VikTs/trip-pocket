@@ -3,14 +3,9 @@ package com.example.trippocket.ui.screens.transport_details
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Description
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,12 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.Transport
-import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.utils.openFile
 import com.example.trippocket.R
+import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportType
+import com.example.trippocket.ui.components.DocumentPreview
+import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.ui.screens.transport_details.transport_timeline.TransportTimeline
+import com.example.trippocket.utils.openFile
 
 @Composable
 fun TransportDetailsScreen(
@@ -71,30 +67,26 @@ fun TransportDetailsScreen(
                 transport = transport
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(40.dp))
 
             transport.document?.let {
+                Text(
+                    stringResource(R.string.transport_details_documents_section_title),
+                    style = MaterialTheme.typography.titleMedium
+                )
+
                 Spacer(modifier = Modifier.height(24.dp))
 
-                OutlinedButton(
+                DocumentPreview(
+                    path = it.path,
+                    fileName = it.name,
                     onClick = {
                         openFile(
                             context = context,
                             path = it.path
                         )
-                    },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Description,
-                        contentDescription = null
-                    )
-
-                    Spacer(modifier = Modifier.width(8.dp))
-
-                    Text(stringResource(R.string.transport_details_open_ticket_btn_label))
-                }
-
+                    }
+                )
             }
         }
     }
