@@ -73,14 +73,14 @@ fun TransportDetailsScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            transport.ticketPath?.let {
+            transport.document?.let {
                 Spacer(modifier = Modifier.height(24.dp))
 
                 OutlinedButton(
                     onClick = {
                         openFile(
                             context = context,
-                            path = it
+                            path = it.path
                         )
                     },
                     modifier = Modifier.fillMaxWidth()

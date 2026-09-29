@@ -28,6 +28,7 @@ import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.TransportsViewModel
 import com.example.trippocket.R
+import com.example.trippocket.data.model.Document
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -60,12 +61,16 @@ fun AddTransportScreen(
                 toDate = transport.to.time.toLocalDate(),
                 toTime = transport.to.time.toLocalTime(),
                 toAddress = transport.to.address,
-                documentPath = transport.ticketPath
+                documentPath = transport.document?.path,
+                documentName = transport.document?.name
             )
         } ?: AddTransportState())
     }
 
     fun onSaveTransport() {
+        val documentName = state.documentName
+        val documentPath = state.documentPath
+
         val transport = Transport(
             id = editTransport?.id ?: 0,
             tripId = tripId,
@@ -73,7 +78,17 @@ fun AddTransportScreen(
             transportNumber = state.transportNumber?.ifBlank { null },
             coach = state.coach?.ifBlank { null },
             place = state.place?.ifBlank { null },
-            ticketPath = state.documentPath,
+            document = if (
+                documentName != null &&
+                documentPath != null
+            ) {
+                Document(
+                    name = documentName,
+                    path = documentPath
+                )
+            } else {
+                null
+            },
             from = TransportStop(
                 city = state.fromCity.trim(),
                 time = LocalDateTime.of(
