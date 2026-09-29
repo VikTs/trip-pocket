@@ -9,14 +9,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.AttachFile
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,12 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.ui.extensions.toIcon
 import com.example.trippocket.utils.formatTripDateTime
 import com.example.trippocket.utils.formatTripTime
-import com.example.trippocket.utils.openFile
-import com.example.trippocket.R
 
 @Composable
 fun TransportCard(
@@ -40,9 +36,6 @@ fun TransportCard(
     isActive: Boolean,
     isPrevActive: Boolean
 ) {
-    val colorScheme = MaterialTheme.colorScheme
-    val context = LocalContext.current
-
     val departureTime = transport.from.time
     val arrivalTime = transport.to.time
 
@@ -120,34 +113,6 @@ fun TransportCard(
                         text = "${stringResource(R.string.trip_details_transport_card_arrival_label)}: $arrivalTimeString",
                         style = MaterialTheme.typography.bodyMedium
                     )
-                }
-
-                transport.document?.let {
-                    Surface(
-                        modifier = Modifier
-                            .align(Alignment.TopEnd)
-                            .padding(
-                                end = 12.dp,
-                                top = 4.dp
-                            ),
-                        shape = CircleShape,
-                        color = colorScheme.surfaceVariant,
-                        shadowElevation = 2.dp,
-                        onClick = {
-                            openFile(
-                                context = context,
-                                path = it.path
-                            )
-                        }
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.AttachFile,
-                            contentDescription = "Ticket",
-                            modifier = Modifier
-                                .size(32.dp)
-                                .padding(6.dp)
-                        )
-                    }
                 }
             }
         }

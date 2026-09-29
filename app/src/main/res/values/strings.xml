@@ -18,8 +18,8 @@
     <string name="add_transport_btn_label">Add transport</string>
     <string name="add_transport_bus_number_label">Bus number</string>
     <string name="add_transport_place_label">Place</string>
-    <string name="add_transport_ticket_section_title">Ticket</string>
-    <string name="add_transport_ticket_upload_label">Upload ticket</string>
+    <string name="add_transport_documents_section_title">Documents</string>
+    <string name="add_transport_document_upload_btn_label">Upload document</string>
     <string name="add_transport_train_number_label">Train number*</string>
     <string name="add_transport_coach_label">Coach</string>
     <string name="add_transport_transport_section_title">Transport</string>
@@ -37,11 +37,11 @@
     <string name="create_trip_end_date_label">End date</string>
     <string name="create_trip_btn_label">Create trip</string>
 
-    <string name="transport_details_open_ticket_btn_label">Open ticket</string>
     <string name="transport_details_bus_info_title">Bus info</string>
     <string name="transport_details_train_info_title">Train info</string>
     <string name="transport_details_coach_label">Coach</string>
     <string name="transport_details_seat_label">Seat</string>
+    <string name="transport_details_documents_section_title">Documents</string>
 
     <string name="add_to_trip_bottom_sheet_title">Add to trip</string>
     <string name="add_to_trip_bottom_sheet_transport_label">Transport</string>

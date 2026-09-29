@@ -272,7 +272,7 @@ fun TripPocketNavHost() {
                     onBackClick = {
                         navController.popBackStack()
                     },
-                    viewModel = viewModel
+                    viewModel = viewModel,
                 )
             }
         }
@@ -328,7 +328,9 @@ fun TripPocketNavHost() {
 
             if (tripId != null && transportId != null) {
                 val tripEntry = remember(backStackEntry) {
-                    navController.getBackStackEntry("trip/$tripId")
+                    navController.getBackStackEntry(
+                        "trip/$tripId"
+                    )
                 }
 
                 val transportViewModel: TransportsViewModel =
@@ -340,19 +342,32 @@ fun TripPocketNavHost() {
                 val transport = transports
                     .firstOrNull { it.id == transportId }
 
+                val documents by transportViewModel
+                    .getDocuments(transportId)
+                    .collectAsStateWithLifecycle(
+                        initialValue = emptyList()
+                    )
+
                 if (transport != null) {
                     TransportDetailsScreen(
                         transport = transport,
+                        documents = documents,
+                        viewModel = transportViewModel,
+
                         onBackClick = {
                             navController.popBackStack()
                         },
                         onEditClick = {
-                            navController.navigate("trip/$tripId/edit_transport/$transportId")
+                            navController.navigate(
+                                "trip/$tripId/edit_transport/$transportId"
+                            )
                         },
                         onDeleteClick = {
-                            transportViewModel.deleteTransport(transportId)
+                            transportViewModel.deleteTransport(
+                                transportId
+                            )
                             navController.popBackStack()
-                        },
+                        }
                     )
                 }
             }

@@ -5,10 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.trippocket.data.model.Notification
 import com.example.trippocket.data.model.Transport
+import com.example.trippocket.data.model.TransportDocument
 import com.example.trippocket.data.repository.NotificationRepository
+import com.example.trippocket.data.repository.TransportDocumentRepository
 import com.example.trippocket.data.repository.TransportRepository
 import com.example.trippocket.notification.NotificationScheduler
+import com.example.trippocket.ui.screens.add_transport.SelectedDocument
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.firstOrNull
@@ -21,10 +25,13 @@ class TransportsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: TransportRepository,
     private val notificationRepository: NotificationRepository,
-    private val notificationScheduler: NotificationScheduler
+    private val notificationScheduler: NotificationScheduler,
+    private val transportDocumentRepository: TransportDocumentRepository
 ) : ViewModel() {
     private val tripId: Long =
-        checkNotNull(savedStateHandle.get<String>("tripId")).toLong()
+        checkNotNull(
+            savedStateHandle.get<String>("tripId")
+        ).toLong()
 
     val transports: StateFlow<List<Transport>> =
         repository
@@ -35,9 +42,23 @@ class TransportsViewModel @Inject constructor(
                 initialValue = emptyList()
             )
 
-    fun addTransport(transport: Transport) {
+    fun addTransport(
+        transport: Transport,
+        documents: List<SelectedDocument>
+    ) {
         viewModelScope.launch {
-            val transportId = repository.addTransport(transport)
+            val transportId =
+                repository.addTransport(transport)
+
+            documents.forEach { document ->
+                transportDocumentRepository.addDocument(
+                    TransportDocument(
+                        transportId = transportId,
+                        name = document.name,
+                        path = document.path
+                    )
+                )
+            }
 
             val notification = Notification(
                 transportId = transportId,
@@ -46,20 +67,28 @@ class TransportsViewModel @Inject constructor(
             )
 
             val notificationId =
-                notificationRepository.addNotification(notification)
+                notificationRepository.addNotification(
+                    notification
+                )
 
-            val savedNotification = notification.copy(
-                id = notificationId
-            )
+            val savedNotification =
+                notification.copy(
+                    id = notificationId
+                )
 
             notificationScheduler.schedule(
                 notification = savedNotification,
-                transport = transport.copy(id = transportId)
+                transport = transport.copy(
+                    id = transportId
+                )
             )
         }
     }
 
-    fun updateTransport(transport: Transport) {
+    fun updateTransport(
+        transport: Transport,
+        documents: List<SelectedDocument>
+    ) {
         viewModelScope.launch {
             val notification =
                 notificationRepository
@@ -67,10 +96,28 @@ class TransportsViewModel @Inject constructor(
                     .firstOrNull()
 
             if (notification != null) {
-                notificationScheduler.cancel(notification.id)
+                notificationScheduler.cancel(
+                    notification.id
+                )
             }
 
-            repository.updateTransport(transport)
+            repository.updateTransport(
+                transport
+            )
+
+            transportDocumentRepository.deleteForTransport(
+                transport.id
+            )
+
+            documents.forEach { document ->
+                transportDocumentRepository.addDocument(
+                    TransportDocument(
+                        transportId = transport.id,
+                        name = document.name,
+                        path = document.path
+                    )
+                )
+            }
 
             if (notification?.enabled == true) {
                 notificationScheduler.schedule(
@@ -81,7 +128,9 @@ class TransportsViewModel @Inject constructor(
         }
     }
 
-    fun deleteTransport(id: Long) {
+    fun deleteTransport(
+        id: Long
+    ) {
         viewModelScope.launch {
             val notification =
                 notificationRepository
@@ -89,11 +138,49 @@ class TransportsViewModel @Inject constructor(
                     .firstOrNull()
 
             if (notification != null) {
-                notificationScheduler.cancel(notification.id)
-                notificationRepository.deleteNotification(notification.id)
+                notificationScheduler.cancel(
+                    notification.id
+                )
+
+                notificationRepository.deleteNotification(
+                    notification.id
+                )
             }
 
             repository.deleteTransport(id)
+        }
+    }
+
+    fun getDocuments(
+        transportId: Long
+    ): Flow<List<TransportDocument>> =
+        transportDocumentRepository.getForTransport(
+            transportId
+        )
+
+    fun addDocument(
+        transportId: Long,
+        name: String,
+        path: String
+    ) {
+        viewModelScope.launch {
+            transportDocumentRepository.addDocument(
+                TransportDocument(
+                    transportId = transportId,
+                    name = name,
+                    path = path
+                )
+            )
+        }
+    }
+
+    fun deleteDocument(
+        id: Long
+    ) {
+        viewModelScope.launch {
+            transportDocumentRepository.deleteDocument(
+                id
+            )
         }
     }
 }

@@ -21,7 +21,7 @@ import com.example.trippocket.ui.extensions.toIcon
 import com.example.trippocket.R
 
 @Composable
-fun TransportInfo(transport: Transport) {
+fun TransportInfoSection(transport: Transport) {
     val typography = MaterialTheme.typography
 
     Row(

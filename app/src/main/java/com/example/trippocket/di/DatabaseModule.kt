@@ -6,6 +6,7 @@ import androidx.sqlite.driver.AndroidSQLiteDriver
 import com.example.trippocket.data.dao.AccommodationDao
 import com.example.trippocket.data.dao.NotificationDao
 import com.example.trippocket.data.dao.TransportDao
+import com.example.trippocket.data.dao.TransportDocumentDao
 import com.example.trippocket.data.dao.TripDao
 import com.example.trippocket.data.database.TripDatabase
 import dagger.Module
@@ -59,4 +60,9 @@ object DatabaseModule {
     ): AccommodationDao {
         return database.accommodationDao()
     }
+
+    @Provides
+    fun provideTransportDocumentDao(
+        database: TripDatabase
+    ): TransportDocumentDao = database.transportDocumentDao()
 }

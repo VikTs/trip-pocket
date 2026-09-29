@@ -3,37 +3,34 @@ package com.example.trippocket.ui.screens.transport_details
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Description
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.Transport
-import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.utils.openFile
 import com.example.trippocket.R
+import com.example.trippocket.data.model.Transport
+import com.example.trippocket.data.model.TransportDocument
 import com.example.trippocket.data.model.TransportType
+import com.example.trippocket.ui.components.TopBar
+import com.example.trippocket.ui.components.rememberFilePicker
 import com.example.trippocket.ui.screens.transport_details.transport_timeline.TransportTimeline
+import com.example.trippocket.viewmodel.TransportsViewModel
 
 @Composable
 fun TransportDetailsScreen(
     transport: Transport,
+    documents: List<TransportDocument>,
+    viewModel: TransportsViewModel,
     onBackClick: () -> Unit,
     onDeleteClick: (id: Long) -> Unit,
     onEditClick: (id: Long) -> Unit,
 ) {
-    val context = LocalContext.current
-
     val title = when (transport.transportType) {
         TransportType.BUS ->
             stringResource(R.string.transport_details_bus_info_title)
@@ -41,6 +38,19 @@ fun TransportDetailsScreen(
         TransportType.TRAIN ->
             stringResource(R.string.transport_details_train_info_title)
     }
+
+    val context = LocalContext.current
+
+    val pickFile = rememberFilePicker(
+        context = context,
+        onFileSelected = { document ->
+            viewModel.addDocument(
+                transportId = transport.id,
+                name = document.name,
+                path = document.path
+            )
+        }
+    )
 
     Scaffold(
         topBar = {
@@ -60,42 +70,27 @@ fun TransportDetailsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
                 .padding(16.dp)
         ) {
-            TransportInfo(transport = transport)
+            TransportInfoSection(
+                transport = transport
+            )
 
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(
+                modifier = Modifier.height(40.dp)
+            )
 
             TransportTimeline(
                 transport = transport
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
-
-            transport.document?.let {
-                Spacer(modifier = Modifier.height(24.dp))
-
-                OutlinedButton(
-                    onClick = {
-                        openFile(
-                            context = context,
-                            path = it.path
-                        )
-                    },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Description,
-                        contentDescription = null
-                    )
-
-                    Spacer(modifier = Modifier.width(8.dp))
-
-                    Text(stringResource(R.string.transport_details_open_ticket_btn_label))
-                }
-
-            }
+            TransportDocumentsSection(
+                documents = documents,
+                onAddDocument = pickFile
+            )
         }
     }
 }
+
