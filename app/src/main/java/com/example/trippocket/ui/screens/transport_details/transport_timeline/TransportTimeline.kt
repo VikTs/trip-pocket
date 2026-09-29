@@ -37,7 +37,7 @@ fun TransportTimeline(
     Row(
         modifier = modifier.fillMaxWidth()
     ) {
-        TimelineLine(Modifier.padding(top = 3.dp))
+        TimelineLine(Modifier.height(110.dp))
 
         Spacer(
             modifier = Modifier.width(12.dp)
@@ -46,12 +46,12 @@ fun TransportTimeline(
         Column(
             modifier = Modifier
                 .weight(1f)
-                .height(160.dp)
+                .height(180.dp)
         ) {
             TransportLocation(
                 city = transport.from.city,
                 address = transport.from.address,
-                modifier = Modifier.height(50.dp)
+                modifier = Modifier.height(60.dp)
             )
 
             TransportDuration(
@@ -63,7 +63,7 @@ fun TransportTimeline(
             TransportLocation(
                 city = transport.to.city,
                 address = transport.to.address,
-                modifier = Modifier.height(50.dp)
+                modifier = Modifier.height(60.dp)
             )
         }
 
@@ -72,21 +72,23 @@ fun TransportTimeline(
         )
 
         Column(
-            modifier = Modifier.height(150.dp)
+            modifier = Modifier
+                .height(170.dp)
+                .padding(top = 3.dp)
         ) {
             TransportTime(
                 time = transport.from.time,
-                modifier = Modifier.height(45.dp)
+                modifier = Modifier.height(50.dp)
             )
 
             Spacer(
-                modifier = Modifier.height(60.dp)
+                modifier = Modifier.height(72.dp)
             )
 
             TransportTime(
                 time = transport.to.time,
                 dayOffset = arrivalDayOffset,
-                modifier = Modifier.height(45.dp)
+                modifier = Modifier.height(50.dp)
             )
         }
     }

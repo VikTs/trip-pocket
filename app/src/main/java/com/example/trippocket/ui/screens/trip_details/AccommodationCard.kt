@@ -36,7 +36,7 @@ fun AccommodationCard(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Spacer(modifier = Modifier.width(43.dp))
+        Spacer(modifier = Modifier.width(44.dp))
 
         TimelineNode(
             icon = Icons.Default.Hotel,

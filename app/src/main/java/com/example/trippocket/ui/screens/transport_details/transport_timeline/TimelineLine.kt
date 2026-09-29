@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -21,15 +20,14 @@ fun TimelineLine(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.padding(top = 3.dp),
+        modifier = Modifier.padding(top = 6.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TimelinePoint()
 
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .width(2.dp)
-                .height(100.dp)
                 .background(
                     MaterialTheme.colorScheme.outlineVariant
                 )

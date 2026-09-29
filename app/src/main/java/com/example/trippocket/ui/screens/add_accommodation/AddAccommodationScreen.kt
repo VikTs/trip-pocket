@@ -199,9 +199,8 @@ fun AddAccommodationScreen(
                         Accommodation(
                             id = accommodation?.id ?: 0,
                             tripId = tripId,
-                            name = state.name,
-                            address = state.address
-                                .ifBlank { null },
+                            name = state.name.trim(),
+                            address = state.address.trim(),
                             checkIn = checkIn,
                             checkOut = checkOut,
                         )
@@ -228,12 +227,11 @@ data class AddAccommodationState(
     val checkInTime: LocalTime? = null,
     val checkOutDate: LocalDate? = null,
     val checkOutTime: LocalTime? = null,
-    val bookingNumber: String = "",
-    val documentPath: String? = null
 ) {
     val isValid: Boolean
         get() =
             name.trim().isNotBlank() &&
+                    address.trim().isNotBlank() &&
                     checkInDate != null &&
                     checkInTime != null &&
                     checkOutDate != null &&

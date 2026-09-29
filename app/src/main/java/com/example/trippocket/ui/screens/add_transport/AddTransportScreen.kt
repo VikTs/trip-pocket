@@ -96,7 +96,7 @@ fun AddTransportScreen(
                     state.fromDate,
                     state.fromTime
                 ),
-                address = state.fromAddress,
+                address = state.fromAddress.trim(),
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -104,7 +104,7 @@ fun AddTransportScreen(
                     state.toDate,
                     state.toTime
                 ),
-                address = state.toAddress,
+                address = state.toAddress.trim(),
             )
         )
 

@@ -14,6 +14,19 @@ fun DetailRow(
     label: String,
     value: String
 ) {
+    DetailRow(label = label) {
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+}
+
+@Composable
+fun DetailRow(
+    label: String,
+    value: @Composable () -> Unit
+) {
     Column {
         Text(
             text = label,
@@ -21,17 +34,10 @@ fun DetailRow(
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(
-            modifier = Modifier.height(4.dp)
-        )
+        Spacer(modifier = Modifier.height(4.dp))
 
-        Text(
-            text = value,
-            style = MaterialTheme.typography.bodyLarge
-        )
+        value()
     }
 
-    Spacer(
-        modifier = Modifier.height(16.dp)
-    )
+    Spacer(modifier = Modifier.height(16.dp))
 }
