@@ -5,9 +5,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
@@ -15,12 +18,15 @@ import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportDocument
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
+import com.example.trippocket.ui.components.rememberFilePicker
 import com.example.trippocket.ui.screens.transport_details.transport_timeline.TransportTimeline
+import com.example.trippocket.viewmodel.TransportsViewModel
 
 @Composable
 fun TransportDetailsScreen(
     transport: Transport,
     documents: List<TransportDocument>,
+    viewModel: TransportsViewModel,
     onBackClick: () -> Unit,
     onDeleteClick: (id: Long) -> Unit,
     onEditClick: (id: Long) -> Unit,
@@ -32,6 +38,19 @@ fun TransportDetailsScreen(
         TransportType.TRAIN ->
             stringResource(R.string.transport_details_train_info_title)
     }
+
+    val context = LocalContext.current
+
+    val pickFile = rememberFilePicker(
+        context = context,
+        onFileSelected = { document ->
+            viewModel.addDocument(
+                transportId = transport.id,
+                name = document.name,
+                path = document.path
+            )
+        }
+    )
 
     Scaffold(
         topBar = {
@@ -51,10 +70,11 @@ fun TransportDetailsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
                 .padding(16.dp)
         ) {
-            TransportInfo(
+            TransportInfoSection(
                 transport = transport
             )
 
@@ -66,9 +86,11 @@ fun TransportDetailsScreen(
                 transport = transport
             )
 
-            if (documents.isNotEmpty()) {
-                TransportDocumentsSection(documents)
-            }
+            TransportDocumentsSection(
+                documents = documents,
+                onAddDocument = pickFile
+            )
         }
     }
 }
+

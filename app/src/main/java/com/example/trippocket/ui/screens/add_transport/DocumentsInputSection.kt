@@ -1,8 +1,6 @@
 package com.example.trippocket.ui.screens.add_transport
 
 import android.content.Context
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,77 +16,24 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
 import com.example.trippocket.R
-import com.example.trippocket.utils.createFilePickerIntent
-import com.example.trippocket.utils.handlePickedFile
+import com.example.trippocket.ui.components.rememberFilePicker
 
 @Composable
-fun TicketInputSection(
+fun DocumentsInputSection(
     context: Context,
     documents: List<SelectedDocument>,
     onAddDocument: (SelectedDocument) -> Unit,
     onRemoveDocument: (SelectedDocument) -> Unit
 ) {
-    var selectedPath by remember {
-        mutableStateOf<String?>(null)
-    }
-
-    var selectedName by remember {
-        mutableStateOf<String?>(null)
-    }
-
-    val filePickerLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        val uri = result.data?.data
-            ?: return@rememberLauncherForActivityResult
-
-        selectedPath = null
-        selectedName = null
-
-        handlePickedFile(
-            context = context,
-            uri = uri,
-            onPathChange = { path ->
-                selectedPath = path
-
-                if (selectedName != null) {
-                    onAddDocument(
-                        SelectedDocument(
-                            name = selectedName!!,
-                            path = path
-                        )
-                    )
-
-                    selectedPath = null
-                    selectedName = null
-                }
-            },
-            onNameChange = { name ->
-                selectedName = name
-
-                if (selectedPath != null && name != null) {
-                    onAddDocument(
-                        SelectedDocument(
-                            name = name,
-                            path = selectedPath!!
-                        )
-                    )
-
-                    selectedPath = null
-                    selectedName = null
-                }
-            }
-        )
-    }
+    val pickFile = rememberFilePicker(
+        context = context,
+        onFileSelected = onAddDocument
+    )
 
     Text(
         text = stringResource(
@@ -128,10 +73,7 @@ fun TicketInputSection(
     }
 
     Button(
-        onClick = {
-            val intent = createFilePickerIntent()
-            filePickerLauncher.launch(intent)
-        }
+        onClick = pickFile
     ) {
         Text(
             "+ ${

@@ -157,4 +157,30 @@ class TransportsViewModel @Inject constructor(
         transportDocumentRepository.getForTransport(
             transportId
         )
+
+    fun addDocument(
+        transportId: Long,
+        name: String,
+        path: String
+    ) {
+        viewModelScope.launch {
+            transportDocumentRepository.addDocument(
+                TransportDocument(
+                    transportId = transportId,
+                    name = name,
+                    path = path
+                )
+            )
+        }
+    }
+
+    fun deleteDocument(
+        id: Long
+    ) {
+        viewModelScope.launch {
+            transportDocumentRepository.deleteDocument(
+                id
+            )
+        }
+    }
 }
