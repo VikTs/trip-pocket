@@ -3,10 +3,13 @@ package com.example.trippocket.ui.screens.add_transport
 import android.content.Context
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.Button
@@ -15,6 +18,10 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -26,50 +33,96 @@ import com.example.trippocket.utils.handlePickedFile
 @Composable
 fun TicketInputSection(
     context: Context,
-    documentName: String?,
-    onDocumentPathChange: (String?) -> Unit,
-    onDocumentNameChange: (String?) -> Unit,
+    documents: List<SelectedDocument>,
+    onAddDocument: (SelectedDocument) -> Unit,
+    onRemoveDocument: (SelectedDocument) -> Unit
 ) {
+    var selectedPath by remember {
+        mutableStateOf<String?>(null)
+    }
+
+    var selectedName by remember {
+        mutableStateOf<String?>(null)
+    }
+
     val filePickerLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) { result ->
         val uri = result.data?.data
             ?: return@rememberLauncherForActivityResult
 
+        selectedPath = null
+        selectedName = null
+
         handlePickedFile(
             context = context,
             uri = uri,
-            onPathChange = onDocumentPathChange,
-            onNameChange = onDocumentNameChange
+            onPathChange = { path ->
+                selectedPath = path
+
+                if (selectedName != null) {
+                    onAddDocument(
+                        SelectedDocument(
+                            name = selectedName!!,
+                            path = path
+                        )
+                    )
+
+                    selectedPath = null
+                    selectedName = null
+                }
+            },
+            onNameChange = { name ->
+                selectedName = name
+
+                if (selectedPath != null && name != null) {
+                    onAddDocument(
+                        SelectedDocument(
+                            name = name,
+                            path = selectedPath!!
+                        )
+                    )
+
+                    selectedPath = null
+                    selectedName = null
+                }
+            }
         )
     }
 
     Text(
-        text = stringResource(R.string.add_transport_documents_section_title),
+        text = stringResource(
+            R.string.add_transport_documents_section_title
+        ),
         style = MaterialTheme.typography.titleMedium
     )
 
-    documentName?.let { name ->
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = name,
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.weight(1f)
-            )
-
-            IconButton(
-                onClick = {
-                    onDocumentNameChange(null)
-                    onDocumentPathChange(null)
-                }
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        documents.forEach { document ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(
-                    imageVector = Icons.Outlined.Close,
-                    contentDescription = "Remove"
+                Text(
+                    text = document.name,
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.weight(1f)
                 )
+
+                IconButton(
+                    onClick = {
+                        onRemoveDocument(document)
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.Close,
+                        contentDescription = "Remove"
+                    )
+                }
             }
         }
     }
@@ -81,9 +134,11 @@ fun TicketInputSection(
         }
     ) {
         Text(
-            "+ ${stringResource(
-                R.string.add_transport_document_upload_btn_label
-            )}"
+            "+ ${
+                stringResource(
+                    R.string.add_transport_document_upload_btn_label
+                )
+            }"
         )
     }
 

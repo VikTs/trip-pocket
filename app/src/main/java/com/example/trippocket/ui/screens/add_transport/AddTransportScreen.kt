@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -22,13 +23,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.TransportStop
+import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
+import com.example.trippocket.data.model.TransportDocument
+import com.example.trippocket.data.model.TransportStop
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.TransportsViewModel
-import com.example.trippocket.R
-import com.example.trippocket.data.model.Document
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -39,38 +40,50 @@ fun AddTransportScreen(
     tripId: Long,
     onBackClick: () -> Unit,
     viewModel: TransportsViewModel,
-    transportId: Long? = null
+    transportId: Long? = null,
 ) {
     val editTransport =
-        transportId?.let { id -> viewModel.transports.value.firstOrNull { it.id == id } }
+        transportId?.let { id ->
+            viewModel.transports.value.firstOrNull { it.id == id }
+        }
 
     val isEditMode = editTransport != null
     val context = LocalContext.current
-    var state by remember(editTransport) {
-        mutableStateOf(editTransport?.let { transport ->
-            AddTransportState(
-                transportType = transport.transportType,
-                transportNumber = transport.transportNumber.orEmpty(),
-                place = transport.place.orEmpty(),
-                coach = transport.coach.orEmpty(),
-                fromCity = transport.from.city,
-                fromDate = transport.from.time.toLocalDate(),
-                fromTime = transport.from.time.toLocalTime(),
-                fromAddress = transport.from.address,
-                toCity = transport.to.city,
-                toDate = transport.to.time.toLocalDate(),
-                toTime = transport.to.time.toLocalTime(),
-                toAddress = transport.to.address,
-                documentPath = transport.document?.path,
-                documentName = transport.document?.name
-            )
-        } ?: AddTransportState())
+
+    val documents = transportId?.let {
+        viewModel.getDocuments(it)
+            .collectAsState(initial = emptyList())
+            .value
+    } ?: emptyList()
+
+    var state by remember(editTransport, documents) {
+        mutableStateOf(
+            editTransport?.let { transport ->
+                AddTransportState(
+                    transportType = transport.transportType,
+                    transportNumber = transport.transportNumber.orEmpty(),
+                    place = transport.place.orEmpty(),
+                    coach = transport.coach.orEmpty(),
+                    fromCity = transport.from.city,
+                    fromDate = transport.from.time.toLocalDate(),
+                    fromTime = transport.from.time.toLocalTime(),
+                    fromAddress = transport.from.address,
+                    toCity = transport.to.city,
+                    toDate = transport.to.time.toLocalDate(),
+                    toTime = transport.to.time.toLocalTime(),
+                    toAddress = transport.to.address,
+                    documents = documents.map {
+                        SelectedDocument(
+                            name = it.name,
+                            path = it.path
+                        )
+                    }
+                )
+            } ?: AddTransportState()
+        )
     }
 
     fun onSaveTransport() {
-        val documentName = state.documentName
-        val documentPath = state.documentPath
-
         val transport = Transport(
             id = editTransport?.id ?: 0,
             tripId = tripId,
@@ -78,24 +91,13 @@ fun AddTransportScreen(
             transportNumber = state.transportNumber?.ifBlank { null },
             coach = state.coach?.ifBlank { null },
             place = state.place?.ifBlank { null },
-            document = if (
-                documentName != null &&
-                documentPath != null
-            ) {
-                Document(
-                    name = documentName,
-                    path = documentPath
-                )
-            } else {
-                null
-            },
             from = TransportStop(
                 city = state.fromCity.trim(),
                 time = LocalDateTime.of(
                     state.fromDate,
                     state.fromTime
                 ),
-                address = state.fromAddress
+                address = state.fromAddress,
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -103,14 +105,20 @@ fun AddTransportScreen(
                     state.toDate,
                     state.toTime
                 ),
-                address = state.toAddress
+                address = state.toAddress,
             )
         )
 
         if (isEditMode) {
-            viewModel.updateTransport(transport)
+            viewModel.updateTransport(
+                transport = transport,
+                documents = state.documents
+            )
         } else {
-            viewModel.addTransport(transport)
+            viewModel.addTransport(
+                transport = transport,
+                documents = state.documents
+            )
         }
 
         onBackClick()
@@ -119,11 +127,11 @@ fun AddTransportScreen(
     Scaffold(
         topBar = {
             TopBar(
-                title = if (isEditMode)
+                title = if (isEditMode) {
                     stringResource(R.string.edit_transport_title)
-                else stringResource(
-                    R.string.add_transport_title
-                ),
+                } else {
+                    stringResource(R.string.add_transport_title)
+                },
                 onBackClick = onBackClick
             )
         }
@@ -136,62 +144,116 @@ fun AddTransportScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+
             TransportInputSection(
                 transportType = state.transportType,
                 transportNumber = state.transportNumber,
                 coach = state.coach,
                 place = state.place,
                 onTransportTypeChange = {
-                    if (it != state.transportType)
+                    if (it != state.transportType) {
                         state = state.copy(
                             transportType = it,
                             transportNumber = null,
                             place = null,
                             coach = null
                         )
+                    }
                 },
                 onTransportNumberChange = {
-                    state = state.copy(transportNumber = it)
+                    state = state.copy(
+                        transportNumber = it
+                    )
                 },
                 onCoachChange = {
-                    state = state.copy(coach = it)
+                    state = state.copy(
+                        coach = it
+                    )
                 },
                 onPlaceChange = {
-                    state = state.copy(place = it)
+                    state = state.copy(
+                        place = it
+                    )
                 }
             )
 
             TransportStopInputSection(
-                title = stringResource(R.string.add_transport_from_section_title),
+                title = stringResource(
+                    R.string.add_transport_from_section_title
+                ),
                 city = state.fromCity,
                 date = state.fromDate,
                 time = state.fromTime,
                 address = state.fromAddress,
                 minDate = null,
-                onCityChange = { state = state.copy(fromCity = it) },
-                onDateChange = { state = state.copy(fromDate = it) },
-                onTimeChange = { state = state.copy(fromTime = it) },
-                onAddressChange = { state = state.copy(fromAddress = it) },
+                onCityChange = {
+                    state = state.copy(
+                        fromCity = it
+                    )
+                },
+                onDateChange = {
+                    state = state.copy(
+                        fromDate = it
+                    )
+                },
+                onTimeChange = {
+                    state = state.copy(
+                        fromTime = it
+                    )
+                },
+                onAddressChange = {
+                    state = state.copy(
+                        fromAddress = it
+                    )
+                }
             )
 
             TransportStopInputSection(
-                title = stringResource(R.string.add_transport_to_section_title),
+                title = stringResource(
+                    R.string.add_transport_to_section_title
+                ),
                 city = state.toCity,
                 date = state.toDate,
                 time = state.toTime,
                 address = state.toAddress,
                 minDate = state.fromDate,
-                onCityChange = { state = state.copy(toCity = it) },
-                onDateChange = { state = state.copy(toDate = it) },
-                onTimeChange = { state = state.copy(toTime = it) },
-                onAddressChange = { state = state.copy(toAddress = it) },
+                onCityChange = {
+                    state = state.copy(
+                        toCity = it
+                    )
+                },
+                onDateChange = {
+                    state = state.copy(
+                        toDate = it
+                    )
+                },
+                onTimeChange = {
+                    state = state.copy(
+                        toTime = it
+                    )
+                },
+                onAddressChange = {
+                    state = state.copy(
+                        toAddress = it
+                    )
+                }
             )
 
             TicketInputSection(
                 context = context,
-                documentName = state.documentName,
-                onDocumentPathChange = { state = state.copy(documentPath = it) },
-                onDocumentNameChange = { state = state.copy(documentName = it) },
+                documents = state.documents,
+                onAddDocument = { document ->
+                    state = state.copy(
+                        documents = state.documents + document
+                    )
+                },
+                onRemoveDocument = { document ->
+                    state = state.copy(
+                        documents = state.documents.filterNot {
+                            it.path == document.path
+                        }
+                    )
+                }
             )
 
             Button(
@@ -200,8 +262,11 @@ fun AddTransportScreen(
                 enabled = state.isValid
             ) {
                 Text(
-                    if (isEditMode) stringResource(R.string.common_save_changes)
-                    else stringResource(R.string.add_transport_btn_label)
+                    if (isEditMode) {
+                        stringResource(R.string.common_save_changes)
+                    } else {
+                        stringResource(R.string.add_transport_btn_label)
+                    }
                 )
             }
 
@@ -225,8 +290,7 @@ data class AddTransportState(
     val toDate: LocalDate? = null,
     val toTime: LocalTime? = null,
     val toAddress: String = "",
-    val documentPath: String? = null,
-    val documentName: String? = null
+    val documents: List<SelectedDocument> = emptyList()
 ) {
     val isValid: Boolean
         get() =
@@ -238,6 +302,10 @@ data class AddTransportState(
                     fromTime != null &&
                     toDate != null &&
                     toTime != null &&
-                    (transportType != TransportType.TRAIN ||
-                            !transportNumber.isNullOrBlank())
+                    (transportType != TransportType.TRAIN || !transportNumber.isNullOrBlank())
 }
+
+data class SelectedDocument(
+    val name: String,
+    val path: String
+)

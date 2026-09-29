@@ -43,12 +43,12 @@ fun DocumentPreview(
     }
 
     Column(
-        modifier = modifier.width(120.dp),
+        modifier = modifier.width(110.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Box(
             modifier = Modifier
-                .size(120.dp)
+                .size(110.dp)
                 .clip(RoundedCornerShape(12.dp))
                 .clickable(onClick = onClick),
             contentAlignment = Alignment.Center

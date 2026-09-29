@@ -272,7 +272,7 @@ fun TripPocketNavHost() {
                     onBackClick = {
                         navController.popBackStack()
                     },
-                    viewModel = viewModel
+                    viewModel = viewModel,
                 )
             }
         }
@@ -337,17 +337,24 @@ fun TripPocketNavHost() {
                 val transports by transportViewModel.transports
                     .collectAsStateWithLifecycle()
 
+                val documents by transportViewModel
+                    .getDocuments(transportId)
+                    .collectAsStateWithLifecycle(initialValue = emptyList())
+
                 val transport = transports
                     .firstOrNull { it.id == transportId }
 
                 if (transport != null) {
                     TransportDetailsScreen(
                         transport = transport,
+                        documents = documents,
                         onBackClick = {
                             navController.popBackStack()
                         },
                         onEditClick = {
-                            navController.navigate("trip/$tripId/edit_transport/$transportId")
+                            navController.navigate(
+                                "trip/$tripId/edit_transport/$transportId"
+                            )
                         },
                         onDeleteClick = {
                             transportViewModel.deleteTransport(transportId)

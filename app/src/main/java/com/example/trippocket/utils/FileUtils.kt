@@ -16,14 +16,12 @@ import kotlin.use
 fun copyFileToInternalStorage(
     context: Context,
     uri: Uri,
-    name: String?
+    fileName: String
 ): String {
     val ticketsDirectory = File(
         context.filesDir,
         "tickets"
     )
-
-    val fileName = name ?: "ticket_${System.currentTimeMillis()}"
 
     ticketsDirectory.mkdirs()
 
@@ -127,10 +125,15 @@ fun handlePickedFile(
         uri = uri
     )
 
+    val originalName = name ?: "ticket"
+    val extension = originalName.substringAfterLast('.', "")
+    val baseName = originalName.removeSuffix(".$extension")
+    val fileName = "${baseName}_${System.currentTimeMillis()}.$extension"
+
     val path = copyFileToInternalStorage(
         context = context,
         uri = uri,
-        name = name
+        fileName = fileName
     )
 
     onPathChange(path)

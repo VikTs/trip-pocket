@@ -26,9 +26,6 @@ data class Transport(
     val coach: String?,
     val place: String?,
 
-    @Embedded(prefix = "document_")
-    val document: Document?,
-
     @Embedded(prefix = "from_")
     val from: TransportStop,
 
@@ -40,11 +37,6 @@ enum class TransportType {
     BUS,
     TRAIN
 }
-
-data class Document(
-    val name: String,
-    val path: String,
-)
 
 data class TransportStop(
     val city: String,
