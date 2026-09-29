@@ -42,5 +42,5 @@ enum class TransportType {
 data class TransportStop(
     val city: String,
     val time: LocalDateTime,
-    val address: String?,
+    val address: String,
 )

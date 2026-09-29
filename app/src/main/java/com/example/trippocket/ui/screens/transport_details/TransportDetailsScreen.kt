@@ -20,10 +20,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.utils.openFile
 import com.example.trippocket.R
 import com.example.trippocket.data.model.TransportType
+import com.example.trippocket.ui.screens.transport_details.transport_timeline.TransportTimeline
 
 @Composable
 fun TransportDetailsScreen(

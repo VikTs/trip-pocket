@@ -80,7 +80,7 @@ fun AddTransportScreen(
                     state.fromDate,
                     state.fromTime
                 ),
-                address = state.fromAddress?.ifBlank { null }
+                address = state.fromAddress
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -88,7 +88,7 @@ fun AddTransportScreen(
                     state.toDate,
                     state.toTime
                 ),
-                address = state.toAddress?.ifBlank { null }
+                address = state.toAddress
             )
         )
 
@@ -205,11 +205,11 @@ data class AddTransportState(
     val fromCity: String = "",
     val fromDate: LocalDate? = null,
     val fromTime: LocalTime? = null,
-    val fromAddress: String? = null,
+    val fromAddress: String = "",
     val toCity: String = "",
     val toDate: LocalDate? = null,
     val toTime: LocalTime? = null,
-    val toAddress: String? = null,
+    val toAddress: String = "",
     val documentPath: String? = null,
     val documentName: String? = null
 ) {
@@ -217,6 +217,8 @@ data class AddTransportState(
         get() =
             fromCity.trim().isNotBlank() &&
                     toCity.trim().isNotBlank() &&
+                    fromAddress.trim().isNotBlank() &&
+                    toAddress.trim().isNotBlank() &&
                     fromDate != null &&
                     fromTime != null &&
                     toDate != null &&
