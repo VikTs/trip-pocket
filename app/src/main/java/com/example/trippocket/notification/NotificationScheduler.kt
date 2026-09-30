@@ -7,6 +7,7 @@ import android.content.Intent
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.data.model.AccommodationNotification
+import com.example.trippocket.data.model.AccommodationNotificationType
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportNotification
 import com.example.trippocket.data.model.TransportType
@@ -59,9 +60,18 @@ class NotificationScheduler(
             return
         }
 
+        val targetTime = when (notification.type) {
+            AccommodationNotificationType.CHECK_IN ->
+                accommodation.checkIn
+
+            AccommodationNotificationType.CHECK_OUT ->
+                accommodation.checkOut
+        }
+
         val notificationTime =
-            accommodation.checkIn
-                .minusMinutes(notification.minutesBefore)
+            targetTime.minusMinutes(
+                notification.minutesBefore
+            )
 
         schedule(
             notificationId = notification.id,
@@ -69,15 +79,13 @@ class NotificationScheduler(
                 .atZone(ZoneId.systemDefault())
                 .toInstant()
                 .toEpochMilli(),
-            title = context.getString(
-                R.string.notification_upcoming_check_in,
-                accommodation.name
+            title = createAccommodationTitle(
+                notification,
+                accommodation
             ),
             message = context.getString(
-                R.string.notification_check_in_time,
-                formatTripTime(
-                    accommodation.checkIn
-                )
+                R.string.notification_accommodation_time,
+                formatTripTime(targetTime)
             )
         )
     }
@@ -148,6 +156,25 @@ class NotificationScheduler(
             triggerAtMillis,
             pendingIntent
         )
+    }
+
+    private fun createAccommodationTitle(
+        notification: AccommodationNotification,
+        accommodation: Accommodation
+    ): String {
+        return when (notification.type) {
+            AccommodationNotificationType.CHECK_IN ->
+                context.getString(
+                    R.string.notification_upcoming_check_in,
+                    accommodation.name
+                )
+
+            AccommodationNotificationType.CHECK_OUT ->
+                context.getString(
+                    R.string.notification_upcoming_check_out,
+                    accommodation.name
+                )
+        }
     }
 
     private fun createTransportTitle(

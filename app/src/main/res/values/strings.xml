@@ -91,6 +91,7 @@
     <string name="accommodation_details_check_out_label">Check-out</string>
     <string name="accommodation_details_notifications_section_title">Notifications</string>
     <string name="accommodation_details_check_in_notification_label">Notify before check in</string>
+    <string name="accommodation_details_check_out_notification_label">Notify before check out</string>
 
     <string name="notification_upcoming_transport">Upcoming %1$s to %2$s</string>
     <string name="notification_upcoming_bus">Bus</string>
@@ -98,7 +99,8 @@
     <string name="notification_departure_time">Departure time: %1$s</string>
     <string name="notification_default_message">You have an upcoming event</string>
     <string name="notification_upcoming_check_in">Check-in at %1$s</string>
-    <string name="notification_check_in_time">Arrival time: %1$s</string>
+    <string name="notification_upcoming_check_out">Check-out at %1$s</string>
+    <string name="notification_accommodation_time">Time: %1$s</string>
 
     <plurals name="transport_duration_hours">
         <item quantity="one">%d hour</item>

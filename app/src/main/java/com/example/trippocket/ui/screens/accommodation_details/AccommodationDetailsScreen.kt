@@ -13,18 +13,29 @@ import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.data.model.AccommodationNotification
+import com.example.trippocket.data.model.AccommodationNotificationType
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.AccommodationViewModel
 
 @Composable
 fun AccommodationDetailsScreen(
     accommodation: Accommodation,
-    notification: AccommodationNotification?,
+    notifications: List<AccommodationNotification>?,
     viewModel: AccommodationViewModel,
     onBackClick: () -> Unit,
     onEditClick: (accommodationId: Long) -> Unit,
     onDeleteClick: (accommodationId: Long) -> Unit
 ) {
+    val checkInNotification =
+        notifications?.firstOrNull {
+            it.type == AccommodationNotificationType.CHECK_IN
+        }
+
+    val checkOutNotification =
+        notifications?.firstOrNull {
+            it.type == AccommodationNotificationType.CHECK_OUT
+        }
+
     Scaffold(
         topBar = {
             TopBar(
@@ -59,15 +70,18 @@ fun AccommodationDetailsScreen(
             )
 
             AccommodationNotificationsSection(
-                isNotificationEnabled = notification?.enabled == true,
-                onNotificationToggle = { enabled ->
-                    notification?.let {
-                        viewModel.updateNotification(
-                            notification = it.copy(
-                                enabled = enabled
+                checkInNotification = checkInNotification,
+                checkOutNotification = checkOutNotification,
+                onNotificationToggle = { type, enabled ->
+                    notifications
+                        ?.firstOrNull { it.type == type }
+                        ?.let {
+                            viewModel.updateNotification(
+                                notification = it.copy(
+                                    enabled = enabled
+                                )
                             )
-                        )
-                    }
+                        }
                 }
             )
         }

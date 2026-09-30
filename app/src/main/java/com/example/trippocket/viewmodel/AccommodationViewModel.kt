@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.data.model.AccommodationNotification
+import com.example.trippocket.data.model.AccommodationNotificationType
 import com.example.trippocket.data.repository.AccommodationNotificationRepository
 import com.example.trippocket.data.repository.AccommodationRepository
 import com.example.trippocket.notification.NotificationScheduler
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -62,35 +64,49 @@ class AccommodationViewModel @Inject constructor(
         accommodation: Accommodation
     ) {
         viewModelScope.launch {
+            val savedAccommodation =
+                accommodation.copy(
+                    tripId = tripId
+                )
+
             val accommodationId =
                 repository.addAccommodation(
-                    accommodation.copy(
-                        tripId = tripId
-                    )
+                    savedAccommodation
                 )
 
-            val notification = AccommodationNotification(
-                accommodationId = accommodationId,
-                enabled = true,
-                minutesBefore = 60
-            )
-
-            val notificationId =
-                notificationRepository.addNotification(
-                    notification
-                )
-
-            val savedNotification =
-                notification.copy(
-                    id = notificationId
-                )
-
-            notificationScheduler.scheduleAccommodation(
-                notification = savedNotification,
-                accommodation = accommodation.copy(
+            val savedAccommodationWithId =
+                savedAccommodation.copy(
                     id = accommodationId
                 )
+
+            val notifications = listOf(
+                AccommodationNotification(
+                    accommodationId = accommodationId,
+                    type = AccommodationNotificationType.CHECK_IN,
+                    enabled = true,
+                    minutesBefore = 60
+                ),
+                AccommodationNotification(
+                    accommodationId = accommodationId,
+                    type = AccommodationNotificationType.CHECK_OUT,
+                    enabled = true,
+                    minutesBefore = 60
+                )
             )
+
+            notifications.forEach { notification ->
+                val notificationId =
+                    notificationRepository.addNotification(
+                        notification
+                    )
+
+                notificationScheduler.scheduleAccommodation(
+                    notification = notification.copy(
+                        id = notificationId
+                    ),
+                    accommodation = savedAccommodationWithId
+                )
+            }
         }
     }
 
@@ -98,14 +114,14 @@ class AccommodationViewModel @Inject constructor(
         accommodation: Accommodation
     ) {
         viewModelScope.launch {
-            val notification =
+            val notifications =
                 notificationRepository
                     .getByAccommodationId(
                         accommodation.id
                     )
-                    .firstOrNull()
+                    .first()
 
-            if (notification != null) {
+            notifications?.forEach { notification ->
                 notificationScheduler.cancel(
                     notification.id
                 )
@@ -115,11 +131,13 @@ class AccommodationViewModel @Inject constructor(
                 accommodation
             )
 
-            if (notification?.enabled == true) {
-                notificationScheduler.scheduleAccommodation(
-                    notification = notification,
-                    accommodation = accommodation
-                )
+            notifications?.forEach { notification ->
+                if (notification.enabled) {
+                    notificationScheduler.scheduleAccommodation(
+                        notification = notification,
+                        accommodation = accommodation
+                    )
+                }
             }
         }
     }
@@ -128,14 +146,14 @@ class AccommodationViewModel @Inject constructor(
         accommodationId: Long
     ) {
         viewModelScope.launch {
-            val notification =
+            val notifications =
                 notificationRepository
                     .getByAccommodationId(
                         accommodationId
                     )
-                    .firstOrNull()
+                    .first()
 
-            if (notification != null) {
+            notifications?.forEach { notification ->
                 notificationScheduler.cancel(
                     notification.id
                 )
@@ -147,7 +165,7 @@ class AccommodationViewModel @Inject constructor(
         }
     }
 
-    fun getNotification(
+    fun getNotifications(
         accommodationId: Long
     ) =
         notificationRepository.getByAccommodationId(

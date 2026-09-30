@@ -10,7 +10,7 @@ class AccommodationNotificationRepository @Inject constructor(
 ) {
     fun getByAccommodationId(
         accommodationId: Long
-    ): Flow<AccommodationNotification?> =
+    ): Flow<List<AccommodationNotification>?> =
         notificationDao.getByAccommodationId(accommodationId)
 
     suspend fun addNotification(notification: AccommodationNotification): Long {

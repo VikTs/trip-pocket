@@ -18,7 +18,7 @@ interface AccommodationNotificationDao {
     )
     fun getByAccommodationId(
         accommodationId: Long
-    ): Flow<AccommodationNotification?>
+    ): Flow<List<AccommodationNotification>?>
 
     @Insert
     suspend fun insertNotification(notification: AccommodationNotification): Long

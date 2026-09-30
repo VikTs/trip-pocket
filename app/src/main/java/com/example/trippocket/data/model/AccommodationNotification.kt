@@ -16,13 +16,22 @@ import androidx.room3.PrimaryKey
         )
     ],
     indices = [
-        Index(value = ["accommodationId"])
+        Index(
+            value = ["accommodationId", "type"],
+            unique = true
+        )
     ]
 )
 data class AccommodationNotification(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val accommodationId: Long,
+    val type: AccommodationNotificationType,
     val enabled: Boolean = true,
     val minutesBefore: Long = 60
 )
+
+enum class AccommodationNotificationType {
+    CHECK_IN,
+    CHECK_OUT
+}
