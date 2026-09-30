@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.screens.transport_details
+package com.example.trippocket.ui.screens.accommodation_details
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -21,27 +21,27 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
-import com.example.trippocket.data.model.TransportDocument
+import com.example.trippocket.data.model.AccommodationDocument
 import com.example.trippocket.ui.components.DocumentPreview
 import com.example.trippocket.utils.openFile
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun TransportDocumentsSection(
-    documents: List<TransportDocument>,
+fun AccommodationDocumentsSection(
+    documents: List<AccommodationDocument>,
     onAddDocument: () -> Unit,
 ) {
     val context = LocalContext.current
 
     Text(
         text = stringResource(
-            R.string.transport_details_documents_section_title
+            R.string.accommodation_details_documents_section_title
         ),
         style = MaterialTheme.typography.titleMedium
     )
 
     Spacer(
-        modifier = Modifier.height(24.dp)
+        modifier = Modifier.height(16.dp)
     )
 
     FlowRow(

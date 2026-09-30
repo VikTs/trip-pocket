@@ -70,7 +70,7 @@ fun DocumentsInput(
         Text(
             "+ ${
                 stringResource(
-                    R.string.add_transport_document_upload_btn_label
+                    R.string.upload_btn_label
                 )
             }"
         )

@@ -211,7 +211,6 @@ fun TripPocketNavHost() {
                 ?.toLongOrNull()
 
             if (tripId != null && accommodationId != null) {
-
                 val viewModel: AccommodationViewModel = hiltViewModel()
 
                 val accommodation by viewModel
@@ -228,11 +227,18 @@ fun TripPocketNavHost() {
                         initialValue = null
                     )
 
+                val documents by viewModel
+                    .getDocuments(accommodationId)
+                    .collectAsStateWithLifecycle(
+                        initialValue = emptyList()
+                    )
+
                 accommodation?.let {
                     AccommodationDetailsScreen(
                         accommodation = it,
                         notifications = notifications,
                         viewModel = viewModel,
+                        documents = documents,
                         onBackClick = {
                             navController.popBackStack()
                         },

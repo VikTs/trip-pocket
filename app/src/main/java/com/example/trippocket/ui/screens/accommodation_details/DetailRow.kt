@@ -38,6 +38,4 @@ fun DetailRow(
 
         value()
     }
-
-    Spacer(modifier = Modifier.height(16.dp))
 }

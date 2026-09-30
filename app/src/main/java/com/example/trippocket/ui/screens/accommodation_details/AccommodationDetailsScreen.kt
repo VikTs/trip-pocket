@@ -8,18 +8,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Accommodation
+import com.example.trippocket.data.model.AccommodationDocument
 import com.example.trippocket.data.model.AccommodationNotification
 import com.example.trippocket.data.model.AccommodationNotificationType
 import com.example.trippocket.ui.components.TopBar
+import com.example.trippocket.ui.components.rememberFilePicker
 import com.example.trippocket.viewmodel.AccommodationViewModel
 
 @Composable
 fun AccommodationDetailsScreen(
     accommodation: Accommodation,
+    documents: List<AccommodationDocument>,
     notifications: List<AccommodationNotification>?,
     viewModel: AccommodationViewModel,
     onBackClick: () -> Unit,
@@ -35,6 +39,18 @@ fun AccommodationDetailsScreen(
         notifications?.firstOrNull {
             it.type == AccommodationNotificationType.CHECK_OUT
         }
+
+    val context = LocalContext.current
+    val pickFile = rememberFilePicker(
+        context = context,
+        onFileSelected = { document ->
+            viewModel.addDocument(
+                accommodationId = accommodation.id,
+                name = document.name,
+                path = document.path
+            )
+        }
+    )
 
     Scaffold(
         topBar = {
@@ -66,7 +82,16 @@ fun AccommodationDetailsScreen(
             AccommodationInfoSection(accommodation)
 
             Spacer(
-                modifier = Modifier.height(28.dp)
+                modifier = Modifier.height(48.dp)
+            )
+
+            AccommodationDocumentsSection(
+                documents = documents,
+                onAddDocument = pickFile
+            )
+
+            Spacer(
+                modifier = Modifier.height(48.dp)
             )
 
             AccommodationNotificationsSection(
