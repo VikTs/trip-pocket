@@ -14,7 +14,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
-import com.example.trippocket.data.model.Notification
+import com.example.trippocket.data.model.TransportNotification
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportDocument
 import com.example.trippocket.data.model.TransportType
@@ -27,7 +27,7 @@ import com.example.trippocket.viewmodel.TransportsViewModel
 fun TransportDetailsScreen(
     transport: Transport,
     documents: List<TransportDocument>,
-    notification: Notification?,
+    notification: TransportNotification?,
     viewModel: TransportsViewModel,
     onBackClick: () -> Unit,
     onDeleteClick: (id: Long) -> Unit,

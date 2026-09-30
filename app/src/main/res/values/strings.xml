@@ -95,6 +95,8 @@
     <string name="notification_upcoming_train">Train</string>
     <string name="notification_departure_time">Departure time: %1$s</string>
     <string name="notification_default_message">You have an upcoming event</string>
+    <string name="notification_upcoming_check_in">Check-in at %1$s</string>
+    <string name="notification_check_in_time">Arrival time: %1$s</string>
 
     <plurals name="transport_duration_hours">
         <item quantity="one">%d hour</item>

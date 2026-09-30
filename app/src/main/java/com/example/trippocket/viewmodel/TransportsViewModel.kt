@@ -3,11 +3,11 @@ package com.example.trippocket.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.trippocket.data.model.Notification
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportDocument
-import com.example.trippocket.data.repository.NotificationRepository
+import com.example.trippocket.data.model.TransportNotification
 import com.example.trippocket.data.repository.TransportDocumentRepository
+import com.example.trippocket.data.repository.TransportNotificationRepository
 import com.example.trippocket.data.repository.TransportRepository
 import com.example.trippocket.notification.NotificationScheduler
 import com.example.trippocket.ui.screens.add_transport.SelectedDocument
@@ -24,7 +24,7 @@ import javax.inject.Inject
 class TransportsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: TransportRepository,
-    private val notificationRepository: NotificationRepository,
+    private val notificationRepository: TransportNotificationRepository,
     private val notificationScheduler: NotificationScheduler,
     private val transportDocumentRepository: TransportDocumentRepository
 ) : ViewModel() {
@@ -60,7 +60,7 @@ class TransportsViewModel @Inject constructor(
                 )
             }
 
-            val notification = Notification(
+            val notification = TransportNotification(
                 transportId = transportId,
                 enabled = true,
                 minutesBefore = 60
@@ -76,7 +76,7 @@ class TransportsViewModel @Inject constructor(
                     id = notificationId
                 )
 
-            notificationScheduler.schedule(
+            notificationScheduler.scheduleTransport(
                 notification = savedNotification,
                 transport = transport.copy(
                     id = transportId
@@ -120,7 +120,7 @@ class TransportsViewModel @Inject constructor(
             }
 
             if (notification?.enabled == true) {
-                notificationScheduler.schedule(
+                notificationScheduler.scheduleTransport(
                     notification = notification,
                     transport = transport
                 )
@@ -196,7 +196,7 @@ class TransportsViewModel @Inject constructor(
                     ?: return@launch
 
             if (enabled) {
-                notificationScheduler.schedule(
+                notificationScheduler.scheduleTransport(
                     notification = notification.copy(
                         enabled = true
                     ),
@@ -217,6 +217,6 @@ class TransportsViewModel @Inject constructor(
 
     fun getNotification(
         transportId: Long
-    ): Flow<Notification?> =
+    ): Flow<TransportNotification?> =
         notificationRepository.getByTransportId(transportId)
 }

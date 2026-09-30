@@ -4,25 +4,25 @@ import androidx.room3.Dao
 import androidx.room3.Insert
 import androidx.room3.Query
 import androidx.room3.Update
-import com.example.trippocket.data.model.Notification
+import com.example.trippocket.data.model.TransportNotification
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface NotificationDao {
+interface TransportNotificationDao {
     @Query(
         """
         SELECT * 
-        FROM notifications
+        FROM transport_notifications
         WHERE transportId = :transportId
     """
     )
     fun getByTransportId(
         transportId: Long
-    ): Flow<Notification?>
+    ): Flow<TransportNotification?>
 
     @Query(
         """
-    UPDATE notifications
+    UPDATE transport_notifications
     SET enabled = :enabled
     WHERE transportId = :transportId
     """
@@ -33,11 +33,11 @@ interface NotificationDao {
     )
 
     @Insert
-    suspend fun insertNotification(notification: Notification): Long
+    suspend fun insertNotification(notification: TransportNotification): Long
 
     @Update
-    suspend fun updateNotification(notification: Notification)
+    suspend fun updateNotification(notification: TransportNotification)
 
-    @Query("DELETE FROM notifications WHERE id = :id")
+    @Query("DELETE FROM transport_notifications WHERE id = :id")
     suspend fun deleteNotification(id: Long)
 }
