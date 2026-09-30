@@ -89,6 +89,8 @@
     <string name="accommodation_details_address_label">Address</string>
     <string name="accommodation_details_check_in_label">Check-in</string>
     <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Notifications</string>
+    <string name="accommodation_details_check_in_notification_label">Notify before check in</string>
 
     <string name="notification_upcoming_transport">Upcoming %1$s to %2$s</string>
     <string name="notification_upcoming_bus">Bus</string>

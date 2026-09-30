@@ -231,9 +231,15 @@ fun TripPocketNavHost() {
                     viewModel.loadAccommodation(accommodationId)
                 }
 
+                val notification by viewModel
+                    .getNotification(accommodationId)
+                    .collectAsStateWithLifecycle(initialValue = null)
+
                 accommodation?.let {
                     AccommodationDetailsScreen(
                         accommodation = it,
+                        notification = notification,
+                        viewModel = viewModel,
                         onBackClick = {
                             navController.popBackStack()
                         },

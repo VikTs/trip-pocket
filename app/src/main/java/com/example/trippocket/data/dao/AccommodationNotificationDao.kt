@@ -20,18 +20,6 @@ interface AccommodationNotificationDao {
         accommodationId: Long
     ): Flow<AccommodationNotification?>
 
-    @Query(
-        """
-    UPDATE accommodation_notifications
-    SET enabled = :enabled
-    WHERE accommodationId = :accommodationId
-    """
-    )
-    suspend fun setEnabled(
-        accommodationId: Long,
-        enabled: Boolean
-    )
-
     @Insert
     suspend fun insertNotification(notification: AccommodationNotification): Long
 

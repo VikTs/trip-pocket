@@ -154,25 +154,19 @@ class AccommodationViewModel @Inject constructor(
             accommodationId
         )
 
-    fun setNotificationEnabled(
-        accommodation: Accommodation,
-        enabled: Boolean
+    fun updateNotification(
+        notification: AccommodationNotification
     ) {
         viewModelScope.launch {
-            val notification =
-                notificationRepository
-                    .getByAccommodationId(
-                        accommodation.id
-                    )
+            val accommodation =
+                repository
+                    .getById(notification.accommodationId)
                     .firstOrNull()
                     ?: return@launch
 
-            notificationRepository.setEnabled(
-                accommodationId = accommodation.id,
-                enabled = enabled
-            )
+            notificationRepository.updateNotification(notification)
 
-            if (enabled) {
+            if (notification.enabled) {
                 notificationScheduler.scheduleAccommodation(
                     notification = notification.copy(
                         enabled = true

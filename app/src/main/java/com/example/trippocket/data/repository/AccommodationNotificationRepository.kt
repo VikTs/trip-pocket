@@ -24,8 +24,4 @@ class AccommodationNotificationRepository @Inject constructor(
     suspend fun deleteNotification(id: Long) {
         notificationDao.deleteNotification(id)
     }
-
-    suspend fun setEnabled(accommodationId: Long, enabled: Boolean) {
-        notificationDao.setEnabled(accommodationId, enabled)
-    }
 }

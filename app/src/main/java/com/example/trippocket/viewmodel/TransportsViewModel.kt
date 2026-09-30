@@ -184,22 +184,23 @@ class TransportsViewModel @Inject constructor(
         }
     }
 
-    fun setNotificationEnabled(
-        transport: Transport,
-        enabled: Boolean
+    fun updateNotification(
+        notification: TransportNotification
     ) {
         viewModelScope.launch {
-            val notification =
-                notificationRepository
-                    .getByTransportId(transport.id)
+            val transport =
+                repository
+                    .getById(notification.transportId)
                     .firstOrNull()
                     ?: return@launch
 
-            if (enabled) {
+            notificationRepository.updateNotification(
+                notification
+            )
+
+            if (notification.enabled) {
                 notificationScheduler.scheduleTransport(
-                    notification = notification.copy(
-                        enabled = true
-                    ),
+                    notification = notification,
                     transport = transport
                 )
             } else {
@@ -207,11 +208,6 @@ class TransportsViewModel @Inject constructor(
                     notification.id
                 )
             }
-
-            notificationRepository.setEnabled(
-                transportId = transport.id,
-                enabled = enabled
-            )
         }
     }
 

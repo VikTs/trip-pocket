@@ -104,10 +104,13 @@ fun TransportDetailsScreen(
             TransportNotificationsSection(
                 isNotificationEnabled = notification?.enabled == true,
                 onNotificationToggle = { enabled ->
-                    viewModel.setNotificationEnabled(
-                        transport = transport,
-                        enabled = enabled
-                    )
+                    notification?.let {
+                        viewModel.updateNotification(
+                            notification = it.copy(
+                                enabled = enabled
+                            )
+                        )
+                    }
                 }
             )
         }

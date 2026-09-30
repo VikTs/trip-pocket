@@ -20,18 +20,6 @@ interface TransportNotificationDao {
         transportId: Long
     ): Flow<TransportNotification?>
 
-    @Query(
-        """
-    UPDATE transport_notifications
-    SET enabled = :enabled
-    WHERE transportId = :transportId
-    """
-    )
-    suspend fun setEnabled(
-        transportId: Long,
-        enabled: Boolean
-    )
-
     @Insert
     suspend fun insertNotification(notification: TransportNotification): Long
 

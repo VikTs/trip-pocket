@@ -11,6 +11,12 @@ class TransportRepository(
         return transportDao.getTripTransports(tripId)
     }
 
+    fun getById(
+        id: Long
+    ): Flow<Transport?> {
+        return transportDao.getById(id)
+    }
+
     suspend fun addTransport(transport: Transport): Long {
         return transportDao.insertTransport(transport)
     }

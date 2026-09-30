@@ -17,6 +17,11 @@ interface TransportDao {
     """)
     fun getTripTransports(tripId: Long): Flow<List<Transport>>
 
+    @Query("SELECT * FROM transports WHERE id = :id")
+    fun getById(
+        id: Long
+    ): Flow<Transport?>
+
     @Insert
     suspend fun insertTransport(transport: Transport): Long
 
