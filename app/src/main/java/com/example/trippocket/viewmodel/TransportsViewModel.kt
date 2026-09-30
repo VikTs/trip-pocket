@@ -10,7 +10,7 @@ import com.example.trippocket.data.repository.TransportDocumentRepository
 import com.example.trippocket.data.repository.TransportNotificationRepository
 import com.example.trippocket.data.repository.TransportRepository
 import com.example.trippocket.notification.NotificationScheduler
-import com.example.trippocket.ui.screens.add_transport.SelectedDocument
+import com.example.trippocket.ui.components.SelectedDocument
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
@@ -170,16 +170,6 @@ class TransportsViewModel @Inject constructor(
                     name = name,
                     path = path
                 )
-            )
-        }
-    }
-
-    fun deleteDocument(
-        id: Long
-    ) {
-        viewModelScope.launch {
-            transportDocumentRepository.deleteDocument(
-                id
             )
         }
     }

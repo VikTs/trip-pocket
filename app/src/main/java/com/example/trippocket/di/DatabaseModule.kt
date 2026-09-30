@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room3.Room
 import androidx.sqlite.driver.AndroidSQLiteDriver
 import com.example.trippocket.data.dao.AccommodationDao
+import com.example.trippocket.data.dao.AccommodationDocumentDao
 import com.example.trippocket.data.dao.AccommodationNotificationDao
 import com.example.trippocket.data.dao.TransportDao
 import com.example.trippocket.data.dao.TransportDocumentDao
@@ -71,4 +72,9 @@ object DatabaseModule {
     fun provideTransportDocumentDao(
         database: TripDatabase
     ): TransportDocumentDao = database.transportDocumentDao()
+
+    @Provides
+    fun provideAccommodationDocumentDao(
+        database: TripDatabase
+    ): AccommodationDocumentDao = database.accommodationDocumentDao()
 }

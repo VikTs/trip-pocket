@@ -4,12 +4,16 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.trippocket.data.model.Accommodation
+import com.example.trippocket.data.model.AccommodationDocument
 import com.example.trippocket.data.model.AccommodationNotification
 import com.example.trippocket.data.model.AccommodationNotificationType
+import com.example.trippocket.data.repository.AccommodationDocumentRepository
 import com.example.trippocket.data.repository.AccommodationNotificationRepository
 import com.example.trippocket.data.repository.AccommodationRepository
 import com.example.trippocket.notification.NotificationScheduler
+import com.example.trippocket.ui.components.SelectedDocument
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -25,8 +29,10 @@ class AccommodationViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: AccommodationRepository,
     private val notificationRepository: AccommodationNotificationRepository,
-    private val notificationScheduler: NotificationScheduler
+    private val notificationScheduler: NotificationScheduler,
+    private val accommodationDocumentRepository: AccommodationDocumentRepository
 ) : ViewModel() {
+
     private val _accommodation =
         MutableStateFlow<Accommodation?>(null)
 
@@ -47,7 +53,7 @@ class AccommodationViewModel @Inject constructor(
                 initialValue = emptyList()
             )
 
-    fun loadAccommodation(
+    fun getAccommodation(
         accommodationId: Long
     ) {
         viewModelScope.launch {
@@ -60,8 +66,8 @@ class AccommodationViewModel @Inject constructor(
     }
 
     fun addAccommodation(
-        tripId: Long,
-        accommodation: Accommodation
+        accommodation: Accommodation,
+        documents: List<SelectedDocument>
     ) {
         viewModelScope.launch {
             val savedAccommodation =
@@ -78,6 +84,16 @@ class AccommodationViewModel @Inject constructor(
                 savedAccommodation.copy(
                     id = accommodationId
                 )
+
+            documents.forEach { document ->
+                accommodationDocumentRepository.addDocument(
+                    AccommodationDocument(
+                        accommodationId = accommodationId,
+                        name = document.name,
+                        path = document.path
+                    )
+                )
+            }
 
             val notifications = listOf(
                 AccommodationNotification(
@@ -111,7 +127,8 @@ class AccommodationViewModel @Inject constructor(
     }
 
     fun updateAccommodation(
-        accommodation: Accommodation
+        accommodation: Accommodation,
+        documents: List<SelectedDocument>
     ) {
         viewModelScope.launch {
             val notifications =
@@ -139,6 +156,21 @@ class AccommodationViewModel @Inject constructor(
                     )
                 }
             }
+
+            accommodationDocumentRepository
+                .deleteForAccommodation(
+                    accommodation.id
+                )
+
+            documents.forEach { document ->
+                accommodationDocumentRepository.addDocument(
+                    AccommodationDocument(
+                        accommodationId = accommodation.id,
+                        name = document.name,
+                        path = document.path
+                    )
+                )
+            }
         }
     }
 
@@ -165,12 +197,37 @@ class AccommodationViewModel @Inject constructor(
         }
     }
 
+    fun getDocuments(
+        accommodationId: Long
+    ): Flow<List<AccommodationDocument>> =
+        accommodationDocumentRepository
+            .getForAccommodation(
+                accommodationId
+            )
+
+    fun addDocument(
+        accommodationId: Long,
+        name: String,
+        path: String
+    ) {
+        viewModelScope.launch {
+            accommodationDocumentRepository.addDocument(
+                AccommodationDocument(
+                    accommodationId = accommodationId,
+                    name = name,
+                    path = path
+                )
+            )
+        }
+    }
+
     fun getNotifications(
         accommodationId: Long
     ) =
-        notificationRepository.getByAccommodationId(
-            accommodationId
-        )
+        notificationRepository
+            .getByAccommodationId(
+                accommodationId
+            )
 
     fun updateNotification(
         notification: AccommodationNotification
@@ -178,17 +235,19 @@ class AccommodationViewModel @Inject constructor(
         viewModelScope.launch {
             val accommodation =
                 repository
-                    .getById(notification.accommodationId)
+                    .getById(
+                        notification.accommodationId
+                    )
                     .firstOrNull()
                     ?: return@launch
 
-            notificationRepository.updateNotification(notification)
+            notificationRepository.updateNotification(
+                notification
+            )
 
             if (notification.enabled) {
                 notificationScheduler.scheduleAccommodation(
-                    notification = notification.copy(
-                        enabled = true
-                    ),
+                    notification = notification,
                     accommodation = accommodation
                 )
             } else {

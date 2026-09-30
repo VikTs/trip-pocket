@@ -11,6 +11,7 @@
     <string name="date_input_placeholder">Select date</string>
     <string name="time_input_placeholder">Select date</string>
     <string name="address_copied_message">Address copied</string>
+    <string name="upload_btn_label">Upload document</string>
 
     <string name="edit_transport_title">Edit transport</string>
     <string name="add_transport_title">Add transport</string>
@@ -20,7 +21,6 @@
     <string name="add_transport_bus_number_label">Bus number</string>
     <string name="add_transport_place_label">Place</string>
     <string name="add_transport_documents_section_title">Documents</string>
-    <string name="add_transport_document_upload_btn_label">Upload document</string>
     <string name="add_transport_train_number_label">Train number*</string>
     <string name="add_transport_coach_label">Coach</string>
     <string name="add_transport_transport_section_title">Transport</string>
@@ -84,6 +84,7 @@
     <string name="add_accommodation_date_label">Date*</string>
     <string name="add_accommodation_time_label">Time*</string>
     <string name="add_accommodation_btn_label">Add accommodation</string>
+    <string name="add_accommodation_documents_section_title">Documents</string>
 
     <string name="accommodation_details_title">Accommodation info</string>
     <string name="accommodation_details_address_label">Address</string>
@@ -92,6 +93,7 @@
     <string name="accommodation_details_notifications_section_title">Notifications</string>
     <string name="accommodation_details_check_in_notification_label">Notify before check in</string>
     <string name="accommodation_details_check_out_notification_label">Notify before check out</string>
+    <string name="accommodation_details_documents_section_title">Documents</string>
 
     <string name="notification_upcoming_transport">Upcoming %1$s to %2$s</string>
     <string name="notification_upcoming_bus">Bus</string>
