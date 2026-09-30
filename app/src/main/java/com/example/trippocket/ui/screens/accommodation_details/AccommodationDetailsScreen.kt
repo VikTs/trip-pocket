@@ -24,6 +24,7 @@ import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.utils.formatTripDate
 import com.example.trippocket.utils.formatTripTime
 import com.example.trippocket.R
+import com.example.trippocket.ui.components.AddressLink
 
 @Composable
 fun AccommodationDetailsScreen(
@@ -58,7 +59,7 @@ fun AccommodationDetailsScreen(
             ) {
                 Icon(
                     imageVector = Icons.Default.Hotel,
-                    contentDescription = "Transport type",
+                    contentDescription = "Hotel",
                     modifier = Modifier
                         .padding(top = 2.dp)
                         .size(22.dp)
@@ -78,14 +79,14 @@ fun AccommodationDetailsScreen(
                 modifier = Modifier.height(24.dp)
             )
 
-            accommodation.address
-                ?.takeIf { it.isNotBlank() }
-                ?.let {
-                    DetailRow(
-                        label = stringResource(R.string.accommodation_details_address_label),
-                        value = it
-                    )
-                }
+            DetailRow(
+                label = stringResource(R.string.accommodation_details_address_label),
+            ) {
+                AddressLink(
+                    address = accommodation.address,
+                    additionalInfo = accommodation.name
+                )
+            }
 
             DetailRow(
                 label = stringResource(R.string.accommodation_details_check_in_label),

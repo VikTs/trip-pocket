@@ -61,7 +61,13 @@ fun TripDetailsScreen(
 
             accommodations.forEach {
                 add(
-                    TimelineItem.AccommodationItem(it)
+                    TimelineItem.AccommodationCheckInItem(it)
+                )
+            }
+
+            accommodations.forEach {
+                add(
+                    TimelineItem.AccommodationCheckOutItem(it)
                 )
             }
         }.sortedBy {
