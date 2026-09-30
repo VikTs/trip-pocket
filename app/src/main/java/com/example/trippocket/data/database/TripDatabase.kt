@@ -6,12 +6,14 @@ import androidx.room3.RoomDatabase
 import com.example.trippocket.data.converter.LocalDateConverter
 import com.example.trippocket.data.converter.TransportTypeConverter
 import com.example.trippocket.data.dao.AccommodationDao
+import com.example.trippocket.data.dao.AccommodationDocumentDao
 import com.example.trippocket.data.dao.AccommodationNotificationDao
 import com.example.trippocket.data.dao.TransportDao
 import com.example.trippocket.data.dao.TransportDocumentDao
 import com.example.trippocket.data.dao.TransportNotificationDao
 import com.example.trippocket.data.dao.TripDao
 import com.example.trippocket.data.model.Accommodation
+import com.example.trippocket.data.model.AccommodationDocument
 import com.example.trippocket.data.model.AccommodationNotification
 import com.example.trippocket.data.model.TransportNotification
 import com.example.trippocket.data.model.Transport
@@ -26,6 +28,7 @@ import com.example.trippocket.data.model.Trip
         AccommodationNotification::class,
         Accommodation::class,
         TransportDocument::class,
+        AccommodationDocument::class,
     ],
     version = 1
 )
@@ -40,4 +43,5 @@ abstract class TripDatabase : RoomDatabase() {
     abstract fun accommodationNotificationDao(): AccommodationNotificationDao
     abstract fun accommodationDao(): AccommodationDao
     abstract fun transportDocumentDao(): TransportDocumentDao
+    abstract fun accommodationDocumentDao(): AccommodationDocumentDao
 }

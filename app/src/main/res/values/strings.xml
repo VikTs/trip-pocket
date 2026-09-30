@@ -84,6 +84,7 @@
     <string name="add_accommodation_date_label">Date*</string>
     <string name="add_accommodation_time_label">Time*</string>
     <string name="add_accommodation_btn_label">Add accommodation</string>
+    <string name="add_accommodation_documents_section_title">Documents</string>
 
     <string name="accommodation_details_title">Accommodation info</string>
     <string name="accommodation_details_address_label">Address</string>

@@ -8,7 +8,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.example.trippocket.ui.screens.add_transport.SelectedDocument
 import com.example.trippocket.utils.createFilePickerIntent
 import com.example.trippocket.utils.handlePickedFile
 

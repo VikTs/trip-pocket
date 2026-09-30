@@ -20,13 +20,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportStop
 import com.example.trippocket.data.model.TransportType
+import com.example.trippocket.ui.components.SelectedDocument
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.TransportsViewModel
 import java.time.LocalDate
@@ -47,7 +47,6 @@ fun AddTransportScreen(
         }
 
     val isEditMode = editTransport != null
-    val context = LocalContext.current
 
     val documents = transportId?.let {
         viewModel.getDocuments(it)
@@ -238,8 +237,7 @@ fun AddTransportScreen(
                 }
             )
 
-            DocumentsInputSection(
-                context = context,
+            TransportDocumentsSection(
                 documents = state.documents,
                 onAddDocument = { document ->
                     state = state.copy(
@@ -303,8 +301,3 @@ data class AddTransportState(
                     toTime != null &&
                     (transportType != TransportType.TRAIN || !transportNumber.isNullOrBlank())
 }
-
-data class SelectedDocument(
-    val name: String,
-    val path: String
-)

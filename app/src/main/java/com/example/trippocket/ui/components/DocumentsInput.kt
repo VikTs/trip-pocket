@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.screens.add_transport
+package com.example.trippocket.ui.components
 
 import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
@@ -21,10 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
 import com.example.trippocket.R
-import com.example.trippocket.ui.components.rememberFilePicker
 
 @Composable
-fun DocumentsInputSection(
+fun DocumentsInput(
     context: Context,
     documents: List<SelectedDocument>,
     onAddDocument: (SelectedDocument) -> Unit,
@@ -33,13 +32,6 @@ fun DocumentsInputSection(
     val pickFile = rememberFilePicker(
         context = context,
         onFileSelected = onAddDocument
-    )
-
-    Text(
-        text = stringResource(
-            R.string.add_transport_documents_section_title
-        ),
-        style = MaterialTheme.typography.titleMedium
     )
 
     Column(
@@ -88,3 +80,8 @@ fun DocumentsInputSection(
         modifier = Modifier.height(8.dp)
     )
 }
+
+data class SelectedDocument(
+    val name: String,
+    val path: String
+)
