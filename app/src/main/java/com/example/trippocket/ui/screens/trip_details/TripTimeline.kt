@@ -47,8 +47,11 @@ fun TripTimeline(
                         is TimelineItem.TransportItem ->
                             "transport_${item.transport.id}"
 
-                        is TimelineItem.AccommodationItem ->
-                            "accommodation_${item.accommodation.id}"
+                        is TimelineItem.AccommodationCheckInItem ->
+                            "accommodation_checkout_${item.accommodation.id}"
+
+                        is TimelineItem.AccommodationCheckOutItem ->
+                            "accommodation_checkin_${item.accommodation.id}"
                     }
                 }
             ) { index, item ->
@@ -83,9 +86,26 @@ fun TripTimeline(
                         )
                     }
 
-                    is TimelineItem.AccommodationItem -> {
+                    is TimelineItem.AccommodationCheckInItem -> {
                         AccommodationCard(
                             accommodation = item.accommodation,
+                            isCheckin = true,
+                            isFirst = index == 0,
+                            isLast = index == items.lastIndex,
+                            isActive = isActive,
+                            isPrevActive = isPrevActive,
+                            onClick = {
+                                onAccommodationClick(
+                                    item.accommodation.id
+                                )
+                            }
+                        )
+                    }
+
+                    is TimelineItem.AccommodationCheckOutItem -> {
+                        AccommodationCard(
+                            accommodation = item.accommodation,
+                            isCheckin = false,
                             isFirst = index == 0,
                             isLast = index == items.lastIndex,
                             isActive = isActive,
@@ -113,10 +133,17 @@ sealed interface TimelineItem {
             get() = transport.from.time
     }
 
-    data class AccommodationItem(
+    data class AccommodationCheckInItem(
         val accommodation: Accommodation
     ) : TimelineItem {
         override val time: LocalDateTime
             get() = accommodation.checkIn
+    }
+
+    data class AccommodationCheckOutItem(
+        val accommodation: Accommodation
+    ) : TimelineItem {
+        override val time: LocalDateTime
+            get() = accommodation.checkOut
     }
 }

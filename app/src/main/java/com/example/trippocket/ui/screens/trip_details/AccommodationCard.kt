@@ -17,26 +17,46 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.data.model.Accommodation
-import com.example.trippocket.utils.formatTripDateTime
-import com.example.trippocket.utils.formatTripTime
 import com.example.trippocket.R
+import com.example.trippocket.data.model.Accommodation
+import com.example.trippocket.utils.formatTripTime
 
 @Composable
 fun AccommodationCard(
     accommodation: Accommodation,
+    isCheckin: Boolean = true,
     onClick: () -> Unit,
     isFirst: Boolean,
     isLast: Boolean,
     isActive: Boolean,
     isPrevActive: Boolean
 ) {
+    val dateTime = if (isCheckin) {
+        accommodation.checkIn
+    } else {
+        accommodation.checkOut
+    }
+
+    val eventLabel = if (isCheckin) {
+        R.string.trip_details_accommodation_checkin_label
+    } else {
+        R.string.trip_details_accommodation_checkout_label
+    }
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Spacer(modifier = Modifier.width(44.dp))
+        Text(
+            text = formatTripTime(dateTime),
+            style = MaterialTheme.typography.titleSmall
+        )
+
+        Spacer(
+            modifier = Modifier.width(8.dp)
+        )
 
         TimelineNode(
             icon = Icons.Default.Hotel,
@@ -46,11 +66,13 @@ fun AccommodationCard(
             isPrevActive = isPrevActive
         )
 
-        Spacer(modifier = Modifier.width(12.dp))
+        Spacer(
+            modifier = Modifier.width(12.dp)
+        )
 
         Card(
             modifier = Modifier.weight(1f),
-            onClick = { onClick() },
+            onClick = onClick
         ) {
             Box(
                 modifier = Modifier.fillMaxWidth()
@@ -63,23 +85,23 @@ fun AccommodationCard(
                         style = MaterialTheme.typography.titleLarge
                     )
 
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Text(
-                        text = "${stringResource(R.string.trip_details_accommodation_checkin_label)}: ${
-                            formatTripTime(
-                                accommodation.checkOut
-                            )
-                        }",
-                        style = MaterialTheme.typography.bodyMedium
+                    Spacer(
+                        modifier = Modifier.height(4.dp)
                     )
 
                     Text(
-                        text = "${stringResource(R.string.trip_details_accommodation_checkout_label)}: ${
-                            formatTripDateTime(
-                                accommodation.checkOut
-                            )
-                        }",
+                        text = stringResource(eventLabel),
+                        style = MaterialTheme.typography.labelLarge
+                    )
+
+                    Spacer(
+                        modifier = Modifier.height(8.dp)
+                    )
+
+                    Text(
+                        text = accommodation.address,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
