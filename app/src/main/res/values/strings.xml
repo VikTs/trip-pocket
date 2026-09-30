@@ -43,6 +43,8 @@
     <string name="transport_details_coach_label">Coach</string>
     <string name="transport_details_seat_label">Seat</string>
     <string name="transport_details_documents_section_title">Documents</string>
+    <string name="transport_details_notifications_section_title">Notifications</string>
+    <string name="transport_details_departure_notification_label">Notify before departure</string>
 
     <string name="add_to_trip_bottom_sheet_title">Add to trip</string>
     <string name="add_to_trip_bottom_sheet_transport_label">Transport</string>
@@ -89,8 +91,8 @@
     <string name="accommodation_details_check_out_label">Check-out</string>
 
     <string name="notification_upcoming_transport">Upcoming %1$s to %2$s</string>
-    <string name="notification_upcoming_bus">Upcoming bus to %1$s</string>
-    <string name="notification_upcoming_train">Upcoming train to %1$s</string>
+    <string name="notification_upcoming_bus">Bus</string>
+    <string name="notification_upcoming_train">Train</string>
     <string name="notification_departure_time">Departure time: %1$s</string>
     <string name="notification_default_message">You have an upcoming event</string>
 

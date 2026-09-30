@@ -14,18 +14,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
+import com.example.trippocket.data.model.Notification
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportDocument
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.ui.components.rememberFilePicker
-import com.example.trippocket.ui.screens.transport_details.transport_timeline.TransportTimeline
+import com.example.trippocket.ui.screens.transport_details.transport_timeline.TransportTimelineSection
 import com.example.trippocket.viewmodel.TransportsViewModel
 
 @Composable
 fun TransportDetailsScreen(
     transport: Transport,
     documents: List<TransportDocument>,
+    notification: Notification?,
     viewModel: TransportsViewModel,
     onBackClick: () -> Unit,
     onDeleteClick: (id: Long) -> Unit,
@@ -82,13 +84,31 @@ fun TransportDetailsScreen(
                 modifier = Modifier.height(40.dp)
             )
 
-            TransportTimeline(
-                transport = transport
+            TransportTimelineSection(
+                transport = transport,
+            )
+
+            Spacer(
+                modifier = Modifier.height(40.dp)
             )
 
             TransportDocumentsSection(
                 documents = documents,
                 onAddDocument = pickFile
+            )
+
+            Spacer(
+                modifier = Modifier.height(40.dp)
+            )
+
+            TransportNotificationsSection(
+                isNotificationEnabled = notification?.enabled == true,
+                onNotificationToggle = { enabled ->
+                    viewModel.setNotificationEnabled(
+                        transport = transport,
+                        enabled = enabled
+                    )
+                }
             )
         }
     }

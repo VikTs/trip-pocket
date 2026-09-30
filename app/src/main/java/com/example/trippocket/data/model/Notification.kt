@@ -16,7 +16,10 @@ import androidx.room3.PrimaryKey
         )
     ],
     indices = [
-        Index("transportId")
+        Index(
+            "transportId",
+            unique = true
+        )
     ]
 )
 data class Notification(

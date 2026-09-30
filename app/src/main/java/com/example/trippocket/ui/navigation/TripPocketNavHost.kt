@@ -348,11 +348,16 @@ fun TripPocketNavHost() {
                         initialValue = emptyList()
                     )
 
+                val notification by transportViewModel
+                    .getNotification(transportId)
+                    .collectAsStateWithLifecycle(initialValue = null)
+
                 if (transport != null) {
                     TransportDetailsScreen(
                         transport = transport,
                         documents = documents,
                         viewModel = transportViewModel,
+                        notification = notification,
 
                         onBackClick = {
                             navController.popBackStack()

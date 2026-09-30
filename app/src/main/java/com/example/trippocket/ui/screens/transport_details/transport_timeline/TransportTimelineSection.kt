@@ -15,7 +15,7 @@ import java.time.Duration
 import java.time.temporal.ChronoUnit
 
 @Composable
-fun TransportTimeline(
+fun TransportTimelineSection(
     transport: Transport,
     modifier: Modifier = Modifier
 ) {

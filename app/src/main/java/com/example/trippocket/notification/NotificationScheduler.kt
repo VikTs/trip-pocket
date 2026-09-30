@@ -38,21 +38,18 @@ class NotificationScheduler(
             return
         }
 
-        val title = when (transport.transportType) {
+        val transportType = when (transport.transportType) {
             TransportType.BUS ->
                 context.getString(
-                    R.string.notification_upcoming_bus,
-                    transport.to.city
+                    R.string.transport_type_bus
                 )
 
             TransportType.TRAIN ->
                 context.getString(
-                    R.string.notification_upcoming_train,
-                    transport.to.city
+                    R.string.transport_type_train
                 )
         }
 
-        val transportType = title.lowercase()
 
         val intent = Intent(
             context,
@@ -67,7 +64,7 @@ class NotificationScheduler(
                 "title",
                 context.getString(
                     R.string.notification_upcoming_transport,
-                    transportType,
+                    transportType.lowercase(),
                     transport.to.city
                 )
             )
