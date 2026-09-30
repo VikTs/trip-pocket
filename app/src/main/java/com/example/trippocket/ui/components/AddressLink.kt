@@ -65,7 +65,7 @@ fun AddressLink(
                         .size(12.dp)
                         .clickable {
                             clipboard.setText(
-                                AnnotatedString(fullAddress)
+                                AnnotatedString(address)
                             )
 
                             Toast.makeText(

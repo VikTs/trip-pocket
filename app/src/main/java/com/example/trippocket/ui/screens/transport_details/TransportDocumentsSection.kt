@@ -29,13 +29,9 @@ import com.example.trippocket.utils.openFile
 @Composable
 fun TransportDocumentsSection(
     documents: List<TransportDocument>,
-    onAddDocument: () -> Unit
+    onAddDocument: () -> Unit,
 ) {
     val context = LocalContext.current
-
-    Spacer(
-        modifier = Modifier.height(40.dp)
-    )
 
     Text(
         text = stringResource(

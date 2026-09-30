@@ -6,7 +6,7 @@ import androidx.room3.Index
 import androidx.room3.PrimaryKey
 
 @Entity(
-    tableName = "notifications",
+    tableName = "transport_notifications",
     foreignKeys = [
         ForeignKey(
             entity = Transport::class,
@@ -16,10 +16,13 @@ import androidx.room3.PrimaryKey
         )
     ],
     indices = [
-        Index("transportId")
+        Index(
+            "transportId",
+            unique = true
+        )
     ]
 )
-data class Notification(
+data class TransportNotification(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val transportId: Long,

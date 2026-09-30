@@ -5,10 +5,12 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import com.example.trippocket.R
-import com.example.trippocket.data.model.Notification
+import com.example.trippocket.data.model.Accommodation
+import com.example.trippocket.data.model.AccommodationNotification
+import com.example.trippocket.data.model.AccommodationNotificationType
 import com.example.trippocket.data.model.Transport
+import com.example.trippocket.data.model.TransportNotification
 import com.example.trippocket.data.model.TransportType
-import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.utils.formatTripTime
 import java.time.ZoneId
 
@@ -16,87 +18,81 @@ class NotificationScheduler(
     private val context: Context
 ) {
     private val alarmManager =
-        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        context.getSystemService(
+            Context.ALARM_SERVICE
+        ) as AlarmManager
 
-    fun schedule(
-        notification: Notification,
+    fun scheduleTransport(
+        notification: TransportNotification,
         transport: Transport
     ) {
         if (!notification.enabled) {
             return
         }
 
-        val notificationTime = transport.from.time
-            .minusMinutes(notification.minutesBefore)
+        val notificationTime =
+            transport.from.time
+                .minusMinutes(notification.minutesBefore)
 
-        val triggerAtMillis = notificationTime
-            .atZone(ZoneId.systemDefault())
-            .toInstant()
-            .toEpochMilli()
-
-        if (triggerAtMillis <= System.currentTimeMillis()) {
-            return
-        }
-
-        val title = when (transport.transportType) {
-            TransportType.BUS ->
-                context.getString(
-                    R.string.notification_upcoming_bus,
-                    transport.to.city
-                )
-
-            TransportType.TRAIN ->
-                context.getString(
-                    R.string.notification_upcoming_train,
-                    transport.to.city
-                )
-        }
-
-        val transportType = title.lowercase()
-
-        val intent = Intent(
-            context,
-            NotificationReceiver::class.java
-        ).apply {
-            putExtra(
-                "notificationId",
-                notification.id
-            )
-
-            putExtra(
-                "title",
-                context.getString(
-                    R.string.notification_upcoming_transport,
-                    transportType,
-                    transport.to.city
+        schedule(
+            notificationId = notification.id,
+            triggerAtMillis = notificationTime
+                .atZone(ZoneId.systemDefault())
+                .toInstant()
+                .toEpochMilli(),
+            title = createTransportTitle(
+                transport
+            ),
+            message = context.getString(
+                R.string.notification_departure_time,
+                formatTripTime(
+                    transport.from.time
                 )
             )
-
-            putExtra(
-                "message",
-                context.getString(
-                    R.string.notification_departure_time,
-                    formatTripTime(transport.from.time)
-                )
-            )
-        }
-
-        val pendingIntent = PendingIntent.getBroadcast(
-            context,
-            notification.id.toInt(),
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or
-                    PendingIntent.FLAG_IMMUTABLE
-        )
-
-        alarmManager.setAndAllowWhileIdle(
-            AlarmManager.RTC_WAKEUP,
-            triggerAtMillis,
-            pendingIntent
         )
     }
 
-    fun cancel(notificationId: Long) {
+    fun scheduleAccommodation(
+        notification: AccommodationNotification,
+        accommodation: Accommodation
+    ) {
+        if (!notification.enabled) {
+            return
+        }
+
+        val targetTime = when (notification.type) {
+            AccommodationNotificationType.CHECK_IN ->
+                accommodation.checkIn
+
+            AccommodationNotificationType.CHECK_OUT ->
+                accommodation.checkOut
+        }
+
+        val notificationTime =
+            targetTime.minusMinutes(
+                notification.minutesBefore
+            )
+
+        schedule(
+            notificationId = notification.id,
+            triggerAtMillis = notificationTime
+                .atZone(ZoneId.systemDefault())
+                .toInstant()
+                .toEpochMilli(),
+            title = createAccommodationTitle(
+                notification,
+                accommodation
+            ),
+            message = context.getString(
+                R.string.notification_accommodation_time,
+                formatTripTime(targetTime)
+            )
+        )
+    }
+
+    fun cancel(
+        notificationId: Long
+    ) {
         val intent = Intent(
             context,
             NotificationReceiver::class.java
@@ -110,7 +106,98 @@ class NotificationScheduler(
                     PendingIntent.FLAG_IMMUTABLE
         )
 
-        alarmManager.cancel(pendingIntent)
+        alarmManager.cancel(
+            pendingIntent
+        )
+
         pendingIntent.cancel()
+    }
+
+    private fun schedule(
+        notificationId: Long,
+        triggerAtMillis: Long,
+        title: String,
+        message: String
+    ) {
+        if (triggerAtMillis <= System.currentTimeMillis()) {
+            return
+        }
+
+        val intent = Intent(
+            context,
+            NotificationReceiver::class.java
+        ).apply {
+            putExtra(
+                "notificationId",
+                notificationId
+            )
+
+            putExtra(
+                "title",
+                title
+            )
+
+            putExtra(
+                "message",
+                message
+            )
+        }
+
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            notificationId.toInt(),
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or
+                    PendingIntent.FLAG_IMMUTABLE
+        )
+
+        alarmManager.setAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            triggerAtMillis,
+            pendingIntent
+        )
+    }
+
+    private fun createAccommodationTitle(
+        notification: AccommodationNotification,
+        accommodation: Accommodation
+    ): String {
+        return when (notification.type) {
+            AccommodationNotificationType.CHECK_IN ->
+                context.getString(
+                    R.string.notification_upcoming_check_in,
+                    accommodation.name
+                )
+
+            AccommodationNotificationType.CHECK_OUT ->
+                context.getString(
+                    R.string.notification_upcoming_check_out,
+                    accommodation.name
+                )
+        }
+    }
+
+    private fun createTransportTitle(
+        transport: Transport
+    ): String {
+        val transportType = when (
+            transport.transportType
+        ) {
+            TransportType.BUS ->
+                context.getString(
+                    R.string.transport_type_bus
+                )
+
+            TransportType.TRAIN ->
+                context.getString(
+                    R.string.transport_type_train
+                )
+        }
+
+        return context.getString(
+            R.string.notification_upcoming_transport,
+            transportType.lowercase(),
+            transport.to.city
+        )
     }
 }
