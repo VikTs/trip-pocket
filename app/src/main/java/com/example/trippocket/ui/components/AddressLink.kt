@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.InlineTextContent
+import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material3.Icon
@@ -14,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
@@ -22,9 +25,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
-import androidx.compose.foundation.text.InlineTextContent
-import androidx.compose.foundation.text.appendInlineContent
-import androidx.compose.ui.platform.LocalContext
 import com.example.trippocket.R
 
 @Composable
@@ -61,8 +61,8 @@ fun AddressLink(
                     imageVector = Icons.Outlined.ContentCopy,
                     contentDescription = "Copy address",
                     modifier = Modifier
-                        .padding(start = 6.dp)
-                        .size(12.dp)
+                        .padding(start = 4.dp)
+                        .size(14.dp)
                         .clickable {
                             clipboard.setText(
                                 AnnotatedString(address)

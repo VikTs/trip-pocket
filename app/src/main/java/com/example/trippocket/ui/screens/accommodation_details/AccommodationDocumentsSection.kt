@@ -64,7 +64,7 @@ fun AccommodationDocumentsSection(
 
         OutlinedIconButton(
             onClick = onAddDocument,
-            modifier = Modifier.size(120.dp),
+            modifier = Modifier.size(110.dp),
             shape = RoundedCornerShape(12.dp),
             border = BorderStroke(
                 1.dp,

@@ -82,7 +82,9 @@ fun AccommodationCard(
                 ) {
                     Text(
                         text = accommodation.name,
-                        style = MaterialTheme.typography.titleMedium
+                        style = MaterialTheme.typography.titleMedium,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
                     )
 
                     Spacer(
@@ -100,7 +102,7 @@ fun AccommodationCard(
 
                     Text(
                         text = accommodation.address,
-                        maxLines = 1,
+                        maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.bodyMedium
                     )

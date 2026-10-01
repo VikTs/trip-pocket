@@ -29,7 +29,6 @@ fun TripTimeline(
         )
     ) {
         itemsByDay.forEach { (date, items) ->
-
             item {
                 Text(
                     text = formatDayOfWeekDate(date),

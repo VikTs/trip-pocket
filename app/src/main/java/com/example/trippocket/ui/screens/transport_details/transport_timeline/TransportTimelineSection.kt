@@ -37,7 +37,7 @@ fun TransportTimelineSection(
     Row(
         modifier = modifier.fillMaxWidth()
     ) {
-        TimelineLine(Modifier.height(110.dp))
+        TimelineLine(Modifier.height(115.dp))
 
         Spacer(
             modifier = Modifier.width(12.dp)
@@ -46,24 +46,24 @@ fun TransportTimelineSection(
         Column(
             modifier = Modifier
                 .weight(1f)
-                .height(180.dp)
+                .height(210.dp)
         ) {
             TransportLocation(
                 city = transport.from.city,
                 address = transport.from.address,
-                modifier = Modifier.height(60.dp)
+                modifier = Modifier.height(80.dp)
             )
 
             TransportDuration(
                 hours = hours,
                 minutes = minutes,
-                modifier = Modifier.height(62.dp)
+                modifier = Modifier.height(50.dp)
             )
 
             TransportLocation(
                 city = transport.to.city,
                 address = transport.to.address,
-                modifier = Modifier.height(60.dp)
+                modifier = Modifier.height(80.dp)
             )
         }
 
@@ -74,7 +74,7 @@ fun TransportTimelineSection(
         Column(
             modifier = Modifier
                 .height(170.dp)
-                .padding(top = 3.dp)
+                .padding(top = 2.dp)
         ) {
             TransportTime(
                 time = transport.from.time,
@@ -82,7 +82,7 @@ fun TransportTimelineSection(
             )
 
             Spacer(
-                modifier = Modifier.height(72.dp)
+                modifier = Modifier.height(80.dp)
             )
 
             TransportTime(

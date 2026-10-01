@@ -89,7 +89,7 @@ fun TransportDetailsScreen(
             )
 
             Spacer(
-                modifier = Modifier.height(36.dp)
+                modifier = Modifier.height(24.dp)
             )
 
             TransportDocumentsSection(

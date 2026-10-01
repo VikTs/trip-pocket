@@ -32,7 +32,7 @@ fun TimelineNode(
     Box(
         modifier = Modifier
             .width(32.dp)
-            .height(130.dp)
+            .height(135.dp)
     ) {
         if (!isFirst) {
             Box(
