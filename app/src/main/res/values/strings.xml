@@ -44,7 +44,7 @@
     <string name="transport_details_seat_label">Seat</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>
-    <string name="transport_details_departure_notification_label">Notify before departure</string>
+    <string name="transport_details_departure_notification_label">Notify 1h before departure</string>
 
     <string name="add_to_trip_bottom_sheet_title">Add to trip</string>
     <string name="add_to_trip_bottom_sheet_transport_label">Transport</string>
@@ -54,7 +54,7 @@
     <string name="trip_details_accommodation_checkin_label">Check in</string>
     <string name="trip_details_accommodation_checkout_label">Check out</string>
     <string name="trip_details_empty_message">Your trip is empty</string>
-    <string name="trip_details_add_btn_label">Add/string</string>
+    <string name="trip_details_add_btn_label">Add</string>
     <string name="trip_details_transport_card_coach_label">coach</string>
     <string name="trip_details_transport_card_seat_label">seat</string>
     <string name="trip_details_transport_card_department_label">Dep.</string>
@@ -91,8 +91,8 @@
     <string name="accommodation_details_check_in_label">Check-in</string>
     <string name="accommodation_details_check_out_label">Check-out</string>
     <string name="accommodation_details_notifications_section_title">Notifications</string>
-    <string name="accommodation_details_check_in_notification_label">Notify before check in</string>
-    <string name="accommodation_details_check_out_notification_label">Notify before check out</string>
+    <string name="accommodation_details_check_in_notification_label">Notify 1h before check in</string>
+    <string name="accommodation_details_check_out_notification_label">Notify 1h before check out</string>
     <string name="accommodation_details_documents_section_title">Documents</string>
 
     <string name="notification_upcoming_transport">Upcoming %1$s to %2$s</string>

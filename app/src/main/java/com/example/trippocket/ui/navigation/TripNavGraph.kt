@@ -1,8 +1,6 @@
 package com.example.trippocket.ui.navigation
 
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -14,15 +12,21 @@ import com.example.trippocket.ui.screens.trips.TripsScreen
 import com.example.trippocket.viewmodel.AccommodationViewModel
 import com.example.trippocket.viewmodel.TransportsViewModel
 import com.example.trippocket.viewmodel.TripsViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import kotlinx.coroutines.flow.StateFlow
 
 fun NavGraphBuilder.tripNavGraph(
     navController: NavHostController,
-    trips: List<Trip>,
+    trips: StateFlow<List<Trip>>,
     tripsViewModel: TripsViewModel
 ) {
     composable("trips") {
+
+        val tripList by trips
+            .collectAsStateWithLifecycle()
+
         TripsScreen(
-            trips = trips,
+            trips = tripList,
             onAddTripClick = {
                 navController.navigate("create_trip")
             },
@@ -48,10 +52,12 @@ fun NavGraphBuilder.tripNavGraph(
 
     composable("edit_trip/{tripId}") { backStackEntry ->
 
-        val tripId =
-            backStackEntry.longArgument("tripId")
+        val tripId = backStackEntry.arguments
+            ?.getString("tripId")
+            ?.toLongOrNull()
 
         if (tripId != null) {
+
             val trip by tripsViewModel
                 .getTripById(tripId)
                 .collectAsStateWithLifecycle(
@@ -61,7 +67,10 @@ fun NavGraphBuilder.tripNavGraph(
             CreateTripScreen(
                 editTrip = trip,
                 onTripSaved = { updatedTrip ->
-                    tripsViewModel.updateTrip(updatedTrip)
+                    tripsViewModel.updateTrip(
+                        updatedTrip
+                    )
+
                     navController.popBackStack()
                 },
                 onBackClick = {
@@ -73,10 +82,14 @@ fun NavGraphBuilder.tripNavGraph(
 
     composable("trip/{tripId}") { backStackEntry ->
 
-        val tripId =
-            backStackEntry.longArgument("tripId")
+        val tripId = backStackEntry.arguments
+            ?.getString("tripId")
+            ?.toLongOrNull()
 
-        val trip = trips.firstOrNull {
+        val tripList by trips
+            .collectAsStateWithLifecycle()
+
+        val trip = tripList.firstOrNull {
             it.id == tripId
         }
 
@@ -108,7 +121,10 @@ fun NavGraphBuilder.tripNavGraph(
                 },
 
                 onDeleteClick = {
-                    tripsViewModel.deleteTrip(tripId)
+                    tripsViewModel.deleteTrip(
+                        tripId
+                    )
+
                     navController.popBackStack()
                 },
 

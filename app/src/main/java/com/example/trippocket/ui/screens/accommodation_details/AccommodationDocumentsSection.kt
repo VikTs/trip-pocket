@@ -41,7 +41,7 @@ fun AccommodationDocumentsSection(
     )
 
     Spacer(
-        modifier = Modifier.height(16.dp)
+        modifier = Modifier.height(18.dp)
     )
 
     FlowRow(
