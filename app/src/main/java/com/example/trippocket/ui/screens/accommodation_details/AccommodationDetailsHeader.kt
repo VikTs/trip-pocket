@@ -1,7 +1,9 @@
 package com.example.trippocket.ui.screens.accommodation_details
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -15,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
+import com.example.trippocket.ui.components.AddressLink
 
 @Composable
 fun AccommodationDetailsHeader(
@@ -25,7 +28,7 @@ fun AccommodationDetailsHeader(
     ) {
         Icon(
             imageVector = Icons.Default.Hotel,
-            contentDescription = "Hotel",
+            contentDescription = null,
             modifier = Modifier
                 .padding(top = 2.dp)
                 .size(22.dp)
@@ -35,9 +38,20 @@ fun AccommodationDetailsHeader(
             modifier = Modifier.width(12.dp)
         )
 
-        Text(
-            text = accommodation.name,
-            style = MaterialTheme.typography.titleLarge
-        )
+        Column {
+            Text(
+                text = accommodation.name,
+                style = MaterialTheme.typography.titleLarge
+            )
+
+            Spacer(
+                modifier = Modifier.height(4.dp)
+            )
+
+            AddressLink(
+                address = accommodation.address,
+                additionalInfo = accommodation.name
+            )
+        }
     }
 }

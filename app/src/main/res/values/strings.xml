@@ -44,7 +44,7 @@
     <string name="transport_details_seat_label">Seat</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>
-    <string name="transport_details_departure_notification_label">Notify before departure</string>
+    <string name="transport_details_departure_notification_label">Notify 1h before departure</string>
 
     <string name="add_to_trip_bottom_sheet_title">Add to trip</string>
     <string name="add_to_trip_bottom_sheet_transport_label">Transport</string>
@@ -91,8 +91,8 @@
     <string name="accommodation_details_check_in_label">Check-in</string>
     <string name="accommodation_details_check_out_label">Check-out</string>
     <string name="accommodation_details_notifications_section_title">Notifications</string>
-    <string name="accommodation_details_check_in_notification_label">Notify before check in</string>
-    <string name="accommodation_details_check_out_notification_label">Notify before check out</string>
+    <string name="accommodation_details_check_in_notification_label">Notify 1h before check in</string>
+    <string name="accommodation_details_check_out_notification_label">Notify 1h before check out</string>
     <string name="accommodation_details_documents_section_title">Documents</string>
 
     <string name="notification_upcoming_transport">Upcoming %1$s to %2$s</string>

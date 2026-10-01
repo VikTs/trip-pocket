@@ -47,7 +47,7 @@ fun AccommodationNotificationsSection(
     )
 
     Spacer(
-        modifier = Modifier.height(8.dp)
+        modifier = Modifier.height(4.dp)
     )
 
     LabeledSwitch(
