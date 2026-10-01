@@ -1,9 +1,7 @@
 package com.example.trippocket.ui.navigation
 
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.trippocket.viewmodel.TripsViewModel
@@ -13,8 +11,6 @@ fun TripPocketNavHost() {
     val navController = rememberNavController()
 
     val tripsViewModel: TripsViewModel = hiltViewModel()
-    val trips by tripsViewModel.trips
-        .collectAsStateWithLifecycle()
 
     NavHost(
         navController = navController,
@@ -22,7 +18,7 @@ fun TripPocketNavHost() {
     ) {
         tripNavGraph(
             navController = navController,
-            trips = trips,
+            trips = tripsViewModel.trips,
             tripsViewModel = tripsViewModel
         )
 
