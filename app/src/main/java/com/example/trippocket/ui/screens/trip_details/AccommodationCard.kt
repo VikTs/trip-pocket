@@ -82,7 +82,7 @@ fun AccommodationCard(
                 ) {
                     Text(
                         text = accommodation.name,
-                        style = MaterialTheme.typography.titleLarge
+                        style = MaterialTheme.typography.titleMedium
                     )
 
                     Spacer(

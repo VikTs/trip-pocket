@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
@@ -84,7 +85,9 @@ fun TransportCard(
                     ) {
                         Text(
                             text = transport.from.city,
-                            style = MaterialTheme.typography.titleLarge
+                            style = MaterialTheme.typography.titleMedium,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
                         )
 
                         Icon(
@@ -96,8 +99,9 @@ fun TransportCard(
                         )
 
                         Text(
-                            text = transport.to.city,
-                            style = MaterialTheme.typography.titleLarge
+                            text = transport.to.city, maxLines = 2,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.titleMedium
                         )
                     }
 

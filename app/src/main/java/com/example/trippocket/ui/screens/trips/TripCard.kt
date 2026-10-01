@@ -80,7 +80,7 @@ fun TripCard(
         ) {
             Text(
                 text = trip.name,
-                style = typography.titleLarge
+                style = typography.titleMedium
             )
 
             Spacer(

@@ -41,7 +41,7 @@ fun TransportDocumentsSection(
     )
 
     Spacer(
-        modifier = Modifier.height(24.dp)
+        modifier = Modifier.height(18.dp)
     )
 
     FlowRow(
