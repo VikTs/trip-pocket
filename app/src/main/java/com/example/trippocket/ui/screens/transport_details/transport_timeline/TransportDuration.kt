@@ -64,7 +64,7 @@ fun TransportDuration(
 
     Box(
         modifier = modifier.fillMaxWidth(),
-        contentAlignment = Alignment.CenterStart
+        contentAlignment = Alignment.TopStart
     ) {
         Box(
             modifier = Modifier

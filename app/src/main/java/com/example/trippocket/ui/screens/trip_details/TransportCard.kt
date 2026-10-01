@@ -1,11 +1,15 @@
 package com.example.trippocket.ui.screens.trip_details
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -18,15 +22,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
+import com.example.trippocket.ui.extensions.toDisplayName
 import com.example.trippocket.ui.extensions.toIcon
 import com.example.trippocket.utils.formatTripDateTime
 import com.example.trippocket.utils.formatTripTime
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TransportCard(
     transport: Transport,
@@ -79,38 +85,59 @@ fun TransportCard(
                 Column(
                     modifier = Modifier.padding(16.dp)
                 ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
+                    FlowRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalArrangement = Arrangement.Center
                     ) {
                         Text(
                             text = transport.from.city,
-                            style = MaterialTheme.typography.titleLarge
+                            style = MaterialTheme.typography.titleMedium,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
 
-                        Icon(
-                            imageVector = Icons.Default.ArrowForward,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(20.dp)
-                                .padding(horizontal = 4.dp)
-                        )
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.ArrowForward,
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .size(20.dp)
+                                    .padding(horizontal = 4.dp)
+                            )
 
-                        Text(
-                            text = transport.to.city,
-                            style = MaterialTheme.typography.titleLarge
-                        )
+                            Text(
+                                text = transport.to.city,
+                                style = MaterialTheme.typography.titleMedium,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
                     }
-
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(4.dp))
 
                     if (departureInfo.isNotBlank()) {
+
                         Text(
-                            text = "${stringResource(R.string.trip_details_transport_card_department_label)}: $departureInfo",
-                            style = MaterialTheme.typography.bodyMedium
+                            text = departureInfo,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.labelLarge
+                        )
+                    } else {
+                        Text(
+                            text = "${transport.transportType.toDisplayName()} departure",
+                            style = MaterialTheme.typography.labelLarge
                         )
                     }
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
                     Text(
                         text = "${stringResource(R.string.trip_details_transport_card_arrival_label)}: $arrivalTimeString",
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }

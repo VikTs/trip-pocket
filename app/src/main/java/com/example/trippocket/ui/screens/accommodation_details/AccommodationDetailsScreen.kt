@@ -76,13 +76,13 @@ fun AccommodationDetailsScreen(
             AccommodationDetailsHeader(accommodation)
 
             Spacer(
-                modifier = Modifier.height(38.dp)
+                modifier = Modifier.height(36.dp)
             )
 
             AccommodationInfoSection(accommodation)
 
             Spacer(
-                modifier = Modifier.height(38.dp)
+                modifier = Modifier.height(36.dp)
             )
 
             AccommodationDocumentsSection(
@@ -91,7 +91,7 @@ fun AccommodationDetailsScreen(
             )
 
             Spacer(
-                modifier = Modifier.height(48.dp)
+                modifier = Modifier.height(36.dp)
             )
 
             AccommodationNotificationsSection(

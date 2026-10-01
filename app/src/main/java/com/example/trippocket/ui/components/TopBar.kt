@@ -22,7 +22,10 @@ fun TopBar(
 
     TopAppBar(
         title = {
-            Text(title)
+            Text(
+                title,
+                style = MaterialTheme.typography.titleLarge
+            )
         },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = colors.primary,

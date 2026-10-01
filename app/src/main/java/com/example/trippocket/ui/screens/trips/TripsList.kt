@@ -39,7 +39,7 @@ fun TripsList(
                     Text(
                         text = stringResource(R.string.trips_toggle_empty_message),
                         textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.titleLarge
+                        style = MaterialTheme.typography.titleMedium
                     )
                 }
             }

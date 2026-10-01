@@ -29,11 +29,10 @@ fun TripTimeline(
         )
     ) {
         itemsByDay.forEach { (date, items) ->
-
             item {
                 Text(
                     text = formatDayOfWeekDate(date),
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.titleSmall,
                     modifier = Modifier.padding(
                         vertical = 6.dp
                     )

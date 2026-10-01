@@ -55,9 +55,8 @@
     <string name="trip_details_accommodation_checkout_label">Check out</string>
     <string name="trip_details_empty_message">Your trip is empty</string>
     <string name="trip_details_add_btn_label">Add</string>
-    <string name="trip_details_transport_card_coach_label">coach</string>
-    <string name="trip_details_transport_card_seat_label">seat</string>
-    <string name="trip_details_transport_card_department_label">Dep.</string>
+    <string name="trip_details_transport_card_coach_label">Coach</string>
+    <string name="trip_details_transport_card_seat_label">Seat</string>
     <string name="trip_details_transport_card_arrival_label">Arrival</string>
 
     <string name="trips_empty_message">You don\'t have planned trips</string>

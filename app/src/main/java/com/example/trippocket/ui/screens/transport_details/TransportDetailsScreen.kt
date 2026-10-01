@@ -81,7 +81,7 @@ fun TransportDetailsScreen(
             )
 
             Spacer(
-                modifier = Modifier.height(40.dp)
+                modifier = Modifier.height(36.dp)
             )
 
             TransportTimelineSection(
@@ -89,7 +89,7 @@ fun TransportDetailsScreen(
             )
 
             Spacer(
-                modifier = Modifier.height(40.dp)
+                modifier = Modifier.height(24.dp)
             )
 
             TransportDocumentsSection(
@@ -98,7 +98,7 @@ fun TransportDetailsScreen(
             )
 
             Spacer(
-                modifier = Modifier.height(40.dp)
+                modifier = Modifier.height(36.dp)
             )
 
             TransportNotificationsSection(

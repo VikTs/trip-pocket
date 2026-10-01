@@ -49,7 +49,10 @@ fun EmptyTripContent(
                 modifier = Modifier.width(8.dp)
             )
 
-            Text(stringResource(R.string.trip_details_add_btn_label))
+            Text(
+                stringResource(R.string.trip_details_add_btn_label),
+                style = MaterialTheme.typography.bodyMedium
+            )
         }
     }
 }
