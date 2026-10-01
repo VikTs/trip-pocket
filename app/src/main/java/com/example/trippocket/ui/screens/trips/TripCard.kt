@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.AccessTime
+import androidx.compose.material.icons.outlined.TaskAlt
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -36,6 +37,8 @@ fun TripCard(
     val typography = MaterialTheme.typography
     val colorScheme = MaterialTheme.colorScheme
 
+    val isCompleted = LocalDate.now().isAfter(trip.endDate)
+
     val tripStatus = when {
         LocalDate.now().isBefore(trip.startDate) -> {
             val daysUntil = ChronoUnit.DAYS.between(
@@ -50,7 +53,7 @@ fun TripCard(
             )
         }
 
-        !LocalDate.now().isAfter(trip.endDate) -> {
+        !isCompleted -> {
             stringResource(R.string.trips_trip_card_today_label)
         }
 
@@ -106,7 +109,11 @@ fun TripCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    imageVector = Icons.Outlined.AccessTime,
+                    imageVector = if (isCompleted) {
+                        Icons.Outlined.TaskAlt
+                    } else {
+                        Icons.Outlined.AccessTime
+                    },
                     contentDescription = null,
                     tint = colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(18.dp)
