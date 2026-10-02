@@ -36,23 +36,25 @@ class NotificationReceiver : BroadcastReceiver() {
 
         val message =
             intent.getStringExtra("message")
-                ?: context.getString(
-                    R.string.notification_default_message
-                )
+
+        val channelId =
+            intent.getStringExtra("channelId")
+                ?: NotificationChannel.TRANSPORT
 
         val notification = NotificationCompat.Builder(
             context,
-            NotificationChannel.TRANSPORT
+            channelId
         )
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.drawable.notification_logo)
             .setContentTitle(title)
-            .setContentText(message)
-            .setPriority(
-                NotificationCompat.PRIORITY_DEFAULT
-            )
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setAutoCancel(true)
+            .apply {
+                if (!message.isNullOrBlank()) {
+                    setContentText(message)
+                }
+            }
             .build()
-
         NotificationManagerCompat
             .from(context)
             .notify(
