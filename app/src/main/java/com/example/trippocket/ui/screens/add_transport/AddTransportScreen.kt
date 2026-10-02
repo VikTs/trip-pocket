@@ -142,12 +142,33 @@ fun AddTransportScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-
             TransportInputSection(
                 transportType = state.transportType,
                 transportNumber = state.transportNumber,
                 coach = state.coach,
                 place = state.place,
+                isPrivateBus = state.isPrivateBus,
+                carrier = state.carrier,
+                driverPhone = state.driverPhone,
+                onPrivateBusChange = {
+                    state = state.copy(
+                        isPrivateBus = it,
+                        carrier = null,
+                        driverPhone = null
+                    )
+                },
+                onCarrierChange = {
+                    state = state.copy(
+                        carrier = it
+                    )
+                },
+                onDriverPhoneChange = {
+                    state = state.copy(
+                        driverPhone = it?.filter { char ->
+                            char.isDigit() || char == '+' || char == ' '
+                        }
+                    )
+                },
                 onTransportTypeChange = {
                     if (it != state.transportType) {
                         state = state.copy(
@@ -278,6 +299,9 @@ data class AddTransportState(
     val transportType: TransportType = TransportType.BUS,
     val transportNumber: String? = null,
     val place: String? = null,
+    val isPrivateBus: Boolean = false,
+    val carrier: String? = null,
+    val driverPhone: String? = null,
     val coach: String? = null,
     val fromCity: String = "",
     val fromDate: LocalDate? = null,
