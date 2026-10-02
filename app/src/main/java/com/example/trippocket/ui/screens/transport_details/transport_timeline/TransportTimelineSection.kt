@@ -7,9 +7,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
 import java.time.Duration
 import java.time.temporal.ChronoUnit
@@ -79,7 +83,9 @@ fun TransportTimelineSection(
             TransportTime(
                 time = transport.from.time,
                 modifier = Modifier.height(50.dp)
-            )
+            ) {
+                PlatformText(transport.from.platform)
+            }
 
             Spacer(
                 modifier = Modifier.height(80.dp)
@@ -89,7 +95,24 @@ fun TransportTimelineSection(
                 time = transport.to.time,
                 dayOffset = arrivalDayOffset,
                 modifier = Modifier.height(50.dp)
-            )
+            ) {
+                PlatformText(transport.to.platform)
+            }
         }
+    }
+}
+
+@Composable
+fun PlatformText(
+    platform: String?,
+    modifier: Modifier = Modifier
+) {
+    platform?.let {
+        Text(
+            text = "${stringResource(R.string.transport_details_platform_label)}: $platform",
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = modifier
+        )
     }
 }

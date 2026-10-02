@@ -1,7 +1,9 @@
 package com.example.trippocket.ui.screens.transport_details.transport_timeline
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -16,31 +18,42 @@ import java.time.LocalDateTime
 fun TransportTime(
     time: LocalDateTime,
     dayOffset: Long = 0,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    content: @Composable (() -> Unit)? = null
 ) {
-    Row(
+    Column(
         modifier = modifier,
-        verticalAlignment = Alignment.Top
+        horizontalAlignment = Alignment.End
     ) {
-        Text(
-            text = formatTripTime(time),
-            style = MaterialTheme.typography.titleMedium
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = formatTripTime(time),
+                style = MaterialTheme.typography.titleMedium
+            )
+
+            if (dayOffset != 0L) {
+                Spacer(
+                    modifier = Modifier.width(4.dp)
+                )
+
+                Text(
+                    text = if (dayOffset > 0) {
+                        "+$dayOffset"
+                    } else {
+                        dayOffset.toString()
+                    },
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
+        }
+
+        Spacer(
+            modifier = Modifier.height(4.dp)
         )
 
-        if (dayOffset != 0L) {
-            Spacer(
-                modifier = Modifier.width(4.dp)
-            )
-
-            Text(
-                text = if (dayOffset > 0) {
-                    "+$dayOffset"
-                } else {
-                    dayOffset.toString()
-                },
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.primary
-            )
-        }
+        content?.invoke()
     }
 }

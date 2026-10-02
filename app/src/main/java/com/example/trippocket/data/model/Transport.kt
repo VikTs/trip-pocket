@@ -23,8 +23,11 @@ data class Transport(
     val tripId: Long,
     val transportType: TransportType,
     val transportNumber: String?,
+    val isPrivateTransport: Boolean,
     val coach: String?,
     val place: String?,
+    val carrier: String?,
+    val driverPhone: String?,
 
     @Embedded(prefix = "from_")
     val from: TransportStop,
@@ -42,4 +45,5 @@ data class TransportStop(
     val city: String,
     val time: LocalDateTime,
     val address: String,
+    val platform: String?,
 )
