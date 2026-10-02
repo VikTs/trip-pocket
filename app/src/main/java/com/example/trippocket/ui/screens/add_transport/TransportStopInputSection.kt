@@ -25,11 +25,13 @@ fun TransportStopInputSection(
     date: LocalDate?,
     time: LocalTime?,
     address: String?,
+    platform: String?,
     minDate: LocalDate?,
     onCityChange: (String) -> Unit,
     onDateChange: (LocalDate) -> Unit,
     onTimeChange: (LocalTime) -> Unit,
     onAddressChange: (String) -> Unit,
+    onPlatformChange: (String) -> Unit,
 ) {
     Text(
         text = title,
@@ -69,18 +71,36 @@ fun TransportStopInputSection(
         )
     }
 
-    OutlinedTextField(
-        value = address ?: "",
-        onValueChange = onAddressChange,
-        label = {
-            Text(stringResource(R.string.add_transport_address_label))
-        },
-        singleLine = true,
-        modifier = Modifier.fillMaxWidth(),
-        placeholder = {
-            Text(stringResource(R.string.add_transport_address_placeholder))
-        },
-    )
+    Row(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        OutlinedTextField(
+            value = address ?: "",
+            onValueChange = onAddressChange,
+            label = {
+                Text(stringResource(R.string.add_transport_address_label))
+            },
+            singleLine = true,
+            modifier = Modifier.weight(2f),
+            placeholder = {
+                Text(stringResource(R.string.add_transport_address_placeholder))
+            },
+        )
+
+        Spacer(
+            modifier = Modifier.width(12.dp)
+        )
+
+        OutlinedTextField(
+            value = platform ?: "",
+            onValueChange = onPlatformChange,
+            label = {
+                Text(stringResource(R.string.add_transport_platform_label))
+            },
+            singleLine = true,
+            modifier = Modifier.weight(1f)
+        )
+    }
 
     Spacer(
         modifier = Modifier.height(8.dp)

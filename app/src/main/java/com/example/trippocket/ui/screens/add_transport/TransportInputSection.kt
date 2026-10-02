@@ -12,10 +12,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.trippocket.R
 import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.components.Dropdown
-import com.example.trippocket.ui.extensions.toDisplayName
-import com.example.trippocket.R
 
 @Composable
 fun TransportInputSection(
@@ -23,6 +22,12 @@ fun TransportInputSection(
     transportNumber: String?,
     coach: String?,
     place: String?,
+    isPrivateBus: Boolean,
+    carrier: String?,
+    driverPhone: String?,
+    onPrivateBusChange: (Boolean) -> Unit,
+    onCarrierChange: (String?) -> Unit,
+    onDriverPhoneChange: (String?) -> Unit,
     onTransportTypeChange: (TransportType) -> Unit,
     onTransportNumberChange: (String?) -> Unit,
     onPlaceChange: (String?) -> Unit,
@@ -57,7 +62,6 @@ fun TransportInputSection(
         onItemSelected = onTransportTypeChange
     )
 
-
     if (transportType == TransportType.TRAIN) {
         TrainInput(
             transportNumber,
@@ -70,6 +74,15 @@ fun TransportInputSection(
     } else {
         BusInput(
             transportNumber, place, onTransportNumberChange, onPlaceChange
+        )
+
+        PrivateBusInputSection(
+            isPrivateBus = isPrivateBus,
+            carrier = carrier,
+            driverPhone = driverPhone,
+            onPrivateBusChange = onPrivateBusChange,
+            onCarrierChange = onCarrierChange,
+            onDriverPhoneChange = onDriverPhoneChange
         )
     }
 

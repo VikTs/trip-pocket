@@ -28,8 +28,12 @@
     <string name="add_transport_date_label">Date*</string>
     <string name="add_transport_time_label">Time*</string>
     <string name="add_transport_address_label">Location*</string>
+    <string name="add_transport_platform_label">Platform</string>
     <string name="add_transport_address_placeholder">Address or station</string>
     <string name="add_transport_city_label">City*</string>
+    <string name="add_transport_private_bus_label">This is a private bus</string>
+    <string name="add_transport_carrier_label">Carrier</string>
+    <string name="add_transport_driver_phone_label">Driver phone</string>
 
     <string name="edit_trip_title">Edit trip</string>
     <string name="create_trip_title">Create trip</string>
@@ -42,6 +46,9 @@
     <string name="transport_details_train_info_title">Train info</string>
     <string name="transport_details_coach_label">Coach</string>
     <string name="transport_details_seat_label">Seat</string>
+    <string name="transport_details_carrier_label">Carrier</string>
+    <string name="transport_details_driver_phone_label">Driver</string>
+    <string name="transport_details_platform_label">Platform</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>
     <string name="transport_details_departure_notification_label">Notify 1h before departure</string>
