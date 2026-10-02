@@ -22,17 +22,21 @@ object NotificationChannel {
         val transportChannel = NotificationChannel(
             TRANSPORT,
             "Transport",
-            NotificationManager.IMPORTANCE_DEFAULT
+            NotificationManager.IMPORTANCE_HIGH
         ).apply {
             description = "Notifications about upcoming transport"
+            enableVibration(true)
+            vibrationPattern = longArrayOf(0, 300, 200, 300)
         }
 
         val accommodationChannel = NotificationChannel(
             ACCOMMODATION,
             "Accommodation",
-            NotificationManager.IMPORTANCE_DEFAULT
+            NotificationManager.IMPORTANCE_HIGH
         ).apply {
             description = "Notifications about hotel check-in and check-out"
+            enableVibration(true)
+            vibrationPattern = longArrayOf(0, 300, 200, 300)
         }
 
         notificationManager.createNotificationChannel(
