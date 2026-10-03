@@ -34,6 +34,21 @@ class NotificationScheduler(
             transport.from.time
                 .minusMinutes(notification.minutesBefore)
 
+        val message = buildList {
+            transport.from.platform
+                ?.takeIf { it.isNotBlank() }
+                ?.let { add("Platform $it") }
+
+            transport.place
+                ?.takeIf { it.isNotBlank() }
+                ?.let { add("Seat $it") }
+
+            transport.coach
+                ?.takeIf { it.isNotBlank() }
+                ?.let { add("Coach $it") }
+        }.takeIf { it.isNotEmpty() }
+            ?.joinToString(" • ")
+
         schedule(
             notificationId = notification.id,
             triggerAtMillis = notificationTime
@@ -43,12 +58,7 @@ class NotificationScheduler(
             title = createTransportTitle(
                 transport
             ),
-            message = context.getString(
-                R.string.notification_departure_time,
-                formatTripTime(
-                    transport.from.time
-                )
-            )
+            message = message
         )
     }
 
@@ -117,7 +127,7 @@ class NotificationScheduler(
         notificationId: Long,
         triggerAtMillis: Long,
         title: String,
-        message: String
+        message: String?
     ) {
         if (triggerAtMillis <= System.currentTimeMillis()) {
             return
@@ -197,7 +207,8 @@ class NotificationScheduler(
         return context.getString(
             R.string.notification_upcoming_transport,
             transportType.lowercase(),
-            transport.to.city
+            transport.to.city,
+            formatTripTime(transport.to.time)
         )
     }
 }

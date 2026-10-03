@@ -18,9 +18,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.trippocket.R
+import com.example.trippocket.ui.extensions.toTripDurationText
+import java.time.Duration
 
 @Composable
 fun TransportDuration(
@@ -28,39 +29,11 @@ fun TransportDuration(
     minutes: Long,
     modifier: Modifier = Modifier
 ) {
-    val durationText = when {
-        hours > 0 && minutes > 0 -> {
-            "${
-                pluralStringResource(
-                    R.plurals.transport_duration_hours,
-                    hours.toInt(),
-                    hours
-                )
-            } ${
-                pluralStringResource(
-                    R.plurals.transport_duration_minutes,
-                    minutes.toInt(),
-                    minutes
-                )
-            }"
-        }
+    val context = LocalContext.current
+    val duration = Duration.ofHours(hours)
+        .plusMinutes(minutes)
 
-        hours > 0 -> {
-            pluralStringResource(
-                R.plurals.transport_duration_hours,
-                hours.toInt(),
-                hours
-            )
-        }
-
-        else -> {
-            pluralStringResource(
-                R.plurals.transport_duration_minutes,
-                minutes.toInt(),
-                minutes
-            )
-        }
-    }
+    val durationText = duration.toTripDurationText(context)
 
     Box(
         modifier = modifier.fillMaxWidth(),
