@@ -9,7 +9,7 @@
     <string name="transport_type_bus">Bus</string>
     <string name="transport_type_train">Train</string>
     <string name="date_input_placeholder">Select date</string>
-    <string name="time_input_placeholder">Select date</string>
+    <string name="time_input_placeholder">Select time</string>
     <string name="address_copied_message">Address copied</string>
     <string name="upload_btn_label">Upload document</string>
     <string name="language_selector_content_description">Language</string>

@@ -11,6 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.example.trippocket.R
 import com.example.trippocket.utils.formatTripDate
@@ -24,6 +25,7 @@ fun DateInput(
     modifier: Modifier = Modifier.fillMaxWidth(),
     minDate: LocalDate? = null
     ) {
+    val context = LocalContext.current
     var showDatePicker by remember {
         mutableStateOf(false)
     }
@@ -32,7 +34,7 @@ fun DateInput(
         modifier = modifier
     ) {
         OutlinedTextField(
-            value = selectedDate?.let { formatTripDate(it) } ?: "",
+            value = selectedDate?.let { formatTripDate(context, it) } ?: "",
             onValueChange = {},
             label = {
                 Text(label)

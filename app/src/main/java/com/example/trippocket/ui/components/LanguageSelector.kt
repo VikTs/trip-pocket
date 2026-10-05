@@ -1,5 +1,6 @@
 package com.example.trippocket.ui.components
 
+import android.content.Context
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Language
@@ -16,13 +17,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import com.example.trippocket.R
+import com.example.trippocket.utils.getAppLocale
 import com.example.trippocket.utils.setAppLanguage
 
 @Composable
 fun LanguageSelector() {
     val context = LocalContext.current
     val colorScheme = MaterialTheme.colorScheme
+    val currentLanguage =
+        getAppLocale(context).language
 
     var expanded by remember {
         mutableStateOf(false)
@@ -49,25 +54,62 @@ fun LanguageSelector() {
                 expanded = false
             }
         ) {
-            DropdownMenuItem(
-                text = {
-                    Text("English")
-                },
-                onClick = {
-                    setAppLanguage(context, "en")
-                    expanded = false
-                }
+            LanguageOption(
+                name = "English",
+                currentLanguage = currentLanguage,
+                languageTag = "en",
+                context = context,
             )
 
-            DropdownMenuItem(
-                text = {
-                    Text("Українська")
-                },
-                onClick = {
-                    setAppLanguage(context, "uk")
-                    expanded = false
-                }
+            LanguageOption(
+                name = "Українська",
+                currentLanguage = currentLanguage,
+                languageTag = "uk",
+                context = context,
+            )
+
+            LanguageOption(
+                name = "Italiano",
+                currentLanguage = currentLanguage,
+                languageTag = "it",
+                context = context,
+            )
+
+            LanguageOption(
+                name = "Deutsch",
+                currentLanguage = currentLanguage,
+                languageTag = "de",
+                context = context,
+            )
+
+            LanguageOption(
+                name = "Français",
+                currentLanguage = currentLanguage,
+                languageTag = "fr",
+                context = context,
             )
         }
     }
+}
+
+@Composable
+fun LanguageOption(
+    name: String,
+    currentLanguage: String,
+    languageTag: String,
+    context: Context,
+) {
+    DropdownMenuItem(
+        text = {
+            Text(name,
+                fontWeight = if (languageTag == currentLanguage) {
+                    FontWeight.Bold
+                } else {
+                    FontWeight.Normal
+                })
+        },
+        onClick = {
+            setAppLanguage(context, languageTag)
+        }
+    )
 }

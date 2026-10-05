@@ -29,7 +29,7 @@
     <string name="add_transport_date_label">Дата*</string>
     <string name="add_transport_time_label">Час*</string>
     <string name="add_transport_address_label">Місце*</string>
-    <string name="add_transport_platform_label">Платф.</string>
+    <string name="add_transport_platform_label">Платформа</string>
     <string name="add_transport_address_placeholder">Адреса або станція</string>
     <string name="add_transport_city_label">Місто*</string>
     <string name="add_transport_private_bus_label">Це приватний автобус</string>

@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.data.model.Transport
@@ -21,6 +22,7 @@ fun TripTimeline(
     onTransportClick: (transportId: Long) -> Unit,
     onAccommodationClick: (accommodationId: Long) -> Unit
 ) {
+    val context = LocalContext.current
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
@@ -31,7 +33,7 @@ fun TripTimeline(
         itemsByDay.forEach { (date, items) ->
             item {
                 Text(
-                    text = formatDayOfWeekDate(date),
+                    text = formatDayOfWeekDate(context, date),
                     style = MaterialTheme.typography.titleSmall,
                     modifier = Modifier.padding(
                         vertical = 6.dp

@@ -22,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -42,13 +43,14 @@ fun TransportCard(
     isActive: Boolean,
     isPrevActive: Boolean
 ) {
+    val context = LocalContext.current
     val departureTime = transport.from.time
     val arrivalTime = transport.to.time
 
     val arrivalTimeString =
         if (arrivalTime.toLocalDate() == departureTime.toLocalDate())
             formatTripTime(arrivalTime)
-        else formatTripDateTime(arrivalTime)
+        else formatTripDateTime(context, arrivalTime)
 
     val departureInfo = listOfNotNull(
         transport.transportNumber,

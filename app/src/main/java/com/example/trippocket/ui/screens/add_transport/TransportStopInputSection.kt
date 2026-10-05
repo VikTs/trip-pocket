@@ -71,9 +71,6 @@ fun TransportStopInputSection(
         )
     }
 
-    Row(
-        modifier = Modifier.fillMaxWidth()
-    ) {
         OutlinedTextField(
             value = address ?: "",
             onValueChange = onAddressChange,
@@ -81,14 +78,10 @@ fun TransportStopInputSection(
                 Text(stringResource(R.string.add_transport_address_label))
             },
             singleLine = true,
-            modifier = Modifier.weight(2f),
+            modifier = Modifier.fillMaxWidth(),
             placeholder = {
                 Text(stringResource(R.string.add_transport_address_placeholder))
             },
-        )
-
-        Spacer(
-            modifier = Modifier.width(12.dp)
         )
 
         OutlinedTextField(
@@ -98,9 +91,9 @@ fun TransportStopInputSection(
                 Text(stringResource(R.string.add_transport_platform_label))
             },
             singleLine = true,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.fillMaxWidth()
         )
-    }
+
 
     Spacer(
         modifier = Modifier.height(8.dp)

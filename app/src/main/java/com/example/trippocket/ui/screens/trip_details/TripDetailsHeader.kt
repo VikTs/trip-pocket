@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.utils.formatTripDates
@@ -14,6 +15,7 @@ import com.example.trippocket.utils.formatTripDates
 fun TripDetailsHeader(
     trip: Trip
 ) {
+    val context = LocalContext.current
     Text(
         text = trip.name,
         style = MaterialTheme.typography.titleLarge
@@ -25,6 +27,7 @@ fun TripDetailsHeader(
 
     Text(
         text = formatTripDates(
+            context,
             startDate = trip.startDate,
             endDate = trip.endDate
         ),

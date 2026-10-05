@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Salva modifiche</string>
+    <string name="common_edit">Modifica</string>
+    <string name="common_delete">Elimina</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Annulla</string>
+    <string name="transport_type_bus">Autobus</string>
+    <string name="transport_type_train">Treno</string>
+    <string name="date_input_placeholder">Seleziona la data</string>
+    <string name="time_input_placeholder">Seleziona l\'ora</string>
+    <string name="address_copied_message">Indirizzo copiato</string>
+    <string name="upload_btn_label">Carica documento</string>
+    <string name="language_selector_content_description">Lingua</string>
+
+    <string name="edit_transport_title">Modifica trasporto</string>
+    <string name="add_transport_title">Aggiungi trasporto</string>
+    <string name="add_transport_from_section_title">Da</string>
+    <string name="add_transport_to_section_title">A</string>
+    <string name="add_transport_btn_label">Aggiungi trasporto</string>
+    <string name="add_transport_bus_number_label">Numero autobus</string>
+    <string name="add_transport_place_label">Posto</string>
+    <string name="add_transport_documents_section_title">Documenti</string>
+    <string name="add_transport_train_number_label">Numero treno*</string>
+    <string name="add_transport_coach_label">Carrozza</string>
+    <string name="add_transport_transport_section_title">Trasporto</string>
+    <string name="add_transport_type_label">Tipo*</string>
+    <string name="add_transport_date_label">Data*</string>
+    <string name="add_transport_time_label">Ora*</string>
+    <string name="add_transport_address_label">Luogo*</string>
+    <string name="add_transport_platform_label">Piattaforma</string>
+    <string name="add_transport_address_placeholder">Indirizzo o stazione</string>
+    <string name="add_transport_city_label">Città*</string>
+    <string name="add_transport_private_bus_label">È un autobus privato</string>
+    <string name="add_transport_carrier_label">Vettore</string>
+    <string name="add_transport_driver_phone_label">Telefono dell\'autista</string>
+
+    <string name="edit_trip_title">Modifica viaggio</string>
+    <string name="create_trip_title">Crea viaggio</string>
+    <string name="create_trip_name_label">Nome del viaggio</string>
+    <string name="create_trip_start_date_label">Data di inizio</string>
+    <string name="create_trip_end_date_label">Data di fine</string>
+    <string name="create_trip_btn_label">Crea viaggio</string>
+
+    <string name="transport_details_bus_info_title">Informazioni sull\'autobus</string>
+    <string name="transport_details_train_info_title">Informazioni sul treno</string>
+    <string name="transport_details_coach_label">Carrozza</string>
+    <string name="transport_details_seat_label">Posto</string>
+    <string name="transport_details_carrier_label">Vettore</string>
+    <string name="transport_details_driver_phone_label">Autista</string>
+    <string name="transport_details_platform_label">Piattaforma</string>
+    <string name="transport_details_documents_section_title">Documenti</string>
+    <string name="transport_details_notifications_section_title">Notifiche</string>
+    <string name="transport_details_departure_notification_label">Notifica 1 ora prima della partenza</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Aggiungi al viaggio</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Trasporto</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Alloggio</string>
+
+    <string name="trip_details_title">Dettagli del viaggio</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Il tuo viaggio è vuoto</string>
+    <string name="trip_details_add_btn_label">Aggiungi</string>
+    <string name="trip_details_transport_card_coach_label">Carrozza</string>
+    <string name="trip_details_transport_card_seat_label">Posto</string>
+    <string name="trip_details_transport_card_arrival_label">Arrivo</string>
+    <string name="trip_details_transport_card_bus_departure">Partenza dell\'autobus</string>
+    <string name="trip_details_transport_card_train_departure">Partenza del treno</string>
+
+    <string name="trips_empty_message">Non hai viaggi pianificati</string>
+    <string name="trips_add_btn_label">Aggiungi viaggio</string>
+    <string name="trips_trip_card_today_label">Oggi</string>
+    <string name="trips_trip_card_completed_label">Completato</string>
+    <string name="trips_trip_card_duration_and_dates_label">%1$d giorni  |  %2$s</string>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">Tra %d giorno</item>
+        <item quantity="many">Tra %d giorni</item>
+        <item quantity="other">Tra %d giorni</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Passati</string>
+    <string name="trips_toggle_upcoming_label">In programma</string>
+    <string name="trips_toggle_empty_message">Nessun viaggio trovato</string>
+    <string name="trips_title">I miei viaggi</string>
+
+    <string name="add_accommodation_title">Aggiungi alloggio</string>
+    <string name="edit_accommodation_title">Modifica alloggio</string>
+    <string name="add_accommodation_general_section_title">Alloggio</string>
+    <string name="add_accommodation_name_label">Nome*</string>
+    <string name="add_accommodation_address_label">Indirizzo*</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Data*</string>
+    <string name="add_accommodation_time_label">Ora*</string>
+    <string name="add_accommodation_btn_label">Aggiungi alloggio</string>
+    <string name="add_accommodation_documents_section_title">Documenti</string>
+
+    <string name="accommodation_details_title">Informazioni sull\'alloggio</string>
+    <string name="accommodation_details_address_label">Indirizzo</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Notifiche</string>
+    <string name="accommodation_details_check_in_notification_label">Notifica 1 ora prima del check-in</string>
+    <string name="accommodation_details_check_out_notification_label">Notifica 1 ora prima del check-out</string>
+    <string name="accommodation_details_documents_section_title">Documenti</string>
+
+    <string name="notification_upcoming_transport">%1$s per %2$s parte alle %3$s</string>
+    <string name="notification_upcoming_bus">Autobus</string>
+    <string name="notification_upcoming_train">Treno</string>
+    <string name="notification_departure_time">Ora di partenza: %1$s</string>
+    <string name="notification_upcoming_check_in">Check-in presso %1$s</string>
+    <string name="notification_upcoming_check_out">Check-out da %1$s</string>
+    <string name="notification_accommodation_time">Ora: %1$s</string>
+    <string name="notification_transport_platform">Piattaforma %1$s</string>
+    <string name="notification_transport_seat">Posto %1$s</string>
+    <string name="notification_transport_coach">Carrozza %1$s</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d ora</item>
+        <item quantity="many">%d ore</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="many">%d minuti</item>
+        <item quantity="other">%d minuti</item>
+    </plurals>
+</resources>
