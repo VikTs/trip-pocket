@@ -345,6 +345,5 @@ data class AddTransportState(
                     fromDate != null &&
                     fromTime != null &&
                     toDate != null &&
-                    toTime != null &&
-                    (transportType != TransportType.TRAIN || !transportNumber.isNullOrBlank())
+                    toTime != null
 }

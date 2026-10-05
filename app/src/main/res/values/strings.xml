@@ -24,7 +24,7 @@
     <string name="add_transport_bus_number_label">Bus number</string>
     <string name="add_transport_place_label">Place</string>
     <string name="add_transport_documents_section_title">Documents</string>
-    <string name="add_transport_train_number_label">Train number*</string>
+    <string name="add_transport_train_number_label">Train number</string>
     <string name="add_transport_coach_label">Coach</string>
     <string name="add_transport_transport_section_title">Transport</string>
     <string name="add_transport_type_label">Type*</string>
@@ -108,6 +108,7 @@
     <string name="accommodation_details_check_out_notification_label">Notify 1h before check out</string>
     <string name="accommodation_details_documents_section_title">Documents</string>
     <string name="accommodation_details_delete_confirmation_title">Delete the accommodation?</string>
+    <string name="accommodation_details_duration_label">Duration</string>
 
     <string name="notification_upcoming_transport">%1$s to %2$s departs at %3$s</string>
     <string name="notification_upcoming_bus">Bus</string>
@@ -124,8 +125,14 @@
         <item quantity="one">%d hour</item>
         <item quantity="other">%d hours</item>
     </plurals>
+
     <plurals name="transport_duration_minutes">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d night</item>
+        <item quantity="other">%d nights</item>
     </plurals>
 </resources>

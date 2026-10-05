@@ -97,12 +97,12 @@ fun AccommodationCard(
                     )
 
                     Spacer(
-                        modifier = Modifier.height(8.dp)
+                        modifier = Modifier.height(6.dp)
                     )
 
                     Text(
                         text = accommodation.address,
-                        maxLines = 2,
+                        maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.bodyMedium
                     )

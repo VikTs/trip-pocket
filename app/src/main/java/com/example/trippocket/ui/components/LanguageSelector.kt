@@ -1,5 +1,6 @@
 package com.example.trippocket.ui.components
 
+import android.app.Activity
 import android.content.Context
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
@@ -33,6 +34,12 @@ fun LanguageSelector() {
         mutableStateOf(false)
     }
 
+    val activity = context as? Activity
+
+    fun onLanguageChanged() {
+        activity?.recreate()
+    }
+
     Box {
         IconButton(
             onClick = {
@@ -59,6 +66,7 @@ fun LanguageSelector() {
                 currentLanguage = currentLanguage,
                 languageTag = "en",
                 context = context,
+                onLanguageChanged = ::onLanguageChanged
             )
 
             LanguageOption(
@@ -66,6 +74,7 @@ fun LanguageSelector() {
                 currentLanguage = currentLanguage,
                 languageTag = "uk",
                 context = context,
+                onLanguageChanged = ::onLanguageChanged
             )
 
             LanguageOption(
@@ -73,6 +82,7 @@ fun LanguageSelector() {
                 currentLanguage = currentLanguage,
                 languageTag = "it",
                 context = context,
+                onLanguageChanged = ::onLanguageChanged
             )
 
             LanguageOption(
@@ -80,6 +90,7 @@ fun LanguageSelector() {
                 currentLanguage = currentLanguage,
                 languageTag = "de",
                 context = context,
+                onLanguageChanged = ::onLanguageChanged
             )
 
             LanguageOption(
@@ -87,6 +98,7 @@ fun LanguageSelector() {
                 currentLanguage = currentLanguage,
                 languageTag = "fr",
                 context = context,
+                onLanguageChanged = ::onLanguageChanged
             )
         }
     }
@@ -98,18 +110,28 @@ fun LanguageOption(
     currentLanguage: String,
     languageTag: String,
     context: Context,
+    onLanguageChanged: () -> Unit,
 ) {
     DropdownMenuItem(
         text = {
-            Text(name,
+            Text(
+                text = name,
                 fontWeight = if (languageTag == currentLanguage) {
                     FontWeight.Bold
                 } else {
                     FontWeight.Normal
-                })
+                }
+            )
         },
         onClick = {
-            setAppLanguage(context, languageTag)
+            setAppLanguage(
+                context = context,
+                languageTag = languageTag
+            )
+
+            if (currentLanguage != languageTag) {
+                onLanguageChanged()
+            }
         }
     )
 }

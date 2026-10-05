@@ -24,7 +24,7 @@
     <string name="add_transport_bus_number_label">Numero autobus</string>
     <string name="add_transport_place_label">Posto</string>
     <string name="add_transport_documents_section_title">Documenti</string>
-    <string name="add_transport_train_number_label">Numero treno*</string>
+    <string name="add_transport_train_number_label">Numero treno</string>
     <string name="add_transport_coach_label">Carrozza</string>
     <string name="add_transport_transport_section_title">Trasporto</string>
     <string name="add_transport_type_label">Tipo*</string>
@@ -109,6 +109,7 @@
     <string name="accommodation_details_check_out_notification_label">Notifica 1 ora prima del check-out</string>
     <string name="accommodation_details_documents_section_title">Documenti</string>
     <string name="accommodation_details_delete_confirmation_title">Eliminare l’alloggio?</string>
+    <string name="accommodation_details_duration_label">Durata</string>
 
     <string name="notification_upcoming_transport">%1$s per %2$s parte alle %3$s</string>
     <string name="notification_upcoming_bus">Autobus</string>
@@ -131,5 +132,11 @@
         <item quantity="one">%d minuto</item>
         <item quantity="many">%d minuti</item>
         <item quantity="other">%d minuti</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d notte</item>
+        <item quantity="many">%d notti</item>
+        <item quantity="other">%d notti</item>
     </plurals>
 </resources>
