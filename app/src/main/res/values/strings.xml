@@ -12,6 +12,7 @@
     <string name="time_input_placeholder">Select date</string>
     <string name="address_copied_message">Address copied</string>
     <string name="upload_btn_label">Upload document</string>
+    <string name="language_selector_content_description">Language</string>
 
     <string name="edit_transport_title">Edit transport</string>
     <string name="add_transport_title">Add transport</string>

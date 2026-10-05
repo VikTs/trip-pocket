@@ -26,6 +26,7 @@ import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
 import java.time.LocalDate
 import com.example.trippocket.R
+import com.example.trippocket.ui.components.LanguageSelector
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,7 +39,9 @@ fun TripsScreen(
 
     Scaffold(
         topBar = {
-            TopBar(title = stringResource(R.string.trips_title))
+            TopBar(title = stringResource(R.string.trips_title), actions = {
+                LanguageSelector()
+            })
         }
     ) { innerPadding ->
         if (trips.isEmpty()) {
