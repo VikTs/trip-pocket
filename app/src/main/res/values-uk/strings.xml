@@ -12,6 +12,7 @@
     <string name="time_input_placeholder">Виберіть час</string>
     <string name="address_copied_message">Адресу скопійовано</string>
     <string name="upload_btn_label">Завантажити документ</string>
+    <string name="language_selector_content_description">Мова</string>
 
     <string name="edit_transport_title">Редагувати транспорт</string>
     <string name="add_transport_title">Додати транспорт</string>
