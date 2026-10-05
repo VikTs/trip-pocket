@@ -65,6 +65,8 @@
     <string name="trip_details_transport_card_coach_label">Coach</string>
     <string name="trip_details_transport_card_seat_label">Seat</string>
     <string name="trip_details_transport_card_arrival_label">Arrival</string>
+    <string name="trip_details_transport_card_bus_departure">Bus departure</string>
+    <string name="trip_details_transport_card_train_departure">Train departure</string>
 
     <string name="trips_empty_message">You don\'t have planned trips</string>
     <string name="trips_add_btn_label">Add trip</string>
@@ -101,13 +103,16 @@
     <string name="accommodation_details_check_out_notification_label">Notify 1h before check out</string>
     <string name="accommodation_details_documents_section_title">Documents</string>
 
-    <string name="notification_upcoming_transport">The %1$s to %2$s departs at %3$s</string>
+    <string name="notification_upcoming_transport">%1$s to %2$s departs at %3$s</string>
     <string name="notification_upcoming_bus">Bus</string>
     <string name="notification_upcoming_train">Train</string>
     <string name="notification_departure_time">Departure time: %1$s</string>
     <string name="notification_upcoming_check_in">Check-in at %1$s</string>
     <string name="notification_upcoming_check_out">Check-out at %1$s</string>
     <string name="notification_accommodation_time">Time: %1$s</string>
+    <string name="notification_transport_platform">Platform %1$s</string>
+    <string name="notification_transport_seat">Seat %1$s</string>
+    <string name="notification_transport_coach">Coach %1$s</string>
 
     <plurals name="transport_duration_hours">
         <item quantity="one">%d hour</item>

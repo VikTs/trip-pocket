@@ -185,7 +185,10 @@ fun AddTransportScreen(
                             transportType = it,
                             transportNumber = null,
                             place = null,
-                            coach = null
+                            coach = null,
+                            isPrivateTransport = false,
+                            carrier = null,
+                            driverPhone = null
                         )
                     }
                 },

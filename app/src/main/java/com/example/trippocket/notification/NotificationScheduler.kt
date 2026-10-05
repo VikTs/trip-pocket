@@ -37,15 +37,34 @@ class NotificationScheduler(
         val message = buildList {
             transport.from.platform
                 ?.takeIf { it.isNotBlank() }
-                ?.let { add("Platform $it") }
-
-            transport.place
-                ?.takeIf { it.isNotBlank() }
-                ?.let { add("Seat $it") }
-
+                ?.let {
+                    add(
+                        context.getString(
+                            R.string.notification_transport_platform,
+                            it
+                        )
+                    )
+                }
             transport.coach
                 ?.takeIf { it.isNotBlank() }
-                ?.let { add("Coach $it") }
+                ?.let {
+                    add(
+                        context.getString(
+                            R.string.notification_transport_coach,
+                            it
+                        )
+                    )
+                }
+            transport.place
+                ?.takeIf { it.isNotBlank() }
+                ?.let {
+                    add(
+                        context.getString(
+                            R.string.notification_transport_seat,
+                            it
+                        )
+                    )
+                }
         }.takeIf { it.isNotEmpty() }
             ?.joinToString(" • ")
 
@@ -206,7 +225,7 @@ class NotificationScheduler(
 
         return context.getString(
             R.string.notification_upcoming_transport,
-            transportType.lowercase(),
+            transportType,
             transport.to.city,
             formatTripTime(transport.to.time)
         )
