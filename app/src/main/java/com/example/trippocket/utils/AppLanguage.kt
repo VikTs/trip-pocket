@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import java.util.Locale
 
 fun setAppLanguage(
     context: Context,
@@ -19,5 +20,19 @@ fun setAppLanguage(
         AppCompatDelegate.setApplicationLocales(
             LocaleListCompat.forLanguageTags(languageTag)
         )
+    }
+}
+
+fun getAppLocale(context: Context): Locale {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        context.getSystemService(LocaleManager::class.java)
+            .applicationLocales
+            .get(0)
+            ?: Locale.getDefault()
+    } else {
+        AppCompatDelegate.getApplicationLocales()
+            .get(0)
+            ?.let { Locale.forLanguageTag(it.toLanguageTag()) }
+            ?: Locale.getDefault()
     }
 }

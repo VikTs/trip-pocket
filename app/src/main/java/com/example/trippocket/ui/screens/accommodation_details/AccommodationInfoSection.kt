@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
@@ -17,16 +18,17 @@ import com.example.trippocket.utils.formatAccommodationDateTime
 fun AccommodationInfoSection(
     accommodation: Accommodation,
 ) {
+    val context = LocalContext.current
     DetailRow(
         label = stringResource(R.string.accommodation_details_check_in_label),
-        value = formatAccommodationDateTime(accommodation.checkIn)
+        value = formatAccommodationDateTime(context, accommodation.checkIn)
     )
 
     Spacer(modifier = Modifier.height(16.dp))
 
     DetailRow(
         label = stringResource(R.string.accommodation_details_check_out_label),
-        value = formatAccommodationDateTime(accommodation.checkOut)
+        value = formatAccommodationDateTime(context, accommodation.checkOut)
     )
 }
 
