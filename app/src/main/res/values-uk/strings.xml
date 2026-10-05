@@ -24,13 +24,13 @@
     <string name="add_transport_bus_number_label">Номер автобуса</string>
     <string name="add_transport_place_label">Місце</string>
     <string name="add_transport_documents_section_title">Документи</string>
-    <string name="add_transport_train_number_label">Номер потяга*</string>
+    <string name="add_transport_train_number_label">Номер потяга</string>
     <string name="add_transport_coach_label">Вагон</string>
     <string name="add_transport_transport_section_title">Транспорт</string>
     <string name="add_transport_type_label">Тип*</string>
     <string name="add_transport_date_label">Дата*</string>
     <string name="add_transport_time_label">Час*</string>
-    <string name="add_transport_address_label">Місце*</string>
+    <string name="add_transport_address_label">Адреса/станція*</string>
     <string name="add_transport_platform_label">Платформа</string>
     <string name="add_transport_address_placeholder">Адреса або станція</string>
     <string name="add_transport_city_label">Місто*</string>
@@ -110,6 +110,7 @@
     <string name="accommodation_details_check_out_notification_label">Сповістити за 1 годину до виїзду</string>
     <string name="accommodation_details_documents_section_title">Документи</string>
     <string name="accommodation_details_delete_confirmation_title">Видалити житло?</string>
+    <string name="accommodation_details_duration_label">Тривалість</string>
 
     <string name="notification_upcoming_transport">%1$s до %2$s відправляється о %3$s</string>
     <string name="notification_upcoming_bus">Автобус</string>
@@ -134,5 +135,12 @@
         <item quantity="few">%d хвилини</item>
         <item quantity="many">%d хвилин</item>
         <item quantity="other">%d хвилини</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d ніч</item>
+        <item quantity="few">%d ночі</item>
+        <item quantity="many">%d ночей</item>
+        <item quantity="other">%d ночі</item>
     </plurals>
 </resources>

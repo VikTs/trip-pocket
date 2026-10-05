@@ -43,14 +43,7 @@ fun TransportCard(
     isActive: Boolean,
     isPrevActive: Boolean
 ) {
-    val context = LocalContext.current
     val departureTime = transport.from.time
-    val arrivalTime = transport.to.time
-
-    val arrivalTimeString =
-        if (arrivalTime.toLocalDate() == departureTime.toLocalDate())
-            formatTripTime(arrivalTime)
-        else formatTripDateTime(context, arrivalTime)
 
     val departureInfo = listOfNotNull(
         transport.transportNumber,
@@ -117,35 +110,21 @@ fun TransportCard(
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.height(4.dp))
+
+                    Spacer(modifier = Modifier.height(6.dp))
 
                     if (departureInfo.isNotBlank()) {
                         Text(
                             text = departureInfo,
-                            maxLines = 2,
+                            maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            style = MaterialTheme.typography.labelLarge
-                        )
-                    } else {
-                        Text(
-                            text = stringResource(
-                                when (transport.transportType) {
-                                    TransportType.BUS ->
-                                        R.string.trip_details_transport_card_bus_departure
-
-                                    TransportType.TRAIN ->
-                                        R.string.trip_details_transport_card_train_departure
-                                }
-                            ),
-                            style = MaterialTheme.typography.labelLarge
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
 
-                    Spacer(modifier = Modifier.height(4.dp))
-
                     Text(
-                        text = "${stringResource(R.string.trip_details_transport_card_arrival_label)}: $arrivalTimeString",
-                        maxLines = 1,
+                        text = transport.from.address,
+                        maxLines = if (departureInfo.isNotBlank()) 1 else 2,
                         overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.bodyMedium
                     )

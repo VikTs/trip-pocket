@@ -8,17 +8,24 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.utils.formatAccommodationDateTime
+import java.time.temporal.ChronoUnit
 
 @Composable
 fun AccommodationInfoSection(
     accommodation: Accommodation,
 ) {
     val context = LocalContext.current
+    val nightsAmount = ChronoUnit.DAYS.between(
+        accommodation.checkIn.toLocalDate(),
+        accommodation.checkOut.toLocalDate()
+    )
+
     DetailRow(
         label = stringResource(R.string.accommodation_details_check_in_label),
         value = formatAccommodationDateTime(context, accommodation.checkIn)
@@ -29,6 +36,17 @@ fun AccommodationInfoSection(
     DetailRow(
         label = stringResource(R.string.accommodation_details_check_out_label),
         value = formatAccommodationDateTime(context, accommodation.checkOut)
+    )
+
+    Spacer(modifier = Modifier.height(16.dp))
+
+    DetailRow(
+        label = stringResource(R.string.accommodation_details_duration_label),
+        value = pluralStringResource(
+            R.plurals.accommodation_duration_nights,
+            nightsAmount.toInt(),
+            nightsAmount
+        )
     )
 }
 
