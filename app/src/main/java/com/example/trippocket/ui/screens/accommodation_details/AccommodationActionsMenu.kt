@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import com.example.trippocket.R
+import com.example.trippocket.ui.components.DeleteConfirmationBottomSheet
 
 @Composable
 fun AccommodationActionsMenu(
@@ -24,6 +25,10 @@ fun AccommodationActionsMenu(
 ) {
     val colorScheme = MaterialTheme.colorScheme
     var expanded by remember {
+        mutableStateOf(false)
+    }
+
+    var showDeleteSheet by remember {
         mutableStateOf(false)
     }
 
@@ -61,8 +66,23 @@ fun AccommodationActionsMenu(
             },
             onClick = {
                 expanded = false
-                onDelete(accommodationId)
+                showDeleteSheet = true
             }
+        )
+    }
+
+    if (showDeleteSheet) {
+        DeleteConfirmationBottomSheet(
+            onConfirm = {
+                showDeleteSheet = false
+                onDelete(accommodationId)
+            },
+            onDismiss = {
+                showDeleteSheet = false
+            },
+            title = stringResource(
+                R.string.accommodation_details_delete_confirmation_title
+            )
         )
     }
 }

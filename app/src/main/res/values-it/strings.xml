@@ -13,6 +13,8 @@
     <string name="address_copied_message">Indirizzo copiato</string>
     <string name="upload_btn_label">Carica documento</string>
     <string name="language_selector_content_description">Lingua</string>
+    <string name="delete_confirmation_title">Eliminare?</string>
+    <string name="delete_confirmation_message">Questa azione non può essere annullata</string>
 
     <string name="edit_transport_title">Modifica trasporto</string>
     <string name="add_transport_title">Aggiungi trasporto</string>
@@ -53,6 +55,7 @@
     <string name="transport_details_documents_section_title">Documenti</string>
     <string name="transport_details_notifications_section_title">Notifiche</string>
     <string name="transport_details_departure_notification_label">Notifica 1 ora prima della partenza</string>
+    <string name="transport_details_delete_confirmation_title">Eliminare il trasporto?</string>
 
     <string name="add_to_trip_bottom_sheet_title">Aggiungi al viaggio</string>
     <string name="add_to_trip_bottom_sheet_transport_label">Trasporto</string>
@@ -68,6 +71,7 @@
     <string name="trip_details_transport_card_arrival_label">Arrivo</string>
     <string name="trip_details_transport_card_bus_departure">Partenza dell\'autobus</string>
     <string name="trip_details_transport_card_train_departure">Partenza del treno</string>
+    <string name="trip_details_delete_confirmation_title">Eliminare il viaggio?</string>
 
     <string name="trips_empty_message">Non hai viaggi pianificati</string>
     <string name="trips_add_btn_label">Aggiungi viaggio</string>
@@ -104,6 +108,7 @@
     <string name="accommodation_details_check_in_notification_label">Notifica 1 ora prima del check-in</string>
     <string name="accommodation_details_check_out_notification_label">Notifica 1 ora prima del check-out</string>
     <string name="accommodation_details_documents_section_title">Documenti</string>
+    <string name="accommodation_details_delete_confirmation_title">Eliminare l’alloggio?</string>
 
     <string name="notification_upcoming_transport">%1$s per %2$s parte alle %3$s</string>
     <string name="notification_upcoming_bus">Autobus</string>
