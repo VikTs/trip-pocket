@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
+import com.example.trippocket.ui.components.DeleteConfirmationBottomSheet
 
 @Composable
 fun TripActionsMenu(
@@ -28,6 +29,10 @@ fun TripActionsMenu(
 ) {
     var expanded by remember { mutableStateOf(false) }
     val colors = MaterialTheme.colorScheme
+
+    var showDeleteSheet by remember {
+        mutableStateOf(false)
+    }
 
     Box(
         modifier = Modifier
@@ -50,8 +55,26 @@ fun TripActionsMenu(
             )
             DropdownMenuItem(
                 text = { Text(stringResource(R.string.common_delete)) },
-                onClick = { onDelete(tripId) }
+                onClick = {
+                    expanded = false
+                    showDeleteSheet = true
+                }
             )
         }
+    }
+
+    if (showDeleteSheet) {
+        DeleteConfirmationBottomSheet(
+            onConfirm = {
+                showDeleteSheet = false
+                onDelete(tripId)
+            },
+            onDismiss = {
+                showDeleteSheet = false
+            },
+            title = stringResource(
+                R.string.trip_details_delete_confirmation_title
+            )
+        )
     }
 }
