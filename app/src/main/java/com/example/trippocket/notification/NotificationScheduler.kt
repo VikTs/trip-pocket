@@ -77,7 +77,8 @@ class NotificationScheduler(
             title = createTransportTitle(
                 transport
             ),
-            message = message
+            message = message,
+            destination = "trip/${transport.tripId}/transport/${transport.id}"
         )
     }
 
@@ -115,7 +116,9 @@ class NotificationScheduler(
             message = context.getString(
                 R.string.notification_accommodation_time,
                 formatTripTime(targetTime)
-            )
+            ),
+            destination =
+                "trip/${accommodation.tripId}/accommodation/${accommodation.id}"
         )
     }
 
@@ -146,7 +149,8 @@ class NotificationScheduler(
         notificationId: Long,
         triggerAtMillis: Long,
         title: String,
-        message: String?
+        message: String?,
+        destination: String
     ) {
         if (triggerAtMillis <= System.currentTimeMillis()) {
             return
@@ -169,6 +173,11 @@ class NotificationScheduler(
             putExtra(
                 "message",
                 message
+            )
+
+            putExtra(
+                "destination",
+                destination
             )
         }
 
@@ -227,7 +236,7 @@ class NotificationScheduler(
             R.string.notification_upcoming_transport,
             transportType,
             transport.to.city,
-            formatTripTime(transport.to.time)
+            formatTripTime(transport.from.time)
         )
     }
 }

@@ -32,9 +32,15 @@ class MainActivity : ComponentActivity() {
             )
         }
 
+        val destination =
+            intent.getStringExtra("destination")
+
+
         setContent {
             TripPocketTheme {
-                TripPocketNavHost()
+                TripPocketNavHost(
+                    destination = destination
+                )
             }
         }
     }

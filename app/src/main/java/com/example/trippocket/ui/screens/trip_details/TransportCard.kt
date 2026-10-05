@@ -46,7 +46,6 @@ fun TransportCard(
     val departureTime = transport.from.time
 
     val departureInfo = listOfNotNull(
-        transport.transportNumber,
         transport.coach?.let { "${stringResource(R.string.trip_details_transport_card_coach_label)}: $it" },
         transport.place?.let { "${stringResource(R.string.trip_details_transport_card_seat_label)}: $it" }
     ).joinToString(", ")
