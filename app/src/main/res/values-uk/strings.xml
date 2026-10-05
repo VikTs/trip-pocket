@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Зберегти зміни</string>
+    <string name="common_edit">Редагувати</string>
+    <string name="common_delete">Видалити</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Скасувати</string>
+    <string name="transport_type_bus">Автобус</string>
+    <string name="transport_type_train">Потяг</string>
+    <string name="date_input_placeholder">Виберіть дату</string>
+    <string name="time_input_placeholder">Виберіть час</string>
+    <string name="address_copied_message">Адресу скопійовано</string>
+    <string name="upload_btn_label">Завантажити документ</string>
+
+    <string name="edit_transport_title">Редагувати транспорт</string>
+    <string name="add_transport_title">Додати транспорт</string>
+    <string name="add_transport_from_section_title">Звідки</string>
+    <string name="add_transport_to_section_title">Куди</string>
+    <string name="add_transport_btn_label">Додати транспорт</string>
+    <string name="add_transport_bus_number_label">Номер автобуса</string>
+    <string name="add_transport_place_label">Місце</string>
+    <string name="add_transport_documents_section_title">Документи</string>
+    <string name="add_transport_train_number_label">Номер потяга*</string>
+    <string name="add_transport_coach_label">Вагон</string>
+    <string name="add_transport_transport_section_title">Транспорт</string>
+    <string name="add_transport_type_label">Тип*</string>
+    <string name="add_transport_date_label">Дата*</string>
+    <string name="add_transport_time_label">Час*</string>
+    <string name="add_transport_address_label">Місце*</string>
+    <string name="add_transport_platform_label">Платф.</string>
+    <string name="add_transport_address_placeholder">Адреса або станція</string>
+    <string name="add_transport_city_label">Місто*</string>
+    <string name="add_transport_private_bus_label">Це приватний автобус</string>
+    <string name="add_transport_carrier_label">Перевізник</string>
+    <string name="add_transport_driver_phone_label">Телефон водія</string>
+
+    <string name="edit_trip_title">Редагувати подорож</string>
+    <string name="create_trip_title">Створити подорож</string>
+    <string name="create_trip_name_label">Назва подорожі</string>
+    <string name="create_trip_start_date_label">Дата початку</string>
+    <string name="create_trip_end_date_label">Дата завершення</string>
+    <string name="create_trip_btn_label">Створити подорож</string>
+
+    <string name="transport_details_bus_info_title">Інформація про автобус</string>
+    <string name="transport_details_train_info_title">Інформація про потяг</string>
+    <string name="transport_details_coach_label">Вагон</string>
+    <string name="transport_details_seat_label">Місце</string>
+    <string name="transport_details_carrier_label">Перевізник</string>
+    <string name="transport_details_driver_phone_label">Водій</string>
+    <string name="transport_details_platform_label">Платформа</string>
+    <string name="transport_details_documents_section_title">Документи</string>
+    <string name="transport_details_notifications_section_title">Сповіщення</string>
+    <string name="transport_details_departure_notification_label">Сповістити за 1 годину до відправлення</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Додати до подорожі</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Транспорт</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Житло</string>
+
+    <string name="trip_details_title">Деталі подорожі</string>
+    <string name="trip_details_accommodation_checkin_label">Заїзд</string>
+    <string name="trip_details_accommodation_checkout_label">Виїзд</string>
+    <string name="trip_details_empty_message">Ваша подорож порожня</string>
+    <string name="trip_details_add_btn_label">Додати</string>
+    <string name="trip_details_transport_card_coach_label">Вагон</string>
+    <string name="trip_details_transport_card_seat_label">Місце</string>
+    <string name="trip_details_transport_card_arrival_label">Прибуття</string>
+    <string name="trip_details_transport_card_bus_departure">Відправлення автобуса</string>
+    <string name="trip_details_transport_card_train_departure">Відправлення потяга</string>
+
+    <string name="trips_empty_message">У вас немає запланованих подорожей</string>
+    <string name="trips_add_btn_label">Додати подорож</string>
+    <string name="trips_trip_card_today_label">Сьогодні</string>
+    <string name="trips_trip_card_completed_label">Завершено</string>
+    <string name="trips_trip_card_duration_and_dates_label">%1$d днів  |  %2$s</string>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">Через %d день</item>
+        <item quantity="few">Через %d дні</item>
+        <item quantity="many">Через %d днів</item>
+        <item quantity="other">Через %d днів</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Минулі</string>
+    <string name="trips_toggle_upcoming_label">Майбутні</string>
+    <string name="trips_toggle_empty_message">Подорожі не знайдено</string>
+    <string name="trips_title">Мої подорожі</string>
+
+    <string name="add_accommodation_title">Додати житло</string>
+    <string name="edit_accommodation_title">Редагувати житло</string>
+    <string name="add_accommodation_general_section_title">Житло</string>
+    <string name="add_accommodation_name_label">Назва*</string>
+    <string name="add_accommodation_address_label">Адреса*</string>
+    <string name="add_accommodation_check_in_section_title">Заїзд</string>
+    <string name="add_accommodation_check_out_section_title">Виїзд</string>
+    <string name="add_accommodation_date_label">Дата*</string>
+    <string name="add_accommodation_time_label">Час*</string>
+    <string name="add_accommodation_btn_label">Додати житло</string>
+    <string name="add_accommodation_documents_section_title">Документи</string>
+
+    <string name="accommodation_details_title">Інформація про житло</string>
+    <string name="accommodation_details_address_label">Адреса</string>
+    <string name="accommodation_details_check_in_label">Заїзд</string>
+    <string name="accommodation_details_check_out_label">Виїзд</string>
+    <string name="accommodation_details_notifications_section_title">Сповіщення</string>
+    <string name="accommodation_details_check_in_notification_label">Сповістити за 1 годину до заїзду</string>
+    <string name="accommodation_details_check_out_notification_label">Сповістити за 1 годину до виїзду</string>
+    <string name="accommodation_details_documents_section_title">Документи</string>
+
+    <string name="notification_upcoming_transport">%1$s до %2$s відправляється о %3$s</string>
+    <string name="notification_upcoming_bus">Автобус</string>
+    <string name="notification_upcoming_train">Потяг</string>
+    <string name="notification_departure_time">Час відправлення: %1$s</string>
+    <string name="notification_upcoming_check_in">Заїзд в %1$s</string>
+    <string name="notification_upcoming_check_out">Виїзд з %1$s</string>
+    <string name="notification_accommodation_time">Час: %1$s</string>
+    <string name="notification_transport_platform">Платформа %1$s</string>
+    <string name="notification_transport_seat">Місце %1$s</string>
+    <string name="notification_transport_coach">Вагон %1$s</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d година</item>
+        <item quantity="few">%d години</item>
+        <item quantity="many">%d годин</item>
+        <item quantity="other">%d години</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d хвилина</item>
+        <item quantity="few">%d хвилини</item>
+        <item quantity="many">%d хвилин</item>
+        <item quantity="other">%d хвилини</item>
+    </plurals>
+</resources>

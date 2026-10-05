@@ -11,11 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Accommodation
-import java.time.format.DateTimeFormatter
-import java.util.Locale
-
-private val dateTimeFormatter =
-    DateTimeFormatter.ofPattern("d MMMM, HH:mm", Locale.ENGLISH)
+import com.example.trippocket.utils.formatAccommodationDateTime
 
 @Composable
 fun AccommodationInfoSection(
@@ -23,15 +19,14 @@ fun AccommodationInfoSection(
 ) {
     DetailRow(
         label = stringResource(R.string.accommodation_details_check_in_label),
-        value = accommodation.checkIn.format(dateTimeFormatter)
+        value = formatAccommodationDateTime(accommodation.checkIn)
     )
 
     Spacer(modifier = Modifier.height(16.dp))
 
-
     DetailRow(
         label = stringResource(R.string.accommodation_details_check_out_label),
-        value = accommodation.checkOut.format(dateTimeFormatter)
+        value = formatAccommodationDateTime(accommodation.checkOut)
     )
 }
 

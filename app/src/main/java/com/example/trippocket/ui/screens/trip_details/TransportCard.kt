@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
-import com.example.trippocket.ui.extensions.toDisplayName
+import com.example.trippocket.data.model.TransportType
 import com.example.trippocket.ui.extensions.toIcon
 import com.example.trippocket.utils.formatTripDateTime
 import com.example.trippocket.utils.formatTripTime
@@ -118,7 +118,6 @@ fun TransportCard(
                     Spacer(modifier = Modifier.height(4.dp))
 
                     if (departureInfo.isNotBlank()) {
-
                         Text(
                             text = departureInfo,
                             maxLines = 2,
@@ -127,7 +126,15 @@ fun TransportCard(
                         )
                     } else {
                         Text(
-                            text = "${transport.transportType.toDisplayName()} departure",
+                            text = stringResource(
+                                when (transport.transportType) {
+                                    TransportType.BUS ->
+                                        R.string.trip_details_transport_card_bus_departure
+
+                                    TransportType.TRAIN ->
+                                        R.string.trip_details_transport_card_train_departure
+                                }
+                            ),
                             style = MaterialTheme.typography.labelLarge
                         )
                     }

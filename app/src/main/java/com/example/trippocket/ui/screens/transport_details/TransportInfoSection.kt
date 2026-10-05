@@ -51,7 +51,7 @@ fun TransportInfoSection(transport: Transport) {
 
             if (transport.transportType == TransportType.TRAIN) {
                 Text(
-                    "${stringResource(R.string.transport_details_carrier_label)}: ${transport.carrier ?: '-'}",
+                    "${stringResource(R.string.transport_details_coach_label)}: ${transport.coach ?: '-'}",
                     style = typography.bodyLarge
                 )
             }
