@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
@@ -15,36 +16,36 @@ import androidx.core.net.toUri
 
 @Composable
 fun PhoneLink(
-    label: String,
-    phone: String?,
-    modifier: Modifier = Modifier
+    phone: String,
+    label: String? = null,
+    style: TextStyle? = null
 ) {
     val context = LocalContext.current
 
     Text(
         text = buildAnnotatedString {
-            append("$label: ")
+            if (label != null) {
+                append("$label: ")
+            }
 
             withStyle(
                 style = SpanStyle(
                     textDecoration = TextDecoration.Underline
                 )
             ) {
-                append(phone ?: "-")
+                append(phone)
             }
         },
-        style = MaterialTheme.typography.bodyLarge,
-        modifier = modifier.clickable {
-            phone
-                ?.takeIf { it.isNotBlank() }
-                ?.let { value ->
-                    val intent = Intent(
-                        Intent.ACTION_DIAL,
-                        "tel:$value".toUri()
-                    )
+        style = style ?: MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.clickable {
+            if (phone.isNotBlank()) {
+                val intent = Intent(
+                    Intent.ACTION_DIAL,
+                    "tel:$phone".toUri()
+                )
 
-                    context.startActivity(intent)
-                }
+                context.startActivity(intent)
+            }
         }
     )
 }

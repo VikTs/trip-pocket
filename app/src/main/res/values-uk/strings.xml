@@ -96,6 +96,7 @@
     <string name="add_accommodation_general_section_title">Житло</string>
     <string name="add_accommodation_name_label">Назва*</string>
     <string name="add_accommodation_address_label">Адреса*</string>
+    <string name="add_accommodation_contact_phone_label">Контактний телефон</string>
     <string name="add_accommodation_check_in_section_title">Заїзд</string>
     <string name="add_accommodation_check_out_section_title">Виїзд</string>
     <string name="add_accommodation_date_label">Дата*</string>
