@@ -2,13 +2,12 @@ package com.viktoriia.trippocket.ui.components
 
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -50,8 +49,13 @@ fun DocumentPreview(
             modifier = Modifier
                 .size(110.dp)
                 .clip(RoundedCornerShape(12.dp))
+                .border(
+                    width = 1.dp,
+                    color = MaterialTheme.colorScheme.outline,
+                    shape = RoundedCornerShape(12.dp)
+                )
                 .clickable(onClick = onClick),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             bitmap.value?.let {
                 Image(
@@ -65,8 +69,6 @@ fun DocumentPreview(
                 style = typography.bodyMedium
             )
         }
-
-        Spacer(modifier = Modifier.height(4.dp))
 
         Text(
             text = fileName,
