@@ -14,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
 import com.example.trippocket.data.model.TransportType
-import com.example.trippocket.ui.components.Dropdown
+import com.example.trippocket.ui.components.inputs.Dropdown
 
 @Composable
 fun TransportInputSection(

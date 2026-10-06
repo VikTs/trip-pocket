@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
-import com.example.trippocket.ui.components.DateInput
-import com.example.trippocket.ui.components.TimeInput
+import com.example.trippocket.ui.components.inputs.DateInput
+import com.example.trippocket.ui.components.inputs.TimeInput
 import java.time.LocalDate
 import java.time.LocalTime
 

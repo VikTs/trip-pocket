@@ -26,6 +26,7 @@ import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.Trip
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.R
+import com.example.trippocket.ui.components.ItemEditMenu
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -85,8 +86,9 @@ fun TripDetailsScreen(
                 onBackClick = onBackClick,
                 title = stringResource(R.string.trip_details_title),
                 actions = {
-                    TripActionsMenu(
-                        tripId = trip.id,
+                    ItemEditMenu(
+                        itemId = trip.id,
+                        itemDeletionTitle = stringResource(R.string.trip_details_delete_confirmation_title),
                         onEdit = onEditClick,
                         onDelete = onDeleteClick
                     )

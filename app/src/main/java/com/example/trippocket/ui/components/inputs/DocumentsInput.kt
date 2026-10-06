@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.components
+package com.example.trippocket.ui.components.inputs
 
 import android.content.Context
 import androidx.compose.foundation.layout.Arrangement

@@ -18,8 +18,9 @@ import com.example.trippocket.data.model.TransportNotification
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportDocument
 import com.example.trippocket.data.model.TransportType
+import com.example.trippocket.ui.components.ItemEditMenu
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.ui.components.rememberFilePicker
+import com.example.trippocket.ui.components.inputs.rememberFilePicker
 import com.example.trippocket.ui.screens.transport_details.transport_timeline.TransportTimelineSection
 import com.example.trippocket.viewmodel.TransportsViewModel
 
@@ -60,8 +61,11 @@ fun TransportDetailsScreen(
                 onBackClick = onBackClick,
                 title = title,
                 actions = {
-                    TransportActionsMenu(
-                        transportId = transport.id,
+                    ItemEditMenu(
+                        itemId = transport.id,
+                        itemDeletionTitle = stringResource(
+                            R.string.transport_details_delete_confirmation_title
+                        ),
                         onEdit = onEditClick,
                         onDelete = onDeleteClick
                     )

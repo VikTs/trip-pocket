@@ -26,7 +26,7 @@ import com.example.trippocket.R
 import com.example.trippocket.data.model.Transport
 import com.example.trippocket.data.model.TransportStop
 import com.example.trippocket.data.model.TransportType
-import com.example.trippocket.ui.components.SelectedDocument
+import com.example.trippocket.ui.components.inputs.SelectedDocument
 import com.example.trippocket.ui.components.TopBar
 import com.example.trippocket.viewmodel.TransportsViewModel
 import java.time.LocalDate

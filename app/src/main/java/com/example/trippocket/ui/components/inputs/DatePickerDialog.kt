@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.components
+package com.example.trippocket.ui.components.inputs
 
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
