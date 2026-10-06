@@ -15,6 +15,8 @@
     <string name="language_selector_content_description">Sprache</string>
     <string name="delete_confirmation_title">Löschen?</string>
     <string name="delete_confirmation_message">Diese Aktion kann nicht rückgängig gemacht werden</string>
+    <string name="notifications_disabled_message">Benachrichtigungen sind deaktiviert</string>
+    <string name="notifications_enable_btn_label">Aktivieren</string>
 
     <string name="edit_transport_title">Transport bearbeiten</string>
     <string name="add_transport_title">Transport hinzufügen</string>

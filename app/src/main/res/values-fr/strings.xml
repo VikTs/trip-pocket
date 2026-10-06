@@ -15,6 +15,8 @@
     <string name="language_selector_content_description">Langue</string>
     <string name="delete_confirmation_title">Supprimer?</string>
     <string name="delete_confirmation_message">Cette action ne peut pas être annulée</string>
+    <string name="notifications_disabled_message">Les notifications sont désactivées</string>
+    <string name="notifications_enable_btn_label">Activer</string>
 
     <string name="edit_transport_title">Modifier le transport</string>
     <string name="add_transport_title">Ajouter un transport</string>
