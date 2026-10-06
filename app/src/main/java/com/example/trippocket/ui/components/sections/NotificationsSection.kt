@@ -78,6 +78,10 @@ fun NotificationsSection(
     } else {
         NotificationsDisabled(context)
     }
+
+    Spacer(
+        modifier = Modifier.height(16.dp)
+    )
 }
 
 @Composable
