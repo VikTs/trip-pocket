@@ -7,13 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.trippocket"
+    namespace = "com.viktoriia.trippocket"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.trippocket"
+        applicationId = "com.viktoriia.trippocket"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
