@@ -57,11 +57,11 @@ fun AccommodationDetailsHeader(
         }
     }
 
-    Spacer(
-        modifier = Modifier.height(16.dp)
-    )
-
     accommodation.contactPhone?.let {
+        Spacer(
+            modifier = Modifier.height(16.dp)
+        )
+
         Row(
             verticalAlignment = Alignment.Top
         ) {
