@@ -7,7 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.trippocket.R
-import com.example.trippocket.ui.components.LabeledSwitch
+import com.example.trippocket.ui.components.inputs.LabeledSwitch
 import com.example.trippocket.ui.components.sections.NotificationsSection
 
 @Composable

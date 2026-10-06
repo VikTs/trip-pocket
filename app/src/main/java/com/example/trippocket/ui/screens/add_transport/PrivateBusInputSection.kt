@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
-import com.example.trippocket.ui.components.LabeledCheckbox
+import com.example.trippocket.ui.components.inputs.LabeledCheckbox
 
 @Composable
 fun PrivateBusInputSection(

@@ -1,4 +1,4 @@
-package com.example.trippocket.ui.screens.transport_details
+package com.example.trippocket.ui.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -19,11 +19,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.R
-import com.example.trippocket.ui.components.DeleteConfirmationBottomSheet
 
 @Composable
-fun TransportActionsMenu(
-    transportId: Long,
+fun ItemEditMenu(
+    itemId: Long,
+    itemDeletionTitle: String? = null,
     onDelete: (tripId: Long) -> Unit,
     onEdit: (tripId: Long) -> Unit,
 ) {
@@ -51,7 +51,7 @@ fun TransportActionsMenu(
         ) {
             DropdownMenuItem(
                 text = { Text(stringResource(R.string.common_edit)) },
-                onClick = { onEdit(transportId) }
+                onClick = { onEdit(itemId) }
             )
             DropdownMenuItem(
                 text = { Text(stringResource(R.string.common_delete)) },
@@ -67,14 +67,12 @@ fun TransportActionsMenu(
         DeleteConfirmationBottomSheet(
             onConfirm = {
                 showDeleteSheet = false
-                onDelete(transportId)
+                onDelete(itemId)
             },
             onDismiss = {
                 showDeleteSheet = false
             },
-            title = stringResource(
-                R.string.transport_details_delete_confirmation_title
-            )
+            title = itemDeletionTitle
         )
     }
 }

@@ -11,7 +11,7 @@ import com.example.trippocket.data.repository.AccommodationDocumentRepository
 import com.example.trippocket.data.repository.AccommodationNotificationRepository
 import com.example.trippocket.data.repository.AccommodationRepository
 import com.example.trippocket.notification.NotificationScheduler
-import com.example.trippocket.ui.components.SelectedDocument
+import com.example.trippocket.ui.components.inputs.SelectedDocument
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -16,8 +16,9 @@ import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.data.model.AccommodationDocument
 import com.example.trippocket.data.model.AccommodationNotification
 import com.example.trippocket.data.model.AccommodationNotificationType
+import com.example.trippocket.ui.components.ItemEditMenu
 import com.example.trippocket.ui.components.TopBar
-import com.example.trippocket.ui.components.rememberFilePicker
+import com.example.trippocket.ui.components.inputs.rememberFilePicker
 import com.example.trippocket.viewmodel.AccommodationViewModel
 
 @Composable
@@ -58,8 +59,9 @@ fun AccommodationDetailsScreen(
                 title = stringResource(R.string.accommodation_details_title),
                 onBackClick = onBackClick,
                 actions = {
-                    AccommodationActionsMenu(
-                        accommodationId = accommodation.id,
+                    ItemEditMenu(
+                        itemId = accommodation.id,
+                        itemDeletionTitle = stringResource(R.string.accommodation_details_delete_confirmation_title),
                         onEdit = onEditClick,
                         onDelete = onDeleteClick
                     )

@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.example.trippocket.R
-import com.example.trippocket.ui.components.DocumentsInput
-import com.example.trippocket.ui.components.SelectedDocument
+import com.example.trippocket.ui.components.inputs.DocumentsInput
+import com.example.trippocket.ui.components.inputs.SelectedDocument
 
 @Composable
 fun TransportDocumentsSection(
