@@ -26,6 +26,7 @@ data class Accommodation(
     val tripId: Long,
     val name: String,
     val address: String,
+    val contactPhone: String?,
     val checkIn: LocalDateTime,
     val checkOut: LocalDateTime,
 )

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Hotel
+import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.trippocket.data.model.Accommodation
 import com.example.trippocket.ui.components.AddressLink
+import com.example.trippocket.ui.components.PhoneLink
 
 @Composable
 fun AccommodationDetailsHeader(
@@ -51,6 +53,32 @@ fun AccommodationDetailsHeader(
             AddressLink(
                 address = accommodation.address,
                 additionalInfo = accommodation.name
+            )
+        }
+    }
+
+    Spacer(
+        modifier = Modifier.height(16.dp)
+    )
+
+    accommodation.contactPhone?.let {
+        Row(
+            verticalAlignment = Alignment.Top
+        ) {
+            Icon(
+                imageVector = Icons.Default.PhoneAndroid,
+                contentDescription = "Phone",
+                modifier = Modifier
+                    .size(18.dp)
+            )
+
+            Spacer(
+                modifier = Modifier.width(12.dp)
+            )
+
+            PhoneLink(
+                phone = it,
+                style = MaterialTheme.typography.bodyMedium
             )
         }
     }

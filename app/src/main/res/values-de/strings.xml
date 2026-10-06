@@ -94,6 +94,7 @@
     <string name="add_accommodation_general_section_title">Unterkunft</string>
     <string name="add_accommodation_name_label">Name*</string>
     <string name="add_accommodation_address_label">Adresse*</string>
+    <string name="add_accommodation_contact_phone_label">Kontakttelefon</string>
     <string name="add_accommodation_check_in_section_title">Check-in</string>
     <string name="add_accommodation_check_out_section_title">Check-out</string>
     <string name="add_accommodation_date_label">Datum*</string>

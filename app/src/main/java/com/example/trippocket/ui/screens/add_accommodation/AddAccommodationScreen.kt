@@ -50,7 +50,8 @@ fun AddAccommodationScreen(
             accommodation?.let {
                 AddAccommodationState(
                     name = it.name,
-                    address = it.address.orEmpty(),
+                    address = it.address,
+                    contactPhone = it.contactPhone.orEmpty(),
                     checkInDate = it.checkIn.toLocalDate(),
                     checkInTime = it.checkIn.toLocalTime(),
                     checkOutDate = it.checkOut.toLocalDate(),
@@ -96,6 +97,7 @@ fun AddAccommodationScreen(
             tripId = tripId,
             name = state.name.trim(),
             address = state.address.trim(),
+            contactPhone = state.contactPhone.trim().takeIf { it.isNotBlank() },
             checkIn = checkIn,
             checkOut = checkOut
         )
@@ -131,7 +133,6 @@ fun AddAccommodationScreen(
             )
         }
     ) { innerPadding ->
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -142,48 +143,27 @@ fun AddAccommodationScreen(
                 ),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-
-            Text(
-                text = stringResource(
-                    R.string.add_accommodation_general_section_title
-                ),
-                style = MaterialTheme.typography.titleMedium
-            )
-
-            OutlinedTextField(
-                value = state.name,
-                onValueChange = {
+            AddAccommodationInfoSection(
+                name = state.name,
+                onNameChanged = {
                     state = state.copy(
                         name = it
                     )
                 },
-                label = {
-                    Text(
-                        stringResource(
-                            R.string.add_accommodation_name_label
-                        )
-                    )
-                },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
-            )
-
-            OutlinedTextField(
-                value = state.address,
-                onValueChange = {
+                address = state.address,
+                onAddressChanged = {
                     state = state.copy(
                         address = it
                     )
                 },
-                label = {
-                    Text(
-                        stringResource(
-                            R.string.add_accommodation_address_label
-                        )
+                contactPhone = state.contactPhone,
+                onContactPhoneChanged = {
+                    state = state.copy(
+                        contactPhone = it.filter { char ->
+                            char.isDigit() || char == '+'
+                        }
                     )
-                },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+                }
             )
 
             StayDateTimeSection(
@@ -263,6 +243,7 @@ fun AddAccommodationScreen(
 data class AddAccommodationState(
     val name: String = "",
     val address: String = "",
+    val contactPhone: String = "",
     val checkInDate: LocalDate? = null,
     val checkInTime: LocalTime? = null,
     val checkOutDate: LocalDate? = null,
