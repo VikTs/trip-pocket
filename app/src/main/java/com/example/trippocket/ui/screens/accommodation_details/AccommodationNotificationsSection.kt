@@ -12,6 +12,7 @@ import com.example.trippocket.R
 import com.example.trippocket.data.model.AccommodationNotification
 import com.example.trippocket.data.model.AccommodationNotificationType
 import com.example.trippocket.ui.components.LabeledSwitch
+import com.example.trippocket.ui.components.sections.NotificationsSection
 
 @Composable
 fun AccommodationNotificationsSection(
@@ -22,44 +23,39 @@ fun AccommodationNotificationsSection(
         Boolean
     ) -> Unit
 ) {
-    Text(
-        text = stringResource(
+    NotificationsSection(
+        title = stringResource(
             R.string.accommodation_details_notifications_section_title
-        ),
-        style = MaterialTheme.typography.titleMedium
-    )
+        )
+    ) {
+        LabeledSwitch(
+            label = stringResource(
+                R.string.accommodation_details_check_in_notification_label
+            ),
+            checked = checkInNotification?.enabled == true,
+            onCheckedChange = {
+                onNotificationToggle(
+                    AccommodationNotificationType.CHECK_IN,
+                    it
+                )
+            }
+        )
 
-    Spacer(
-        modifier = Modifier.height(16.dp)
-    )
+        Spacer(
+            modifier = Modifier.height(4.dp)
+        )
 
-    LabeledSwitch(
-        label = stringResource(
-            R.string.accommodation_details_check_in_notification_label
-        ),
-        checked = checkInNotification?.enabled == true,
-        onCheckedChange = {
-            onNotificationToggle(
-                AccommodationNotificationType.CHECK_IN,
-                it
-            )
-        }
-    )
-
-    Spacer(
-        modifier = Modifier.height(4.dp)
-    )
-
-    LabeledSwitch(
-        label = stringResource(
-            R.string.accommodation_details_check_out_notification_label
-        ),
-        checked = checkOutNotification?.enabled == true,
-        onCheckedChange = {
-            onNotificationToggle(
-                AccommodationNotificationType.CHECK_OUT,
-                it
-            )
-        }
-    )
+        LabeledSwitch(
+            label = stringResource(
+                R.string.accommodation_details_check_out_notification_label
+            ),
+            checked = checkOutNotification?.enabled == true,
+            onCheckedChange = {
+                onNotificationToggle(
+                    AccommodationNotificationType.CHECK_OUT,
+                    it
+                )
+            }
+        )
+    }
 }
