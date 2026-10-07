@@ -13,9 +13,13 @@ import com.viktoriia.trippocket.notification.NotificationScheduler
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,6 +32,10 @@ class TransportsViewModel @Inject constructor(
     private val notificationScheduler: NotificationScheduler,
     private val transportDocumentRepository: TransportDocumentRepository
 ) : ViewModel() {
+    private val _isLoading = MutableStateFlow(true)
+    val isLoading: StateFlow<Boolean> =
+        _isLoading.asStateFlow()
+
     private val tripId: Long =
         checkNotNull(
             savedStateHandle.get<String>("tripId")
@@ -36,6 +44,12 @@ class TransportsViewModel @Inject constructor(
     val transports: StateFlow<List<Transport>> =
         repository
             .getTripTransports(tripId)
+            .onStart {
+                _isLoading.value = true
+            }
+            .onEach {
+                _isLoading.value = false
+            }
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5_000),
