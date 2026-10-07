@@ -1,5 +1,6 @@
 package com.viktoriia.trippocket.ui.screens.trips
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -32,6 +34,7 @@ import com.viktoriia.trippocket.ui.components.LanguageSelector
 @Composable
 fun TripsScreen(
     trips: List<Trip>,
+    isLoading: Boolean,
     onAddTripClick: () -> Unit,
     onTripClick: (Trip) -> Unit
 ) {
@@ -44,7 +47,16 @@ fun TripsScreen(
             })
         }
     ) { innerPadding ->
-        if (trips.isEmpty()) {
+        if (isLoading) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        } else if (trips.isEmpty()) {
             EmptyTrips(
                 onAddTripClick = onAddTripClick,
                 modifier = Modifier

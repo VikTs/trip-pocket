@@ -20,6 +20,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -32,6 +34,9 @@ class AccommodationViewModel @Inject constructor(
     private val notificationScheduler: NotificationScheduler,
     private val accommodationDocumentRepository: AccommodationDocumentRepository
 ) : ViewModel() {
+    private val _isLoading = MutableStateFlow(true)
+    val isLoading: StateFlow<Boolean> =
+        _isLoading.asStateFlow()
 
     private val _accommodation =
         MutableStateFlow<Accommodation?>(null)
@@ -47,6 +52,12 @@ class AccommodationViewModel @Inject constructor(
     val accommodations: StateFlow<List<Accommodation>> =
         repository
             .getForTrip(tripId)
+            .onStart {
+                _isLoading.value = true
+            }
+            .onEach {
+                _isLoading.value = false
+            }
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5_000),

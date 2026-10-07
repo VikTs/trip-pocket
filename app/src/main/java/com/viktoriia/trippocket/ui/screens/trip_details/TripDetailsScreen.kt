@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -34,6 +35,7 @@ fun TripDetailsScreen(
     trip: Trip,
     transports: List<Transport>,
     accommodations: List<Accommodation>,
+    isLoading: Boolean,
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
     onAddAccommodationClick: () -> Unit,
@@ -111,7 +113,14 @@ fun TripDetailsScreen(
             Box(
                 modifier = Modifier.weight(1f)
             ) {
-                if (timelineItems.isEmpty()) {
+                if (isLoading) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                } else if (timelineItems.isEmpty()) {
                     EmptyTripContent(
                         modifier = Modifier.fillMaxSize(),
                         onAddClick = ::openAddSheet

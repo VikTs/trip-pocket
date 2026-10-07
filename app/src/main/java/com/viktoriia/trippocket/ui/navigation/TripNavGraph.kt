@@ -21,19 +21,21 @@ fun NavGraphBuilder.tripNavGraph(
     tripsViewModel: TripsViewModel
 ) {
     composable("trips") {
-
         val tripList by trips
+            .collectAsStateWithLifecycle()
+
+        val isLoading by tripsViewModel
+            .isLoading
             .collectAsStateWithLifecycle()
 
         TripsScreen(
             trips = tripList,
+            isLoading = isLoading,
             onAddTripClick = {
                 navController.navigate("create_trip")
             },
             onTripClick = { trip ->
-                navController.navigate(
-                    "trip/${trip.id}"
-                )
+                navController.navigate("trip/${trip.id}")
             }
         )
     }
@@ -102,6 +104,10 @@ fun NavGraphBuilder.tripNavGraph(
                 .transports
                 .collectAsStateWithLifecycle()
 
+            val isTransportsLoading by transportViewModel
+                .isLoading
+                .collectAsStateWithLifecycle()
+
             val accommodationViewModel: AccommodationViewModel =
                 hiltViewModel()
 
@@ -109,10 +115,15 @@ fun NavGraphBuilder.tripNavGraph(
                 .accommodations
                 .collectAsStateWithLifecycle()
 
+            val isAccommodationsLoading by accommodationViewModel
+                .isLoading
+                .collectAsStateWithLifecycle()
+
             TripDetailsScreen(
                 trip = trip,
                 transports = transports,
                 accommodations = accommodations,
+                isLoading = isTransportsLoading || isAccommodationsLoading,
 
                 onEditClick = {
                     navController.navigate(
