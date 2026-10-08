@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,8 @@
         android:theme="@style/Theme.TripPocket.Starting"
         android:name=".TripPocketApplication"
         tools:targetApi="33"
-        android:localeConfig="@xml/locales_config">
+        android:localeConfig="@xml/locales_config"
+        tools:ignore="ExtraText">
         <activity
             android:name=".MainActivity"
             android:exported="true"

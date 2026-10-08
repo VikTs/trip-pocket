@@ -16,7 +16,10 @@
     <string name="delete_confirmation_title">Löschen?</string>
     <string name="delete_confirmation_message">Diese Aktion kann nicht rückgängig gemacht werden</string>
     <string name="notifications_disabled_message">Benachrichtigungen sind deaktiviert</string>
-    <string name="notifications_enable_btn_label">Aktivieren</string>
+    <string name="notifications_enable_btn_label">Benachrichtigungen aktivieren</string>
+    <string name="exact_reminders_disabled_message">Erinnerungen sind deaktiviert</string>
+    <string name="exact_reminders_enable_btn_label">Erinnerungen aktivieren</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
 
     <string name="edit_transport_title">Transport bearbeiten</string>
     <string name="add_transport_title">Transport hinzufügen</string>

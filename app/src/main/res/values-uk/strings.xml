@@ -15,8 +15,11 @@
     <string name="language_selector_content_description">Мова</string>
     <string name="delete_confirmation_title">Видалити?</string>
     <string name="delete_confirmation_message">Цю дію неможливо скасувати</string>
-    <string name="notifications_disabled_message">У вас вимкнені сповіщення</string>
-    <string name="notifications_enable_btn_label">Увімкнути</string>
+    <string name="notifications_disabled_message">Сповіщення вимкнено</string>
+    <string name="notifications_enable_btn_label">Увімкнути сповіщення</string>
+    <string name="exact_reminders_disabled_message">Нагадування вимкнено</string>
+    <string name="exact_reminders_enable_btn_label">Увімкнути нагадування</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Сповіщення та нагадування вимкнено</string>
 
     <string name="edit_transport_title">Редагувати транспорт</string>
     <string name="add_transport_title">Додати транспорт</string>
