@@ -1,7 +1,9 @@
 package com.viktoriia.trippocket.ui.components.sections
 
+import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.provider.Settings
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -30,6 +32,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.viktoriia.trippocket.R
+import androidx.core.net.toUri
 
 @Composable
 fun NotificationsSection(
@@ -39,11 +42,24 @@ fun NotificationsSection(
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
+    val alarmManager = remember {
+        context.getSystemService(
+            Context.ALARM_SERVICE
+        ) as AlarmManager
+    }
+
     var notificationsEnabled by remember {
         mutableStateOf(
             NotificationManagerCompat
                 .from(context)
                 .areNotificationsEnabled()
+        )
+    }
+
+    var exactAlarmsEnabled by remember {
+        mutableStateOf(
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
+                    alarmManager.canScheduleExactAlarms()
         )
     }
 
@@ -54,6 +70,10 @@ fun NotificationsSection(
                     NotificationManagerCompat
                         .from(context)
                         .areNotificationsEnabled()
+
+                exactAlarmsEnabled =
+                    Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
+                            alarmManager.canScheduleExactAlarms()
             }
         }
 
@@ -73,10 +93,22 @@ fun NotificationsSection(
         modifier = Modifier.height(16.dp)
     )
 
-    if (notificationsEnabled) {
-        content?.invoke()
-    } else {
-        NotificationsDisabled(context)
+    when {
+        !notificationsEnabled && !exactAlarmsEnabled -> {
+            NotificationsAndExactRemindersDisabled(context)
+        }
+
+        !notificationsEnabled -> {
+            NotificationsDisabled(context)
+        }
+
+        !exactAlarmsEnabled -> {
+            ExactRemindersDisabled(context)
+        }
+
+        else -> {
+            content?.invoke()
+        }
     }
 
     Spacer(
@@ -85,7 +117,9 @@ fun NotificationsSection(
 }
 
 @Composable
-fun NotificationsDisabled(context: Context) {
+private fun NotificationsAndExactRemindersDisabled(
+    context: Context
+) {
     fun openNotifications() {
         val intent = Intent(
             Settings.ACTION_APP_NOTIFICATION_SETTINGS
@@ -98,18 +132,97 @@ fun NotificationsDisabled(context: Context) {
 
         context.startActivity(intent)
     }
+
+    fun openExactAlarmSettings() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val intent = Intent(
+                Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM
+            ).apply {
+                data = "package:${context.packageName}".toUri()
+            }
+
+            context.startActivity(intent)
+        }
+    }
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-
-        Spacer(
-            modifier = Modifier.height(16.dp)
+        Text(
+            text = stringResource(
+                R.string.notifications_and_exact_reminders_disabled_message
+            ),
+            style = MaterialTheme.typography.bodyMedium
         )
 
+        Spacer(
+            modifier = Modifier.height(8.dp)
+        )
+
+        Button(
+            onClick = ::openNotifications,
+            border = BorderStroke(
+                1.dp,
+                MaterialTheme.colorScheme.primary
+            ),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+                contentColor = MaterialTheme.colorScheme.primary
+            )
+        ) {
+            Text(
+                text = stringResource(
+                    R.string.notifications_enable_btn_label
+                )
+            )
+        }
+
+        Button(
+            onClick = ::openExactAlarmSettings,
+            border = BorderStroke(
+                1.dp,
+                MaterialTheme.colorScheme.primary
+            ),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+                contentColor = MaterialTheme.colorScheme.primary
+            )
+        ) {
+            Text(
+                text = stringResource(
+                    R.string.exact_reminders_enable_btn_label
+                )
+            )
+        }
+    }
+}
+
+@Composable
+private fun NotificationsDisabled(
+    context: Context
+) {
+    fun openNotifications() {
+        val intent = Intent(
+            Settings.ACTION_APP_NOTIFICATION_SETTINGS
+        ).apply {
+            putExtra(
+                Settings.EXTRA_APP_PACKAGE,
+                context.packageName
+            )
+        }
+
+        context.startActivity(intent)
+    }
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
         Text(
-            stringResource(
+            text = stringResource(
                 R.string.notifications_disabled_message
             ),
             style = MaterialTheme.typography.bodyMedium
@@ -128,12 +241,64 @@ fun NotificationsDisabled(context: Context) {
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent,
                 contentColor = MaterialTheme.colorScheme.primary
-            ),
+            )
         ) {
             Text(
                 text = stringResource(
                     R.string.notifications_enable_btn_label
-                ),
+                )
+            )
+        }
+    }
+}
+
+@Composable
+private fun ExactRemindersDisabled(
+    context: Context
+) {
+    fun openExactAlarmSettings() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val intent = Intent(
+                Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM
+            ).apply {
+                data = "package:${context.packageName}".toUri()
+            }
+
+            context.startActivity(intent)
+        }
+    }
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = stringResource(
+                R.string.exact_reminders_disabled_message
+            ),
+            style = MaterialTheme.typography.bodyMedium
+        )
+
+        Spacer(
+            modifier = Modifier.height(8.dp)
+        )
+
+        Button(
+            onClick = ::openExactAlarmSettings,
+            border = BorderStroke(
+                1.dp,
+                MaterialTheme.colorScheme.primary
+            ),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+                contentColor = MaterialTheme.colorScheme.primary
+            )
+        ) {
+            Text(
+                text = stringResource(
+                    R.string.exact_reminders_enable_btn_label
+                )
             )
         }
     }

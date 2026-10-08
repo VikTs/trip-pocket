@@ -16,7 +16,10 @@
     <string name="delete_confirmation_title">Supprimer?</string>
     <string name="delete_confirmation_message">Cette action ne peut pas être annulée</string>
     <string name="notifications_disabled_message">Les notifications sont désactivées</string>
-    <string name="notifications_enable_btn_label">Activer</string>
+    <string name="notifications_enable_btn_label">Activer les notifications</string>
+    <string name="exact_reminders_disabled_message">Les rappels sont désactivés</string>
+    <string name="exact_reminders_enable_btn_label">Activer les rappels</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Les notifications et les rappels sont désactivés</string>
 
     <string name="edit_transport_title">Modifier le transport</string>
     <string name="add_transport_title">Ajouter un transport</string>

@@ -24,7 +24,7 @@ object NotificationChannel {
             "Transport",
             NotificationManager.IMPORTANCE_HIGH
         ).apply {
-            description = "Notifications about upcoming transport"
+            description = "Transport-related notifications and reminders"
             enableVibration(true)
             vibrationPattern = longArrayOf(0, 300, 200, 300)
         }
@@ -34,7 +34,7 @@ object NotificationChannel {
             "Accommodation",
             NotificationManager.IMPORTANCE_HIGH
         ).apply {
-            description = "Notifications about hotel check-in and check-out"
+            description = "Accommodation-related notifications and reminders"
             enableVibration(true)
             vibrationPattern = longArrayOf(0, 300, 200, 300)
         }
