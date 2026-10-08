@@ -26,5 +26,13 @@ A travel organizer for keeping trips, transport tickets, and travel details in o
 - SQLite
 - Hilt
 
+# Production version
+
+## Release Build
+1. Build → Generate Signed Bundle / APK.
+2. Android App Bundle → Next.
+3. Select the existing .jks keystore and enter its passwords and alias.
+4. Choose release → Create.
+
 ## Privacy policy
 https://sites.google.com/view/trip-pocket-privacy-policy
