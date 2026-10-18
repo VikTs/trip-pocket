@@ -18,11 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val notificationPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { }
-
     override fun attachBaseContext(
         newBase: Context
     ) {
@@ -51,12 +46,6 @@ class MainActivity : ComponentActivity() {
         initializeAppLanguage(this)
 
         enableEdgeToEdge()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            notificationPermissionLauncher.launch(
-                Manifest.permission.POST_NOTIFICATIONS
-            )
-        }
 
         val destination =
             intent.getStringExtra("destination")
