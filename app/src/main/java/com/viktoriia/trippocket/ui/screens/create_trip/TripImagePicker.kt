@@ -26,6 +26,7 @@ fun TripImagePicker(
             DocumentPreview(
                 path = image.path,
                 fileName = "",
+                onClick = onPickImage
             )
         }
 

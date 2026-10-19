@@ -12,6 +12,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -51,6 +52,12 @@ fun CreateTripScreen(
 
     var selectedImage by remember {
         mutableStateOf<SelectedDocument?>(null)
+    }
+
+    LaunchedEffect(editTrip?.id, editTrip?.imagePath) {
+        selectedImage = editTrip?.imagePath?.let { path ->
+            SelectedDocument("", path)
+        }
     }
 
     fun onFilePicked(file: SelectedDocument) {
@@ -146,7 +153,8 @@ fun CreateTripScreen(
                         id = editTrip?.id ?: 0,
                         name = tripName,
                         startDate = selectedStartDate,
-                        endDate = selectedEndDate
+                        endDate = selectedEndDate,
+                        imagePath = selectedImage?.path
                     )
 
                     onTripSaved(trip)

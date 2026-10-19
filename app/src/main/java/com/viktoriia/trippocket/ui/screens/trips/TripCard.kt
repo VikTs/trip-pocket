@@ -1,6 +1,7 @@
 package com.viktoriia.trippocket.ui.screens.trips
 
 import androidx.compose.foundation.Image
+import coil3.compose.rememberAsyncImagePainter
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -89,7 +90,11 @@ fun TripCard(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(R.drawable.trip),
+                painter = if (trip.imagePath == null) {
+                    painterResource(R.drawable.trip)
+                } else {
+                    rememberAsyncImagePainter(trip.imagePath)
+                },
                 contentDescription = trip.name,
                 modifier = Modifier.size(88.dp),
                 contentScale = ContentScale.Crop

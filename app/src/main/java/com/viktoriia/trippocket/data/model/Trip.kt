@@ -10,5 +10,6 @@ data class Trip(
     val id: Long = 0,
     val name: String,
     val startDate: LocalDate,
-    val endDate: LocalDate
+    val endDate: LocalDate,
+    val imagePath: String?,
 )
