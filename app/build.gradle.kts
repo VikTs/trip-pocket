@@ -16,8 +16,8 @@ android {
         applicationId = "com.viktoriia.trippocket"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.coil.compose)
     ksp(libs.hilt.compiler)
     ksp(libs.androidx.room3.compiler)
     coreLibraryDesugaring(libs.desugar.jdk.libs)

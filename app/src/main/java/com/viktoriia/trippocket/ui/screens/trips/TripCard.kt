@@ -1,5 +1,7 @@
 package com.viktoriia.trippocket.ui.screens.trips
 
+import androidx.compose.foundation.Image
+import coil3.compose.rememberAsyncImagePainter
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,7 +22,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -39,12 +43,13 @@ fun TripCard(
     val colorScheme = MaterialTheme.colorScheme
     val context = LocalContext.current
 
-    val isCompleted = LocalDate.now().isAfter(trip.endDate)
+    val today = LocalDate.now()
+    val isCompleted = today.isAfter(trip.endDate)
 
     val tripStatus = when {
-        LocalDate.now().isBefore(trip.startDate) -> {
+        today.isBefore(trip.startDate) -> {
             val daysUntil = ChronoUnit.DAYS.between(
-                LocalDate.now(),
+                today,
                 trip.startDate
             ).toInt()
 
@@ -77,56 +82,71 @@ fun TripCard(
             containerColor = colorScheme.surface
         )
     ) {
-        Column(
-            modifier = Modifier.padding(20.dp)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = trip.name,
-                style = typography.titleMedium
+            Image(
+                painter = if (trip.imagePath == null) {
+                    painterResource(R.drawable.trip)
+                } else {
+                    rememberAsyncImagePainter(trip.imagePath)
+                },
+                contentDescription = trip.name,
+                modifier = Modifier.size(88.dp),
+                contentScale = ContentScale.Crop
             )
 
-            Spacer(
-                modifier = Modifier.height(8.dp)
-            )
-
-            Text(
-                text = stringResource(
-                    R.string.trips_trip_card_duration_and_dates_label,
-                    tripDuration,
-                    formatTripDates(
-                        context,
-                        startDate = trip.startDate,
-                        endDate = trip.endDate
-                    )
-                ),
-                style = typography.bodyMedium,
-                color = colorScheme.onSurface
-            )
-
-            Spacer(
-                modifier = Modifier.height(16.dp)
-            )
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
-                verticalAlignment = Alignment.CenterVertically
+            Column(
+                modifier = Modifier.weight(1f)
             ) {
-                Icon(
-                    imageVector = if (isCompleted) {
-                        Icons.Outlined.TaskAlt
-                    } else {
-                        Icons.Outlined.AccessTime
-                    },
-                    contentDescription = null,
-                    tint = colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(18.dp)
+                Text(
+                    text = trip.name,
+                    style = typography.titleMedium
                 )
+
+                Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = tripStatus,
+                    text = stringResource(
+                        R.string.trips_trip_card_duration_and_dates_label,
+                        tripDuration,
+                        formatTripDates(
+                            context,
+                            startDate = trip.startDate,
+                            endDate = trip.endDate
+                        )
+                    ),
                     style = typography.bodyMedium,
-                    color = colorScheme.onSurfaceVariant
+                    color = colorScheme.onSurface
                 )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = if (isCompleted) {
+                            Icons.Outlined.TaskAlt
+                        } else {
+                            Icons.Outlined.AccessTime
+                        },
+                        contentDescription = null,
+                        tint = colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(18.dp)
+                    )
+
+                    Text(
+                        text = tripStatus,
+                        style = typography.bodyMedium,
+                        color = colorScheme.onSurfaceVariant
+                    )
+                }
             }
         }
     }

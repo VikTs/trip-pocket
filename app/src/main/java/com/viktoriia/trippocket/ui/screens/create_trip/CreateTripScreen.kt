@@ -12,11 +12,13 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.data.model.Trip
@@ -24,6 +26,8 @@ import com.viktoriia.trippocket.ui.components.inputs.DateInput
 import com.viktoriia.trippocket.ui.components.TopBar
 import java.time.LocalDate
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
+import com.viktoriia.trippocket.ui.components.inputs.rememberFilePicker
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +36,7 @@ fun CreateTripScreen(
     onTripSaved: (Trip) -> Unit,
     onBackClick: () -> Unit,
 ) {
+    val context = LocalContext.current
     val isEditMode = editTrip != null
     var tripName by remember(editTrip?.id) {
         mutableStateOf(editTrip?.name ?: "")
@@ -44,6 +49,26 @@ fun CreateTripScreen(
     var endDate by remember(editTrip?.id) {
         mutableStateOf<LocalDate?>(editTrip?.endDate)
     }
+
+    var selectedImage by remember {
+        mutableStateOf<SelectedDocument?>(null)
+    }
+
+    LaunchedEffect(editTrip?.id, editTrip?.imagePath) {
+        selectedImage = editTrip?.imagePath?.let { path ->
+            SelectedDocument("", path)
+        }
+    }
+
+    fun onFilePicked(file: SelectedDocument) {
+        selectedImage = file
+    }
+
+    val pickFile = rememberFilePicker(
+        context = context,
+        onFileSelected = ::onFilePicked,
+        fileTypes = arrayOf("image/*")
+    )
 
     Scaffold(
         topBar = {
@@ -107,6 +132,15 @@ fun CreateTripScreen(
                 modifier = Modifier.height(24.dp)
             )
 
+            TripImagePicker(
+                selectedImage = selectedImage,
+                onPickImage = pickFile,
+            )
+
+            Spacer(
+                modifier = Modifier.height(24.dp)
+            )
+
             Button(
                 onClick = {
                     val selectedStartDate =
@@ -119,7 +153,8 @@ fun CreateTripScreen(
                         id = editTrip?.id ?: 0,
                         name = tripName,
                         startDate = selectedStartDate,
-                        endDate = selectedEndDate
+                        endDate = selectedEndDate,
+                        imagePath = selectedImage?.path
                     )
 
                     onTripSaved(trip)
