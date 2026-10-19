@@ -1,16 +1,19 @@
 package com.viktoriia.trippocket.utils
 
 import android.content.Context
-import android.net.Uri
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.pdf.PdfRenderer
+import android.net.Uri
 import android.os.ParcelFileDescriptor
 import android.provider.OpenableColumns
 import androidx.core.content.FileProvider
 import androidx.core.graphics.createBitmap
 import java.io.File
+import kotlin.io.copyTo
+import kotlin.io.extension
+import kotlin.io.outputStream
 import kotlin.use
 
 fun copyFileToInternalStorage(
@@ -100,16 +103,20 @@ fun getFileName(
     }
 }
 
-fun createFilePickerIntent(): Intent {
+fun createFilePickerIntent(
+    fileTypes: Array<String>? = null
+): Intent {
+    val types = fileTypes ?: arrayOf(
+        "application/pdf",
+        "image/*"
+    )
+
     return Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
         addCategory(Intent.CATEGORY_OPENABLE)
         type = "*/*"
         putExtra(
             Intent.EXTRA_MIME_TYPES,
-            arrayOf(
-                "application/pdf",
-                "image/*"
-            )
+            types
         )
     }
 }

@@ -12,6 +12,8 @@
     <string name="time_input_placeholder">Виберіть час</string>
     <string name="address_copied_message">Адресу скопійовано</string>
     <string name="upload_btn_label">Завантажити документ</string>
+    <string name="upload_image_btn_label">Завантажити зображення</string>
+    <string name="upload_another_image_btn_label">Завантажити інше фото</string>
     <string name="language_selector_content_description">Мова</string>
     <string name="delete_confirmation_title">Видалити?</string>
     <string name="delete_confirmation_message">Цю дію неможливо скасувати</string>
@@ -45,9 +47,9 @@
 
     <string name="edit_trip_title">Редагувати подорож</string>
     <string name="create_trip_title">Створити подорож</string>
-    <string name="create_trip_name_label">Назва подорожі</string>
-    <string name="create_trip_start_date_label">Дата початку</string>
-    <string name="create_trip_end_date_label">Дата завершення</string>
+    <string name="create_trip_name_label">Назва подорожі*</string>
+    <string name="create_trip_start_date_label">Дата початку*</string>
+    <string name="create_trip_end_date_label">Дата завершення*</string>
     <string name="create_trip_btn_label">Створити подорож</string>
 
     <string name="transport_details_bus_info_title">Інформація про автобус</string>

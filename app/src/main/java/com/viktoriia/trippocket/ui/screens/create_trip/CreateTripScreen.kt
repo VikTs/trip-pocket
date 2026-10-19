@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.data.model.Trip
@@ -24,6 +25,8 @@ import com.viktoriia.trippocket.ui.components.inputs.DateInput
 import com.viktoriia.trippocket.ui.components.TopBar
 import java.time.LocalDate
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
+import com.viktoriia.trippocket.ui.components.inputs.rememberFilePicker
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +35,7 @@ fun CreateTripScreen(
     onTripSaved: (Trip) -> Unit,
     onBackClick: () -> Unit,
 ) {
+    val context = LocalContext.current
     val isEditMode = editTrip != null
     var tripName by remember(editTrip?.id) {
         mutableStateOf(editTrip?.name ?: "")
@@ -44,6 +48,20 @@ fun CreateTripScreen(
     var endDate by remember(editTrip?.id) {
         mutableStateOf<LocalDate?>(editTrip?.endDate)
     }
+
+    var selectedImage by remember {
+        mutableStateOf<SelectedDocument?>(null)
+    }
+
+    fun onFilePicked(file: SelectedDocument) {
+        selectedImage = file
+    }
+
+    val pickFile = rememberFilePicker(
+        context = context,
+        onFileSelected = ::onFilePicked,
+        fileTypes = arrayOf("image/*")
+    )
 
     Scaffold(
         topBar = {
@@ -101,6 +119,15 @@ fun CreateTripScreen(
                 onDateSelected = { date ->
                     endDate = date
                 }
+            )
+
+            Spacer(
+                modifier = Modifier.height(24.dp)
+            )
+
+            TripImagePicker(
+                selectedImage = selectedImage,
+                onPickImage = pickFile,
             )
 
             Spacer(

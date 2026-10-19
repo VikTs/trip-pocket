@@ -12,6 +12,8 @@
     <string name="time_input_placeholder">Uhrzeit auswählen</string>
     <string name="address_copied_message">Adresse kopiert</string>
     <string name="upload_btn_label">Dokument hochladen</string>
+    <string name="upload_image_btn_label">Bild hochladen</string>
+    <string name="upload_another_image_btn_label">Ein anderes Foto hochladen</string>
     <string name="language_selector_content_description">Sprache</string>
     <string name="delete_confirmation_title">Löschen?</string>
     <string name="delete_confirmation_message">Diese Aktion kann nicht rückgängig gemacht werden</string>
@@ -45,9 +47,9 @@
 
     <string name="edit_trip_title">Reise bearbeiten</string>
     <string name="create_trip_title">Reise erstellen</string>
-    <string name="create_trip_name_label">Name der Reise</string>
-    <string name="create_trip_start_date_label">Startdatum</string>
-    <string name="create_trip_end_date_label">Enddatum</string>
+    <string name="create_trip_name_label">Name der Reise*</string>
+    <string name="create_trip_start_date_label">Startdatum*</string>
+    <string name="create_trip_end_date_label">Enddatum*</string>
     <string name="create_trip_btn_label">Reise erstellen</string>
 
     <string name="transport_details_bus_info_title">Businformationen</string>

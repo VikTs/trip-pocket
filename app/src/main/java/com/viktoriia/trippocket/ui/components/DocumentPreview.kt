@@ -31,8 +31,8 @@ import kotlinx.coroutines.withContext
 fun DocumentPreview(
     path: String,
     fileName: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
 ) {
     val typography = MaterialTheme.typography
     val bitmap = produceState<Bitmap?>(initialValue = null, path) {
@@ -54,7 +54,13 @@ fun DocumentPreview(
                     color = MaterialTheme.colorScheme.outline,
                     shape = RoundedCornerShape(12.dp)
                 )
-                .clickable(onClick = onClick),
+                .then(
+                    if (onClick != null) {
+                        Modifier.clickable(onClick = onClick)
+                    } else {
+                        Modifier
+                    }
+                ),
             contentAlignment = Alignment.Center,
         ) {
             bitmap.value?.let {

@@ -14,7 +14,8 @@ import com.viktoriia.trippocket.utils.handlePickedFile
 @Composable
 fun rememberFilePicker(
     context: Context,
-    onFileSelected: (SelectedDocument) -> Unit
+    onFileSelected: (SelectedDocument) -> Unit,
+    fileTypes: Array<String>? = null
 ): () -> Unit {
 
     var selectedPath by remember {
@@ -74,7 +75,7 @@ fun rememberFilePicker(
 
     return {
         filePickerLauncher.launch(
-            createFilePickerIntent()
+            createFilePickerIntent(fileTypes)
         )
     }
 }
