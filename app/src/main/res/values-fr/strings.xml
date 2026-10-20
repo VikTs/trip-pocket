@@ -37,7 +37,7 @@
     <string name="add_transport_type_label">Type</string>
     <string name="add_transport_date_label">Date</string>
     <string name="add_transport_time_label">Heure</string>
-    <string name="add_transport_address_label">Gare (ou adresse)</string>
+    <string name="add_transport_address_label">Nom de la gare (ou adresse)</string>
     <string name="add_transport_platform_label">Quai</string>
     <string name="add_transport_city_label">Ville</string>
     <string name="add_transport_private_bus_label">C’est un bus privé</string>

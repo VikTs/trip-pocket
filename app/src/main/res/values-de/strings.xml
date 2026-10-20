@@ -37,7 +37,7 @@
     <string name="add_transport_type_label">Typ</string>
     <string name="add_transport_date_label">Datum</string>
     <string name="add_transport_time_label">Uhrzeit</string>
-    <string name="add_transport_address_label">Bahnhof (oder Adresse)</string>
+    <string name="add_transport_address_label">Name der Station (oder Adresse)</string>
     <string name="add_transport_platform_label">Bahnsteig</string>
     <string name="add_transport_city_label">Stadt</string>
     <string name="add_transport_private_bus_label">Dies ist ein privater Bus</string>

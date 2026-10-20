@@ -172,7 +172,8 @@ fun AddAccommodationScreen(
                 maxDate = state.checkOutDate,
                 onDateSelected = {
                     state = state.copy(
-                        checkInDate = it
+                        checkInDate = it,
+                        checkOutDate = state.checkOutDate ?: it.plusDays(1)
                     )
                 },
                 selectedTime = state.checkInTime,
