@@ -3,7 +3,7 @@
 A travel organizer for keeping trips, transport tickets, and travel details in one place.
 
 <p>
-  <img src="screenshots/trip_list.png" width="200">
+  <img src="screenshots/trips.png" width="200">
   &nbsp;&nbsp;&nbsp;
   <img src="screenshots/trip_details.png" width="200">
   &nbsp;&nbsp;&nbsp;
