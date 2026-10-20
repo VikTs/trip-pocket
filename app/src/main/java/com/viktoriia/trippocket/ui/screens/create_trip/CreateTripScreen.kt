@@ -113,12 +113,9 @@ fun CreateTripScreen(
                 },
                 maxDate = endDate,
                 selectedDate = startDate,
-                onDateSelected = { date ->
-                    startDate = date
-
-                    if (endDate?.isBefore(date) == true) {
-                        endDate = null
-                    }
+                onDateSelected = {
+                    startDate = it
+                    endDate = endDate ?: it.plusDays(3)
                 }
             )
 
