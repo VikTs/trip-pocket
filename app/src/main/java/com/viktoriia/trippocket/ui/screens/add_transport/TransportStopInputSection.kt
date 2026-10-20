@@ -17,6 +17,7 @@ import com.viktoriia.trippocket.ui.components.inputs.TimeInput
 import java.time.LocalDate
 import java.time.LocalTime
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 
 @Composable
 fun TransportStopInputSection(
@@ -42,7 +43,7 @@ fun TransportStopInputSection(
         value = city,
         onValueChange = onCityChange,
         label = {
-            Text(stringResource(R.string.add_transport_city_label))
+            RequiredFieldLabel(stringResource(R.string.add_transport_city_label))
         },
         singleLine = true,
         modifier = Modifier.fillMaxWidth()
@@ -52,7 +53,7 @@ fun TransportStopInputSection(
         modifier = Modifier.fillMaxWidth()
     ) {
         DateInput(
-            label = stringResource(R.string.add_transport_date_label),
+            label = { RequiredFieldLabel(stringResource(R.string.add_transport_date_label)) },
             selectedDate = date,
             onDateSelected = onDateChange,
             minDate = minDate,
@@ -64,35 +65,34 @@ fun TransportStopInputSection(
         )
 
         TimeInput(
-            label = stringResource(R.string.add_transport_time_label),
+            label = {
+                RequiredFieldLabel(stringResource(R.string.add_transport_time_label))
+            },
             selectedTime = time,
             onTimeSelected = onTimeChange,
             modifier = Modifier.weight(1f)
         )
     }
 
-        OutlinedTextField(
-            value = address ?: "",
-            onValueChange = onAddressChange,
-            label = {
-                Text(stringResource(R.string.add_transport_address_label))
-            },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-            placeholder = {
-                Text(stringResource(R.string.add_transport_address_placeholder))
-            },
-        )
+    OutlinedTextField(
+        value = address ?: "",
+        onValueChange = onAddressChange,
+        label = {
+            RequiredFieldLabel(stringResource(R.string.add_transport_address_label))
+        },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+    )
 
-        OutlinedTextField(
-            value = platform ?: "",
-            onValueChange = onPlatformChange,
-            label = {
-                Text(stringResource(R.string.add_transport_platform_label))
-            },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
+    OutlinedTextField(
+        value = platform ?: "",
+        onValueChange = onPlatformChange,
+        label = {
+            Text(stringResource(R.string.add_transport_platform_label))
+        },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth()
+    )
 
 
     Spacer(

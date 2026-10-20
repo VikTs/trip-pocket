@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 
 @Composable
 fun AddAccommodationInfoSection(
@@ -29,7 +30,7 @@ fun AddAccommodationInfoSection(
         value = name,
         onValueChange = onNameChanged,
         label = {
-            Text(
+            RequiredFieldLabel(
                 stringResource(
                     R.string.add_accommodation_name_label
                 )
@@ -43,7 +44,7 @@ fun AddAccommodationInfoSection(
         value = address,
         onValueChange = onAddressChanged,
         label = {
-            Text(
+            RequiredFieldLabel(
                 stringResource(
                     R.string.add_accommodation_address_label
                 )

@@ -34,22 +34,21 @@
     <string name="add_transport_train_number_label">Zugnummer</string>
     <string name="add_transport_coach_label">Wagen</string>
     <string name="add_transport_transport_section_title">Transport</string>
-    <string name="add_transport_type_label">Typ*</string>
-    <string name="add_transport_date_label">Datum*</string>
-    <string name="add_transport_time_label">Uhrzeit*</string>
-    <string name="add_transport_address_label">Ort*</string>
+    <string name="add_transport_type_label">Typ</string>
+    <string name="add_transport_date_label">Datum</string>
+    <string name="add_transport_time_label">Uhrzeit</string>
+    <string name="add_transport_address_label">Bahnhof (oder Adresse)</string>
     <string name="add_transport_platform_label">Bahnsteig</string>
-    <string name="add_transport_address_placeholder">Adresse oder Bahnhof</string>
-    <string name="add_transport_city_label">Stadt*</string>
+    <string name="add_transport_city_label">Stadt</string>
     <string name="add_transport_private_bus_label">Dies ist ein privater Bus</string>
     <string name="add_transport_carrier_label">Transportunternehmen</string>
     <string name="add_transport_driver_phone_label">Telefon des Fahrers</string>
 
     <string name="edit_trip_title">Reise bearbeiten</string>
     <string name="create_trip_title">Reise erstellen</string>
-    <string name="create_trip_name_label">Name der Reise*</string>
-    <string name="create_trip_start_date_label">Startdatum*</string>
-    <string name="create_trip_end_date_label">Enddatum*</string>
+    <string name="create_trip_name_label">Name der Reise</string>
+    <string name="create_trip_start_date_label">Startdatum</string>
+    <string name="create_trip_end_date_label">Enddatum</string>
     <string name="create_trip_btn_label">Reise erstellen</string>
 
     <string name="transport_details_bus_info_title">Businformationen</string>
@@ -97,13 +96,13 @@
     <string name="add_accommodation_title">Unterkunft hinzufügen</string>
     <string name="edit_accommodation_title">Unterkunft bearbeiten</string>
     <string name="add_accommodation_general_section_title">Unterkunft</string>
-    <string name="add_accommodation_name_label">Name*</string>
-    <string name="add_accommodation_address_label">Adresse*</string>
+    <string name="add_accommodation_name_label">Name</string>
+    <string name="add_accommodation_address_label">Adresse</string>
     <string name="add_accommodation_contact_phone_label">Kontakttelefon</string>
     <string name="add_accommodation_check_in_section_title">Check-in</string>
     <string name="add_accommodation_check_out_section_title">Check-out</string>
-    <string name="add_accommodation_date_label">Datum*</string>
-    <string name="add_accommodation_time_label">Uhrzeit*</string>
+    <string name="add_accommodation_date_label">Datum</string>
+    <string name="add_accommodation_time_label">Uhrzeit</string>
     <string name="add_accommodation_btn_label">Unterkunft hinzufügen</string>
     <string name="add_accommodation_documents_section_title">Dokumente</string>
 

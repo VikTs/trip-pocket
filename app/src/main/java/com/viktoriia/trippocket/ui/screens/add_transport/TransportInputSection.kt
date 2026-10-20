@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.ui.components.inputs.Dropdown
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 
 @Composable
 fun TransportInputSection(
@@ -45,7 +46,11 @@ fun TransportInputSection(
     Dropdown(
         selectedItem = transportType,
         items = TransportType.entries,
-        label = stringResource(R.string.add_transport_type_label),
+        label = {
+            RequiredFieldLabel(
+                text = stringResource(R.string.add_transport_type_label)
+            )
+        },
         itemText = {
             when (it) {
                 TransportType.BUS ->

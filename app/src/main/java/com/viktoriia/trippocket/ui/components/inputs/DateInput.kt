@@ -19,7 +19,7 @@ import java.time.LocalDate
 
 @Composable
 fun DateInput(
-    label: String,
+    label: @Composable () -> Unit,
     selectedDate: LocalDate?,
     onDateSelected: (LocalDate) -> Unit,
     modifier: Modifier = Modifier.fillMaxWidth(),
@@ -36,9 +36,7 @@ fun DateInput(
         OutlinedTextField(
             value = selectedDate?.let { formatTripDate(context, it) } ?: "",
             onValueChange = {},
-            label = {
-                Text(label)
-            },
+            label = label,
             placeholder = {
                 Text(stringResource(R.string.date_input_placeholder))
             },

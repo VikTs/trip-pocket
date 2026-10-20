@@ -12,6 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.ui.components.inputs.DateInput
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 import com.viktoriia.trippocket.ui.components.inputs.TimeInput
 import java.time.LocalDate
 import java.time.LocalTime
@@ -24,7 +25,7 @@ fun StayDateTimeSection(
     selectedTime: LocalTime?,
     onTimeSelected: (LocalTime) -> Unit,
     minDate: LocalDate? = null,
-    ) {
+) {
     Text(
         text = title,
         style = MaterialTheme.typography.titleMedium
@@ -34,7 +35,9 @@ fun StayDateTimeSection(
         modifier = Modifier.fillMaxWidth()
     ) {
         DateInput(
-            label = stringResource(R.string.add_accommodation_date_label),
+            label = {
+                RequiredFieldLabel(stringResource(R.string.add_accommodation_date_label))
+            },
             minDate = minDate,
             selectedDate = selectedDate,
             onDateSelected = onDateSelected,
@@ -46,7 +49,9 @@ fun StayDateTimeSection(
         )
 
         TimeInput(
-            label = stringResource(R.string.add_accommodation_time_label),
+            label = {
+                RequiredFieldLabel(stringResource(R.string.add_accommodation_time_label))
+            },
             selectedTime = selectedTime,
             onTimeSelected = onTimeSelected,
             modifier = Modifier.weight(1f)
