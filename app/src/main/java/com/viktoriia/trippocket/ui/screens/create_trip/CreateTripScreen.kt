@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -21,13 +22,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.viktoriia.trippocket.data.model.Trip
-import com.viktoriia.trippocket.ui.components.inputs.DateInput
-import com.viktoriia.trippocket.ui.components.TopBar
-import java.time.LocalDate
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.ui.components.TopBar
+import com.viktoriia.trippocket.ui.components.inputs.DateInput
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.ui.components.inputs.rememberFilePicker
+import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -94,7 +96,9 @@ fun CreateTripScreen(
                     tripName = newValue
                 },
                 label = {
-                    Text(stringResource(R.string.create_trip_name_label))
+                    RequiredFieldLabel(
+                        text = stringResource(R.string.create_trip_name_label)
+                    )
                 },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -104,7 +108,10 @@ fun CreateTripScreen(
             )
 
             DateInput(
-                label = stringResource(R.string.create_trip_start_date_label),
+                label = {
+                    RequiredFieldLabel(stringResource(R.string.create_trip_start_date_label))
+                },
+                maxDate = endDate,
                 selectedDate = startDate,
                 onDateSelected = { date ->
                     startDate = date
@@ -120,7 +127,9 @@ fun CreateTripScreen(
             )
 
             DateInput(
-                label = stringResource(R.string.create_trip_end_date_label),
+                label = {
+                    RequiredFieldLabel(stringResource(R.string.create_trip_end_date_label))
+                },
                 selectedDate = endDate,
                 minDate = startDate,
                 onDateSelected = { date ->

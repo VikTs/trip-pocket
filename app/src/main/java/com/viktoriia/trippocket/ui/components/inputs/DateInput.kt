@@ -19,12 +19,13 @@ import java.time.LocalDate
 
 @Composable
 fun DateInput(
-    label: String,
+    label: @Composable () -> Unit,
     selectedDate: LocalDate?,
     onDateSelected: (LocalDate) -> Unit,
     modifier: Modifier = Modifier.fillMaxWidth(),
-    minDate: LocalDate? = null
-    ) {
+    minDate: LocalDate? = null,
+    maxDate: LocalDate? = null
+) {
     val context = LocalContext.current
     var showDatePicker by remember {
         mutableStateOf(false)
@@ -36,9 +37,7 @@ fun DateInput(
         OutlinedTextField(
             value = selectedDate?.let { formatTripDate(context, it) } ?: "",
             onValueChange = {},
-            label = {
-                Text(label)
-            },
+            label = label,
             placeholder = {
                 Text(stringResource(R.string.date_input_placeholder))
             },
@@ -59,6 +58,7 @@ fun DateInput(
         DatePickerDialog(
             selectedDate = selectedDate,
             minDate = minDate,
+            maxDate = maxDate,
             onDateSelected = { date ->
                 onDateSelected(date)
                 showDatePicker = false

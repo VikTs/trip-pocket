@@ -19,6 +19,7 @@ import com.viktoriia.trippocket.R
 fun DatePickerDialog(
     selectedDate: LocalDate?,
     minDate: LocalDate? = null,
+    maxDate: LocalDate? = null,
     onDateSelected: (LocalDate) -> Unit,
     onDismiss: () -> Unit
 ) {
@@ -26,11 +27,17 @@ fun DatePickerDialog(
         initialSelectedDateMillis = selectedDate?.toUtcMillis(),
         selectableDates = object : SelectableDates {
             override fun isSelectableDate(utcTimeMillis: Long): Boolean {
-                val minimumDate = minDate ?: return true
-
                 val date = utcTimeMillis.toLocalDate()
 
-                return !date.isBefore(minimumDate)
+                if (minDate != null && date.isBefore(minDate)) {
+                    return false
+                }
+
+                if (maxDate != null && date.isAfter(maxDate)) {
+                    return false
+                }
+
+                return true
             }
         }
     )

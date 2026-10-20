@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 fun <T> Dropdown(
     selectedItem: T,
     items: List<T>,
-    label: String,
+    label: @Composable () -> Unit,
     itemText: @Composable (T) -> String,
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
@@ -30,9 +30,7 @@ fun <T> Dropdown(
             value = itemText(selectedItem),
             onValueChange = {},
             readOnly = true,
-            label = {
-                Text(label)
-            },
+            label = label,
             trailingIcon = {
                 ExposedDropdownMenuDefaults.TrailingIcon(
                     expanded = expanded

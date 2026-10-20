@@ -218,7 +218,7 @@ fun AddTransportScreen(
                 time = state.fromTime,
                 address = state.fromAddress,
                 platform = state.fromPlatform,
-                minDate = null,
+                maxDate = state.toDate,
                 onCityChange = {
                     state = state.copy(
                         fromCity = it
@@ -226,7 +226,7 @@ fun AddTransportScreen(
                 },
                 onDateChange = {
                     state = state.copy(
-                        fromDate = it
+                        fromDate = it,
                     )
                 },
                 onTimeChange = {

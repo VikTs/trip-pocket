@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Image
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,9 +33,9 @@ import kotlinx.coroutines.withContext
 @Composable
 fun DocumentPreview(
     path: String,
-    fileName: String,
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
+    fileName: String? = null,
 ) {
     val typography = MaterialTheme.typography
     val bitmap = produceState<Bitmap?>(initialValue = null, path) {
@@ -70,18 +73,24 @@ fun DocumentPreview(
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
-            } ?: Text(
-                text = fileName,
-                style = typography.bodyMedium
-            )
+            } ?: run {
+                Icon(
+                    imageVector = Icons.Outlined.Image,
+                    contentDescription = null,
+                    modifier = Modifier.size(36.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         }
 
-        Text(
-            text = fileName,
-            style = typography.bodySmall,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.padding(horizontal = 4.dp)
-        )
+        fileName?.let {
+            Text(
+                text = fileName,
+                style = typography.bodySmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(horizontal = 4.dp)
+            )
+        }
     }
 }

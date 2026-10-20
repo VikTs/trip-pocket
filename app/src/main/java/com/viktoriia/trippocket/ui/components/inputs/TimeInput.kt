@@ -18,7 +18,7 @@ import com.viktoriia.trippocket.R
 
 @Composable
 fun TimeInput(
-    label: String,
+    label: @Composable () -> Unit,
     selectedTime: LocalTime?,
     onTimeSelected: (LocalTime) -> Unit,
     modifier: Modifier = Modifier
@@ -33,9 +33,7 @@ fun TimeInput(
         OutlinedTextField(
             value = selectedTime?.let { formatTripTime(it) } ?: "",
             onValueChange = {},
-            label = {
-                Text(label)
-            },
+            label = label,
             placeholder = {
                 Text(stringResource(R.string.time_input_placeholder))
             },
