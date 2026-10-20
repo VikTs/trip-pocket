@@ -38,7 +38,6 @@ fun CreateTripScreen(
     onTripSaved: (Trip) -> Unit,
     onBackClick: () -> Unit,
 ) {
-    val typography = MaterialTheme.typography
     val context = LocalContext.current
     val isEditMode = editTrip != null
     var tripName by remember(editTrip?.id) {
@@ -112,6 +111,7 @@ fun CreateTripScreen(
                 label = {
                     RequiredFieldLabel(stringResource(R.string.create_trip_start_date_label))
                 },
+                maxDate = endDate,
                 selectedDate = startDate,
                 onDateSelected = { date ->
                     startDate = date

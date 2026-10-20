@@ -27,7 +27,8 @@ fun TransportStopInputSection(
     time: LocalTime?,
     address: String?,
     platform: String?,
-    minDate: LocalDate?,
+    minDate: LocalDate? = null,
+    maxDate: LocalDate? = null,
     onCityChange: (String) -> Unit,
     onDateChange: (LocalDate) -> Unit,
     onTimeChange: (LocalTime) -> Unit,
@@ -57,6 +58,7 @@ fun TransportStopInputSection(
             selectedDate = date,
             onDateSelected = onDateChange,
             minDate = minDate,
+            maxDate = maxDate,
             modifier = Modifier.weight(2f)
         )
 

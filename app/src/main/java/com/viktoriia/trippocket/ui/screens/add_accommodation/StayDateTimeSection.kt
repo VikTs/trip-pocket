@@ -25,6 +25,7 @@ fun StayDateTimeSection(
     selectedTime: LocalTime?,
     onTimeSelected: (LocalTime) -> Unit,
     minDate: LocalDate? = null,
+    maxDate: LocalDate? = null,
 ) {
     Text(
         text = title,
@@ -39,6 +40,7 @@ fun StayDateTimeSection(
                 RequiredFieldLabel(stringResource(R.string.add_accommodation_date_label))
             },
             minDate = minDate,
+            maxDate = maxDate,
             selectedDate = selectedDate,
             onDateSelected = onDateSelected,
             modifier = Modifier.weight(2f)

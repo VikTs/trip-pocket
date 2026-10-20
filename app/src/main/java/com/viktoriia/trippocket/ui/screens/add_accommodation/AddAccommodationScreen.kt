@@ -169,6 +169,7 @@ fun AddAccommodationScreen(
                     R.string.add_accommodation_check_in_section_title
                 ),
                 selectedDate = state.checkInDate,
+                maxDate = state.checkOutDate,
                 onDateSelected = {
                     state = state.copy(
                         checkInDate = it
@@ -186,8 +187,8 @@ fun AddAccommodationScreen(
                 title = stringResource(
                     R.string.add_accommodation_check_out_section_title
                 ),
-                minDate = state.checkInDate,
                 selectedDate = state.checkOutDate,
+                minDate = state.checkInDate,
                 onDateSelected = {
                     state = state.copy(
                         checkOutDate = it

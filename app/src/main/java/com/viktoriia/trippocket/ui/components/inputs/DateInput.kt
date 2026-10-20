@@ -23,8 +23,9 @@ fun DateInput(
     selectedDate: LocalDate?,
     onDateSelected: (LocalDate) -> Unit,
     modifier: Modifier = Modifier.fillMaxWidth(),
-    minDate: LocalDate? = null
-    ) {
+    minDate: LocalDate? = null,
+    maxDate: LocalDate? = null
+) {
     val context = LocalContext.current
     var showDatePicker by remember {
         mutableStateOf(false)
@@ -57,6 +58,7 @@ fun DateInput(
         DatePickerDialog(
             selectedDate = selectedDate,
             minDate = minDate,
+            maxDate = maxDate,
             onDateSelected = { date ->
                 onDateSelected(date)
                 showDatePicker = false
