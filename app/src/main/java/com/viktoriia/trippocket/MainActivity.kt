@@ -1,14 +1,11 @@
 package com.viktoriia.trippocket
 
-import android.Manifest
 import android.content.Context
 import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.viktoriia.trippocket.ui.navigation.TripPocketNavHost
 import com.viktoriia.trippocket.ui.theme.TripPocketTheme
