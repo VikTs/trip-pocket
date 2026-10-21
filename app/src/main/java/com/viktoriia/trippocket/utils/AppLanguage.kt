@@ -75,15 +75,17 @@ fun initializeAppLanguage(context: Context) {
         return
     }
 
-    val systemLanguage =
+    val systemLanguage = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        context.resources.configuration.locales[0].language
+    } else {
         Locale.getDefault().language
+    }
 
-    val language =
-        if (systemLanguage in supportedLanguages) {
-            systemLanguage
-        } else {
-            "en"
-        }
+    val language = if (systemLanguage in supportedLanguages) {
+        systemLanguage
+    } else {
+        "en"
+    }
 
     setAppLanguage(
         context = context,
@@ -91,16 +93,16 @@ fun initializeAppLanguage(context: Context) {
     )
 }
 
-fun isAppLanguageSelected(
-    context: Context
-): Boolean {
-    return context
-        .getSharedPreferences(
+fun isAppLanguageSelected(context: Context): Boolean {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        val localeManager =
+            context.getSystemService(LocaleManager::class.java)
+
+        !localeManager.applicationLocales.isEmpty
+    } else {
+        context.getSharedPreferences(
             PREFS_NAME,
             Context.MODE_PRIVATE
-        )
-        .getBoolean(
-            LANGUAGE_SELECTED_KEY,
-            false
-        )
+        ).getBoolean(LANGUAGE_SELECTED_KEY, false)
+    }
 }
