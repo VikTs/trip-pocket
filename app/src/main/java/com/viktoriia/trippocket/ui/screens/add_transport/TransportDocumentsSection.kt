@@ -1,12 +1,13 @@
 package com.viktoriia.trippocket.ui.screens.add_transport
 
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.ui.components.inputs.DocumentsInput
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
-import com.viktoriia.trippocket.ui.components.sections.Accordion
 
 @Composable
 fun TransportDocumentsSection(
@@ -16,16 +17,17 @@ fun TransportDocumentsSection(
 ) {
     val context = LocalContext.current
 
-    Accordion(
-        title = stringResource(
+    Text(
+        text = stringResource(
             R.string.add_transport_documents_section_title
-        )
-    ) {
-        DocumentsInput(
-            context = context,
-            documents = documents,
-            onAddDocument = onAddDocument,
-            onRemoveDocument = onRemoveDocument
-        )
-    }
+        ),
+        style = MaterialTheme.typography.titleMedium
+    )
+
+    DocumentsInput(
+        context = context,
+        documents = documents,
+        onAddDocument = onAddDocument,
+        onRemoveDocument = onRemoveDocument
+    )
 }
