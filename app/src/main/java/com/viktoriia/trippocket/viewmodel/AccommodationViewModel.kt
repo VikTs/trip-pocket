@@ -150,7 +150,7 @@ class AccommodationViewModel @Inject constructor(
                     .first()
 
             notifications?.forEach { notification ->
-                notificationScheduler.cancel(
+                notificationScheduler.cancelAccommodation(
                     notification.id
                 )
             }
@@ -197,7 +197,7 @@ class AccommodationViewModel @Inject constructor(
                     .first()
 
             notifications?.forEach { notification ->
-                notificationScheduler.cancel(
+                notificationScheduler.cancelAccommodation(
                     notification.id
                 )
             }
@@ -262,7 +262,7 @@ class AccommodationViewModel @Inject constructor(
                     accommodation = accommodation
                 )
             } else {
-                notificationScheduler.cancel(
+                notificationScheduler.cancelAccommodation(
                     notification.id
                 )
             }

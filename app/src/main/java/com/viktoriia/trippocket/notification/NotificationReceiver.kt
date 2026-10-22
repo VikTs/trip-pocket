@@ -1,28 +1,22 @@
 package com.viktoriia.trippocket.notification
 
-import android.Manifest
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
 import com.viktoriia.trippocket.MainActivity
 import com.viktoriia.trippocket.R
 
 class NotificationReceiver : BroadcastReceiver() {
+    @SuppressLint("MissingPermission")
     override fun onReceive(
         context: Context,
         intent: Intent
     ) {
-        if (
-            ContextCompat.checkSelfPermission(
-                context,
-                Manifest.permission.POST_NOTIFICATIONS
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
+        if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) {
             return
         }
 
@@ -74,7 +68,7 @@ class NotificationReceiver : BroadcastReceiver() {
         )
             .setSmallIcon(R.drawable.notification_logo)
             .setContentTitle(title)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
             .apply {

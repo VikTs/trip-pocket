@@ -17,11 +17,17 @@
     <string name="language_selector_content_description">Sprache</string>
     <string name="delete_confirmation_title">Löschen?</string>
     <string name="delete_confirmation_message">Diese Aktion kann nicht rückgängig gemacht werden</string>
+
     <string name="notifications_disabled_message">Benachrichtigungen sind deaktiviert</string>
     <string name="notifications_enable_btn_label">Benachrichtigungen aktivieren</string>
     <string name="exact_reminders_disabled_message">Erinnerungen sind deaktiviert</string>
     <string name="exact_reminders_enable_btn_label">Erinnerungen aktivieren</string>
     <string name="notifications_and_exact_reminders_disabled_message">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
+    <string name="notification_help_content_description">Was tun, wenn keine Benachrichtigungen ankommen</string>
+    <string name="notification_help_title">Keine Benachrichtigungen?</string>
+    <string name="notification_help_body">Manche Smartphones schränken Apps im Hintergrund ein. Versuche Folgendes:\n\n• „Autostart“ für die App aktivieren (verfügbar auf Xiaomi, Oppo, Vivo, Huawei und anderen).\n• In den Akkueinstellungen „Keine Einschränkungen“ wählen oder die Optimierung für die App deaktivieren. Für Samsung die App aus „Schlafende Apps“ entfernen.\n\nDie Bezeichnungen dieser Optionen hängen vom Gerätemodell und der Systemversion ab.</string>
+    <string name="notification_help_open_settings">App-Einstellungen</string>
+    <string name="notification_help_close">Schließen</string>
 
     <string name="edit_transport_title">Transport bearbeiten</string>
     <string name="add_transport_title">Transport hinzufügen</string>
