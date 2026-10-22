@@ -16,6 +16,7 @@ import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.ui.components.inputs.Dropdown
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
+import com.viktoriia.trippocket.ui.components.sections.Accordion
 
 @Composable
 fun TransportInputSection(
@@ -38,60 +39,59 @@ fun TransportInputSection(
         mutableStateOf(false)
     }
 
-    Text(
-        text = stringResource(R.string.add_transport_transport_section_title),
-        style = MaterialTheme.typography.titleMedium
-    )
+    Accordion(
+        title = stringResource(R.string.add_transport_transport_section_title)
+    ) {
+        Dropdown(
+            selectedItem = transportType,
+            items = TransportType.entries,
+            label = {
+                RequiredFieldLabel(
+                    text = stringResource(R.string.add_transport_type_label)
+                )
+            },
+            itemText = {
+                when (it) {
+                    TransportType.BUS ->
+                        stringResource(R.string.transport_type_bus)
 
-    Dropdown(
-        selectedItem = transportType,
-        items = TransportType.entries,
-        label = {
-            RequiredFieldLabel(
-                text = stringResource(R.string.add_transport_type_label)
+                    TransportType.TRAIN ->
+                        stringResource(R.string.transport_type_train)
+                }
+            },
+            expanded = typeExpanded,
+            onExpandedChange = {
+                typeExpanded = it
+            },
+            onItemSelected = onTransportTypeChange
+        )
+
+        if (transportType == TransportType.TRAIN) {
+            TrainInput(
+                transportNumber,
+                coach,
+                place,
+                onTransportNumberChange,
+                onCoachChange,
+                onPlaceChange
             )
-        },
-        itemText = {
-            when (it) {
-                TransportType.BUS ->
-                    stringResource(R.string.transport_type_bus)
+        } else {
+            BusInput(
+                transportNumber, place, onTransportNumberChange, onPlaceChange
+            )
 
-                TransportType.TRAIN ->
-                    stringResource(R.string.transport_type_train)
-            }
-        },
-        expanded = typeExpanded,
-        onExpandedChange = {
-            typeExpanded = it
-        },
-        onItemSelected = onTransportTypeChange
-    )
+            PrivateBusInputSection(
+                isPrivateBus = isPrivateBus,
+                carrier = carrier,
+                driverPhone = driverPhone,
+                onPrivateBusChange = onPrivateBusChange,
+                onCarrierChange = onCarrierChange,
+                onDriverPhoneChange = onDriverPhoneChange
+            )
+        }
 
-    if (transportType == TransportType.TRAIN) {
-        TrainInput(
-            transportNumber,
-            coach,
-            place,
-            onTransportNumberChange,
-            onCoachChange,
-            onPlaceChange
-        )
-    } else {
-        BusInput(
-            transportNumber, place, onTransportNumberChange, onPlaceChange
-        )
-
-        PrivateBusInputSection(
-            isPrivateBus = isPrivateBus,
-            carrier = carrier,
-            driverPhone = driverPhone,
-            onPrivateBusChange = onPrivateBusChange,
-            onCarrierChange = onCarrierChange,
-            onDriverPhoneChange = onDriverPhoneChange
+        Spacer(
+            modifier = Modifier.height(8.dp)
         )
     }
-
-    Spacer(
-        modifier = Modifier.height(8.dp)
-    )
 }

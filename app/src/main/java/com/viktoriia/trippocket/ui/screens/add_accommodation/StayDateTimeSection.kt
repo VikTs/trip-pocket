@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -14,6 +12,7 @@ import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.ui.components.inputs.DateInput
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 import com.viktoriia.trippocket.ui.components.inputs.TimeInput
+import com.viktoriia.trippocket.ui.components.sections.Accordion
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -27,36 +26,35 @@ fun StayDateTimeSection(
     minDate: LocalDate? = null,
     maxDate: LocalDate? = null,
 ) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.titleMedium
-    )
-
-    Row(
-        modifier = Modifier.fillMaxWidth()
+    Accordion(
+        title = title
     ) {
-        DateInput(
-            label = {
-                RequiredFieldLabel(stringResource(R.string.add_accommodation_date_label))
-            },
-            minDate = minDate,
-            maxDate = maxDate,
-            selectedDate = selectedDate,
-            onDateSelected = onDateSelected,
-            modifier = Modifier.weight(2f)
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            DateInput(
+                label = {
+                    RequiredFieldLabel(stringResource(R.string.add_accommodation_date_label))
+                },
+                minDate = minDate,
+                maxDate = maxDate,
+                selectedDate = selectedDate,
+                onDateSelected = onDateSelected,
+                modifier = Modifier.weight(2f)
+            )
 
-        Spacer(
-            modifier = Modifier.width(12.dp)
-        )
+            Spacer(
+                modifier = Modifier.width(12.dp)
+            )
 
-        TimeInput(
-            label = {
-                RequiredFieldLabel(stringResource(R.string.add_accommodation_time_label))
-            },
-            selectedTime = selectedTime,
-            onTimeSelected = onTimeSelected,
-            modifier = Modifier.weight(1f)
-        )
+            TimeInput(
+                label = {
+                    RequiredFieldLabel(stringResource(R.string.add_accommodation_time_label))
+                },
+                selectedTime = selectedTime,
+                onTimeSelected = onTimeSelected,
+                modifier = Modifier.weight(1f)
+            )
+        }
     }
 }
