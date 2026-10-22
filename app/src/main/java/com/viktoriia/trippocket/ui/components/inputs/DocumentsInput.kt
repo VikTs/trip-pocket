@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Close
@@ -52,8 +51,9 @@ fun DocumentsInput(
                 )
 
                 IconButton(
-                    onClick = { onRemoveDocument(document) },
-                    modifier = Modifier.offset(x = 8.dp)
+                    onClick = {
+                        onRemoveDocument(document)
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Outlined.Close,
@@ -65,8 +65,7 @@ fun DocumentsInput(
     }
 
     Button(
-        onClick = pickFile,
-        modifier = Modifier.padding(top = 4.dp)
+        onClick = pickFile
     ) {
         Text(
             "+ ${
