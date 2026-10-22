@@ -12,12 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.ui.components.inputs.DateInput
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 import com.viktoriia.trippocket.ui.components.inputs.TimeInput
+import com.viktoriia.trippocket.ui.components.sections.Accordion
 import java.time.LocalDate
 import java.time.LocalTime
-import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 
 @Composable
 fun TransportStopInputSection(
@@ -35,69 +36,68 @@ fun TransportStopInputSection(
     onAddressChange: (String) -> Unit,
     onPlatformChange: (String) -> Unit,
 ) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.titleMedium
-    )
-
-    OutlinedTextField(
-        value = city,
-        onValueChange = onCityChange,
-        label = {
-            RequiredFieldLabel(stringResource(R.string.add_transport_city_label))
-        },
-        singleLine = true,
-        modifier = Modifier.fillMaxWidth()
-    )
-
-    Row(
-        modifier = Modifier.fillMaxWidth()
+    Accordion(
+        title = title
     ) {
-        DateInput(
-            label = { RequiredFieldLabel(stringResource(R.string.add_transport_date_label)) },
-            selectedDate = date,
-            onDateSelected = onDateChange,
-            minDate = minDate,
-            maxDate = maxDate,
-            modifier = Modifier.weight(2f)
+        OutlinedTextField(
+            value = city,
+            onValueChange = onCityChange,
+            label = {
+                RequiredFieldLabel(stringResource(R.string.add_transport_city_label))
+            },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
         )
+
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            DateInput(
+                label = { RequiredFieldLabel(stringResource(R.string.add_transport_date_label)) },
+                selectedDate = date,
+                onDateSelected = onDateChange,
+                minDate = minDate,
+                maxDate = maxDate,
+                modifier = Modifier.weight(2f)
+            )
+
+            Spacer(
+                modifier = Modifier.width(12.dp)
+            )
+
+            TimeInput(
+                label = {
+                    RequiredFieldLabel(stringResource(R.string.add_transport_time_label))
+                },
+                selectedTime = time,
+                onTimeSelected = onTimeChange,
+                modifier = Modifier.weight(1f)
+            )
+        }
+
+        OutlinedTextField(
+            value = address ?: "",
+            onValueChange = onAddressChange,
+            label = {
+                RequiredFieldLabel(stringResource(R.string.add_transport_address_label))
+            },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+        )
+
+        OutlinedTextField(
+            value = platform ?: "",
+            onValueChange = onPlatformChange,
+            label = {
+                Text(stringResource(R.string.add_transport_platform_label))
+            },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+
 
         Spacer(
-            modifier = Modifier.width(12.dp)
-        )
-
-        TimeInput(
-            label = {
-                RequiredFieldLabel(stringResource(R.string.add_transport_time_label))
-            },
-            selectedTime = time,
-            onTimeSelected = onTimeChange,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.height(8.dp)
         )
     }
-
-    OutlinedTextField(
-        value = address ?: "",
-        onValueChange = onAddressChange,
-        label = {
-            RequiredFieldLabel(stringResource(R.string.add_transport_address_label))
-        },
-        singleLine = true,
-        modifier = Modifier.fillMaxWidth(),
-    )
-
-    OutlinedTextField(
-        value = platform ?: "",
-        onValueChange = onPlatformChange,
-        label = {
-            Text(stringResource(R.string.add_transport_platform_label))
-        },
-        singleLine = true,
-        modifier = Modifier.fillMaxWidth()
-    )
-
-
-    Spacer(
-        modifier = Modifier.height(8.dp)
-    )
 }
