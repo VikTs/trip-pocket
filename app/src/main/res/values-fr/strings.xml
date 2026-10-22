@@ -13,7 +13,7 @@
     <string name="address_copied_message">Adresse copiée</string>
     <string name="upload_btn_label">Importer un document</string>
     <string name="upload_image_btn_label">Importer une image</string>
-    <string name="upload_another_image_btn_label">Importer une autre photo</string>
+    <string name="upload_another_image_btn_label">Importer une autre image</string>
     <string name="language_selector_content_description">Langue</string>
     <string name="delete_confirmation_title">Supprimer?</string>
     <string name="delete_confirmation_message">Cette action ne peut pas être annulée</string>
@@ -23,9 +23,8 @@
     <string name="exact_reminders_disabled_message">Les rappels sont désactivés</string>
     <string name="exact_reminders_enable_btn_label">Activer les rappels</string>
     <string name="notifications_and_exact_reminders_disabled_message">Les notifications et les rappels sont désactivés</string>
-    <string name="notification_help_content_description">Que faire si les notifications n\'arrivent pas</string>
-    <string name="notification_help_title">Vous ne recevez pas les notifications ?</string>
-    <string name="notification_help_body">Certains téléphones limitent les applications en arrière-plan. Essayez :\n\n• Activer « Démarrage automatique » pour l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres).\n• Dans les paramètres de la batterie, choisir « Aucune restriction » ou désactiver l\'optimisation pour l\'application. Pour Samsung, retirer l\'application de « Applications en veille ».\n\nLes noms de ces options dépendent du modèle du téléphone et de la version du système.</string>
+    <string name="notification_help_title">Vous ne recevez pas les notifications?</string>
+    <string name="notification_help_body">Certains téléphones limitent les applications en arrière-plan. Essayez:\n\n• Activer « Démarrage automatique » pour l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres).\n• Dans les paramètres de la batterie, choisir « Aucune restriction » ou désactiver l\'optimisation pour l\'application. Pour Samsung, retirer l\'application de « Applications en veille ».\n\nLes noms de ces options dépendent du modèle du téléphone et de la version du système.</string>
     <string name="notification_help_open_settings">Paramètres de l\'application</string>
     <string name="notification_help_close">Fermer</string>
 
@@ -47,7 +46,7 @@
     <string name="add_transport_platform_label">Quai</string>
     <string name="add_transport_city_label">Ville</string>
     <string name="add_transport_private_bus_label">C’est un bus privé</string>
-    <string name="add_transport_carrier_label">Transporteur</string>
+    <string name="add_transport_carrier_label">Compagnie</string>
     <string name="add_transport_driver_phone_label">Téléphone du conducteur</string>
 
     <string name="edit_trip_title">Modifier le voyage</string>
@@ -61,7 +60,7 @@
     <string name="transport_details_train_info_title">Informations sur le train</string>
     <string name="transport_details_coach_label">Voiture</string>
     <string name="transport_details_seat_label">Place</string>
-    <string name="transport_details_carrier_label">Transporteur</string>
+    <string name="transport_details_carrier_label">Compagnie</string>
     <string name="transport_details_driver_phone_label">Conducteur</string>
     <string name="transport_details_platform_label">Quai</string>
     <string name="transport_details_documents_section_title">Documents</string>
@@ -89,7 +88,10 @@
     <string name="trips_add_btn_label">Ajouter un voyage</string>
     <string name="trips_trip_card_today_label">Aujourd’hui</string>
     <string name="trips_trip_card_completed_label">Terminé</string>
-    <string name="trips_trip_card_duration_and_dates_label">%1$d jours  |  %2$s</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d jour  |  %2$s</item>
+        <item quantity="other">%1$d jours  |  %2$s</item>
+    </plurals>
     <plurals name="trips_trip_card_in_days_label">
         <item quantity="one">Dans %d jour</item>
         <item quantity="many">Dans %d jours</item>
@@ -127,7 +129,7 @@
     <string name="notification_upcoming_transport">%1$s vers %2$s part à %3$s</string>
     <string name="notification_upcoming_bus">Bus</string>
     <string name="notification_upcoming_train">Train</string>
-    <string name="notification_departure_time">Heure de départ : %1$s</string>
+    <string name="notification_departure_time">Heure de départ: %1$s</string>
     <string name="notification_upcoming_check_in">Check-in à %1$s</string>
     <string name="notification_upcoming_check_out">Check-out de %1$s</string>
     <string name="notification_accommodation_time">Heure : %1$s</string>

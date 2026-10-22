@@ -69,10 +69,10 @@ fun TripCard(
         }
     }
 
-    val tripDuration = ChronoUnit.DAYS.between(
+    val tripDuration = (ChronoUnit.DAYS.between(
         trip.startDate,
         trip.endDate
-    ) + 1
+    ) + 1).toInt()
 
     Card(
         onClick = onClick,
@@ -111,8 +111,9 @@ fun TripCard(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = stringResource(
-                        R.string.trips_trip_card_duration_and_dates_label,
+                    text = pluralStringResource(
+                        R.plurals.trips_trip_card_duration_and_dates_label,
+                        tripDuration,
                         tripDuration,
                         formatTripDates(
                             context,

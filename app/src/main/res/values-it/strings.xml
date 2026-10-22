@@ -13,7 +13,7 @@
     <string name="address_copied_message">Indirizzo copiato</string>
     <string name="upload_btn_label">Carica documento</string>
     <string name="upload_image_btn_label">Carica immagine</string>
-    <string name="upload_another_image_btn_label">Carica un\'altra foto</string>
+    <string name="upload_another_image_btn_label">Carica un\'altra immagine</string>
     <string name="language_selector_content_description">Lingua</string>
     <string name="delete_confirmation_title">Eliminare?</string>
     <string name="delete_confirmation_message">Questa azione non può essere annullata</string>
@@ -23,7 +23,6 @@
     <string name="exact_reminders_disabled_message">I promemoria sono disabilitati</string>
     <string name="exact_reminders_enable_btn_label">Abilita promemoria</string>
     <string name="notifications_and_exact_reminders_disabled_message">Le notifiche e i promemoria sono disabilitati</string>
-    <string name="notification_help_content_description">Cosa fare se le notifiche non arrivano</string>
     <string name="notification_help_title">Non ricevi le notifiche?</string>
     <string name="notification_help_body">Alcuni telefoni limitano le app in background. Prova a:\n\n• Attivare «Avvio automatico» per l\'app (disponibile su Xiaomi, Oppo, Vivo, Huawei e altri).\n• Nelle impostazioni della batteria scegliere «Nessuna restrizione» o disattivare l\'ottimizzazione per l\'app. Per Samsung, rimuovere l\'app da «App in stop».\n\nI nomi di queste opzioni dipendono dal modello del telefono e dalla versione del sistema.</string>
     <string name="notification_help_open_settings">Impostazioni app</string>
@@ -47,7 +46,7 @@
     <string name="add_transport_platform_label">Piattaforma</string>
     <string name="add_transport_city_label">Città</string>
     <string name="add_transport_private_bus_label">È un autobus privato</string>
-    <string name="add_transport_carrier_label">Vettore</string>
+    <string name="add_transport_carrier_label">Compagnia</string>
     <string name="add_transport_driver_phone_label">Telefono dell\'autista</string>
 
     <string name="edit_trip_title">Modifica viaggio</string>
@@ -61,7 +60,7 @@
     <string name="transport_details_train_info_title">Informazioni sul treno</string>
     <string name="transport_details_coach_label">Carrozza</string>
     <string name="transport_details_seat_label">Posto</string>
-    <string name="transport_details_carrier_label">Vettore</string>
+    <string name="transport_details_carrier_label">Compagnia</string>
     <string name="transport_details_driver_phone_label">Autista</string>
     <string name="transport_details_platform_label">Piattaforma</string>
     <string name="transport_details_documents_section_title">Documenti</string>
@@ -89,7 +88,10 @@
     <string name="trips_add_btn_label">Aggiungi viaggio</string>
     <string name="trips_trip_card_today_label">Oggi</string>
     <string name="trips_trip_card_completed_label">Completato</string>
-    <string name="trips_trip_card_duration_and_dates_label">%1$d giorni  |  %2$s</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d giorno  |  %2$s</item>
+        <item quantity="other">%1$d giorni  |  %2$s</item>
+    </plurals>
     <plurals name="trips_trip_card_in_days_label">
         <item quantity="one">Tra %d giorno</item>
         <item quantity="many">Tra %d giorni</item>
