@@ -13,19 +13,18 @@
     <string name="address_copied_message">Адресу скопійовано</string>
     <string name="upload_btn_label">Завантажити документ</string>
     <string name="upload_image_btn_label">Завантажити зображення</string>
-    <string name="upload_another_image_btn_label">Завантажити інше фото</string>
+    <string name="upload_another_image_btn_label">Завантажити інше зображення</string>
     <string name="language_selector_content_description">Мова</string>
     <string name="delete_confirmation_title">Видалити?</string>
-    <string name="delete_confirmation_message">Цю дію неможливо скасувати</string>
+    <string name="delete_confirmation_message">Цю дію не можна скасувати</string>
 
     <string name="notifications_disabled_message">Сповіщення вимкнено</string>
     <string name="notifications_enable_btn_label">Увімкнути сповіщення</string>
     <string name="exact_reminders_disabled_message">Нагадування вимкнено</string>
     <string name="exact_reminders_enable_btn_label">Увімкнути нагадування</string>
     <string name="notifications_and_exact_reminders_disabled_message">Сповіщення та нагадування вимкнено</string>
-    <string name="notification_help_content_description">Що робити, якщо сповіщення не надходять</string>
     <string name="notification_help_title">Не надходять сповіщення?</string>
-    <string name="notification_help_body">Деякі телефони обмежують роботу застосунків у фоновому режимі. Спробуйте:\n\n• Увімкнути «Автозапуск» для застосунку (є на Xiaomi, Oppo, Vivo, Huawei та інших).\n• У налаштуваннях батареї вибрати «Без обмежень» або вимкнути оптимізацію для застосунку. Для Samsung видалити застосунок зі списку «Застосунків у режимі сну».\n\nНазви пунктів залежать від моделі телефона та версії системи.</string>
+    <string name="notification_help_body">Деякі телефони обмежують роботу застосунків у фоновому режимі. Спробуйте:\n\n• Увімкнути «Автозапуск» для застосунку (є на Xiaomi, Oppo, Vivo, Huawei та інших).\n• У налаштуваннях батареї вибрати «Без обмежень» або вимкнути оптимізацію для застосунку. Для Samsung видалити застосунок зі списку «Застосунки у режимі сну».\n\nНазви пунктів залежать від моделі телефона та версії системи.</string>
     <string name="notification_help_open_settings">Налаштування застосунку</string>
     <string name="notification_help_close">Закрити</string>
 
@@ -43,7 +42,7 @@
     <string name="add_transport_type_label">Тип</string>
     <string name="add_transport_date_label">Дата</string>
     <string name="add_transport_time_label">Час</string>
-    <string name="add_transport_address_label">Назва станції (або адреса)</string>
+    <string name="add_transport_address_label">Назва вокзалу (або адреса)</string>
     <string name="add_transport_platform_label">Платформа</string>
     <string name="add_transport_city_label">Місто</string>
     <string name="add_transport_private_bus_label">Це приватний автобус</string>
@@ -89,7 +88,12 @@
     <string name="trips_add_btn_label">Додати подорож</string>
     <string name="trips_trip_card_today_label">Сьогодні</string>
     <string name="trips_trip_card_completed_label">Завершено</string>
-    <string name="trips_trip_card_duration_and_dates_label">%1$d днів  |  %2$s</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d день  |  %2$s</item>
+        <item quantity="few">%1$d дні  |  %2$s</item>
+        <item quantity="many">%1$d днів  |  %2$s</item>
+        <item quantity="other">%1$d дня  |  %2$s</item>
+    </plurals>
     <plurals name="trips_trip_card_in_days_label">
         <item quantity="one">Через %d день</item>
         <item quantity="few">Через %d дні</item>
@@ -125,12 +129,12 @@
     <string name="accommodation_details_delete_confirmation_title">Видалити житло?</string>
     <string name="accommodation_details_duration_label">Тривалість</string>
 
-    <string name="notification_upcoming_transport">%1$s до %2$s відправляється о %3$s</string>
+    <string name="notification_upcoming_transport">%1$s до міста %2$s відправляється о %3$s</string>
     <string name="notification_upcoming_bus">Автобус</string>
     <string name="notification_upcoming_train">Потяг</string>
     <string name="notification_departure_time">Час відправлення: %1$s</string>
-    <string name="notification_upcoming_check_in">Заїзд в %1$s</string>
-    <string name="notification_upcoming_check_out">Виїзд з %1$s</string>
+    <string name="notification_upcoming_check_in">Заїзд: %1$s</string>
+    <string name="notification_upcoming_check_out">Виїзд: %1$s</string>
     <string name="notification_accommodation_time">Час: %1$s</string>
     <string name="notification_transport_platform">Платформа %1$s</string>
     <string name="notification_transport_seat">Місце %1$s</string>

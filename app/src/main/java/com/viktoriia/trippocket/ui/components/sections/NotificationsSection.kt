@@ -34,6 +34,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.viktoriia.trippocket.R
 import androidx.core.net.toUri
+import com.viktoriia.trippocket.ui.components.InfoDialogButton
 
 @Composable
 fun NotificationsSection(
@@ -85,6 +86,15 @@ fun NotificationsSection(
         }
     }
 
+    fun openAppSettings(context: Context) {
+        context.startActivity(
+            Intent(
+                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                "package:${context.packageName}".toUri()
+            )
+        )
+    }
+
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -93,7 +103,15 @@ fun NotificationsSection(
             style = MaterialTheme.typography.titleMedium
         )
 
-        NotificationHelpButton()
+        InfoDialogButton(
+            title = stringResource(R.string.notification_help_title),
+            message = stringResource(R.string.notification_help_body),
+            confirmText = stringResource(
+                R.string.notification_help_open_settings
+            ),
+            closeText = stringResource(R.string.notification_help_close),
+            onConfirm = { openAppSettings(context) }
+        )
     }
 
     Spacer(

@@ -23,7 +23,6 @@
     <string name="exact_reminders_disabled_message">Reminders are disabled</string>
     <string name="exact_reminders_enable_btn_label">Enable reminders</string>
     <string name="notifications_and_exact_reminders_disabled_message">Notifications and reminders are disabled</string>
-    <string name="notification_help_content_description">What to do if notifications don\'t arrive</string>
     <string name="notification_help_title">Not getting notifications?</string>
     <string name="notification_help_body">Some phones limit apps in the background. Try:\n\n• Enable \"Autostart\" for the app (available on Xiaomi, Oppo, Vivo, Huawei and others).\n• In battery settings, choose \"No restrictions\" or turn off optimization for the app. For Samsung, remove the app from \"Sleeping apps\".\n\nThe names of these options depend on your phone model and system version.</string>
     <string name="notification_help_open_settings">App settings</string>
@@ -35,7 +34,7 @@
     <string name="add_transport_to_section_title">To</string>
     <string name="add_transport_btn_label">Add transport</string>
     <string name="add_transport_bus_number_label">Bus number</string>
-    <string name="add_transport_place_label">Place</string>
+    <string name="add_transport_place_label">Seat</string>
     <string name="add_transport_documents_section_title">Documents</string>
     <string name="add_transport_train_number_label">Train number</string>
     <string name="add_transport_coach_label">Coach</string>
@@ -74,8 +73,8 @@
     <string name="add_to_trip_bottom_sheet_accommodation_label">Accommodation</string>
 
     <string name="trip_details_title">Trip details</string>
-    <string name="trip_details_accommodation_checkin_label">Check in</string>
-    <string name="trip_details_accommodation_checkout_label">Check out</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
     <string name="trip_details_empty_message">Your trip is empty</string>
     <string name="trip_details_add_btn_label">Add</string>
     <string name="trip_details_transport_card_coach_label">Coach</string>
@@ -85,11 +84,14 @@
     <string name="trip_details_transport_card_train_departure">Train departure</string>
     <string name="trip_details_delete_confirmation_title">Delete the trip?</string>
 
-    <string name="trips_empty_message">You don\'t have planned trips</string>
+    <string name="trips_empty_message">You don\'t have any planned trips</string>
     <string name="trips_add_btn_label">Add trip</string>
     <string name="trips_trip_card_today_label">Today</string>
     <string name="trips_trip_card_completed_label">Completed</string>
-    <string name="trips_trip_card_duration_and_dates_label">%1$d days  |  %2$s</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d day  |  %2$s</item>
+        <item quantity="other">%1$d days  |  %2$s</item>
+    </plurals>
     <plurals name="trips_trip_card_in_days_label">
         <item quantity="one">In %d day</item>
         <item quantity="other">In %d days</item>

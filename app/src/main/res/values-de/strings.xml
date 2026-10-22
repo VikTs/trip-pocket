@@ -13,7 +13,7 @@
     <string name="address_copied_message">Adresse kopiert</string>
     <string name="upload_btn_label">Dokument hochladen</string>
     <string name="upload_image_btn_label">Bild hochladen</string>
-    <string name="upload_another_image_btn_label">Ein anderes Foto hochladen</string>
+    <string name="upload_another_image_btn_label">Ein anderes Bild hochladen</string>
     <string name="language_selector_content_description">Sprache</string>
     <string name="delete_confirmation_title">Löschen?</string>
     <string name="delete_confirmation_message">Diese Aktion kann nicht rückgängig gemacht werden</string>
@@ -23,7 +23,6 @@
     <string name="exact_reminders_disabled_message">Erinnerungen sind deaktiviert</string>
     <string name="exact_reminders_enable_btn_label">Erinnerungen aktivieren</string>
     <string name="notifications_and_exact_reminders_disabled_message">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
-    <string name="notification_help_content_description">Was tun, wenn keine Benachrichtigungen ankommen</string>
     <string name="notification_help_title">Keine Benachrichtigungen?</string>
     <string name="notification_help_body">Manche Smartphones schränken Apps im Hintergrund ein. Versuche Folgendes:\n\n• „Autostart“ für die App aktivieren (verfügbar auf Xiaomi, Oppo, Vivo, Huawei und anderen).\n• In den Akkueinstellungen „Keine Einschränkungen“ wählen oder die Optimierung für die App deaktivieren. Für Samsung die App aus „Schlafende Apps“ entfernen.\n\nDie Bezeichnungen dieser Optionen hängen vom Gerätemodell und der Systemversion ab.</string>
     <string name="notification_help_open_settings">App-Einstellungen</string>
@@ -44,10 +43,10 @@
     <string name="add_transport_date_label">Datum</string>
     <string name="add_transport_time_label">Uhrzeit</string>
     <string name="add_transport_address_label">Name der Station (oder Adresse)</string>
-    <string name="add_transport_platform_label">Bahnsteig</string>
+    <string name="add_transport_platform_label">Gleis</string>
     <string name="add_transport_city_label">Stadt</string>
     <string name="add_transport_private_bus_label">Dies ist ein privater Bus</string>
-    <string name="add_transport_carrier_label">Transportunternehmen</string>
+    <string name="add_transport_carrier_label">Busunternehmen</string>
     <string name="add_transport_driver_phone_label">Telefon des Fahrers</string>
 
     <string name="edit_trip_title">Reise bearbeiten</string>
@@ -61,9 +60,9 @@
     <string name="transport_details_train_info_title">Zuginformationen</string>
     <string name="transport_details_coach_label">Wagen</string>
     <string name="transport_details_seat_label">Sitzplatz</string>
-    <string name="transport_details_carrier_label">Transportunternehmen</string>
+    <string name="transport_details_carrier_label">Busunternehmen</string>
     <string name="transport_details_driver_phone_label">Fahrer</string>
-    <string name="transport_details_platform_label">Bahnsteig</string>
+    <string name="transport_details_platform_label">Gleis</string>
     <string name="transport_details_documents_section_title">Dokumente</string>
     <string name="transport_details_notifications_section_title">Benachrichtigungen</string>
     <string name="transport_details_departure_notification_label">1 Std. vor Abfahrt benachrichtigen</string>
@@ -89,13 +88,16 @@
     <string name="trips_add_btn_label">Reise hinzufügen</string>
     <string name="trips_trip_card_today_label">Heute</string>
     <string name="trips_trip_card_completed_label">Abgeschlossen</string>
-    <string name="trips_trip_card_duration_and_dates_label">%1$d Tage  |  %2$s</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d Tag  |  %2$s</item>
+        <item quantity="other">%1$d Tage  |  %2$s</item>
+    </plurals>
     <plurals name="trips_trip_card_in_days_label">
         <item quantity="one">In %d Tag</item>
         <item quantity="other">In %d Tagen</item>
     </plurals>
-    <string name="trips_toggle_past_label">Vergangen</string>
-    <string name="trips_toggle_upcoming_label">Bevorstehend</string>
+    <string name="trips_toggle_past_label">Vergangene</string>
+    <string name="trips_toggle_upcoming_label">Kommende</string>
     <string name="trips_toggle_empty_message">Keine Reisen gefunden</string>
     <string name="trips_title">Meine Reisen</string>
 
@@ -130,7 +132,7 @@
     <string name="notification_upcoming_check_in">Check-in bei %1$s</string>
     <string name="notification_upcoming_check_out">Check-out bei %1$s</string>
     <string name="notification_accommodation_time">Uhrzeit: %1$s</string>
-    <string name="notification_transport_platform">Bahnsteig %1$s</string>
+    <string name="notification_transport_platform">Gleis %1$s</string>
     <string name="notification_transport_seat">Sitzplatz %1$s</string>
     <string name="notification_transport_coach">Wagen %1$s</string>
 
