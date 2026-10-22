@@ -125,7 +125,7 @@
     <string name="accommodation_details_delete_confirmation_title">Unterkunft löschen?</string>
     <string name="accommodation_details_duration_label">Dauer</string>
 
-    <string name="notification_upcoming_transport">%1$s nach %2$s fährt um %3$s ab</string>
+    <string name="notification_upcoming_transport">%1$s nach %2$s</string>
     <string name="notification_upcoming_bus">Bus</string>
     <string name="notification_upcoming_train">Zug</string>
     <string name="notification_departure_time">Abfahrtszeit: %1$s</string>
