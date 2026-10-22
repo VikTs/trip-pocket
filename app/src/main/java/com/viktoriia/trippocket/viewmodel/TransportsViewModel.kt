@@ -110,7 +110,7 @@ class TransportsViewModel @Inject constructor(
                     .firstOrNull()
 
             if (notification != null) {
-                notificationScheduler.cancel(
+                notificationScheduler.cancelTransport(
                     notification.id
                 )
             }
@@ -152,7 +152,7 @@ class TransportsViewModel @Inject constructor(
                     .firstOrNull()
 
             if (notification != null) {
-                notificationScheduler.cancel(
+                notificationScheduler.cancelTransport(
                     notification.id
                 )
 
@@ -208,7 +208,7 @@ class TransportsViewModel @Inject constructor(
                     transport = transport
                 )
             } else {
-                notificationScheduler.cancel(
+                notificationScheduler.cancelTransport(
                     notification.id
                 )
             }

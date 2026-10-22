@@ -8,6 +8,7 @@ import android.provider.Settings
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -84,10 +85,16 @@ fun NotificationsSection(
         }
     }
 
-    Text(
-        text = title,
-        style = MaterialTheme.typography.titleMedium
-    )
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium
+        )
+
+        NotificationHelpButton()
+    }
 
     Spacer(
         modifier = Modifier.height(16.dp)

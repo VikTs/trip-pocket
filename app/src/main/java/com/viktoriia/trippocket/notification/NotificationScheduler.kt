@@ -23,6 +23,11 @@ class NotificationScheduler(
             Context.ALARM_SERVICE
         ) as AlarmManager
 
+    private fun transportKey(id: Long): Long = id
+
+    private fun accommodationKey(id: Long): Long =
+        ACCOMMODATION_KEY_OFFSET + id
+
     fun scheduleTransport(
         notification: TransportNotification,
         transport: Transport
@@ -70,7 +75,7 @@ class NotificationScheduler(
             ?.joinToString(" • ")
 
         schedule(
-            notificationId = notification.id,
+            notificationId = transportKey(notification.id),
             triggerAtMillis = notificationTime
                 .atZone(ZoneId.systemDefault())
                 .toInstant()
@@ -79,6 +84,7 @@ class NotificationScheduler(
                 transport
             ),
             message = message,
+            channelId = NotificationChannel.TRANSPORT,
             destination = "trip/${transport.tripId}/transport/${transport.id}"
         )
     }
@@ -105,7 +111,7 @@ class NotificationScheduler(
             )
 
         schedule(
-            notificationId = notification.id,
+            notificationId = accommodationKey(notification.id),
             triggerAtMillis = notificationTime
                 .atZone(ZoneId.systemDefault())
                 .toInstant()
@@ -118,12 +124,22 @@ class NotificationScheduler(
                 R.string.notification_accommodation_time,
                 formatTripTime(targetTime)
             ),
+            channelId = NotificationChannel.ACCOMMODATION,
             destination =
                 "trip/${accommodation.tripId}/accommodation/${accommodation.id}"
         )
     }
 
-    fun cancel(
+    fun cancelTransport(notificationId: Long) =
+        cancelByKey(transportKey(notificationId))
+
+    fun cancelAccommodation(notificationId: Long) =
+        cancelByKey(accommodationKey(notificationId))
+
+    fun cancelLegacy(notificationId: Long) =
+        cancelByKey(notificationId)
+
+    private fun cancelByKey(
         notificationId: Long
     ) {
         val intent = Intent(
@@ -151,6 +167,7 @@ class NotificationScheduler(
         triggerAtMillis: Long,
         title: String,
         message: String?,
+        channelId: String,
         destination: String
     ) {
         if (triggerAtMillis <= System.currentTimeMillis()) {
@@ -174,6 +191,11 @@ class NotificationScheduler(
             putExtra(
                 "message",
                 message
+            )
+
+            putExtra(
+                "channelId",
+                channelId
             )
 
             putExtra(
@@ -250,5 +272,9 @@ class NotificationScheduler(
             transport.to.city,
             formatTripTime(transport.from.time)
         )
+    }
+
+    private companion object {
+        const val ACCOMMODATION_KEY_OFFSET = 1_000_000_000L
     }
 }

@@ -17,11 +17,17 @@
     <string name="language_selector_content_description">Langue</string>
     <string name="delete_confirmation_title">Supprimer?</string>
     <string name="delete_confirmation_message">Cette action ne peut pas être annulée</string>
+
     <string name="notifications_disabled_message">Les notifications sont désactivées</string>
     <string name="notifications_enable_btn_label">Activer les notifications</string>
     <string name="exact_reminders_disabled_message">Les rappels sont désactivés</string>
     <string name="exact_reminders_enable_btn_label">Activer les rappels</string>
     <string name="notifications_and_exact_reminders_disabled_message">Les notifications et les rappels sont désactivés</string>
+    <string name="notification_help_content_description">Que faire si les notifications n\'arrivent pas</string>
+    <string name="notification_help_title">Vous ne recevez pas les notifications ?</string>
+    <string name="notification_help_body">Certains téléphones limitent les applications en arrière-plan. Essayez :\n\n• Activer « Démarrage automatique » pour l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres).\n• Dans les paramètres de la batterie, choisir « Aucune restriction » ou désactiver l\'optimisation pour l\'application. Pour Samsung, retirer l\'application de « Applications en veille ».\n\nLes noms de ces options dépendent du modèle du téléphone et de la version du système.</string>
+    <string name="notification_help_open_settings">Paramètres de l\'application</string>
+    <string name="notification_help_close">Fermer</string>
 
     <string name="edit_transport_title">Modifier le transport</string>
     <string name="add_transport_title">Ajouter un transport</string>
