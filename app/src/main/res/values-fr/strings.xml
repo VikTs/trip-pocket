@@ -126,7 +126,7 @@
     <string name="accommodation_details_delete_confirmation_title">Supprimer l’hébergement?</string>
     <string name="accommodation_details_duration_label">Durée</string>
 
-    <string name="notification_upcoming_transport">%1$s vers %2$s part à %3$s</string>
+    <string name="notification_upcoming_transport">%1$s vers %2$s</string>
     <string name="notification_upcoming_bus">Bus</string>
     <string name="notification_upcoming_train">Train</string>
     <string name="notification_departure_time">Heure de départ: %1$s</string>

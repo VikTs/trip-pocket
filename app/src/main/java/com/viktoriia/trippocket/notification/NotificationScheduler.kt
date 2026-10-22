@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Accommodation
@@ -13,6 +14,7 @@ import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportNotification
 import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.utils.formatTripTime
+import com.viktoriia.trippocket.utils.getAppLocale
 import java.time.ZoneId
 
 class NotificationScheduler(
@@ -22,6 +24,13 @@ class NotificationScheduler(
         context.getSystemService(
             Context.ALARM_SERVICE
         ) as AlarmManager
+
+    private val textContext: Context
+        get() {
+            val configuration = Configuration(context.resources.configuration)
+            configuration.setLocale(getAppLocale(context))
+            return context.createConfigurationContext(configuration)
+        }
 
     private fun transportKey(id: Long): Long = id
 
@@ -40,39 +49,10 @@ class NotificationScheduler(
             transport.from.time
                 .minusMinutes(notification.minutesBefore)
 
-        val message = buildList {
-            transport.from.platform
-                ?.takeIf { it.isNotBlank() }
-                ?.let {
-                    add(
-                        context.getString(
-                            R.string.notification_transport_platform,
-                            it
-                        )
-                    )
-                }
-            transport.coach
-                ?.takeIf { it.isNotBlank() }
-                ?.let {
-                    add(
-                        context.getString(
-                            R.string.notification_transport_coach,
-                            it
-                        )
-                    )
-                }
-            transport.place
-                ?.takeIf { it.isNotBlank() }
-                ?.let {
-                    add(
-                        context.getString(
-                            R.string.notification_transport_seat,
-                            it
-                        )
-                    )
-                }
-        }.takeIf { it.isNotEmpty() }
-            ?.joinToString(" • ")
+        val message = textContext.getString(
+            R.string.notification_departure_time,
+            formatTripTime(transport.from.time)
+        )
 
         schedule(
             notificationId = transportKey(notification.id),
@@ -120,7 +100,7 @@ class NotificationScheduler(
                 notification,
                 accommodation
             ),
-            message = context.getString(
+            message = textContext.getString(
                 R.string.notification_accommodation_time,
                 formatTripTime(targetTime)
             ),
@@ -236,13 +216,13 @@ class NotificationScheduler(
     ): String {
         return when (notification.type) {
             AccommodationNotificationType.CHECK_IN ->
-                context.getString(
+                textContext.getString(
                     R.string.notification_upcoming_check_in,
                     accommodation.name
                 )
 
             AccommodationNotificationType.CHECK_OUT ->
-                context.getString(
+                textContext.getString(
                     R.string.notification_upcoming_check_out,
                     accommodation.name
                 )
@@ -256,21 +236,20 @@ class NotificationScheduler(
             transport.transportType
         ) {
             TransportType.BUS ->
-                context.getString(
+                textContext.getString(
                     R.string.transport_type_bus
                 )
 
             TransportType.TRAIN ->
-                context.getString(
+                textContext.getString(
                     R.string.transport_type_train
                 )
         }
 
-        return context.getString(
+        return textContext.getString(
             R.string.notification_upcoming_transport,
             transportType,
-            transport.to.city,
-            formatTripTime(transport.from.time)
+            transport.to.city
         )
     }
 

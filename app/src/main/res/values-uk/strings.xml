@@ -129,7 +129,7 @@
     <string name="accommodation_details_delete_confirmation_title">Видалити житло?</string>
     <string name="accommodation_details_duration_label">Тривалість</string>
 
-    <string name="notification_upcoming_transport">%1$s до міста %2$s відправляється о %3$s</string>
+    <string name="notification_upcoming_transport">%1$s до міста %2$s</string>
     <string name="notification_upcoming_bus">Автобус</string>
     <string name="notification_upcoming_train">Потяг</string>
     <string name="notification_departure_time">Час відправлення: %1$s</string>
