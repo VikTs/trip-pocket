@@ -24,7 +24,7 @@
     <string name="exact_reminders_enable_btn_label">Abilita promemoria</string>
     <string name="notifications_and_exact_reminders_disabled_message">Le notifiche e i promemoria sono disabilitati</string>
     <string name="notification_help_title">Non ricevi le notifiche?</string>
-    <string name="notification_help_body">Alcuni telefoni limitano le app in background. Prova a:\n\n• Attivare «Avvio automatico» per l\'app (disponibile su Xiaomi, Oppo, Vivo, Huawei e altri).\n• Nelle impostazioni della batteria scegliere «Nessuna restrizione» o disattivare l\'ottimizzazione per l\'app. Per Samsung, rimuovere l\'app da «App in stop».\n\nI nomi di queste opzioni dipendono dal modello del telefono e dalla versione del sistema.</string>
+    <string name="notification_help_body">Alcuni telefoni limitano le app in background. Prova a:\n\n• Nelle impostazioni della batteria scegliere «Nessuna restrizione» o disattivare l\'ottimizzazione per l\'app. Per Samsung, rimuovere l\'app da «App in stop».\n• Attivare «Avvio automatico» per l\'app (disponibile su Xiaomi, Oppo, Vivo, Huawei e altri).\n• Controllare che «Notifiche» e «Sveglie e promemoria» siano attivi per l\'app nelle impostazioni del telefono.\n\nI nomi di queste opzioni dipendono dal modello del telefono e dalla versione del sistema.</string>
     <string name="notification_help_open_settings">Impostazioni app</string>
     <string name="notification_help_close">Chiudi</string>
 

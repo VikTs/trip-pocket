@@ -24,7 +24,7 @@
     <string name="exact_reminders_enable_btn_label">Activer les rappels</string>
     <string name="notifications_and_exact_reminders_disabled_message">Les notifications et les rappels sont désactivés</string>
     <string name="notification_help_title">Vous ne recevez pas les notifications?</string>
-    <string name="notification_help_body">Certains téléphones limitent les applications en arrière-plan. Essayez:\n\n• Activer « Démarrage automatique » pour l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres).\n• Dans les paramètres de la batterie, choisir « Aucune restriction » ou désactiver l\'optimisation pour l\'application. Pour Samsung, retirer l\'application de « Applications en veille ».\n\nLes noms de ces options dépendent du modèle du téléphone et de la version du système.</string>
+    <string name="notification_help_body">Certains téléphones limitent les applications en arrière-plan. Essayez :\n\n• Dans les paramètres de la batterie, choisir « Aucune restriction » ou désactiver l\'optimisation pour l\'application. Pour Samsung, retirer l\'application de « Applications en veille ».\n• Activer « Démarrage automatique » pour l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres).\n• Vérifiez que « Notifications » et « Alarmes et rappels » sont activés pour l\'application dans les paramètres du téléphone.\n\nLes noms de ces options dépendent du modèle du téléphone et de la version du système.</string>
     <string name="notification_help_open_settings">Paramètres de l\'application</string>
     <string name="notification_help_close">Fermer</string>
 
