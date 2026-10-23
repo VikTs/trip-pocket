@@ -24,7 +24,7 @@
     <string name="exact_reminders_enable_btn_label">Erinnerungen aktivieren</string>
     <string name="notifications_and_exact_reminders_disabled_message">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
     <string name="notification_help_title">Keine Benachrichtigungen?</string>
-    <string name="notification_help_body">Manche Smartphones schränken Apps im Hintergrund ein. Versuche Folgendes:\n\n• In den Akkueinstellungen „Keine Einschränkungen“ wählen oder die Optimierung für die App deaktivieren. Für Samsung die App aus „Schlafende Apps“ entfernen.\n• „Autostart“ für die App aktivieren (verfügbar auf Xiaomi, Oppo, Vivo, Huawei und anderen).\n• Prüfe, ob „Benachrichtigungen“ und „Wecker und Erinnerungen“ für die App in den Telefoneinstellungen aktiviert sind.\n\nDie Bezeichnungen dieser Optionen hängen vom Gerätemodell und der Systemversion ab.</string>
+    <string name="notification_help_body">Einige Smartphones schränken die Ausführung von Apps im Hintergrund ein. Versuchen Sie Folgendes:\n\n• Wählen Sie in den Akkueinstellungen der App „Uneingeschränkt“ oder deaktivieren Sie die Akkuoptimierung für die App. Wenn Sie ein Samsung-Gerät verwenden, entfernen Sie die App aus der Liste „Apps im Standby“.\n• Aktivieren Sie den „Autostart“ für die App (verfügbar bei Xiaomi, Oppo, Vivo, Huawei und anderen Herstellern).\n• Stellen Sie sicher, dass „Benachrichtigungen“ und „Alarme und Erinnerungen“ für die App aktiviert sind.\n\nDie Bezeichnungen der Einstellungen können je nach Telefonmodell und Systemversion variieren.</string>
     <string name="notification_help_open_settings">App-Einstellungen</string>
     <string name="notification_help_close">Schließen</string>
 

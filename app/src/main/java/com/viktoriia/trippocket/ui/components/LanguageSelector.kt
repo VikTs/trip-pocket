@@ -70,9 +70,17 @@ fun LanguageSelector() {
             )
 
             LanguageOption(
-                name = "Українська",
+                name = "Deutsch",
                 currentLanguage = currentLanguage,
-                languageTag = "uk",
+                languageTag = "de",
+                context = context,
+                onLanguageChanged = ::onLanguageChanged
+            )
+
+            LanguageOption(
+                name = "Français",
+                currentLanguage = currentLanguage,
+                languageTag = "fr",
                 context = context,
                 onLanguageChanged = ::onLanguageChanged
             )
@@ -86,17 +94,9 @@ fun LanguageSelector() {
             )
 
             LanguageOption(
-                name = "Deutsch",
+                name = "Українська",
                 currentLanguage = currentLanguage,
-                languageTag = "de",
-                context = context,
-                onLanguageChanged = ::onLanguageChanged
-            )
-
-            LanguageOption(
-                name = "Français",
-                currentLanguage = currentLanguage,
-                languageTag = "fr",
+                languageTag = "uk",
                 context = context,
                 onLanguageChanged = ::onLanguageChanged
             )
