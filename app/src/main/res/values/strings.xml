@@ -24,7 +24,7 @@
     <string name="exact_reminders_enable_btn_label">Enable reminders</string>
     <string name="notifications_and_exact_reminders_disabled_message">Notifications and reminders are disabled</string>
     <string name="notification_help_title">Not getting notifications?</string>
-    <string name="notification_help_body">Some phones limit apps in the background. Try:\n\n• Enable \"Autostart\" for the app (available on Xiaomi, Oppo, Vivo, Huawei and others).\n• In battery settings, choose \"No restrictions\" or turn off optimization for the app. For Samsung, remove the app from \"Sleeping apps\".\n\nThe names of these options depend on your phone model and system version.</string>
+    <string name="notification_help_body">Some phones limit apps in the background. Try:\n\n• In battery settings, choose \"No restrictions\" or turn off optimization for the app. For Samsung, remove the app from \"Sleeping apps\".\n• Enable \"Autostart\" for the app (available on Xiaomi, Oppo, Vivo, Huawei and others).\n• Make sure \"Notifications\" and \"Alarms &amp; reminders\" are enabled for the app in your phone settings.\n\nThe names of these options depend on your phone model and system version.</string>
     <string name="notification_help_open_settings">App settings</string>
     <string name="notification_help_close">Close</string>
 
