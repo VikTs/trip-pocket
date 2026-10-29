@@ -28,11 +28,14 @@ A travel organizer for keeping trips, transport tickets, and travel details in o
 
 # Production version
 
-## Release Build
+## Release build
 1. Build → Generate Signed Bundle / APK.
 2. Android App Bundle → Next.
 3. Select the existing .jks keystore and enter its passwords and alias.
 4. Choose release → Create.
+
+## Google play
+https://play.google.com/store/apps/details?id=com.viktoriia.trippocket
 
 ## Privacy policy
 https://sites.google.com/view/trip-pocket-privacy-policy

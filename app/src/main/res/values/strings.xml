@@ -62,7 +62,7 @@
     <string name="transport_details_seat_label">Seat</string>
     <string name="transport_details_carrier_label">Carrier</string>
     <string name="transport_details_driver_phone_label">Driver</string>
-    <string name="transport_details_platform_label">Platform</string>
+    <string name="transport_details_platform_label">Plat.</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>
     <string name="transport_details_departure_notification_label">Notify 1h before departure</string>

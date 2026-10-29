@@ -9,12 +9,13 @@ import android.net.Uri
 import android.os.ParcelFileDescriptor
 import android.provider.OpenableColumns
 import androidx.core.content.FileProvider
-import androidx.core.graphics.createBitmap
 import java.io.File
 import kotlin.io.copyTo
 import kotlin.io.extension
 import kotlin.io.outputStream
 import kotlin.use
+
+private const val PREVIEW_MAX_SIZE = 440
 
 fun copyFileToInternalStorage(
     context: Context,
@@ -150,19 +151,38 @@ fun handlePickedFile(
 fun loadFilePreview(path: String): Bitmap? {
     val file = File(path)
 
-    if (!file.exists()) {
+    if (!file.exists()) return null
+
+    return when (file.extension.lowercase()) {
+        "pdf" -> loadPdfPreview(file)
+        else -> loadImagePreview(file)
+    }
+}
+
+private fun loadImagePreview(file: File): Bitmap? {
+    val bounds = BitmapFactory.Options().apply {
+        inJustDecodeBounds = true
+    }
+
+    BitmapFactory.decodeFile(file.absolutePath, bounds)
+
+    if (bounds.outWidth <= 0 || bounds.outHeight <= 0) {
         return null
     }
 
-    return when {
-        file.extension.equals("pdf", ignoreCase = true) -> {
-            loadPdfPreview(file)
-        }
+    var sampleSize = 1
+    val maxDimension = maxOf(bounds.outWidth, bounds.outHeight)
 
-        else -> {
-            BitmapFactory.decodeFile(file.absolutePath)
-        }
+    while (maxDimension / (sampleSize * 2) >= PREVIEW_MAX_SIZE) {
+        sampleSize *= 2
     }
+
+    val options = BitmapFactory.Options().apply {
+        inSampleSize = sampleSize
+        inPreferredConfig = Bitmap.Config.RGB_565
+    }
+
+    return BitmapFactory.decodeFile(file.absolutePath, options)
 }
 
 private fun loadPdfPreview(file: File): Bitmap? {
@@ -173,16 +193,26 @@ private fun loadPdfPreview(file: File): Bitmap? {
 
     descriptor.use {
         PdfRenderer(it).use { renderer ->
-            if (renderer.pageCount == 0) {
-                return null
-            }
+            if (renderer.pageCount == 0) return null
 
             renderer.openPage(0).use { page ->
-                val scale = 2
+                val scale = minOf(
+                    1f,
+                    PREVIEW_MAX_SIZE.toFloat() /
+                            maxOf(page.width, page.height)
+                )
 
-                val bitmap = createBitmap(
-                    page.width * scale,
-                    page.height * scale,
+                val width = (page.width * scale)
+                    .toInt()
+                    .coerceAtLeast(1)
+
+                val height = (page.height * scale)
+                    .toInt()
+                    .coerceAtLeast(1)
+
+                val bitmap = Bitmap.createBitmap(
+                    width,
+                    height,
                     Bitmap.Config.ARGB_8888
                 )
 

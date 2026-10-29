@@ -111,7 +111,9 @@ fun PlatformText(
 ) {
     platform?.let {
         Text(
-            text = "${stringResource(R.string.transport_details_platform_label)}: $platform",
+            text = "${stringResource(R.string.transport_details_platform_label)}: ${
+                if (platform.length > 6) "${platform.take(8)}..." else platform
+            }",
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = modifier
