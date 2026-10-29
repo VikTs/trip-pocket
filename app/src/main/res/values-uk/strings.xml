@@ -62,7 +62,7 @@
     <string name="transport_details_seat_label">Місце</string>
     <string name="transport_details_carrier_label">Перевізник</string>
     <string name="transport_details_driver_phone_label">Водій</string>
-    <string name="transport_details_platform_label">Платформа</string>
+    <string name="transport_details_platform_label">Платф.</string>
     <string name="transport_details_documents_section_title">Документи</string>
     <string name="transport_details_notifications_section_title">Сповіщення</string>
     <string name="transport_details_departure_notification_label">Сповістити за 1 годину до відправлення</string>
