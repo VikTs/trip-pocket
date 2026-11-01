@@ -76,7 +76,7 @@ fun TransportTimelineSection(
         }
 
         Spacer(
-            modifier = Modifier.width(16.dp)
+            modifier = Modifier.width(18.dp)
         )
 
         Column(
@@ -89,8 +89,10 @@ fun TransportTimelineSection(
                 time = transport.from.time,
                 modifier = Modifier.height(50.dp)
             ) {
-                if (!isPlane)
-                    PlatformText(transport.from.platform)
+                PlatformText(
+                    transportType = transport.transportType,
+                    platform = transport.from.platform
+                )
             }
 
             Spacer(
@@ -102,8 +104,10 @@ fun TransportTimelineSection(
                 dayOffset = arrivalDayOffset,
                 modifier = Modifier.height(50.dp)
             ) {
-                if (!isPlane)
-                    PlatformText(transport.to.platform)
+                PlatformText(
+                    transportType = transport.transportType,
+                    platform = transport.to.platform
+                )
             }
         }
     }
@@ -111,15 +115,21 @@ fun TransportTimelineSection(
 
 @Composable
 fun PlatformText(
+    transportType: TransportType,
     platform: String?,
     modifier: Modifier = Modifier
 ) {
+    val label = when (transportType) {
+        TransportType.PLANE -> stringResource(R.string.transport_details_gate_label)
+        else -> stringResource(R.string.transport_details_platform_label)
+    }
+
     platform?.let {
         Text(
-            text = "${stringResource(R.string.transport_details_platform_label)}: ${
-                if (platform.length > 6) "${platform.take(8)}..." else platform
+            text = "${label}: ${
+                if (platform.length > 6) "${platform.take(6)}..." else platform
             }",
-            style = MaterialTheme.typography.labelMedium,
+            style = MaterialTheme.typography.labelLarge,
             color = Highlight,
             modifier = modifier
         )

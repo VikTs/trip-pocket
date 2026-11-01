@@ -45,7 +45,8 @@
     <string name="add_transport_date_label">Date</string>
     <string name="add_transport_time_label">Heure</string>
     <string name="add_transport_address_label">Nom de la gare (ou adresse)</string>
-    <string name="add_transport_airport_label">Aéroport</string>
+    <string name="add_transport_airport_name_label">Nom de l\'aéroport (ou adresse)</string>
+    <string name="add_transport_airport_code_label">Code de l’aéroport</string>
     <string name="add_transport_platform_label">Quai</string>
     <string name="add_transport_terminal_label">Terminal</string>
     <string name="add_transport_gate_label">Porte</string>
@@ -70,7 +71,6 @@
     <string name="transport_details_driver_phone_label">Conducteur</string>
     <string name="transport_details_platform_label">Quai</string>
     <string name="transport_details_terminal_label">Terminal</string>
-    <string name="transport_details_terminal_not_specified">Aucun terminal</string>
     <string name="transport_details_gate_label">Porte</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>

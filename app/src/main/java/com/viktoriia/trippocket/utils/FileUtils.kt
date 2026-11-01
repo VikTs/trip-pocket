@@ -9,7 +9,11 @@ import android.net.Uri
 import android.os.ParcelFileDescriptor
 import android.provider.OpenableColumns
 import androidx.core.content.FileProvider
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 import java.io.File
+import java.io.IOException
 import kotlin.io.copyTo
 import kotlin.io.extension
 import kotlin.io.outputStream
@@ -122,32 +126,6 @@ fun createFilePickerIntent(
     }
 }
 
-fun handlePickedFile(
-    context: Context,
-    uri: Uri,
-    onPathChange: ((String) -> Unit),
-    onNameChange: ((String?) -> Unit)? = null
-) {
-    val name = getFileName(
-        context = context,
-        uri = uri
-    )
-
-    val originalName = name ?: "ticket"
-    val extension = originalName.substringAfterLast('.', "")
-    val baseName = originalName.removeSuffix(".$extension")
-    val fileName = "${baseName}_${System.currentTimeMillis()}.$extension"
-
-    val path = copyFileToInternalStorage(
-        context = context,
-        uri = uri,
-        fileName = fileName
-    )
-
-    onPathChange(path)
-    onNameChange?.invoke(name)
-}
-
 fun loadFilePreview(path: String): Bitmap? {
     val file = File(path)
 
@@ -226,5 +204,32 @@ private fun loadPdfPreview(file: File): Bitmap? {
                 return bitmap
             }
         }
+    }
+}
+
+fun <T> loadJson(
+    context: Context,
+    fileName: String,
+    fromJson: (JSONObject) -> T
+): List<T> {
+    return try {
+        if (fileName !in context.assets.list("").orEmpty()) {
+            return emptyList()
+        }
+
+        val json = context.assets
+            .open(fileName)
+            .bufferedReader()
+            .use { it.readText() }
+
+        val array = JSONArray(json)
+
+        List(array.length()) { index ->
+            fromJson(array.getJSONObject(index))
+        }
+    } catch (e: IOException) {
+        emptyList()
+    } catch (e: JSONException) {
+        emptyList()
     }
 }

@@ -39,15 +39,14 @@ fun TransportCard(
     isActive: Boolean,
     isPrevActive: Boolean
 ) {
-    val departureTime = transport.from.time
-
     val transportInfo = listOfNotNull(
         transport.coach?.let { "${stringResource(R.string.trip_details_transport_card_coach_label)}: $it" },
         transport.place?.let { "${stringResource(R.string.trip_details_transport_card_seat_label)}: $it" }
     ).joinToString(", ")
 
     val departureInfo = buildString {
-        append(transport.from.address)
+        if (transport.from.code != null) append(transport.from.code)
+        else append(transport.from.address)
 
         transport.from.terminal
             ?.takeIf { it.isNotBlank() }
@@ -60,7 +59,7 @@ fun TransportCard(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(formatTripTime(departureTime), style = MaterialTheme.typography.titleSmall)
+        Text(formatTripTime(transport.from.time), style = MaterialTheme.typography.titleSmall)
 
         Spacer(modifier = Modifier.width(8.dp))
 
