@@ -58,6 +58,9 @@ fun TransportInputSection(
 
                 TransportType.TRAIN ->
                     stringResource(R.string.transport_type_train)
+
+                TransportType.PLANE ->
+                    stringResource(R.string.transport_type_plane)
             }
         },
         expanded = typeExpanded,
@@ -67,28 +70,46 @@ fun TransportInputSection(
         onItemSelected = onTransportTypeChange
     )
 
-    if (transportType == TransportType.TRAIN) {
-        TrainInput(
-            transportNumber,
-            coach,
-            place,
-            onTransportNumberChange,
-            onCoachChange,
-            onPlaceChange
-        )
-    } else {
-        BusInput(
-            transportNumber, place, onTransportNumberChange, onPlaceChange
-        )
+    when (transportType) {
+        TransportType.TRAIN -> {
+            TrainInput(
+                transportNumber = transportNumber,
+                coach = coach,
+                place = place,
+                onTransportNumberChange = onTransportNumberChange,
+                onCoachChange = onCoachChange,
+                onPlaceChange = onPlaceChange
+            )
+        }
 
-        PrivateBusInputSection(
-            isPrivateBus = isPrivateBus,
-            carrier = carrier,
-            driverPhone = driverPhone,
-            onPrivateBusChange = onPrivateBusChange,
-            onCarrierChange = onCarrierChange,
-            onDriverPhoneChange = onDriverPhoneChange
-        )
+        TransportType.BUS -> {
+            BusInput(
+                transportNumber = transportNumber,
+                place = place,
+                onTransportNumberChange = onTransportNumberChange,
+                onPlaceChange = onPlaceChange
+            )
+
+            PrivateBusInputSection(
+                isPrivateBus = isPrivateBus,
+                carrier = carrier,
+                driverPhone = driverPhone,
+                onPrivateBusChange = onPrivateBusChange,
+                onCarrierChange = onCarrierChange,
+                onDriverPhoneChange = onDriverPhoneChange
+            )
+        }
+
+        TransportType.PLANE -> {
+            PlaneInput(
+                transportNumber = transportNumber,
+                carrier = carrier,
+                place = place,
+                onTransportNumberChange = onTransportNumberChange,
+                onCarrierChange = onCarrierChange,
+                onPlaceChange = onPlaceChange
+            )
+        }
     }
 
     Spacer(

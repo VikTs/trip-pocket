@@ -70,11 +70,13 @@ fun AddTransportScreen(
                     fromTime = transport.from.time.toLocalTime(),
                     fromAddress = transport.from.address,
                     fromPlatform = transport.from.platform.orEmpty(),
+                    fromTerminal = transport.from.terminal.orEmpty(),
                     toCity = transport.to.city,
                     toDate = transport.to.time.toLocalDate(),
                     toTime = transport.to.time.toLocalTime(),
                     toAddress = transport.to.address,
                     toPlatform = transport.to.platform.orEmpty(),
+                    toTerminal = transport.to.terminal.orEmpty(),
                     documents = documents.map {
                         SelectedDocument(
                             name = it.name,
@@ -104,7 +106,8 @@ fun AddTransportScreen(
                     state.fromTime
                 ),
                 address = state.fromAddress.trim(),
-                platform = state.fromPlatform?.trim()?.ifBlank { null }
+                platform = state.fromPlatform?.trim()?.ifBlank { null },
+                terminal = state.fromTerminal?.trim()?.ifBlank { null },
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -113,7 +116,8 @@ fun AddTransportScreen(
                     state.toTime
                 ),
                 address = state.toAddress.trim(),
-                platform = state.toPlatform?.trim()?.ifBlank { null }
+                platform = state.toPlatform?.trim()?.ifBlank { null },
+                terminal = state.toTerminal?.trim()?.ifBlank { null },
             )
         )
 
@@ -213,11 +217,14 @@ fun AddTransportScreen(
                 title = stringResource(
                     R.string.add_transport_from_section_title
                 ),
+                transportType = state.transportType,
+                isDepartureStop = true,
                 city = state.fromCity,
                 date = state.fromDate,
                 time = state.fromTime,
                 address = state.fromAddress,
                 platform = state.fromPlatform,
+                terminal = state.fromTerminal,
                 maxDate = state.toDate,
                 onCityChange = {
                     state = state.copy(
@@ -239,20 +246,29 @@ fun AddTransportScreen(
                         fromAddress = it
                     )
                 },
-                onPlatformChange = {state = state.copy(
-                    fromPlatform = it
-                )}
+                onPlatformChange = {
+                    state = state.copy(
+                        fromPlatform = it
+                    )
+                },
+                onTerminalChange = {
+                    state = state.copy(
+                        fromTerminal = it
+                    )
+                }
             )
 
             TransportStopInputSection(
                 title = stringResource(
                     R.string.add_transport_to_section_title
                 ),
+                transportType = state.transportType,
                 city = state.toCity,
                 date = state.toDate,
                 time = state.toTime,
                 address = state.toAddress,
                 platform = state.toPlatform,
+                terminal = state.toTerminal,
                 minDate = state.fromDate,
                 onCityChange = {
                     state = state.copy(
@@ -274,9 +290,16 @@ fun AddTransportScreen(
                         toAddress = it
                     )
                 },
-                onPlatformChange = {state = state.copy(
-                    toPlatform = it
-                )}
+                onPlatformChange = {
+                    state = state.copy(
+                        toPlatform = it
+                    )
+                },
+                onTerminalChange = {
+                    state = state.copy(
+                        toTerminal = it
+                    )
+                }
             )
 
             TransportDocumentsSection(
@@ -329,11 +352,13 @@ data class AddTransportState(
     val fromTime: LocalTime? = null,
     val fromAddress: String = "",
     val fromPlatform: String? = null,
+    val fromTerminal: String? = null,
     val toCity: String = "",
     val toDate: LocalDate? = null,
     val toTime: LocalTime? = null,
     val toAddress: String = "",
     val toPlatform: String? = null,
+    val toTerminal: String? = null,
     val documents: List<SelectedDocument> = emptyList()
 ) {
     val isValid: Boolean

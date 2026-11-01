@@ -16,6 +16,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Transport
+import com.viktoriia.trippocket.data.model.TransportType
+import com.viktoriia.trippocket.ui.theme.Highlight
 import java.time.Duration
 import java.time.temporal.ChronoUnit
 
@@ -24,6 +26,7 @@ fun TransportTimelineSection(
     transport: Transport,
     modifier: Modifier = Modifier
 ) {
+    val isPlane = transport.transportType == TransportType.PLANE
     val duration = Duration.between(
         transport.from.time,
         transport.to.time
@@ -54,8 +57,8 @@ fun TransportTimelineSection(
                 .height(210.dp)
         ) {
             TransportLocation(
-                city = transport.from.city,
-                address = transport.from.address,
+                transportType = transport.transportType,
+                location = transport.from,
                 modifier = Modifier.height(80.dp)
             )
 
@@ -66,8 +69,8 @@ fun TransportTimelineSection(
             )
 
             TransportLocation(
-                city = transport.to.city,
-                address = transport.to.address,
+                transportType = transport.transportType,
+                location = transport.to,
                 modifier = Modifier.height(80.dp)
             )
         }
@@ -86,7 +89,8 @@ fun TransportTimelineSection(
                 time = transport.from.time,
                 modifier = Modifier.height(50.dp)
             ) {
-                PlatformText(transport.from.platform)
+                if (!isPlane)
+                    PlatformText(transport.from.platform)
             }
 
             Spacer(
@@ -98,7 +102,8 @@ fun TransportTimelineSection(
                 dayOffset = arrivalDayOffset,
                 modifier = Modifier.height(50.dp)
             ) {
-                PlatformText(transport.to.platform)
+                if (!isPlane)
+                    PlatformText(transport.to.platform)
             }
         }
     }
@@ -115,7 +120,7 @@ fun PlatformText(
                 if (platform.length > 6) "${platform.take(8)}..." else platform
             }",
             style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = Highlight,
             modifier = modifier
         )
     }

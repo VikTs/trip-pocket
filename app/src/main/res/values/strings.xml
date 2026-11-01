@@ -8,6 +8,7 @@
     <string name="common_cancel">Cancel</string>
     <string name="transport_type_bus">Bus</string>
     <string name="transport_type_train">Train</string>
+    <string name="transport_type_plane">Plane</string>
     <string name="date_input_placeholder">Select date</string>
     <string name="time_input_placeholder">Select time</string>
     <string name="address_copied_message">Address copied</string>
@@ -37,13 +38,17 @@
     <string name="add_transport_place_label">Seat</string>
     <string name="add_transport_documents_section_title">Documents</string>
     <string name="add_transport_train_number_label">Train number</string>
+    <string name="add_transport_plane_number_label">Flight number</string>
     <string name="add_transport_coach_label">Coach</string>
     <string name="add_transport_transport_section_title">Transport</string>
     <string name="add_transport_type_label">Type</string>
     <string name="add_transport_date_label">Date</string>
     <string name="add_transport_time_label">Time</string>
     <string name="add_transport_address_label">Station name (or address)</string>
+    <string name="add_transport_airport_label">Airport</string>
     <string name="add_transport_platform_label">Platform</string>
+    <string name="add_transport_terminal_label">Terminal</string>
+    <string name="add_transport_gate_label">Gate</string>
     <string name="add_transport_city_label">City</string>
     <string name="add_transport_private_bus_label">This is a private bus</string>
     <string name="add_transport_carrier_label">Carrier</string>
@@ -58,15 +63,21 @@
 
     <string name="transport_details_bus_info_title">Bus info</string>
     <string name="transport_details_train_info_title">Train info</string>
+    <string name="transport_details_plane_info_title">Plane info</string>
     <string name="transport_details_coach_label">Coach</string>
     <string name="transport_details_seat_label">Seat</string>
     <string name="transport_details_carrier_label">Carrier</string>
     <string name="transport_details_driver_phone_label">Driver</string>
+    <string name="transport_details_terminal_label">Terminal</string>
+    <string name="transport_details_terminal_not_specified">No terminal</string>
     <string name="transport_details_platform_label">Plat.</string>
+    <string name="transport_details_gate_label">Gate</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>
-    <string name="transport_details_departure_notification_label">Notify 1h before departure</string>
+    <string name="transport_details_departure_notification_label">Notify %1$s before departure</string>
+    <string name="transport_details_plane_departure_notification_label">Notify %1$s before departure</string>
     <string name="transport_details_delete_confirmation_title">Delete the transport?</string>
+    <string name="transport_details_notifications_unavailable">Notifications for this transport are unavailable</string>
 
     <string name="add_to_trip_bottom_sheet_title">Add to trip</string>
     <string name="add_to_trip_bottom_sheet_transport_label">Transport</string>
@@ -79,6 +90,9 @@
     <string name="trip_details_add_btn_label">Add</string>
     <string name="trip_details_transport_card_coach_label">Coach</string>
     <string name="trip_details_transport_card_seat_label">Seat</string>
+    <string name="trip_details_departure_label">Dep.</string>
+    <string name="trip_details_plane_departure_label">Airport</string>
+    <string name="trip_details_terminal_label">term.</string>
     <string name="trip_details_transport_card_arrival_label">Arrival</string>
     <string name="trip_details_transport_card_bus_departure">Bus departure</string>
     <string name="trip_details_transport_card_train_departure">Train departure</string>
@@ -126,8 +140,6 @@
     <string name="accommodation_details_duration_label">Duration</string>
 
     <string name="notification_upcoming_transport">%1$s to %2$s</string>
-    <string name="notification_upcoming_bus">Bus</string>
-    <string name="notification_upcoming_train">Train</string>
     <string name="notification_departure_time">Departure time: %1$s</string>
     <string name="notification_upcoming_check_in">Check-in at %1$s</string>
     <string name="notification_upcoming_check_out">Check-out at %1$s</string>
@@ -135,6 +147,10 @@
     <string name="notification_transport_platform">Platform %1$s</string>
     <string name="notification_transport_seat">Seat %1$s</string>
     <string name="notification_transport_coach">Coach %1$s</string>
+
+    <string name="duration_hours_short">%d h</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d h %2$d min</string>
 
     <plurals name="transport_duration_hours">
         <item quantity="one">%d hour</item>

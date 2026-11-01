@@ -40,6 +40,9 @@ fun TransportDetailsScreen(
 
         TransportType.TRAIN ->
             stringResource(R.string.transport_details_train_info_title)
+
+        TransportType.PLANE ->
+            stringResource(R.string.transport_details_plane_info_title)
     }
 
     val context = LocalContext.current
@@ -106,7 +109,8 @@ fun TransportDetailsScreen(
             )
 
             TransportNotificationsSection(
-                isNotificationEnabled = notification?.enabled == true,
+                transportType = transport.transportType,
+                notification = notification,
                 onNotificationToggle = { enabled ->
                     notification?.let {
                         viewModel.updateNotification(

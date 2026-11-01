@@ -244,6 +244,11 @@ class NotificationScheduler(
                 textContext.getString(
                     R.string.transport_type_train
                 )
+
+            TransportType.PLANE ->
+                textContext.getString(
+                    R.string.transport_type_plane
+                )
         }
 
         return textContext.getString(

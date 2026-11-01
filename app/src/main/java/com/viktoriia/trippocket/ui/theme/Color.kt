@@ -15,3 +15,5 @@ val TextSecondary = Color(0xFF68736F)
 
 val Border = Color(0xFFD4DDD9)
 val PrimaryLight = Color(0xFFE3F3EE)
+
+val Highlight = Color(0xFFB07818)

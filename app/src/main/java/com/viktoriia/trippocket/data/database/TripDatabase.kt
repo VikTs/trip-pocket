@@ -30,7 +30,7 @@ import com.viktoriia.trippocket.data.model.Trip
         TransportDocument::class,
         AccommodationDocument::class,
     ],
-    version = 2
+    version = 3
 )
 @ColumnTypeConverters(
     LocalDateConverter::class,
