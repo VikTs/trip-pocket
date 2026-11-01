@@ -10,19 +10,20 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.produceState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.data.model.Airport
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 import com.viktoriia.trippocket.ui.components.inputs.SearchableDropdownField
-import com.viktoriia.trippocket.utils.loadJson
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.viktoriia.trippocket.viewmodel.AirportsViewModel
 
 @Composable
 fun PlaneStopInput(
@@ -34,22 +35,12 @@ fun PlaneStopInput(
     onAddressChange: (String) -> Unit,
     onCodeChange: (String) -> Unit,
     onTerminalChange: (String) -> Unit,
-    onPlatformChange: (String) -> Unit
+    onPlatformChange: (String) -> Unit,
+    airportsViewModel: AirportsViewModel = hiltViewModel()
 ) {
-    val context = LocalContext.current
+    val airports by airportsViewModel.airports.collectAsStateWithLifecycle()
 
-    val airports = produceState<List<Airport>>(emptyList(), context) {
-        value = withContext(Dispatchers.IO) {
-            loadJson(context, "airports.json") { item ->
-                Airport(
-                    iataCode = item.getString("iata_code"),
-                    name = item.getString("name")
-                )
-            }
-        }
-    }.value
-
-    SearchableDropdownField(
+    SearchableDropdownField<Airport>(
         value = code ?: "",
         items = airports,
         onValueChange = onCodeChange,
@@ -117,8 +108,3 @@ fun PlaneStopInput(
         }
     }
 }
-
-data class Airport(
-    val iataCode: String,
-    val name: String
-)

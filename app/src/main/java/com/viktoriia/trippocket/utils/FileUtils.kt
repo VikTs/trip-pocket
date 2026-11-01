@@ -206,30 +206,3 @@ private fun loadPdfPreview(file: File): Bitmap? {
         }
     }
 }
-
-fun <T> loadJson(
-    context: Context,
-    fileName: String,
-    fromJson: (JSONObject) -> T
-): List<T> {
-    return try {
-        if (fileName !in context.assets.list("").orEmpty()) {
-            return emptyList()
-        }
-
-        val json = context.assets
-            .open(fileName)
-            .bufferedReader()
-            .use { it.readText() }
-
-        val array = JSONArray(json)
-
-        List(array.length()) { index ->
-            fromJson(array.getJSONObject(index))
-        }
-    } catch (e: IOException) {
-        emptyList()
-    } catch (e: JSONException) {
-        emptyList()
-    }
-}

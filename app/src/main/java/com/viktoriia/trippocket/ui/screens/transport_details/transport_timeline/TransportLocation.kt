@@ -79,7 +79,7 @@ fun PlaneLocation(
             Text(
                 text =
                     "${stringResource(R.string.transport_details_terminal_label)}: $it",
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodySmall,
             )
         }
     }

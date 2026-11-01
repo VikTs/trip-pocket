@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -45,7 +46,6 @@ fun <T> SearchableDropdownField(
     placeholder: String? = null,
     modifier: Modifier = Modifier,
     pageSize: Int = 30,
-    maxInputLength: Int = 50,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -53,7 +53,7 @@ fun <T> SearchableDropdownField(
     var visibleCount by remember(value) { mutableIntStateOf(pageSize) }
 
     val matchedItems = remember(value, items, filter) {
-        if (value.isBlank()) emptyList()
+        if (value.isBlank()) items
         else items.filter { filter(it, value) }
     }
 
@@ -84,7 +84,7 @@ fun <T> SearchableDropdownField(
         OutlinedTextField(
             value = value,
             onValueChange = {
-                onValueChange(it.take(maxInputLength))
+                onValueChange(it)
                 expanded = true
             },
             label = label,
@@ -97,6 +97,9 @@ fun <T> SearchableDropdownField(
             modifier = Modifier
                 .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryEditable)
                 .fillMaxWidth()
+                .onFocusChanged { focusState ->
+                    if (focusState.isFocused) expanded = true
+                }
         )
 
         ExposedDropdownMenu(
@@ -119,7 +122,6 @@ fun <T> SearchableDropdownField(
         }
     }
 }
-
 
 @Composable
 fun Modifier.verticalScrollbar(
