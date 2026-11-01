@@ -17,16 +17,19 @@ import com.viktoriia.trippocket.ui.components.inputs.TimeInput
 import java.time.LocalDate
 import java.time.LocalTime
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 
 @Composable
 fun TransportStopInputSection(
     title: String,
+    transportType: TransportType,
     city: String,
     date: LocalDate?,
     time: LocalTime?,
     address: String?,
     platform: String?,
+    terminal: String?,
     minDate: LocalDate? = null,
     maxDate: LocalDate? = null,
     onCityChange: (String) -> Unit,
@@ -34,7 +37,9 @@ fun TransportStopInputSection(
     onTimeChange: (LocalTime) -> Unit,
     onAddressChange: (String) -> Unit,
     onPlatformChange: (String) -> Unit,
-) {
+    onTerminalChange: (String) -> Unit,
+    isDepartureStop: Boolean = false,
+    ) {
     Text(
         text = title,
         style = MaterialTheme.typography.titleMedium
@@ -50,11 +55,11 @@ fun TransportStopInputSection(
         modifier = Modifier.fillMaxWidth()
     )
 
-    Row(
-        modifier = Modifier.fillMaxWidth()
-    ) {
+    Row(modifier = Modifier.fillMaxWidth()) {
         DateInput(
-            label = { RequiredFieldLabel(stringResource(R.string.add_transport_date_label)) },
+            label = {
+                RequiredFieldLabel(stringResource(R.string.add_transport_date_label))
+            },
             selectedDate = date,
             onDateSelected = onDateChange,
             minDate = minDate,
@@ -62,9 +67,7 @@ fun TransportStopInputSection(
             modifier = Modifier.weight(2f)
         )
 
-        Spacer(
-            modifier = Modifier.width(12.dp)
-        )
+        Spacer(modifier = Modifier.width(12.dp))
 
         TimeInput(
             label = {
@@ -76,14 +79,94 @@ fun TransportStopInputSection(
         )
     }
 
+    when (transportType) {
+        TransportType.PLANE -> PlaneStopInput(
+            isDepartureStop = isDepartureStop,
+            address = address,
+            terminal = terminal,
+            platform = platform,
+            onAddressChange = onAddressChange,
+            onTerminalChange = onTerminalChange,
+            onPlatformChange = onPlatformChange
+        )
+
+        else -> GroundTransportStopInput(
+            address = address,
+            platform = platform,
+            onAddressChange = onAddressChange,
+            onPlatformChange = onPlatformChange
+        )
+    }
+
+    Spacer(modifier = Modifier.height(8.dp))
+}
+
+@Composable
+private fun PlaneStopInput(
+    isDepartureStop: Boolean,
+    address: String?,
+    terminal: String?,
+    platform: String?,
+    onAddressChange: (String) -> Unit,
+    onTerminalChange: (String) -> Unit,
+    onPlatformChange: (String) -> Unit
+) {
+    Row(modifier = Modifier.fillMaxWidth()) {
+        OutlinedTextField(
+            value = address ?: "",
+            onValueChange = onAddressChange,
+            label = {
+                RequiredFieldLabel(
+                    stringResource(R.string.add_transport_airport_label)
+                )
+            },
+            singleLine = true,
+            modifier = Modifier.weight(2f)
+        )
+
+        Spacer(modifier = Modifier.width(12.dp))
+
+        OutlinedTextField(
+            value = terminal ?: "",
+            onValueChange = onTerminalChange,
+            label = {
+                Text(stringResource(R.string.add_transport_terminal_label))
+            },
+            singleLine = true,
+            modifier = Modifier.weight(1f)
+        )
+    }
+
+    if (isDepartureStop) {
+        OutlinedTextField(
+            value = platform ?: "",
+            onValueChange = onPlatformChange,
+            label = {
+                Text(stringResource(R.string.add_transport_gate_label))
+            },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
+
+@Composable
+private fun GroundTransportStopInput(
+    address: String?,
+    platform: String?,
+    onAddressChange: (String) -> Unit,
+    onPlatformChange: (String) -> Unit
+) {
     OutlinedTextField(
         value = address ?: "",
         onValueChange = onAddressChange,
         label = {
-            RequiredFieldLabel(stringResource(R.string.add_transport_address_label))
+            RequiredFieldLabel(
+                stringResource(R.string.add_transport_address_label)
+            )
         },
         singleLine = true,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth()
     )
 
     OutlinedTextField(
@@ -94,10 +177,5 @@ fun TransportStopInputSection(
         },
         singleLine = true,
         modifier = Modifier.fillMaxWidth()
-    )
-
-
-    Spacer(
-        modifier = Modifier.height(8.dp)
     )
 }

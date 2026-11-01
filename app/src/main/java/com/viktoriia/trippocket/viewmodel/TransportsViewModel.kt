@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportDocument
 import com.viktoriia.trippocket.data.model.TransportNotification
+import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.data.repository.TransportDocumentRepository
 import com.viktoriia.trippocket.data.repository.TransportNotificationRepository
 import com.viktoriia.trippocket.data.repository.TransportRepository
@@ -77,7 +78,10 @@ class TransportsViewModel @Inject constructor(
             val notification = TransportNotification(
                 transportId = transportId,
                 enabled = true,
-                minutesBefore = 60
+                minutesBefore = when (transport.transportType) {
+                    TransportType.PLANE -> 180
+                    else -> 60
+                }
             )
 
             val notificationId =

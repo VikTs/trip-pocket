@@ -8,6 +8,7 @@
     <string name="common_cancel">Скасувати</string>
     <string name="transport_type_bus">Автобус</string>
     <string name="transport_type_train">Потяг</string>
+    <string name="transport_type_plane">Літак</string>
     <string name="date_input_placeholder">Виберіть дату</string>
     <string name="time_input_placeholder">Виберіть час</string>
     <string name="address_copied_message">Адресу скопійовано</string>
@@ -37,13 +38,17 @@
     <string name="add_transport_place_label">Місце</string>
     <string name="add_transport_documents_section_title">Документи</string>
     <string name="add_transport_train_number_label">Номер потяга</string>
+    <string name="add_transport_plane_number_label">Номер рейсу</string>
     <string name="add_transport_coach_label">Вагон</string>
     <string name="add_transport_transport_section_title">Транспорт</string>
     <string name="add_transport_type_label">Тип</string>
     <string name="add_transport_date_label">Дата</string>
     <string name="add_transport_time_label">Час</string>
     <string name="add_transport_address_label">Назва вокзалу (або адреса)</string>
+    <string name="add_transport_airport_label">Аеропорт</string>
     <string name="add_transport_platform_label">Платформа</string>
+    <string name="add_transport_terminal_label">Термінал</string>
+    <string name="add_transport_gate_label">Вихід</string>
     <string name="add_transport_city_label">Місто</string>
     <string name="add_transport_private_bus_label">Це приватний автобус</string>
     <string name="add_transport_carrier_label">Перевізник</string>
@@ -58,15 +63,21 @@
 
     <string name="transport_details_bus_info_title">Інформація про автобус</string>
     <string name="transport_details_train_info_title">Інформація про потяг</string>
+    <string name="transport_details_plane_info_title">Інформація про літак</string>
     <string name="transport_details_coach_label">Вагон</string>
     <string name="transport_details_seat_label">Місце</string>
     <string name="transport_details_carrier_label">Перевізник</string>
     <string name="transport_details_driver_phone_label">Водій</string>
+    <string name="transport_details_terminal_label">Термінал</string>
+    <string name="transport_details_terminal_not_specified">Без термінала</string>
     <string name="transport_details_platform_label">Платф.</string>
+    <string name="transport_details_gate_label">Вихід</string>
     <string name="transport_details_documents_section_title">Документи</string>
     <string name="transport_details_notifications_section_title">Сповіщення</string>
-    <string name="transport_details_departure_notification_label">Сповістити за 1 годину до відправлення</string>
+    <string name="transport_details_departure_notification_label">Сповістити за %1$s до відправлення</string>
+    <string name="transport_details_plane_departure_notification_label">Сповістити за %1$s до вильоту</string>
     <string name="transport_details_delete_confirmation_title">Видалити транспорт?</string>
+    <string name="transport_details_notifications_unavailable">Сповіщення для цього транспорту недоступні</string>
 
     <string name="add_to_trip_bottom_sheet_title">Додати до подорожі</string>
     <string name="add_to_trip_bottom_sheet_transport_label">Транспорт</string>
@@ -79,6 +90,9 @@
     <string name="trip_details_add_btn_label">Додати</string>
     <string name="trip_details_transport_card_coach_label">Вагон</string>
     <string name="trip_details_transport_card_seat_label">Місце</string>
+    <string name="trip_details_departure_label">Відпр.</string>
+    <string name="trip_details_plane_departure_label">Аеропорт</string>
+    <string name="trip_details_terminal_label">терм.</string>
     <string name="trip_details_transport_card_arrival_label">Прибуття</string>
     <string name="trip_details_transport_card_bus_departure">Відправлення автобуса</string>
     <string name="trip_details_transport_card_train_departure">Відправлення потяга</string>
@@ -130,8 +144,6 @@
     <string name="accommodation_details_duration_label">Тривалість</string>
 
     <string name="notification_upcoming_transport">%1$s до міста %2$s</string>
-    <string name="notification_upcoming_bus">Автобус</string>
-    <string name="notification_upcoming_train">Потяг</string>
     <string name="notification_departure_time">Час відправлення: %1$s</string>
     <string name="notification_upcoming_check_in">Заїзд: %1$s</string>
     <string name="notification_upcoming_check_out">Виїзд: %1$s</string>
@@ -139,6 +151,10 @@
     <string name="notification_transport_platform">Платформа %1$s</string>
     <string name="notification_transport_seat">Місце %1$s</string>
     <string name="notification_transport_coach">Вагон %1$s</string>
+
+    <string name="duration_hours_short">%d год</string>
+    <string name="duration_minutes_short">%d хв</string>
+    <string name="duration_hours_minutes_short">%1$d год %2$d хв</string>
 
     <plurals name="transport_duration_hours">
         <item quantity="one">%d година</item>

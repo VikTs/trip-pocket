@@ -2,6 +2,7 @@ package com.viktoriia.trippocket.ui.extensions
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DirectionsBus
+import androidx.compose.material.icons.filled.Flight
 import androidx.compose.material.icons.filled.Train
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -13,6 +14,7 @@ fun TransportType.toIcon(): ImageVector {
     return when (this) {
         TransportType.BUS -> Icons.Default.DirectionsBus
         TransportType.TRAIN -> Icons.Default.Train
+        TransportType.PLANE -> Icons.Default.Flight
     }
 }
 
@@ -24,5 +26,8 @@ fun TransportType.toDisplayName(): String {
 
         TransportType.TRAIN ->
             stringResource(R.string.transport_type_train)
+
+        TransportType.PLANE ->
+            stringResource(R.string.transport_type_plane)
     }
 }

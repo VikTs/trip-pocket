@@ -38,7 +38,8 @@ data class Transport(
 
 enum class TransportType {
     BUS,
-    TRAIN
+    TRAIN,
+    PLANE
 }
 
 data class TransportStop(
@@ -46,4 +47,5 @@ data class TransportStop(
     val time: LocalDateTime,
     val address: String,
     val platform: String?,
+    val terminal: String?,
 )

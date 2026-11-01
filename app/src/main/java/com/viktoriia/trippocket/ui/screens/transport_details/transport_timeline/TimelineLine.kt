@@ -29,7 +29,7 @@ fun TimelineLine(
             modifier = modifier
                 .width(2.dp)
                 .background(
-                    MaterialTheme.colorScheme.outlineVariant
+                    MaterialTheme.colorScheme.primary
                 )
         )
 

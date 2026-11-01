@@ -41,11 +41,20 @@ fun TransportCard(
 ) {
     val departureTime = transport.from.time
 
-    val departureInfo = listOfNotNull(
+    val transportInfo = listOfNotNull(
         transport.coach?.let { "${stringResource(R.string.trip_details_transport_card_coach_label)}: $it" },
         transport.place?.let { "${stringResource(R.string.trip_details_transport_card_seat_label)}: $it" }
     ).joinToString(", ")
 
+    val departureInfo = buildString {
+        append(transport.from.address)
+
+        transport.from.terminal
+            ?.takeIf { it.isNotBlank() }
+            ?.let {
+                append(", ${stringResource(R.string.trip_details_terminal_label)} $it")
+            }
+    }
 
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -108,21 +117,21 @@ fun TransportCard(
 
                     Spacer(modifier = Modifier.height(6.dp))
 
-                    if (departureInfo.isNotBlank()) {
+                    Text(
+                        text = "${stringResource(R.string.trip_details_departure_label)}: $departureInfo",
+                        maxLines = if (transportInfo.isNotBlank()) 1 else 2,
+                        overflow = TextOverflow.Ellipsis,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+
+                    if (transportInfo.isNotBlank()) {
                         Text(
-                            text = departureInfo,
+                            text = transportInfo,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             style = MaterialTheme.typography.bodyMedium
                         )
                     }
-
-                    Text(
-                        text = transport.from.address,
-                        maxLines = if (departureInfo.isNotBlank()) 1 else 2,
-                        overflow = TextOverflow.Ellipsis,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
                 }
             }
         }

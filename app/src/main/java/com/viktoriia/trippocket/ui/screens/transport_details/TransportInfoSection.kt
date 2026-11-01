@@ -27,12 +27,13 @@ import com.viktoriia.trippocket.ui.extensions.toIcon
 @Composable
 fun TransportInfoSection(transport: Transport) {
     val typography = MaterialTheme.typography
+    val transportType = transport.transportType
 
     Row(
         verticalAlignment = Alignment.Top
     ) {
         Icon(
-            imageVector = transport.transportType.toIcon(),
+            imageVector = transportType.toIcon(),
             contentDescription = "Transport type",
             modifier = Modifier
                 .padding(top = 2.dp)
@@ -45,11 +46,21 @@ fun TransportInfoSection(transport: Transport) {
 
         Column {
             Text(
-                transport.transportNumber ?: transport.transportType.toDisplayName(),
+                transport.transportNumber ?: transportType.toDisplayName(),
                 style = typography.titleLarge
             )
 
-            if (transport.transportType == TransportType.TRAIN) {
+            if (transportType == TransportType.PLANE && transport.carrier != null) {
+                Text(
+                    transport.carrier,
+                    style = typography.titleMedium
+                )
+                Spacer(
+                    modifier = Modifier.height(8.dp)
+                )
+            }
+
+            if (transportType == TransportType.TRAIN) {
                 Text(
                     "${stringResource(R.string.transport_details_coach_label)}: ${transport.coach ?: '-'}",
                     style = typography.bodyLarge
@@ -67,7 +78,7 @@ fun TransportInfoSection(transport: Transport) {
         modifier = Modifier.height(16.dp)
     )
 
-    if (transport.transportType == TransportType.BUS &&
+    if (transportType == TransportType.BUS &&
         (transport.carrier != null || transport.driverPhone != null)
     ) {
         Row(

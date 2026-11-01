@@ -8,6 +8,7 @@
     <string name="common_cancel">Annuler</string>
     <string name="transport_type_bus">Bus</string>
     <string name="transport_type_train">Train</string>
+    <string name="transport_type_plane">Avion</string>
     <string name="date_input_placeholder">Sélectionner une date</string>
     <string name="time_input_placeholder">Sélectionner une heure</string>
     <string name="address_copied_message">Adresse copiée</string>
@@ -24,7 +25,7 @@
     <string name="exact_reminders_enable_btn_label">Activer les rappels</string>
     <string name="notifications_and_exact_reminders_disabled_message">Les notifications et les rappels sont désactivés</string>
     <string name="notification_help_title">Vous ne recevez pas les notifications?</string>
-    <string name="notification_help_body">Certains téléphones limitent le fonctionnement des applications en arrière-plan. Essayez les solutions suivantes :\n\n• Dans les paramètres de batterie de l\'application, sélectionnez \"Sans restriction\" ou désactivez l\'optimisation de la batterie pour l\'application. Si vous avez un appareil Samsung, retirez l\'application de la liste \"Applications en veille\".\n• Activez le \"Démarrage automatique\" de l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres appareils).\n• Assurez-vous que les autorisations \"Notifications\" et \"Alarmes et rappels\" sont activées pour l\'application.\n\nLes noms des paramètres peuvent varier selon le modèle du téléphone et la version du système.</string>
+    <string name="notification_help_body">Certains téléphones limitent le fonctionnement des applications en arrière-plan. Essayez les solutions suivantes :\n\n• Dans les paramètres de batterie de l\'application, sélectionnez "Sans restriction" ou désactivez l\'optimisation de la batterie pour l\'application. Si vous avez un appareil Samsung, retirez l\'application de la liste "Applications en veille".\n• Activez le "Démarrage automatique" de l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres appareils).\n• Assurez-vous que les autorisations "Notifications" et "Alarmes et rappels" sont activées pour l\'application.\n\nLes noms des paramètres peuvent varier selon le modèle du téléphone et la version du système.</string>
     <string name="notification_help_open_settings">Paramètres de l\'application</string>
     <string name="notification_help_close">Fermer</string>
 
@@ -34,16 +35,20 @@
     <string name="add_transport_to_section_title">Arrivée</string>
     <string name="add_transport_btn_label">Ajouter le transport</string>
     <string name="add_transport_bus_number_label">Numéro du bus</string>
+    <string name="add_transport_train_number_label">Numéro du train</string>
+    <string name="add_transport_plane_number_label">Numéro de vol</string>
     <string name="add_transport_place_label">Place</string>
     <string name="add_transport_documents_section_title">Documents</string>
-    <string name="add_transport_train_number_label">Numéro du train</string>
     <string name="add_transport_coach_label">Voiture</string>
     <string name="add_transport_transport_section_title">Transport</string>
     <string name="add_transport_type_label">Type</string>
     <string name="add_transport_date_label">Date</string>
     <string name="add_transport_time_label">Heure</string>
     <string name="add_transport_address_label">Nom de la gare (ou adresse)</string>
+    <string name="add_transport_airport_label">Aéroport</string>
     <string name="add_transport_platform_label">Quai</string>
+    <string name="add_transport_terminal_label">Terminal</string>
+    <string name="add_transport_gate_label">Porte</string>
     <string name="add_transport_city_label">Ville</string>
     <string name="add_transport_private_bus_label">C’est un bus privé</string>
     <string name="add_transport_carrier_label">Compagnie</string>
@@ -58,14 +63,20 @@
 
     <string name="transport_details_bus_info_title">Informations sur le bus</string>
     <string name="transport_details_train_info_title">Informations sur le train</string>
+    <string name="transport_details_plane_info_title">Informations sur le vol</string>
     <string name="transport_details_coach_label">Voiture</string>
     <string name="transport_details_seat_label">Place</string>
     <string name="transport_details_carrier_label">Compagnie</string>
     <string name="transport_details_driver_phone_label">Conducteur</string>
     <string name="transport_details_platform_label">Quai</string>
+    <string name="transport_details_terminal_label">Terminal</string>
+    <string name="transport_details_terminal_not_specified">Aucun terminal</string>
+    <string name="transport_details_gate_label">Porte</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>
-    <string name="transport_details_departure_notification_label">Notifier 1 h avant le départ</string>
+    <string name="transport_details_departure_notification_label">Notifier %1$s avant le départ</string>
+    <string name="transport_details_plane_departure_notification_label">Notifier %1$s avant le décollage</string>
+    <string name="transport_details_notifications_unavailable">Les notifications pour ce transport ne sont pas disponibles</string>
     <string name="transport_details_delete_confirmation_title">Supprimer le transport?</string>
 
     <string name="add_to_trip_bottom_sheet_title">Ajouter au voyage</string>
@@ -82,6 +93,9 @@
     <string name="trip_details_transport_card_arrival_label">Arrivée</string>
     <string name="trip_details_transport_card_bus_departure">Départ du bus</string>
     <string name="trip_details_transport_card_train_departure">Départ du train</string>
+    <string name="trip_details_departure_label">Départ</string>
+    <string name="trip_details_plane_departure_label">Aéroport</string>
+    <string name="trip_details_terminal_label">term.</string>
     <string name="trip_details_delete_confirmation_title">Supprimer le voyage?</string>
 
     <string name="trips_empty_message">Vous n’avez aucun voyage planifié</string>
@@ -127,8 +141,6 @@
     <string name="accommodation_details_duration_label">Durée</string>
 
     <string name="notification_upcoming_transport">%1$s vers %2$s</string>
-    <string name="notification_upcoming_bus">Bus</string>
-    <string name="notification_upcoming_train">Train</string>
     <string name="notification_departure_time">Heure de départ: %1$s</string>
     <string name="notification_upcoming_check_in">Check-in à %1$s</string>
     <string name="notification_upcoming_check_out">Check-out de %1$s</string>
@@ -136,6 +148,10 @@
     <string name="notification_transport_platform">Quai %1$s</string>
     <string name="notification_transport_seat">Place %1$s</string>
     <string name="notification_transport_coach">Voiture %1$s</string>
+
+    <string name="duration_hours_short">%d h</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d h %2$d min</string>
 
     <plurals name="transport_duration_hours">
         <item quantity="one">%d heure</item>
