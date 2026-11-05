@@ -3,6 +3,7 @@ package com.viktoriia.trippocket.ui.screens.trips
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,8 +12,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.outlined.AccessTime
 import androidx.compose.material.icons.outlined.TaskAlt
 import androidx.compose.material3.Card
@@ -28,6 +31,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.rememberAsyncImagePainter
 import com.viktoriia.trippocket.R
@@ -44,6 +48,7 @@ import java.time.temporal.ChronoUnit
 fun TripCard(
     trip: Trip,
     onClick: () -> Unit,
+    onNextEventClick: (Long, TripEvent) -> Unit,
     isActive: Boolean = false,
     nextEvent: TripEvent? = null
 ) {
@@ -109,7 +114,6 @@ fun TripCard(
     }
 
     Card(
-        onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         border = if (isActive) BorderStroke(
             width = 2.dp,
@@ -123,6 +127,7 @@ fun TripCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable(onClick = onClick)
                 .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -186,51 +191,66 @@ fun TripCard(
                 )
 
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(6.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = if (isCompleted) {
-                                Icons.Outlined.TaskAlt
-                            } else {
-                                Icons.Outlined.AccessTime
-                            },
-                            contentDescription = null,
-                            tint = colorScheme.onSurfaceVariant,
-                            modifier = Modifier.size(18.dp)
-                        )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = if (isCompleted) {
+                            Icons.Outlined.TaskAlt
+                        } else {
+                            Icons.Outlined.AccessTime
+                        },
+                        contentDescription = null,
+                        tint = colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(18.dp)
+                    )
 
-                        Text(
-                            text = statusText,
-                            style = typography.bodyMedium,
-                            color = colorScheme.onSurfaceVariant
-                        )
+                    Text(
+                        text = statusText,
+                        style = typography.bodyMedium,
+                        color = colorScheme.onSurfaceVariant
+                    )
                 }
             }
         }
 
-        nextEventLabel?.let {
+        if (nextEventLabel != null && nextEvent != null) {
             Card(
-                onClick = onClick,
+                onClick = { onNextEventClick(trip.id, nextEvent) },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, end = 16.dp, bottom = 8.dp),
+                    .padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = colorScheme.secondary
                 )
             ) {
-                Text(
-                    text = it,
-                    style = typography.bodyMedium,
-                    color = colorScheme.onSecondary,
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 10.dp)
-                )
+                        .padding(horizontal = 16.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = nextEventLabel,
+                        style = typography.bodyMedium,
+                        color = colorScheme.onSecondary,
+                        modifier = Modifier.weight(1f),
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                        contentDescription = null,
+                        tint = colorScheme.onSecondary
+                    )
+                }
             }
         }
     }

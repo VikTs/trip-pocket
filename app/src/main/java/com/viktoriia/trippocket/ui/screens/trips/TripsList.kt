@@ -20,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.data.model.TripEvent
 import com.viktoriia.trippocket.domain.model.TripStatus
 import com.viktoriia.trippocket.domain.model.getTripStatus
 import com.viktoriia.trippocket.viewmodel.TripsViewModel
@@ -31,6 +32,7 @@ fun TripsList(
     tripsByYear: Map<Int, List<Trip>>,
     showYears: Boolean,
     onTripClick: (Trip) -> Unit,
+    onNextEventClick: (Long, TripEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val activeTrips = tripsByYear.values
@@ -93,6 +95,7 @@ fun TripsList(
                     TripCard(
                         trip = trip,
                         onClick = { onTripClick(trip) },
+                        onNextEventClick = onNextEventClick,
                         isActive = activeTrips.any { it.id == trip.id },
                         nextEvent = activeTripEvents[trip.id]
                     )

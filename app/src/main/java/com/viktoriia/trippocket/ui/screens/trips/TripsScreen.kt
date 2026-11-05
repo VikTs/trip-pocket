@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.data.model.TripEvent
 import com.viktoriia.trippocket.ui.components.LanguageSelector
 import com.viktoriia.trippocket.ui.components.TopBar
 import java.time.LocalDate
@@ -36,7 +37,8 @@ fun TripsScreen(
     trips: List<Trip>,
     isLoading: Boolean,
     onAddTripClick: () -> Unit,
-    onTripClick: (Trip) -> Unit
+    onTripClick: (Trip) -> Unit,
+    onNextEventClick: (Long, TripEvent) -> Unit
 ) {
     val colors = MaterialTheme.colorScheme
 
@@ -107,7 +109,8 @@ fun TripsScreen(
                         tripsByYear = tripsByYear,
                         showYears = showYears,
                         onTripClick = onTripClick,
-                        modifier = Modifier.weight(1f)
+                        onNextEventClick = onNextEventClick,
+                        modifier = Modifier.weight(1f),
                     )
                 }
 

@@ -6,6 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.data.model.TripEvent
 import com.viktoriia.trippocket.ui.screens.create_trip.CreateTripScreen
 import com.viktoriia.trippocket.ui.screens.trip_details.TripDetailsScreen
 import com.viktoriia.trippocket.ui.screens.trips.TripsScreen
@@ -33,6 +34,16 @@ fun NavGraphBuilder.tripNavGraph(
             },
             onTripClick = { trip ->
                 navController.navigate("trip/${trip.id}")
+            },
+            onNextEventClick = { tripId, event ->
+                navController.navigate("trip/$tripId")
+                when (event) {
+                    is TripEvent.TransportItem ->
+                        navController.navigate("trip/$tripId/transport/${event.id}")
+                    is TripEvent.AccommodationCheckInItem,
+                    is TripEvent.AccommodationCheckOutItem ->
+                        navController.navigate("trip/$tripId/accommodation/${event.id}")
+                }
             }
         )
     }
