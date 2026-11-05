@@ -1,4 +1,4 @@
-package com.viktoriia.trippocket.utils
+package com.viktoriia.trippocket.ui.utils
 
 import android.content.Context
 import android.content.Intent

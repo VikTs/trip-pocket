@@ -11,9 +11,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import com.viktoriia.trippocket.utils.copyFileToInternalStorage
-import com.viktoriia.trippocket.utils.createFilePickerIntent
-import com.viktoriia.trippocket.utils.getFileName
+import com.viktoriia.trippocket.ui.utils.copyFileToInternalStorage
+import com.viktoriia.trippocket.ui.utils.createFilePickerIntent
+import com.viktoriia.trippocket.ui.utils.getFileName
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

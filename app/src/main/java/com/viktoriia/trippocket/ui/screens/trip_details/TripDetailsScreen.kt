@@ -14,8 +14,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -23,9 +25,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.data.model.TripEvent
 import com.viktoriia.trippocket.ui.components.ItemEditMenu
 import com.viktoriia.trippocket.ui.components.TopBar
 
@@ -33,9 +34,7 @@ import com.viktoriia.trippocket.ui.components.TopBar
 @Composable
 fun TripDetailsScreen(
     trip: Trip,
-    transports: List<Transport>,
-    accommodations: List<Accommodation>,
-    isLoading: Boolean,
+    tripEvents: List<TripEvent>,
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
     onAddAccommodationClick: () -> Unit,
@@ -50,35 +49,20 @@ fun TripDetailsScreen(
         mutableStateOf(false)
     }
 
+    var isLoading by remember {
+        mutableStateOf(true)
+    }
+
+    LaunchedEffect(tripEvents) {
+        isLoading = false
+    }
+
     fun openAddSheet() {
         showAddSheet = true
     }
 
-    val timelineItems =
-        buildList<TimelineItem> {
-            transports.forEach {
-                add(
-                    TimelineItem.TransportItem(it)
-                )
-            }
-
-            accommodations.forEach {
-                add(
-                    TimelineItem.AccommodationCheckInItem(it)
-                )
-            }
-
-            accommodations.forEach {
-                add(
-                    TimelineItem.AccommodationCheckOutItem(it)
-                )
-            }
-        }.sortedBy {
-            it.time
-        }
-
     val itemsByDay =
-        timelineItems.groupBy {
+        tripEvents.groupBy {
             it.time.toLocalDate()
         }
 
@@ -122,7 +106,7 @@ fun TripDetailsScreen(
                     ) {
                         CircularProgressIndicator()
                     }
-                } else if (timelineItems.isEmpty()) {
+                } else if (tripEvents.isEmpty()) {
                     EmptyTripContent(
                         modifier = Modifier.fillMaxSize(),
                         onAddClick = ::openAddSheet

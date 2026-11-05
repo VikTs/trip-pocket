@@ -100,8 +100,16 @@
 
     <string name="trips_empty_message">У вас немає запланованих подорожей</string>
     <string name="trips_add_btn_label">Додати подорож</string>
-    <string name="trips_trip_card_today_label">Сьогодні</string>
-    <string name="trips_trip_card_completed_label">Завершено</string>
+    <string name="trips_trip_card_active_label">Зараз</string>
+    <string name="trips_trip_card_next_transport">Далі: %1$s до міста %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Далі: заїзд — %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Далі: виїзд — %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Залишився %1$d день</item>
+        <item quantity="few">Залишилося %1$d дні</item>
+        <item quantity="many">Залишилося %1$d днів</item>
+        <item quantity="other">Залишилося %1$d дня</item>
+    </plurals>    <string name="trips_trip_card_completed_label">Завершено</string>
     <plurals name="trips_trip_card_duration_and_dates_label">
         <item quantity="one">%1$d день  |  %2$s</item>
         <item quantity="few">%1$d дні  |  %2$s</item>

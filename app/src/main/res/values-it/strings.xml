@@ -100,7 +100,14 @@
 
     <string name="trips_empty_message">Non hai viaggi pianificati</string>
     <string name="trips_add_btn_label">Aggiungi viaggio</string>
-    <string name="trips_trip_card_today_label">Oggi</string>
+    <string name="trips_trip_card_active_label">In corso</string>
+    <string name="trips_trip_card_next_transport">Prossimo: %1$s per %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Prossimo: Check-in - %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Prossimo: Check-out - %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Ancora %1$d giorno</item>
+        <item quantity="other">Ancora %1$d giorni</item>
+    </plurals>
     <string name="trips_trip_card_completed_label">Completato</string>
     <plurals name="trips_trip_card_duration_and_dates_label">
         <item quantity="one">%1$d giorno  |  %2$s</item>

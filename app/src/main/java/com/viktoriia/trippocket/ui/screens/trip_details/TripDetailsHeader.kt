@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.data.model.Trip
-import com.viktoriia.trippocket.utils.formatTripDatesWithYear
+import com.viktoriia.trippocket.ui.utils.formatTripDatesWithYear
 
 @Composable
 fun TripDetailsHeader(

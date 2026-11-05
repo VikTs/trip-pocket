@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.ui.extensions.toIcon
-import com.viktoriia.trippocket.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTripTime
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

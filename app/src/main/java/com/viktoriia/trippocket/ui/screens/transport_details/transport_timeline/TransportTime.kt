@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.viktoriia.trippocket.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTripTime
 import java.time.LocalDateTime
 
 @Composable

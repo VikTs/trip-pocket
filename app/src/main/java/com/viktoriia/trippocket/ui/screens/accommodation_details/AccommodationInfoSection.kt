@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.utils.formatAccommodationDateTime
+import com.viktoriia.trippocket.ui.utils.formatAccommodationDateTime
 import java.time.temporal.ChronoUnit
 
 @Composable

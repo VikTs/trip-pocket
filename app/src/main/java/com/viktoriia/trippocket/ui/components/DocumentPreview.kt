@@ -29,7 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.viktoriia.trippocket.utils.loadFilePreview
+import com.viktoriia.trippocket.ui.utils.loadFilePreview
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

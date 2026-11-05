@@ -5,7 +5,7 @@ import java.time.temporal.ChronoUnit
 
 sealed interface TripStatus {
     data class Upcoming(val daysUntil: Long) : TripStatus
-    data object Ongoing : TripStatus
+    data class Ongoing(val daysRemaining: Long) : TripStatus
     data object Completed : TripStatus
 }
 
@@ -23,6 +23,10 @@ fun getTripStatus(
 
         today.isAfter(endDate) -> TripStatus.Completed
 
-        else -> TripStatus.Ongoing
+        else -> {
+            TripStatus.Ongoing(
+                daysRemaining = ChronoUnit.DAYS.between(today, endDate) + 1
+            )
+        }
     }
 }

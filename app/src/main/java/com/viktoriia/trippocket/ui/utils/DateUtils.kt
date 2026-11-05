@@ -1,6 +1,7 @@
-package com.viktoriia.trippocket.utils
+package com.viktoriia.trippocket.ui.utils
 
 import android.content.Context
+import android.icu.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -116,7 +117,7 @@ fun formatAccommodationDateTime(
     val locale = getAppLocale(context)
 
     val formatter =
-        android.icu.text.SimpleDateFormat(
+        SimpleDateFormat(
             accommodationDateTimePattern,
             locale
         )

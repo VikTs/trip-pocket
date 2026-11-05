@@ -13,8 +13,8 @@ import com.viktoriia.trippocket.data.model.AccommodationNotificationType
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportNotification
 import com.viktoriia.trippocket.data.model.TransportType
-import com.viktoriia.trippocket.utils.formatTripTime
-import com.viktoriia.trippocket.utils.getAppLocale
+import com.viktoriia.trippocket.ui.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.getAppLocale
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.time.ZoneId
 import javax.inject.Inject

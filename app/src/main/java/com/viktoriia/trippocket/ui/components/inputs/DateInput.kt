@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.utils.formatTripDate
+import com.viktoriia.trippocket.ui.utils.formatTripDate
 import java.time.LocalDate
 
 @Composable

@@ -100,7 +100,14 @@
 
     <string name="trips_empty_message">You don\'t have any planned trips</string>
     <string name="trips_add_btn_label">Add trip</string>
-    <string name="trips_trip_card_today_label">Today</string>
+    <string name="trips_trip_card_active_label" comment="Short label">Ongoing</string>
+    <string name="trips_trip_card_next_transport">Next: %1$s to %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Next: Check in at %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Next: Check out at %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Left %1$d day</item>
+        <item quantity="other">Left %1$d days</item>
+    </plurals>
     <string name="trips_trip_card_completed_label">Completed</string>
     <plurals name="trips_trip_card_duration_and_dates_label">
         <item quantity="one">%1$d day  |  %2$s</item>
@@ -114,6 +121,7 @@
     <string name="trips_toggle_upcoming_label">Upcoming</string>
     <string name="trips_toggle_empty_message">No trips found</string>
     <string name="trips_title">My trips</string>
+
 
     <string name="add_accommodation_title">Add accommodation</string>
     <string name="edit_accommodation_title">Edit accommodation</string>

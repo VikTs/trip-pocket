@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTripTime
 
 @Composable
 fun AccommodationCard(

@@ -25,7 +25,7 @@
     <string name="exact_reminders_enable_btn_label">Activer les rappels</string>
     <string name="notifications_and_exact_reminders_disabled_message">Les notifications et les rappels sont désactivés</string>
     <string name="notification_help_title">Vous ne recevez pas les notifications?</string>
-    <string name="notification_help_body">Certains téléphones limitent le fonctionnement des applications en arrière-plan. Essayez les solutions suivantes :\n\n• Dans les paramètres de batterie de l\'application, sélectionnez "Sans restriction" ou désactivez l\'optimisation de la batterie pour l\'application. Si vous avez un appareil Samsung, retirez l\'application de la liste "Applications en veille".\n• Activez le "Démarrage automatique" de l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres appareils).\n• Assurez-vous que les autorisations "Notifications" et "Alarmes et rappels" sont activées pour l\'application.\n\nLes noms des paramètres peuvent varier selon le modèle du téléphone et la version du système.</string>
+    <string name="notification_help_body">Certains téléphones limitent le fonctionnement des applications en arrière-plan. Essayez les solutions suivantes:\n\n• Dans les paramètres de batterie de l\'application, sélectionnez "Sans restriction" ou désactivez l\'optimisation de la batterie pour l\'application. Si vous avez un appareil Samsung, retirez l\'application de la liste "Applications en veille".\n• Activez le "Démarrage automatique" de l\'application (disponible sur Xiaomi, Oppo, Vivo, Huawei et d\'autres appareils).\n• Assurez-vous que les autorisations "Notifications" et "Alarmes et rappels" sont activées pour l\'application.\n\nLes noms des paramètres peuvent varier selon le modèle du téléphone et la version du système.</string>
     <string name="notification_help_open_settings">Paramètres de l\'application</string>
     <string name="notification_help_close">Fermer</string>
 
@@ -100,7 +100,14 @@
 
     <string name="trips_empty_message">Vous n’avez aucun voyage planifié</string>
     <string name="trips_add_btn_label">Ajouter un voyage</string>
-    <string name="trips_trip_card_today_label">Aujourd’hui</string>
+    <string name="trips_trip_card_active_label">En cours</string>
+    <string name="trips_trip_card_next_transport">Ensuite: %1$s vers %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Ensuite: arrivée à %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Ensuite: départ de %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Encore %1$d jour</item>
+        <item quantity="other">Encore %1$d jours</item>
+    </plurals>
     <string name="trips_trip_card_completed_label">Terminé</string>
     <plurals name="trips_trip_card_duration_and_dates_label">
         <item quantity="one">%1$d jour  |  %2$s</item>
@@ -144,7 +151,7 @@
     <string name="notification_departure_time">Heure de départ: %1$s</string>
     <string name="notification_upcoming_check_in">Check-in à %1$s</string>
     <string name="notification_upcoming_check_out">Check-out de %1$s</string>
-    <string name="notification_accommodation_time">Heure : %1$s</string>
+    <string name="notification_accommodation_time">Heure: %1$s</string>
     <string name="notification_transport_platform">Quai %1$s</string>
     <string name="notification_transport_seat">Place %1$s</string>
     <string name="notification_transport_coach">Voiture %1$s</string>

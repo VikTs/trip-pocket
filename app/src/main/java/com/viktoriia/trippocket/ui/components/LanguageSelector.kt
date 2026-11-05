@@ -20,8 +20,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.utils.getAppLocale
-import com.viktoriia.trippocket.utils.setAppLanguage
+import com.viktoriia.trippocket.ui.utils.getAppLocale
+import com.viktoriia.trippocket.ui.utils.setAppLanguage
 
 @Composable
 fun LanguageSelector() {

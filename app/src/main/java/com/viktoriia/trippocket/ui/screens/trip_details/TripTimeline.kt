@@ -11,14 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.data.model.Transport
-import com.viktoriia.trippocket.utils.formatDayOfWeekDate
+import com.viktoriia.trippocket.data.model.TripEvent
+import com.viktoriia.trippocket.ui.utils.formatDayOfWeekDate
 import java.time.LocalDateTime
 
 @Composable
 fun TripTimeline(
-    itemsByDay: Map<java.time.LocalDate, List<TimelineItem>>,
+    itemsByDay: Map<java.time.LocalDate, List<TripEvent>>,
     onTransportClick: (transportId: Long) -> Unit,
     onAccommodationClick: (accommodationId: Long) -> Unit
 ) {
@@ -45,13 +44,13 @@ fun TripTimeline(
                 items = items,
                 key = { _, item ->
                     when (item) {
-                        is TimelineItem.TransportItem ->
+                        is TripEvent.TransportItem ->
                             "transport_${item.transport.id}"
 
-                        is TimelineItem.AccommodationCheckInItem ->
+                        is TripEvent.AccommodationCheckInItem ->
                             "accommodation_checkout_${item.accommodation.id}"
 
-                        is TimelineItem.AccommodationCheckOutItem ->
+                        is TripEvent.AccommodationCheckOutItem ->
                             "accommodation_checkin_${item.accommodation.id}"
                     }
                 }
@@ -72,7 +71,7 @@ fun TripTimeline(
 
                 when (item) {
 
-                    is TimelineItem.TransportItem -> {
+                    is TripEvent.TransportItem -> {
                         TransportCard(
                             transport = item.transport,
                             isFirst = index == 0,
@@ -87,7 +86,7 @@ fun TripTimeline(
                         )
                     }
 
-                    is TimelineItem.AccommodationCheckInItem -> {
+                    is TripEvent.AccommodationCheckInItem -> {
                         AccommodationCard(
                             accommodation = item.accommodation,
                             isCheckin = true,
@@ -103,7 +102,7 @@ fun TripTimeline(
                         )
                     }
 
-                    is TimelineItem.AccommodationCheckOutItem -> {
+                    is TripEvent.AccommodationCheckOutItem -> {
                         AccommodationCard(
                             accommodation = item.accommodation,
                             isCheckin = false,
@@ -121,30 +120,5 @@ fun TripTimeline(
                 }
             }
         }
-    }
-}
-
-sealed interface TimelineItem {
-    val time: LocalDateTime
-
-    data class TransportItem(
-        val transport: Transport
-    ) : TimelineItem {
-        override val time: LocalDateTime
-            get() = transport.from.time
-    }
-
-    data class AccommodationCheckInItem(
-        val accommodation: Accommodation
-    ) : TimelineItem {
-        override val time: LocalDateTime
-            get() = accommodation.checkIn
-    }
-
-    data class AccommodationCheckOutItem(
-        val accommodation: Accommodation
-    ) : TimelineItem {
-        override val time: LocalDateTime
-            get() = accommodation.checkOut
     }
 }
