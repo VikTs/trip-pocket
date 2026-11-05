@@ -38,6 +38,31 @@ fun formatTripDates(
     }
 }
 
+fun formatTripDatesWithYear(
+    context: Context,
+    startDate: LocalDate,
+    endDate: LocalDate
+): String {
+    val locale = getAppLocale(context)
+
+    val shortFormatter = DateTimeFormatter.ofPattern(shortDatePattern, locale)
+    val fullFormatter = DateTimeFormatter.ofPattern(fullDatePattern, locale)
+
+    return when {
+        startDate.year != endDate.year -> {
+            "${startDate.format(fullFormatter)} — ${endDate.format(fullFormatter)}"
+        }
+
+        startDate.month == endDate.month -> {
+            "${startDate.dayOfMonth}–${endDate.format(fullFormatter)}"
+        }
+
+        else -> {
+            "${startDate.format(shortFormatter)} — ${endDate.format(fullFormatter)}"
+        }
+    }
+}
+
 fun formatTripDate(
     context: Context,
     date: LocalDate

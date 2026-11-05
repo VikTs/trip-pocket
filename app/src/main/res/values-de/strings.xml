@@ -45,7 +45,8 @@
     <string name="add_transport_date_label">Datum</string>
     <string name="add_transport_time_label">Uhrzeit</string>
     <string name="add_transport_address_label">Name der Station (oder Adresse)</string>
-    <string name="add_transport_airport_label">Flughafen</string>
+    <string name="add_transport_airport_name_label">Name des Flughafens (oder Adresse)</string>
+    <string name="add_transport_airport_code_label">Flughafencode</string>
     <string name="add_transport_platform_label">Gleis</string>
     <string name="add_transport_terminal_label">Terminal</string>
     <string name="add_transport_gate_label">Gate</string>
@@ -70,7 +71,6 @@
     <string name="transport_details_driver_phone_label">Fahrer</string>
     <string name="transport_details_platform_label">Gleis</string>
     <string name="transport_details_terminal_label">Terminal</string>
-    <string name="transport_details_terminal_not_specified">Kein Terminal angegeben</string>
     <string name="transport_details_gate_label">Gate</string>
     <string name="transport_details_documents_section_title">Dokumente</string>
     <string name="transport_details_notifications_section_title">Benachrichtigungen</string>

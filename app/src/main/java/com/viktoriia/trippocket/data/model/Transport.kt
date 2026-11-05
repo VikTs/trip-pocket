@@ -48,4 +48,5 @@ data class TransportStop(
     val address: String,
     val platform: String?,
     val terminal: String?,
+    val code: String?,
 )

@@ -22,12 +22,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Accommodation
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.Trip
-import com.viktoriia.trippocket.ui.components.TopBar
-import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.ui.components.ItemEditMenu
+import com.viktoriia.trippocket.ui.components.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -108,7 +108,9 @@ fun TripDetailsScreen(
                     top = 16.dp
                 )
         ) {
-            TripDetailsHeader(trip)
+            TripDetailsHeader(
+                trip = trip
+            )
 
             Box(
                 modifier = Modifier.weight(1f)

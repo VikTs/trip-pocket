@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Image
+import androidx.compose.material.icons.outlined.PictureAsPdf
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -45,6 +46,7 @@ fun DocumentPreview(
             loadFilePreview(path)
         }
     }
+    val isPdf = fileName?.endsWith(".pdf", ignoreCase = true) ?: false
 
     Column(
         modifier = modifier.width(110.dp),
@@ -77,7 +79,11 @@ fun DocumentPreview(
                 )
             } ?: run {
                 Icon(
-                    imageVector = Icons.Outlined.Image,
+                    imageVector = if (isPdf) {
+                        Icons.Outlined.PictureAsPdf
+                    } else {
+                        Icons.Outlined.Image
+                    },
                     contentDescription = null,
                     modifier = Modifier.size(36.dp),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant
@@ -92,7 +98,9 @@ fun DocumentPreview(
                 style = typography.bodySmall,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 4.dp)
             )
         }
     }

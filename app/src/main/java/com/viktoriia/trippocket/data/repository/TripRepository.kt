@@ -3,8 +3,9 @@ package com.viktoriia.trippocket.data.repository
 import com.viktoriia.trippocket.data.dao.TripDao
 import com.viktoriia.trippocket.data.model.Trip
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class TripRepository(
+class TripRepository @Inject constructor(
     private val tripDao: TripDao
 ) {
     fun getTrips(): Flow<List<Trip>> {

@@ -15,10 +15,14 @@ import com.viktoriia.trippocket.data.model.TransportNotification
 import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.utils.formatTripTime
 import com.viktoriia.trippocket.utils.getAppLocale
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.time.ZoneId
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class NotificationScheduler(
-    private val context: Context
+@Singleton
+class NotificationScheduler @Inject constructor(
+    @param:ApplicationContext private val context: Context
 ) {
     private val alarmManager =
         context.getSystemService(

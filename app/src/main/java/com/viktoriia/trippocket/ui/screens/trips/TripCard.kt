@@ -1,7 +1,6 @@
 package com.viktoriia.trippocket.ui.screens.trips
 
 import androidx.compose.foundation.Image
-import coil3.compose.rememberAsyncImagePainter
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,10 +27,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import coil3.compose.rememberAsyncImagePainter
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.domain.model.TripStatus
+import com.viktoriia.trippocket.domain.model.getTripStatus
 import com.viktoriia.trippocket.utils.formatTripDates
-import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 @Composable
@@ -43,36 +44,37 @@ fun TripCard(
     val colorScheme = MaterialTheme.colorScheme
     val context = LocalContext.current
 
-    val today = LocalDate.now()
-    val isCompleted = today.isAfter(trip.endDate)
+    val tripStatus = getTripStatus(
+        startDate = trip.startDate,
+        endDate = trip.endDate
+    )
 
-    val tripStatus = when {
-        today.isBefore(trip.startDate) -> {
-            val daysUntil = ChronoUnit.DAYS.between(
-                today,
-                trip.startDate
-            ).toInt()
-
+    val statusText = when (tripStatus) {
+        is TripStatus.Upcoming -> {
             pluralStringResource(
                 R.plurals.trips_trip_card_in_days_label,
-                daysUntil,
-                daysUntil
+                tripStatus.daysUntil.toInt(),
+                tripStatus.daysUntil.toInt()
             )
         }
 
-        !isCompleted -> {
+        TripStatus.Ongoing -> {
             stringResource(R.string.trips_trip_card_today_label)
         }
 
-        else -> {
+        TripStatus.Completed -> {
             stringResource(R.string.trips_trip_card_completed_label)
         }
     }
 
-    val tripDuration = (ChronoUnit.DAYS.between(
-        trip.startDate,
-        trip.endDate
-    ) + 1).toInt()
+    val isCompleted = tripStatus is TripStatus.Completed
+
+    val tripDuration = (
+            ChronoUnit.DAYS.between(
+                trip.startDate,
+                trip.endDate
+            ) + 1
+            ).toInt()
 
     Card(
         onClick = onClick,
@@ -143,7 +145,7 @@ fun TripCard(
                     )
 
                     Text(
-                        text = tripStatus,
+                        text = statusText,
                         style = typography.bodyMedium,
                         color = colorScheme.onSurfaceVariant
                     )
