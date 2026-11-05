@@ -22,6 +22,11 @@ fun TripTimeline(
     onAccommodationClick: (accommodationId: Long) -> Unit
 ) {
     val context = LocalContext.current
+    val nextEvent = itemsByDay.values
+        .flatten()
+        .sortedBy { it.time }
+        .firstOrNull { it.time > LocalDateTime.now() }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
@@ -42,20 +47,8 @@ fun TripTimeline(
 
             itemsIndexed(
                 items = items,
-                key = { _, item ->
-                    when (item) {
-                        is TripEvent.TransportItem ->
-                            "transport_${item.transport.id}"
-
-                        is TripEvent.AccommodationCheckInItem ->
-                            "accommodation_checkout_${item.accommodation.id}"
-
-                        is TripEvent.AccommodationCheckOutItem ->
-                            "accommodation_checkin_${item.accommodation.id}"
-                    }
-                }
+                key = { _, item -> "${item::class.simpleName}_${item.id}" }
             ) { index, item ->
-
                 val today = LocalDateTime.now()
 
                 val isActive =
@@ -70,7 +63,6 @@ fun TripTimeline(
                     } ?: false
 
                 when (item) {
-
                     is TripEvent.TransportItem -> {
                         TransportCard(
                             transport = item.transport,
@@ -78,9 +70,10 @@ fun TripTimeline(
                             isLast = index == items.lastIndex,
                             isActive = isActive,
                             isPrevActive = isPrevActive,
+                            isNext = nextEvent?.id == item.id,
                             onClick = {
                                 onTransportClick(
-                                    item.transport.id
+                                    item.id
                                 )
                             }
                         )
@@ -94,9 +87,11 @@ fun TripTimeline(
                             isLast = index == items.lastIndex,
                             isActive = isActive,
                             isPrevActive = isPrevActive,
+                            isNext = (nextEvent?.id == item.id)
+                                    && (nextEvent is TripEvent.AccommodationCheckInItem),
                             onClick = {
                                 onAccommodationClick(
-                                    item.accommodation.id
+                                    item.id
                                 )
                             }
                         )
@@ -110,6 +105,8 @@ fun TripTimeline(
                             isLast = index == items.lastIndex,
                             isActive = isActive,
                             isPrevActive = isPrevActive,
+                            isNext = (nextEvent?.id == item.id)
+                                    && (nextEvent is TripEvent.AccommodationCheckOutItem),
                             onClick = {
                                 onAccommodationClick(
                                     item.accommodation.id

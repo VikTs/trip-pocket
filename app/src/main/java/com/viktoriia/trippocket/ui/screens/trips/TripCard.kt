@@ -113,7 +113,7 @@ fun TripCard(
         modifier = Modifier.fillMaxWidth(),
         border = if (isActive) BorderStroke(
             width = 2.dp,
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.secondary
         ) else null,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
@@ -156,11 +156,11 @@ fun TripCard(
                         Text(
                             text = stringResource(R.string.trips_trip_card_active_label),
                             style = typography.labelSmall,
-                            color = colorScheme.onPrimary,
+                            color = colorScheme.onSecondary,
                             modifier = Modifier
                                 .padding(start = 8.dp)
                                 .background(
-                                    color = colorScheme.primary,
+                                    color = colorScheme.secondary,
                                     shape = RoundedCornerShape(6.dp)
                                 )
                                 .padding(horizontal = 8.dp, vertical = 4.dp)
@@ -220,13 +220,13 @@ fun TripCard(
                     .padding(start = 16.dp, end = 16.dp, bottom = 8.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = colorScheme.primary
+                    containerColor = colorScheme.secondary
                 )
             ) {
                 Text(
                     text = it,
                     style = typography.bodyMedium,
-                    color = colorScheme.onPrimary,
+                    color = colorScheme.onSecondary,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 10.dp)

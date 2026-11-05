@@ -15,12 +15,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -37,11 +39,18 @@ fun TransportCard(
     isFirst: Boolean,
     isLast: Boolean,
     isActive: Boolean,
-    isPrevActive: Boolean
+    isPrevActive: Boolean,
+    isNext: Boolean
 ) {
+    val typography = MaterialTheme.typography
+
     val transportInfo = listOfNotNull(
-        transport.coach?.let { "${stringResource(R.string.trip_details_transport_card_coach_label)}: $it" },
-        transport.place?.let { "${stringResource(R.string.trip_details_transport_card_seat_label)}: $it" }
+        transport.coach?.let {
+            "${stringResource(R.string.trip_details_transport_card_coach_label)}: $it"
+        },
+        transport.place?.let {
+            "${stringResource(R.string.trip_details_transport_card_seat_label)}: $it"
+        }
     ).joinToString(", ")
 
     val departureInfo = buildString {
@@ -55,84 +64,61 @@ fun TransportCard(
             }
     }
 
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+    TimelineEventCard(
+        time = transport.from.time,
+        icon = transport.transportType.toIcon(),
+        onClick = { onClick(transport.id) },
+        isFirst = isFirst,
+        isLast = isLast,
+        isActive = isActive,
+        isPrevActive = isPrevActive,
+        isNext = isNext
     ) {
-        Text(formatTripTime(transport.from.time), style = MaterialTheme.typography.titleSmall)
+        FlowRow(
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = transport.from.city,
+                style = typography.titleMedium,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
 
-        Spacer(modifier = Modifier.width(8.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.Default.ArrowForward,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(20.dp)
+                        .padding(horizontal = 4.dp)
+                )
 
-        TimelineNode(
-            icon = transport.transportType.toIcon(),
-            isFirst = isFirst,
-            isLast = isLast,
-            isActive = isActive,
-            isPrevActive = isPrevActive
+                Text(
+                    text = transport.to.city,
+                    style = typography.titleMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(6.dp))
+
+        Text(
+            text = "${stringResource(R.string.trip_details_departure_label)}: $departureInfo",
+            maxLines = if (transportInfo.isNotBlank()) 1 else 2,
+            overflow = TextOverflow.Ellipsis,
+            style = typography.bodyMedium
         )
 
-        Spacer(modifier = Modifier.width(12.dp))
-
-        Card(
-            modifier = Modifier.weight(1f),
-            onClick = { onClick(transport.id) },
-        ) {
-            Box(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp)
-                ) {
-                    FlowRow(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            text = transport.from.city,
-                            style = MaterialTheme.typography.titleMedium,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.ArrowForward,
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .size(20.dp)
-                                    .padding(horizontal = 4.dp)
-                            )
-
-                            Text(
-                                text = transport.to.city,
-                                style = MaterialTheme.typography.titleMedium,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(6.dp))
-
-                    Text(
-                        text = "${stringResource(R.string.trip_details_departure_label)}: $departureInfo",
-                        maxLines = if (transportInfo.isNotBlank()) 1 else 2,
-                        overflow = TextOverflow.Ellipsis,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-
-                    if (transportInfo.isNotBlank()) {
-                        Text(
-                            text = transportInfo,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                    }
-                }
-            }
+        if (transportInfo.isNotBlank()) {
+            Text(
+                text = transportInfo,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                style = typography.bodyMedium
+            )
         }
     }
 }

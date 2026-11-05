@@ -97,6 +97,7 @@
     <string name="trip_details_transport_card_bus_departure">Відправлення автобуса</string>
     <string name="trip_details_transport_card_train_departure">Відправлення потяга</string>
     <string name="trip_details_delete_confirmation_title">Видалити подорож?</string>
+    <string name="trip_details_next_event_label">ДАЛІ</string>
 
     <string name="trips_empty_message">У вас немає запланованих подорожей</string>
     <string name="trips_add_btn_label">Додати подорож</string>

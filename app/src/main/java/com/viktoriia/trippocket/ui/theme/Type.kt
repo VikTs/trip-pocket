@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.sp
 // Set of Material typography styles to start with
 val Typography = Typography(
     titleLarge = TextStyle(
-        fontSize = 20.sp,
+        fontSize = 22.sp,
         lineHeight = 26.sp,
         fontWeight = FontWeight.SemiBold
     ),

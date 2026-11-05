@@ -97,6 +97,7 @@
     <string name="trip_details_plane_departure_label">Aéroport</string>
     <string name="trip_details_terminal_label">term.</string>
     <string name="trip_details_delete_confirmation_title">Supprimer le voyage?</string>
+    <string name="trip_details_next_event_label">SUIVANT</string>
 
     <string name="trips_empty_message">Vous n’avez aucun voyage planifié</string>
     <string name="trips_add_btn_label">Ajouter un voyage</string>
