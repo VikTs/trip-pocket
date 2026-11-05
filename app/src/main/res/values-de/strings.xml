@@ -102,6 +102,7 @@
     <string name="trips_empty_message">Du hast keine geplanten Reisen</string>
     <string name="trips_add_btn_label">Reise hinzufügen</string>
     <string name="trips_trip_card_active_label">Läuft</string>
+    <string name="trips_trip_card_next_label">Bald</string>
     <string name="trips_trip_card_next_transport">Als Nächstes: %1$s nach %2$s</string>
     <string name="trips_trip_card_next_accommodation_check_in">Als Nächstes: Check-in bei %1$s</string>
     <string name="trips_trip_card_next_accommodation_check_out">Als Nächstes: Check-out bei %1$s</string>

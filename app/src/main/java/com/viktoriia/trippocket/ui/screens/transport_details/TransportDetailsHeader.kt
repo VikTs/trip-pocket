@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Hotel
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -25,7 +26,7 @@ import com.viktoriia.trippocket.ui.extensions.toDisplayName
 import com.viktoriia.trippocket.ui.extensions.toIcon
 
 @Composable
-fun TransportInfoSection(transport: Transport) {
+fun TransportDetailsSection(transport: Transport) {
     val typography = MaterialTheme.typography
     val transportType = transport.transportType
 
@@ -34,10 +35,11 @@ fun TransportInfoSection(transport: Transport) {
     ) {
         Icon(
             imageVector = transportType.toIcon(),
+            tint = MaterialTheme.colorScheme.secondary,
             contentDescription = "Transport type",
             modifier = Modifier
                 .padding(top = 2.dp)
-                .size(22.dp)
+                .size(35.dp)
         )
 
         Spacer(

@@ -35,17 +35,28 @@ fun TripsList(
     onNextEventClick: (Long, TripEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val activeTrips = tripsByYear.values
-        .flatten()
-        .filter {
-            val status = getTripStatus(it.startDate, it.endDate)
-            status is TripStatus.Ongoing
-        }
+    val allTrips = tripsByYear.values.flatten()
+
+    val activeTrips = allTrips.filter {
+        getTripStatus(it.startDate, it.endDate) is TripStatus.Ongoing
+    }
+
+    val tripsToShow = if (activeTrips.isNotEmpty()) {
+        activeTrips
+    } else {
+        allTrips
+            .filter {
+                getTripStatus(it.startDate, it.endDate) is TripStatus.Upcoming
+            }
+            .minByOrNull { it.startDate }
+            ?.let(::listOf)
+            .orEmpty()
+    }
 
     val viewModel: TripsViewModel = hiltViewModel()
 
-    val activeTripEventsFlow = remember(activeTrips) {
-        viewModel.getTripEvents(activeTrips.map { it.id })
+    val activeTripEventsFlow = remember(tripsToShow) {
+        viewModel.getTripEvents(tripsToShow.map { it.id })
             .map { tripEvents ->
                 tripEvents.mapNotNull { (tripId, events) ->
                     val nextEvent = events.firstOrNull {
@@ -92,12 +103,20 @@ fun TripsList(
                 }
 
                 items(yearTrips) { trip ->
+                    val isActive = activeTrips.any { it.id == trip.id }
+                    val isNext = !isActive && tripsToShow.any { it.id == trip.id }
+
                     TripCard(
                         trip = trip,
                         onClick = { onTripClick(trip) },
                         onNextEventClick = onNextEventClick,
-                        isActive = activeTrips.any { it.id == trip.id },
-                        nextEvent = activeTripEvents[trip.id]
+                        isActive = isActive,
+                        nextEvent = activeTripEvents[trip.id],
+                        activeStatusLabel = if (isActive)
+                            stringResource(R.string.trips_trip_card_active_label)
+                        else if (isNext)
+                            stringResource(R.string.trips_trip_card_next_label)
+                        else null
                     )
                 }
             }

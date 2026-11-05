@@ -83,7 +83,7 @@ fun TransportDetailsScreen(
                 .padding(innerPadding)
                 .padding(16.dp)
         ) {
-            TransportInfoSection(
+            TransportDetailsSection(
                 transport = transport
             )
 

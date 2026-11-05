@@ -102,6 +102,7 @@
     <string name="trips_empty_message">Vous n’avez aucun voyage planifié</string>
     <string name="trips_add_btn_label">Ajouter un voyage</string>
     <string name="trips_trip_card_active_label">En cours</string>
+    <string name="trips_trip_card_next_label">Ensuite</string>
     <string name="trips_trip_card_next_transport">Ensuite: %1$s vers %2$s</string>
     <string name="trips_trip_card_next_accommodation_check_in">Ensuite: arrivée à %1$s</string>
     <string name="trips_trip_card_next_accommodation_check_out">Ensuite: départ de %1$s</string>

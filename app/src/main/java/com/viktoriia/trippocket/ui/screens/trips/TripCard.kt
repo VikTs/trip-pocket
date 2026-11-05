@@ -49,6 +49,7 @@ fun TripCard(
     trip: Trip,
     onClick: () -> Unit,
     onNextEventClick: (Long, TripEvent) -> Unit,
+    activeStatusLabel: String? = null,
     isActive: Boolean = false,
     nextEvent: TripEvent? = null
 ) {
@@ -157,9 +158,9 @@ fun TripCard(
                         modifier = Modifier.weight(1f)
                     )
 
-                    if (isActive) {
+                    activeStatusLabel?.let {
                         Text(
-                            text = stringResource(R.string.trips_trip_card_active_label),
+                            text = it,
                             style = typography.labelSmall,
                             color = colorScheme.onSecondary,
                             modifier = Modifier

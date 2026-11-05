@@ -101,6 +101,7 @@
 
     <string name="trips_empty_message">У вас немає запланованих подорожей</string>
     <string name="trips_add_btn_label">Додати подорож</string>
+    <string name="trips_trip_card_next_label">Далі</string>
     <string name="trips_trip_card_active_label">Зараз</string>
     <string name="trips_trip_card_next_transport">Далі: %1$s до міста %2$s</string>
     <string name="trips_trip_card_next_accommodation_check_in">Далі: заїзд — %1$s</string>
