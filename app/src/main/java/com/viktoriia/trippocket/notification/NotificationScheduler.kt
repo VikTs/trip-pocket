@@ -13,7 +13,7 @@ import com.viktoriia.trippocket.data.model.AccommodationNotificationType
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportNotification
 import com.viktoriia.trippocket.data.model.TransportType
-import com.viktoriia.trippocket.ui.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTime
 import com.viktoriia.trippocket.ui.utils.getAppLocale
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.time.ZoneId
@@ -55,7 +55,7 @@ class NotificationScheduler @Inject constructor(
 
         val message = textContext.getString(
             R.string.notification_departure_time,
-            formatTripTime(transport.from.time)
+            formatTime(transport.from.time)
         )
 
         schedule(
@@ -106,7 +106,7 @@ class NotificationScheduler @Inject constructor(
             ),
             message = textContext.getString(
                 R.string.notification_accommodation_time,
-                formatTripTime(targetTime)
+                formatTime(targetTime)
             ),
             channelId = NotificationChannel.ACCOMMODATION,
             destination =

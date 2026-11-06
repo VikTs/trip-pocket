@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.ui.utils.formatTripDate
+import com.viktoriia.trippocket.ui.utils.formatFullDate
 import java.time.LocalDate
 
 @Composable
@@ -35,7 +35,7 @@ fun DateInput(
         modifier = modifier
     ) {
         OutlinedTextField(
-            value = selectedDate?.let { formatTripDate(context, it) } ?: "",
+            value = selectedDate?.let { formatFullDate(context, it) } ?: "",
             onValueChange = {},
             label = label,
             placeholder = {

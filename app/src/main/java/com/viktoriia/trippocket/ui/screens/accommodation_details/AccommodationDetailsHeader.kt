@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Hotel
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,7 +28,7 @@ fun AccommodationDetailsHeader(
     accommodation: Accommodation,
 ) {
     Row(
-        verticalAlignment = Alignment.Top
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
             imageVector = Icons.Default.Hotel,
@@ -69,7 +69,7 @@ fun AccommodationDetailsHeader(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = Icons.Default.Person,
+                imageVector = Icons.Default.Phone,
                 contentDescription = "Contact phone",
                 tint = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier

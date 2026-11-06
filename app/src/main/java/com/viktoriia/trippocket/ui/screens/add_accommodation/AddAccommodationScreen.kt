@@ -158,7 +158,7 @@ fun AddAccommodationScreen(
                 onContactPhoneChanged = {
                     state = state.copy(
                         contactPhone = it.filter { char ->
-                            char.isDigit() || char == '+'
+                            char.isDigit() || char == '+' || char == ' '
                         }
                     )
                 }

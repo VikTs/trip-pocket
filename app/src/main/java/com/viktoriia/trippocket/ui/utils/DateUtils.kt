@@ -14,13 +14,12 @@ private val shortDatePattern = "d MMM"
 private val fullDatePattern = "d MMM yyyy"
 private val dayOfWeekDatePattern = "EEEE, d MMM"
 private val timePattern = "HH:mm"
-private val dateTimePattern = "d MMM HH:mm"
-private val accommodationDateTimePattern = "d MMMM, HH:mm"
+private val datePattern = "d MMMM"
 
 private val timeFormatter =
     DateTimeFormatter.ofPattern(timePattern)
 
-fun formatTripDates(
+fun formatDatesRange(
     context: Context,
     startDate: LocalDate,
     endDate: LocalDate
@@ -40,7 +39,7 @@ fun formatTripDates(
     }
 }
 
-fun formatTripDatesWithYear(
+fun formatDatesRangeWithYear(
     context: Context,
     startDate: LocalDate,
     endDate: LocalDate
@@ -65,7 +64,7 @@ fun formatTripDatesWithYear(
     }
 }
 
-fun formatTripDate(
+fun formatFullDate(
     context: Context,
     date: LocalDate
 ): String {
@@ -89,12 +88,16 @@ fun formatDayOfWeekDate(
     return date.format(formatter)
 }
 
-fun formatTripTime(
+fun formatTime(
     time: LocalTime
 ): String =
     time.format(timeFormatter)
+fun formatTime(
+    time: LocalDateTime
+): String =
+    time.format(timeFormatter)
 
-fun formatTripMonth(
+fun formatMonth(
     context: Context,
     date: LocalDate
 ): String {
@@ -106,24 +109,7 @@ fun formatTripMonth(
     return date.format(formatter)
 }
 
-fun formatTripTime(
-    time: LocalDateTime
-): String =
-    time.format(timeFormatter)
-
-fun formatTripDateTime(
-    context: Context,
-    dateTime: LocalDateTime
-): String {
-    val locale = getAppLocale(context)
-
-    val formatter =
-        DateTimeFormatter.ofPattern(dateTimePattern, locale)
-
-    return dateTime.format(formatter)
-}
-
-fun formatAccommodationDateTime(
+fun formatDate(
     context: Context,
     dateTime: LocalDateTime
 ): String {
@@ -131,7 +117,7 @@ fun formatAccommodationDateTime(
 
     val formatter =
         SimpleDateFormat(
-            accommodationDateTimePattern,
+            datePattern,
             locale
         )
 

@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.ui.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTime
 import java.time.LocalDateTime
 
 @Composable
@@ -43,7 +43,7 @@ fun TimelineEventCard(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = formatTripTime(time),
+            text = formatTime(time),
             style = typography.titleSmall,
             color = if (isNext) colors.secondary else Color.Unspecified
         )

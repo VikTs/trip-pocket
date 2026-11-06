@@ -24,7 +24,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.ui.utils.formatTripMonth
+import com.viktoriia.trippocket.ui.utils.formatMonth
 import java.time.LocalDate
 
 @Composable
@@ -52,7 +52,7 @@ fun TripDayFilters(
             val dayKey = date.toString()
 
             DayFilterItem(
-                month = formatTripMonth(context, date),
+                month = formatMonth(context, date),
                 day = date.dayOfMonth.toString(),
                 selected = selectedDay == dayKey,
                 onClick = { onDaySelected(dayKey) }

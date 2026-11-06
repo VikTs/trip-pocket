@@ -1,11 +1,16 @@
 package com.viktoriia.trippocket.ui.screens.accommodation_details
 
+import android.content.Context
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
@@ -13,7 +18,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.ui.utils.formatAccommodationDateTime
+import com.viktoriia.trippocket.ui.utils.formatDate
+import com.viktoriia.trippocket.ui.utils.formatTime
+import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 @Composable
@@ -26,17 +33,25 @@ fun AccommodationInfoSection(
         accommodation.checkOut.toLocalDate()
     )
 
-    DetailRow(
-        label = stringResource(R.string.accommodation_details_check_in_label),
-        value = formatAccommodationDateTime(context, accommodation.checkIn)
-    )
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        DateTimeDetailRow(
+            modifier = Modifier.weight(1f),
+            label = stringResource(R.string.accommodation_details_check_in_label),
+            value = accommodation.checkIn,
+            context = context
+        )
 
-    Spacer(modifier = Modifier.height(16.dp))
-
-    DetailRow(
-        label = stringResource(R.string.accommodation_details_check_out_label),
-        value = formatAccommodationDateTime(context, accommodation.checkOut)
-    )
+        DateTimeDetailRow(
+            modifier = Modifier.weight(1f),
+            label = stringResource(R.string.accommodation_details_check_out_label),
+            value = accommodation.checkOut,
+            context = context
+        )
+    }
 
     Spacer(modifier = Modifier.height(16.dp))
 
@@ -55,17 +70,47 @@ fun DetailRow(
     label: String,
     value: String
 ) {
-    Column {
+    Column() {
         Text(
             text = label,
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.labelLarge,
         )
 
         Spacer(modifier = Modifier.height(4.dp))
 
         Text(
             text = value,
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.titleMedium
+        )
+    }
+}
+
+@Composable
+fun DateTimeDetailRow(
+    label: String,
+    value: LocalDateTime,
+    modifier: Modifier = Modifier,
+    context: Context
+) {
+    val date = formatDate(context, value)
+    val time = formatTime(value)
+
+    Column(modifier = modifier) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelLarge,
+            )
+
+        Spacer(modifier = Modifier.height(4.dp))
+
+        Text(
+            text = date,
+            style = MaterialTheme.typography.titleMedium
+        )
+
+        Text(
+            text = time,
+            style = MaterialTheme.typography.titleSmall
         )
     }
 }

@@ -183,7 +183,7 @@ fun AddTransportScreen(
                 onDriverPhoneChange = {
                     state = state.copy(
                         driverPhone = it?.filter { char ->
-                            char.isDigit() || char == '+'
+                            char.isDigit() || char == '+' || char == ' '
                         }
                     )
                 },

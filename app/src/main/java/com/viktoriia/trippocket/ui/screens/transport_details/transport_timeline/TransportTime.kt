@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.viktoriia.trippocket.ui.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTime
 import java.time.LocalDateTime
 
 @Composable
@@ -29,7 +29,7 @@ fun TransportTime(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = formatTripTime(time),
+                text = formatTime(time),
                 style = MaterialTheme.typography.titleMedium
             )
 

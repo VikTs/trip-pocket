@@ -30,7 +30,7 @@ fun TransportDetailsSection(transport: Transport) {
     val transportType = transport.transportType
 
     Row(
-        verticalAlignment = Alignment.Top
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
             imageVector = transportType.toIcon(),
@@ -83,7 +83,7 @@ fun TransportDetailsSection(transport: Transport) {
         (transport.carrier != null || transport.driverPhone != null)
     ) {
         Row(
-            verticalAlignment = Alignment.Top
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 imageVector = Icons.Default.Person,
