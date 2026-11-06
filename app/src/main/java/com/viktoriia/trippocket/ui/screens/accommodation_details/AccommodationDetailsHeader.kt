@@ -33,7 +33,7 @@ fun AccommodationDetailsHeader(
         Icon(
             imageVector = Icons.Default.Hotel,
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.secondary,
+            tint = MaterialTheme.colorScheme.primary,
             modifier = Modifier
                 .padding(top = 2.dp)
                 .size(35.dp)
@@ -71,7 +71,7 @@ fun AccommodationDetailsHeader(
             Icon(
                 imageVector = Icons.Default.Phone,
                 contentDescription = "Contact phone",
-                tint = MaterialTheme.colorScheme.secondary,
+                tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .size(35.dp)
             )

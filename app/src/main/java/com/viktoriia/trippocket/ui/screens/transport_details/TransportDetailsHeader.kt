@@ -34,7 +34,7 @@ fun TransportDetailsSection(transport: Transport) {
     ) {
         Icon(
             imageVector = transportType.toIcon(),
-            tint = MaterialTheme.colorScheme.secondary,
+            tint = MaterialTheme.colorScheme.primary,
             contentDescription = "Transport type",
             modifier = Modifier
                 .padding(top = 2.dp)
@@ -88,7 +88,7 @@ fun TransportDetailsSection(transport: Transport) {
             Icon(
                 imageVector = Icons.Default.Person,
                 contentDescription = "Carrier",
-                tint = MaterialTheme.colorScheme.secondary,
+                tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .size(35.dp)
             )
