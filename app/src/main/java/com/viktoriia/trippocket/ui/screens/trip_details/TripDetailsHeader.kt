@@ -78,6 +78,6 @@ fun TripDetailsHeader(
     }
 
     Spacer(
-        modifier = Modifier.height(24.dp)
+        modifier = Modifier.height(28.dp)
     )
 }

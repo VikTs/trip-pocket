@@ -9,6 +9,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Date
 
+private val shortMonthPattern = "MMM"
 private val shortDatePattern = "d MMM"
 private val fullDatePattern = "d MMM yyyy"
 private val dayOfWeekDatePattern = "EEEE, d MMM"
@@ -92,6 +93,18 @@ fun formatTripTime(
     time: LocalTime
 ): String =
     time.format(timeFormatter)
+
+fun formatTripMonth(
+    context: Context,
+    date: LocalDate
+): String {
+    val locale = getAppLocale(context)
+
+    val formatter =
+        DateTimeFormatter.ofPattern(shortMonthPattern, locale)
+
+    return date.format(formatter)
+}
 
 fun formatTripTime(
     time: LocalDateTime

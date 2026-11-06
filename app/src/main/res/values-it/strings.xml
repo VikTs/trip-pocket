@@ -53,6 +53,7 @@
     <string name="add_transport_city_label">Città</string>
     <string name="add_transport_private_bus_label">È un autobus privato</string>
     <string name="add_transport_carrier_label">Compagnia</string>
+    <string name="add_transport_airline_label">Compagnia aerea</string>
     <string name="add_transport_driver_phone_label">Telefono dell\'autista</string>
 
     <string name="edit_trip_title">Modifica viaggio</string>
@@ -98,6 +99,7 @@
     <string name="trip_details_transport_card_train_departure">Partenza del treno</string>
     <string name="trip_details_delete_confirmation_title">Eliminare il viaggio?</string>
     <string name="trip_details_next_event_label">PROSSIMO</string>
+    <string name="trip_details_day_filter_all_label">Tutti</string>
 
     <string name="trips_empty_message">Non hai viaggi pianificati</string>
     <string name="trips_add_btn_label">Aggiungi viaggio</string>

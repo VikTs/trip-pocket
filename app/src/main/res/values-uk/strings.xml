@@ -53,6 +53,7 @@
     <string name="add_transport_city_label">Місто</string>
     <string name="add_transport_private_bus_label">Це приватний автобус</string>
     <string name="add_transport_carrier_label">Перевізник</string>
+    <string name="add_transport_airline_label">Авіакомпанія</string>
     <string name="add_transport_driver_phone_label">Телефон водія</string>
 
     <string name="edit_trip_title">Редагувати подорож</string>
@@ -98,6 +99,7 @@
     <string name="trip_details_transport_card_train_departure">Відправлення потяга</string>
     <string name="trip_details_delete_confirmation_title">Видалити подорож?</string>
     <string name="trip_details_next_event_label">ДАЛІ</string>
+    <string name="trip_details_day_filter_all_label">Всі</string>
 
     <string name="trips_empty_message">У вас немає запланованих подорожей</string>
     <string name="trips_add_btn_label">Додати подорож</string>

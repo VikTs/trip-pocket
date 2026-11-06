@@ -53,6 +53,7 @@
     <string name="add_transport_city_label">City</string>
     <string name="add_transport_private_bus_label">This is a private bus</string>
     <string name="add_transport_carrier_label">Carrier</string>
+    <string name="add_transport_airline_label">Airline</string>
     <string name="add_transport_driver_phone_label">Driver phone</string>
 
     <string name="edit_trip_title">Edit trip</string>
@@ -98,6 +99,7 @@
     <string name="trip_details_transport_card_train_departure">Train departure</string>
     <string name="trip_details_delete_confirmation_title">Delete the trip?</string>
     <string name="trip_details_next_event_label">NEXT</string>
+    <string name="trip_details_day_filter_all_label">All</string>
 
     <string name="trips_empty_message">You don\'t have any planned trips</string>
     <string name="trips_add_btn_label">Add trip</string>

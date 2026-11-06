@@ -89,8 +89,9 @@ fun TransportDetailsSection(transport: Transport) {
             Icon(
                 imageVector = Icons.Default.Person,
                 contentDescription = "Carrier",
+                tint = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier
-                    .size(22.dp)
+                    .size(35.dp)
             )
 
             Spacer(

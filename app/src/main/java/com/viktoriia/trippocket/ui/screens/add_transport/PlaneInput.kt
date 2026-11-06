@@ -54,7 +54,7 @@ fun PlaneInput(
         value = carrier ?: "",
         onValueChange = onCarrierChange,
         label = {
-            Text(stringResource(R.string.add_transport_carrier_label))
+            Text(stringResource(R.string.add_transport_airline_label))
         },
         singleLine = true,
         modifier = Modifier.fillMaxWidth(),

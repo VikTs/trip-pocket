@@ -18,14 +18,11 @@ import java.time.LocalDateTime
 @Composable
 fun TripTimeline(
     itemsByDay: Map<java.time.LocalDate, List<TripEvent>>,
+    nextEvent: TripEvent?,
     onTransportClick: (transportId: Long) -> Unit,
     onAccommodationClick: (accommodationId: Long) -> Unit
 ) {
     val context = LocalContext.current
-    val nextEvent = itemsByDay.values
-        .flatten()
-        .sortedBy { it.time }
-        .firstOrNull { it.time > LocalDateTime.now() }
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),

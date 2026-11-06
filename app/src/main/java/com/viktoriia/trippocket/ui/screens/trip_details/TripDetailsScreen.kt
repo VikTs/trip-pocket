@@ -27,8 +27,12 @@ import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
 import com.viktoriia.trippocket.data.model.TripEvent
+import com.viktoriia.trippocket.domain.model.TripStatus
+import com.viktoriia.trippocket.domain.model.getTripStatus
 import com.viktoriia.trippocket.ui.components.ItemEditMenu
 import com.viktoriia.trippocket.ui.components.TopBar
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,11 +64,54 @@ fun TripDetailsScreen(
     fun openAddSheet() {
         showAddSheet = true
     }
+    val today = LocalDate.now()
 
-    val itemsByDay =
-        tripEvents.groupBy {
-            it.time.toLocalDate()
+    val tripDays = remember(tripEvents) {
+        tripEvents
+            .map { it.time.toLocalDate() }
+            .distinct()
+            .sorted()
+    }
+
+    val isTripActive = getTripStatus(
+        trip.startDate,
+        trip.endDate
+    ) is TripStatus.Ongoing
+
+    var selectedDay by rememberSaveable(trip.id) {
+        mutableStateOf<String?>(null)
+    }
+
+    LaunchedEffect(trip.id, tripDays, isTripActive) {
+        selectedDay = if (!isTripActive) {
+            null
+        } else {
+            tripDays
+                .firstOrNull { it == today }
+                ?.toString()
+                ?: tripDays
+                    .firstOrNull { it.isAfter(today) }
+                    ?.toString()
         }
+    }
+
+    val filteredEvents = remember(tripEvents, selectedDay) {
+        selectedDay?.let { day ->
+            tripEvents.filter {
+                it.time.toLocalDate().toString() == day
+            }
+        } ?: tripEvents
+    }
+
+    val itemsByDay = filteredEvents.groupBy {
+        it.time.toLocalDate()
+    }
+
+    val nextEvent = remember(tripEvents) {
+        tripEvents
+            .filter { it.time > LocalDateTime.now() }
+            .minByOrNull { it.time }
+    }
 
     Scaffold(
         topBar = {
@@ -96,6 +143,14 @@ fun TripDetailsScreen(
                 trip = trip
             )
 
+            if (!isLoading && tripEvents.size > 1) {
+                TripDayFilters(
+                    days = tripDays,
+                    selectedDay = selectedDay,
+                    onDaySelected = { selectedDay = it }
+                )
+            }
+
             Box(
                 modifier = Modifier.weight(1f)
             ) {
@@ -114,6 +169,7 @@ fun TripDetailsScreen(
                 } else {
                     TripTimeline(
                         itemsByDay = itemsByDay,
+                        nextEvent = nextEvent,
                         onTransportClick = onTransportClick,
                         onAccommodationClick = onAccommodationClick
                     )
