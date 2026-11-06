@@ -84,6 +84,11 @@ fun TripsScreen(
 
             val currentYear = today.year
             val showYears = tripsByYear.keys.any { it != currentYear }
+            val hiddenYears = if (showUpcoming) {
+                setOf(currentYear)
+            } else {
+                emptySet()
+            }
 
             Box(
                 modifier = Modifier
@@ -108,6 +113,7 @@ fun TripsScreen(
                     TripsList(
                         tripsByYear = tripsByYear,
                         showYears = showYears,
+                        hiddenYears = hiddenYears,
                         onTripClick = onTripClick,
                         onNextEventClick = onNextEventClick,
                         modifier = Modifier.weight(1f),

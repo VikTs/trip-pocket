@@ -31,6 +31,7 @@ import java.time.LocalDateTime
 fun TripsList(
     tripsByYear: Map<Int, List<Trip>>,
     showYears: Boolean,
+    hiddenYears: Set<Int>,
     onTripClick: (Trip) -> Unit,
     onNextEventClick: (Long, TripEvent) -> Unit,
     modifier: Modifier = Modifier,
@@ -93,7 +94,7 @@ fun TripsList(
             }
         } else {
             tripsByYear.forEach { (year, yearTrips) ->
-                if (showYears) {
+                if (showYears && year !in hiddenYears) {
                     item {
                         Text(
                             text = year.toString(),
