@@ -24,11 +24,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.data.model.TripEvent
+import com.viktoriia.trippocket.ui.components.LanguageSelector
 import com.viktoriia.trippocket.ui.components.TopBar
 import java.time.LocalDate
-import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.ui.components.LanguageSelector
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -36,7 +37,8 @@ fun TripsScreen(
     trips: List<Trip>,
     isLoading: Boolean,
     onAddTripClick: () -> Unit,
-    onTripClick: (Trip) -> Unit
+    onTripClick: (Trip) -> Unit,
+    onNextEventClick: (Long, TripEvent) -> Unit
 ) {
     val colors = MaterialTheme.colorScheme
 
@@ -83,38 +85,41 @@ fun TripsScreen(
             val currentYear = today.year
             val showYears = tripsByYear.keys.any { it != currentYear }
 
-            Column(
+            Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding)
             ) {
-                TripFilterToggle(
-                    showUpcoming = showUpcoming,
-                    onUpcomingClick = { showUpcoming = true },
-                    onPastClick = { showUpcoming = false },
-                    modifier = Modifier.padding(
-                        horizontal = 24.dp,
-                        vertical = 18.dp
+                Column(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    TripFilterToggle(
+                        showUpcoming = showUpcoming,
+                        onUpcomingClick = { showUpcoming = true },
+                        onPastClick = { showUpcoming = false },
+                        modifier = Modifier.padding(
+                            horizontal = 24.dp,
+                            vertical = 18.dp
+                        )
                     )
-                )
 
-                Spacer(
-                    modifier = Modifier.height(8.dp)
-                )
+                    Spacer(modifier = Modifier.height(8.dp))
 
-                TripsList(
-                    tripsByYear = tripsByYear,
-                    showYears = showYears,
-                    onTripClick = onTripClick,
-                    modifier = Modifier.weight(1f)
-                )
+                    TripsList(
+                        tripsByYear = tripsByYear,
+                        showYears = showYears,
+                        onTripClick = onTripClick,
+                        onNextEventClick = onNextEventClick,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
 
                 FloatingActionButton(
                     onClick = onAddTripClick,
                     containerColor = colors.primary,
                     shape = CircleShape,
                     modifier = Modifier
-                        .align(Alignment.End)
+                        .align(Alignment.BottomEnd)
                         .padding(16.dp)
                 ) {
                     Icon(
@@ -122,7 +127,6 @@ fun TripsScreen(
                         contentDescription = "Add trip"
                     )
                 }
-
             }
         }
     }

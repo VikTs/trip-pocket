@@ -20,5 +20,11 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
         connection.execSQL(
             "ALTER TABLE transports ADD COLUMN to_terminal TEXT"
         )
+        connection.execSQL(
+            "ALTER TABLE transports ADD COLUMN from_code TEXT"
+        )
+        connection.execSQL(
+            "ALTER TABLE transports ADD COLUMN to_code TEXT"
+        )
     }
 }

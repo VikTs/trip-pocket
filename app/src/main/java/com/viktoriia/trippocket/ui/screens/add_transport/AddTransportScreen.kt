@@ -26,8 +26,8 @@ import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportStop
 import com.viktoriia.trippocket.data.model.TransportType
-import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.ui.components.TopBar
+import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.viewmodel.TransportsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -71,12 +71,14 @@ fun AddTransportScreen(
                     fromAddress = transport.from.address,
                     fromPlatform = transport.from.platform.orEmpty(),
                     fromTerminal = transport.from.terminal.orEmpty(),
+                    fromCode = transport.from.code.orEmpty(),
                     toCity = transport.to.city,
                     toDate = transport.to.time.toLocalDate(),
                     toTime = transport.to.time.toLocalTime(),
                     toAddress = transport.to.address,
                     toPlatform = transport.to.platform.orEmpty(),
                     toTerminal = transport.to.terminal.orEmpty(),
+                    toCode = transport.to.code.orEmpty(),
                     documents = documents.map {
                         SelectedDocument(
                             name = it.name,
@@ -108,6 +110,7 @@ fun AddTransportScreen(
                 address = state.fromAddress.trim(),
                 platform = state.fromPlatform?.trim()?.ifBlank { null },
                 terminal = state.fromTerminal?.trim()?.ifBlank { null },
+                code = state.fromCode?.trim()?.ifBlank { null },
             ),
             to = TransportStop(
                 city = state.toCity.trim(),
@@ -118,6 +121,7 @@ fun AddTransportScreen(
                 address = state.toAddress.trim(),
                 platform = state.toPlatform?.trim()?.ifBlank { null },
                 terminal = state.toTerminal?.trim()?.ifBlank { null },
+                code = state.toCode?.trim()?.ifBlank { null },
             )
         )
 
@@ -223,6 +227,7 @@ fun AddTransportScreen(
                 date = state.fromDate,
                 time = state.fromTime,
                 address = state.fromAddress,
+                code = state.fromCode,
                 platform = state.fromPlatform,
                 terminal = state.fromTerminal,
                 maxDate = state.toDate,
@@ -251,6 +256,11 @@ fun AddTransportScreen(
                         fromPlatform = it
                     )
                 },
+                onCodeChange = {
+                    state = state.copy(
+                        fromCode = it
+                    )
+                },
                 onTerminalChange = {
                     state = state.copy(
                         fromTerminal = it
@@ -267,6 +277,7 @@ fun AddTransportScreen(
                 date = state.toDate,
                 time = state.toTime,
                 address = state.toAddress,
+                code = state.toCode,
                 platform = state.toPlatform,
                 terminal = state.toTerminal,
                 minDate = state.fromDate,
@@ -288,6 +299,11 @@ fun AddTransportScreen(
                 onAddressChange = {
                     state = state.copy(
                         toAddress = it
+                    )
+                },
+                onCodeChange = {
+                    state = state.copy(
+                        toCode = it
                     )
                 },
                 onPlatformChange = {
@@ -353,12 +369,14 @@ data class AddTransportState(
     val fromAddress: String = "",
     val fromPlatform: String? = null,
     val fromTerminal: String? = null,
+    val fromCode: String? = null,
     val toCity: String = "",
     val toDate: LocalDate? = null,
     val toTime: LocalTime? = null,
     val toAddress: String = "",
     val toPlatform: String? = null,
     val toTerminal: String? = null,
+    val toCode: String? = null,
     val documents: List<SelectedDocument> = emptyList()
 ) {
     val isValid: Boolean

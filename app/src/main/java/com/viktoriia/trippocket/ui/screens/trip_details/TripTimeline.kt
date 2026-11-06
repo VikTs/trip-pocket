@@ -11,18 +11,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.data.model.Transport
-import com.viktoriia.trippocket.utils.formatDayOfWeekDate
+import com.viktoriia.trippocket.data.model.TripEvent
+import com.viktoriia.trippocket.ui.utils.formatDayOfWeekDate
 import java.time.LocalDateTime
 
 @Composable
 fun TripTimeline(
-    itemsByDay: Map<java.time.LocalDate, List<TimelineItem>>,
+    itemsByDay: Map<java.time.LocalDate, List<TripEvent>>,
+    nextEvent: TripEvent?,
     onTransportClick: (transportId: Long) -> Unit,
     onAccommodationClick: (accommodationId: Long) -> Unit
 ) {
     val context = LocalContext.current
+
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
@@ -43,20 +44,8 @@ fun TripTimeline(
 
             itemsIndexed(
                 items = items,
-                key = { _, item ->
-                    when (item) {
-                        is TimelineItem.TransportItem ->
-                            "transport_${item.transport.id}"
-
-                        is TimelineItem.AccommodationCheckInItem ->
-                            "accommodation_checkout_${item.accommodation.id}"
-
-                        is TimelineItem.AccommodationCheckOutItem ->
-                            "accommodation_checkin_${item.accommodation.id}"
-                    }
-                }
+                key = { _, item -> "${item::class.simpleName}_${item.id}" }
             ) { index, item ->
-
                 val today = LocalDateTime.now()
 
                 val isActive =
@@ -71,23 +60,23 @@ fun TripTimeline(
                     } ?: false
 
                 when (item) {
-
-                    is TimelineItem.TransportItem -> {
+                    is TripEvent.TransportItem -> {
                         TransportCard(
                             transport = item.transport,
                             isFirst = index == 0,
                             isLast = index == items.lastIndex,
                             isActive = isActive,
                             isPrevActive = isPrevActive,
+                            isNext = nextEvent?.id == item.id,
                             onClick = {
                                 onTransportClick(
-                                    item.transport.id
+                                    item.id
                                 )
                             }
                         )
                     }
 
-                    is TimelineItem.AccommodationCheckInItem -> {
+                    is TripEvent.AccommodationCheckInItem -> {
                         AccommodationCard(
                             accommodation = item.accommodation,
                             isCheckin = true,
@@ -95,15 +84,17 @@ fun TripTimeline(
                             isLast = index == items.lastIndex,
                             isActive = isActive,
                             isPrevActive = isPrevActive,
+                            isNext = (nextEvent?.id == item.id)
+                                    && (nextEvent is TripEvent.AccommodationCheckInItem),
                             onClick = {
                                 onAccommodationClick(
-                                    item.accommodation.id
+                                    item.id
                                 )
                             }
                         )
                     }
 
-                    is TimelineItem.AccommodationCheckOutItem -> {
+                    is TripEvent.AccommodationCheckOutItem -> {
                         AccommodationCard(
                             accommodation = item.accommodation,
                             isCheckin = false,
@@ -111,6 +102,8 @@ fun TripTimeline(
                             isLast = index == items.lastIndex,
                             isActive = isActive,
                             isPrevActive = isPrevActive,
+                            isNext = (nextEvent?.id == item.id)
+                                    && (nextEvent is TripEvent.AccommodationCheckOutItem),
                             onClick = {
                                 onAccommodationClick(
                                     item.accommodation.id
@@ -121,30 +114,5 @@ fun TripTimeline(
                 }
             }
         }
-    }
-}
-
-sealed interface TimelineItem {
-    val time: LocalDateTime
-
-    data class TransportItem(
-        val transport: Transport
-    ) : TimelineItem {
-        override val time: LocalDateTime
-            get() = transport.from.time
-    }
-
-    data class AccommodationCheckInItem(
-        val accommodation: Accommodation
-    ) : TimelineItem {
-        override val time: LocalDateTime
-            get() = accommodation.checkIn
-    }
-
-    data class AccommodationCheckOutItem(
-        val accommodation: Accommodation
-    ) : TimelineItem {
-        override val time: LocalDateTime
-            get() = accommodation.checkOut
     }
 }

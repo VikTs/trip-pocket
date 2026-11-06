@@ -12,7 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.viktoriia.trippocket.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTripTime
 import java.time.LocalTime
 import com.viktoriia.trippocket.R
 

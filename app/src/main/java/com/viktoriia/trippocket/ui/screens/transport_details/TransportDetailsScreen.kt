@@ -83,12 +83,12 @@ fun TransportDetailsScreen(
                 .padding(innerPadding)
                 .padding(16.dp)
         ) {
-            TransportInfoSection(
+            TransportDetailsSection(
                 transport = transport
             )
 
             Spacer(
-                modifier = Modifier.height(36.dp)
+                modifier = Modifier.height(32.dp)
             )
 
             TransportTimelineSection(
@@ -105,7 +105,7 @@ fun TransportDetailsScreen(
             )
 
             Spacer(
-                modifier = Modifier.height(36.dp)
+                modifier = Modifier.height(32.dp)
             )
 
             TransportNotificationsSection(

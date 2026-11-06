@@ -9,8 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.viktoriia.trippocket.ui.navigation.TripPocketNavHost
 import com.viktoriia.trippocket.ui.theme.TripPocketTheme
-import com.viktoriia.trippocket.utils.getAppLocale
-import com.viktoriia.trippocket.utils.initializeAppLanguage
+import com.viktoriia.trippocket.ui.utils.getAppLocale
+import com.viktoriia.trippocket.ui.utils.initializeAppLanguage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -21,24 +22,43 @@ fun TimelineNode(
     isFirst: Boolean,
     isLast: Boolean,
     isActive: Boolean,
-    isPrevActive: Boolean
+    isPrevActive: Boolean,
+    isNext: Boolean,
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val nodeColor = if (isActive) colorScheme.primary else colorScheme.onSurfaceVariant
-    val prevNodeColor = if (isPrevActive) colorScheme.primary else colorScheme.onSurfaceVariant
+    val boxHeight = if(isNext) 160.dp else 130.dp
+
+    val nodeColor =
+        if (isNext)
+            colorScheme.onSecondary
+        else if (isActive) colorScheme.primary
+        else colorScheme.onSurfaceVariant
+
+    val prevNodeColor =
+        if (isPrevActive) colorScheme.primary
+        else colorScheme.onSurfaceVariant
+
+    val nextLineColor =
+        if (isActive) colorScheme.primary
+        else colorScheme.onSurfaceVariant
+
     val backgroundColor =
-        if (isActive) colorScheme.primaryContainer else colorScheme.surfaceContainer
+        if (isNext)
+            colorScheme.secondary
+        else if (isActive)
+            colorScheme.primaryContainer
+        else colorScheme.surfaceContainer
 
     Box(
         modifier = Modifier
             .width(32.dp)
-            .height(135.dp)
+            .height(boxHeight)
     ) {
         if (!isFirst) {
             Box(
                 modifier = Modifier
                     .width(2.dp)
-                    .height(65.dp)
+                    .height(boxHeight/2)
                     .align(Alignment.TopCenter)
                     .background(prevNodeColor)
             )
@@ -48,9 +68,9 @@ fun TimelineNode(
             Box(
                 modifier = Modifier
                     .width(2.dp)
-                    .height(65.dp)
+                    .height(boxHeight/2)
                     .align(Alignment.BottomCenter)
-                    .background(nodeColor)
+                    .background(nextLineColor)
             )
         }
 

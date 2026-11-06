@@ -6,13 +6,11 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.data.model.TripEvent
 import com.viktoriia.trippocket.ui.screens.create_trip.CreateTripScreen
 import com.viktoriia.trippocket.ui.screens.trip_details.TripDetailsScreen
 import com.viktoriia.trippocket.ui.screens.trips.TripsScreen
-import com.viktoriia.trippocket.viewmodel.AccommodationViewModel
-import com.viktoriia.trippocket.viewmodel.TransportsViewModel
 import com.viktoriia.trippocket.viewmodel.TripsViewModel
-import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 
 fun NavGraphBuilder.tripNavGraph(
@@ -36,6 +34,16 @@ fun NavGraphBuilder.tripNavGraph(
             },
             onTripClick = { trip ->
                 navController.navigate("trip/${trip.id}")
+            },
+            onNextEventClick = { tripId, event ->
+                navController.navigate("trip/$tripId")
+                when (event) {
+                    is TripEvent.TransportItem ->
+                        navController.navigate("trip/$tripId/transport/${event.id}")
+                    is TripEvent.AccommodationCheckInItem,
+                    is TripEvent.AccommodationCheckOutItem ->
+                        navController.navigate("trip/$tripId/accommodation/${event.id}")
+                }
             }
         )
     }
@@ -83,7 +91,6 @@ fun NavGraphBuilder.tripNavGraph(
     }
 
     composable("trip/{tripId}") { backStackEntry ->
-
         val tripId = backStackEntry.arguments
             ?.getString("tripId")
             ?.toLongOrNull()
@@ -96,35 +103,13 @@ fun NavGraphBuilder.tripNavGraph(
         }
 
         if (tripId != null && trip != null) {
-
-            val transportViewModel: TransportsViewModel =
-                hiltViewModel()
-
-            val transports by transportViewModel
-                .transports
-                .collectAsStateWithLifecycle()
-
-            val isTransportsLoading by transportViewModel
-                .isLoading
-                .collectAsStateWithLifecycle()
-
-            val accommodationViewModel: AccommodationViewModel =
-                hiltViewModel()
-
-            val accommodations by accommodationViewModel
-                .accommodations
-                .collectAsStateWithLifecycle()
-
-            val isAccommodationsLoading by accommodationViewModel
-                .isLoading
-                .collectAsStateWithLifecycle()
+            val tripEvents by tripsViewModel
+                .getTripEvents(tripId)
+                .collectAsStateWithLifecycle(initialValue = emptyList())
 
             TripDetailsScreen(
                 trip = trip,
-                transports = transports,
-                accommodations = accommodations,
-                isLoading = isTransportsLoading || isAccommodationsLoading,
-
+                tripEvents = tripEvents,
                 onEditClick = {
                     navController.navigate(
                         "edit_trip/$tripId"

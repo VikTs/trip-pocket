@@ -157,7 +157,7 @@ fun CreateTripScreen(
 
                     val trip = Trip(
                         id = editTrip?.id ?: 0,
-                        name = tripName,
+                        name = tripName.trim(),
                         startDate = selectedStartDate,
                         endDate = selectedEndDate,
                         imagePath = selectedImage?.path

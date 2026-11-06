@@ -14,28 +14,31 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.data.model.Transport
-import com.viktoriia.trippocket.data.model.Trip
-import com.viktoriia.trippocket.ui.components.TopBar
 import com.viktoriia.trippocket.R
+import com.viktoriia.trippocket.data.model.Trip
+import com.viktoriia.trippocket.data.model.TripEvent
+import com.viktoriia.trippocket.domain.model.TripStatus
+import com.viktoriia.trippocket.domain.model.getTripStatus
 import com.viktoriia.trippocket.ui.components.ItemEditMenu
+import com.viktoriia.trippocket.ui.components.TopBar
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TripDetailsScreen(
     trip: Trip,
-    transports: List<Transport>,
-    accommodations: List<Accommodation>,
-    isLoading: Boolean,
+    tripEvents: List<TripEvent>,
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
     onAddAccommodationClick: () -> Unit,
@@ -50,37 +53,65 @@ fun TripDetailsScreen(
         mutableStateOf(false)
     }
 
+    var isLoading by remember {
+        mutableStateOf(true)
+    }
+
+    LaunchedEffect(tripEvents) {
+        isLoading = false
+    }
+
     fun openAddSheet() {
         showAddSheet = true
     }
+    val today = LocalDate.now()
 
-    val timelineItems =
-        buildList<TimelineItem> {
-            transports.forEach {
-                add(
-                    TimelineItem.TransportItem(it)
-                )
-            }
+    val tripDays = remember(tripEvents) {
+        tripEvents
+            .map { it.time.toLocalDate() }
+            .distinct()
+            .sorted()
+    }
 
-            accommodations.forEach {
-                add(
-                    TimelineItem.AccommodationCheckInItem(it)
-                )
-            }
+    val isTripActive = getTripStatus(
+        trip.startDate,
+        trip.endDate
+    ) is TripStatus.Ongoing
 
-            accommodations.forEach {
-                add(
-                    TimelineItem.AccommodationCheckOutItem(it)
-                )
-            }
-        }.sortedBy {
-            it.time
+    var selectedDay by rememberSaveable(trip.id) {
+        mutableStateOf<String?>(null)
+    }
+
+    LaunchedEffect(trip.id, tripDays, isTripActive) {
+        selectedDay = if (!isTripActive) {
+            null
+        } else {
+            tripDays
+                .firstOrNull { it == today }
+                ?.toString()
+                ?: tripDays
+                    .firstOrNull { it.isAfter(today) }
+                    ?.toString()
         }
+    }
 
-    val itemsByDay =
-        timelineItems.groupBy {
-            it.time.toLocalDate()
-        }
+    val filteredEvents = remember(tripEvents, selectedDay) {
+        selectedDay?.let { day ->
+            tripEvents.filter {
+                it.time.toLocalDate().toString() == day
+            }
+        } ?: tripEvents
+    }
+
+    val itemsByDay = filteredEvents.groupBy {
+        it.time.toLocalDate()
+    }
+
+    val nextEvent = remember(tripEvents) {
+        tripEvents
+            .filter { it.time > LocalDateTime.now() }
+            .minByOrNull { it.time }
+    }
 
     Scaffold(
         topBar = {
@@ -108,7 +139,17 @@ fun TripDetailsScreen(
                     top = 16.dp
                 )
         ) {
-            TripDetailsHeader(trip)
+            TripDetailsHeader(
+                trip = trip
+            )
+
+            if (!isLoading && tripEvents.size > 1) {
+                TripDayFilters(
+                    days = tripDays,
+                    selectedDay = selectedDay,
+                    onDaySelected = { selectedDay = it }
+                )
+            }
 
             Box(
                 modifier = Modifier.weight(1f)
@@ -120,7 +161,7 @@ fun TripDetailsScreen(
                     ) {
                         CircularProgressIndicator()
                     }
-                } else if (timelineItems.isEmpty()) {
+                } else if (tripEvents.isEmpty()) {
                     EmptyTripContent(
                         modifier = Modifier.fillMaxSize(),
                         onAddClick = ::openAddSheet
@@ -128,6 +169,7 @@ fun TripDetailsScreen(
                 } else {
                     TripTimeline(
                         itemsByDay = itemsByDay,
+                        nextEvent = nextEvent,
                         onTransportClick = onTransportClick,
                         onAccommodationClick = onAccommodationClick
                     )

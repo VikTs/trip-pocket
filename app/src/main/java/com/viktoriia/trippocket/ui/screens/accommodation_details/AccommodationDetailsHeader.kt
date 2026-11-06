@@ -31,9 +31,10 @@ fun AccommodationDetailsHeader(
         Icon(
             imageVector = Icons.Default.Hotel,
             contentDescription = null,
+            tint = MaterialTheme.colorScheme.secondary,
             modifier = Modifier
                 .padding(top = 2.dp)
-                .size(22.dp)
+                .size(35.dp)
         )
 
         Spacer(

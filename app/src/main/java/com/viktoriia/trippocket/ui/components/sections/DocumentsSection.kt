@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.ui.components.DocumentPreview
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
-import com.viktoriia.trippocket.utils.openFile
+import com.viktoriia.trippocket.ui.utils.openFile
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

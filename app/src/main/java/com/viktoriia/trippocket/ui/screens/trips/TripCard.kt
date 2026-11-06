@@ -1,7 +1,9 @@
 package com.viktoriia.trippocket.ui.screens.trips
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import coil3.compose.rememberAsyncImagePainter
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,8 +12,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.outlined.AccessTime
 import androidx.compose.material.icons.outlined.TaskAlt
 import androidx.compose.material3.Card
@@ -27,56 +31,95 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import coil3.compose.rememberAsyncImagePainter
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
-import com.viktoriia.trippocket.utils.formatTripDates
-import java.time.LocalDate
+import com.viktoriia.trippocket.data.model.TripEvent
+import com.viktoriia.trippocket.domain.model.TripStatus
+import com.viktoriia.trippocket.domain.model.getTripStatus
+import com.viktoriia.trippocket.ui.extensions.toDisplayName
+import com.viktoriia.trippocket.ui.utils.formatTripDates
+import com.viktoriia.trippocket.ui.utils.formatTripTime
 import java.time.temporal.ChronoUnit
 
 @Composable
 fun TripCard(
     trip: Trip,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onNextEventClick: (Long, TripEvent) -> Unit,
+    activeStatusLabel: String? = null,
+    isActive: Boolean = false,
+    nextEvent: TripEvent? = null
 ) {
     val typography = MaterialTheme.typography
     val colorScheme = MaterialTheme.colorScheme
     val context = LocalContext.current
 
-    val today = LocalDate.now()
-    val isCompleted = today.isAfter(trip.endDate)
+    val tripStatus = getTripStatus(
+        startDate = trip.startDate,
+        endDate = trip.endDate
+    )
 
-    val tripStatus = when {
-        today.isBefore(trip.startDate) -> {
-            val daysUntil = ChronoUnit.DAYS.between(
-                today,
-                trip.startDate
-            ).toInt()
-
+    val statusText = when (tripStatus) {
+        is TripStatus.Upcoming -> {
             pluralStringResource(
                 R.plurals.trips_trip_card_in_days_label,
-                daysUntil,
-                daysUntil
+                tripStatus.daysUntil.toInt(),
+                tripStatus.daysUntil.toInt()
             )
         }
 
-        !isCompleted -> {
-            stringResource(R.string.trips_trip_card_today_label)
+        is TripStatus.Ongoing -> {
+            pluralStringResource(
+                R.plurals.trips_trip_card_days_remaining_label,
+                tripStatus.daysRemaining.toInt(),
+                tripStatus.daysRemaining.toInt()
+            )
         }
 
-        else -> {
+        TripStatus.Completed -> {
             stringResource(R.string.trips_trip_card_completed_label)
         }
     }
 
-    val tripDuration = (ChronoUnit.DAYS.between(
-        trip.startDate,
-        trip.endDate
-    ) + 1).toInt()
+    val isCompleted = tripStatus is TripStatus.Completed
+
+    val tripDuration = (
+            ChronoUnit.DAYS.between(
+                trip.startDate,
+                trip.endDate
+            ) + 1
+            ).toInt()
+
+    val nextEventLabel = when (val event = nextEvent) {
+        is TripEvent.TransportItem -> stringResource(
+            R.string.trips_trip_card_next_transport,
+            event.transport.transportType.toDisplayName(),
+            event.transport.to.city,
+        )
+
+        is TripEvent.AccommodationCheckInItem -> stringResource(
+            R.string.trips_trip_card_next_accommodation_check_in,
+            event.accommodation.name,
+        )
+
+        is TripEvent.AccommodationCheckOutItem -> stringResource(
+            R.string.trips_trip_card_next_accommodation_check_out,
+            event.accommodation.name,
+            formatTripTime(event.time)
+        )
+
+        null -> null
+    }
 
     Card(
-        onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
+        border = if (isActive) BorderStroke(
+            width = 2.dp,
+            color = MaterialTheme.colorScheme.secondary
+        ) else null,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = colorScheme.surface
@@ -85,6 +128,7 @@ fun TripCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable(onClick = onClick)
                 .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -103,10 +147,32 @@ fun TripCard(
             Column(
                 modifier = Modifier.weight(1f)
             ) {
-                Text(
-                    text = trip.name,
-                    style = typography.titleMedium
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.Top
+                ) {
+                    Text(
+                        text = trip.name,
+                        style = typography.titleMedium,
+                        modifier = Modifier.weight(1f)
+                    )
+
+                    activeStatusLabel?.let {
+                        Text(
+                            text = it,
+                            style = typography.labelSmall,
+                            color = colorScheme.onSecondary,
+                            modifier = Modifier
+                                .padding(start = 8.dp)
+                                .background(
+                                    color = colorScheme.secondary,
+                                    shape = RoundedCornerShape(6.dp)
+                                )
+                                .padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+                }
 
                 Spacer(modifier = Modifier.height(8.dp))
 
@@ -124,6 +190,7 @@ fun TripCard(
                     style = typography.bodyMedium,
                     color = colorScheme.onSurface
                 )
+
 
                 Spacer(modifier = Modifier.height(16.dp))
 
@@ -143,9 +210,46 @@ fun TripCard(
                     )
 
                     Text(
-                        text = tripStatus,
+                        text = statusText,
                         style = typography.bodyMedium,
                         color = colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        }
+
+        if (nextEventLabel != null && nextEvent != null) {
+            Card(
+                onClick = { onNextEventClick(trip.id, nextEvent) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
+                shape = RoundedCornerShape(8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = colorScheme.secondary
+                )
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = nextEventLabel,
+                        style = typography.bodyMedium,
+                        color = colorScheme.onSecondary,
+                        modifier = Modifier.weight(1f),
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                        contentDescription = null,
+                        tint = colorScheme.onSecondary
                     )
                 }
             }

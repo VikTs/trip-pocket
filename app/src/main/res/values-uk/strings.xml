@@ -45,13 +45,15 @@
     <string name="add_transport_date_label">Дата</string>
     <string name="add_transport_time_label">Час</string>
     <string name="add_transport_address_label">Назва вокзалу (або адреса)</string>
-    <string name="add_transport_airport_label">Аеропорт</string>
+    <string name="add_transport_airport_name_label">Назва аеропорту (або адреса)</string>
+    <string name="add_transport_airport_code_label">Код аеропорту</string>
     <string name="add_transport_platform_label">Платформа</string>
     <string name="add_transport_terminal_label">Термінал</string>
     <string name="add_transport_gate_label">Вихід</string>
     <string name="add_transport_city_label">Місто</string>
     <string name="add_transport_private_bus_label">Це приватний автобус</string>
     <string name="add_transport_carrier_label">Перевізник</string>
+    <string name="add_transport_airline_label">Авіакомпанія</string>
     <string name="add_transport_driver_phone_label">Телефон водія</string>
 
     <string name="edit_trip_title">Редагувати подорож</string>
@@ -69,7 +71,6 @@
     <string name="transport_details_carrier_label">Перевізник</string>
     <string name="transport_details_driver_phone_label">Водій</string>
     <string name="transport_details_terminal_label">Термінал</string>
-    <string name="transport_details_terminal_not_specified">Без термінала</string>
     <string name="transport_details_platform_label">Платф.</string>
     <string name="transport_details_gate_label">Вихід</string>
     <string name="transport_details_documents_section_title">Документи</string>
@@ -97,11 +98,22 @@
     <string name="trip_details_transport_card_bus_departure">Відправлення автобуса</string>
     <string name="trip_details_transport_card_train_departure">Відправлення потяга</string>
     <string name="trip_details_delete_confirmation_title">Видалити подорож?</string>
+    <string name="trip_details_next_event_label">ДАЛІ</string>
+    <string name="trip_details_day_filter_all_label">Всі</string>
 
     <string name="trips_empty_message">У вас немає запланованих подорожей</string>
     <string name="trips_add_btn_label">Додати подорож</string>
-    <string name="trips_trip_card_today_label">Сьогодні</string>
-    <string name="trips_trip_card_completed_label">Завершено</string>
+    <string name="trips_trip_card_next_label">Далі</string>
+    <string name="trips_trip_card_active_label">Зараз</string>
+    <string name="trips_trip_card_next_transport">Далі: %1$s до міста %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Далі: заїзд — %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Далі: виїзд — %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Залишився %1$d день</item>
+        <item quantity="few">Залишилося %1$d дні</item>
+        <item quantity="many">Залишилося %1$d днів</item>
+        <item quantity="other">Залишилося %1$d дня</item>
+    </plurals>    <string name="trips_trip_card_completed_label">Завершено</string>
     <plurals name="trips_trip_card_duration_and_dates_label">
         <item quantity="one">%1$d день  |  %2$s</item>
         <item quantity="few">%1$d дні  |  %2$s</item>
