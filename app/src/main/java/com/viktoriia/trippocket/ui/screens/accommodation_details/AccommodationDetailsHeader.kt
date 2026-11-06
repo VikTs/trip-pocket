@@ -9,14 +9,16 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Hotel
-import androidx.compose.material.icons.filled.PhoneAndroid
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Accommodation
 import com.viktoriia.trippocket.ui.components.AddressLink
 import com.viktoriia.trippocket.ui.components.PhoneLink
@@ -60,27 +62,37 @@ fun AccommodationDetailsHeader(
 
     accommodation.contactPhone?.let {
         Spacer(
-            modifier = Modifier.height(16.dp)
+            modifier = Modifier.height(20.dp)
         )
 
         Row(
-            verticalAlignment = Alignment.Top
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = Icons.Default.PhoneAndroid,
-                contentDescription = "Phone",
+                imageVector = Icons.Default.Person,
+                contentDescription = "Contact phone",
+                tint = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier
-                    .size(18.dp)
+                    .size(35.dp)
             )
 
-            Spacer(
-                modifier = Modifier.width(12.dp)
-            )
+            Spacer(modifier = Modifier.width(12.dp))
 
-            PhoneLink(
-                phone = it,
-                style = MaterialTheme.typography.bodyMedium
-            )
+            Column {
+                Text(
+                    text = stringResource(R.string.accommodation_details_contact_number_label),
+                    style = MaterialTheme.typography.titleSmall
+                )
+
+                Spacer(
+                    modifier = Modifier.height(4.dp)
+                )
+
+                PhoneLink(
+                    phone = it,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
         }
     }
 }

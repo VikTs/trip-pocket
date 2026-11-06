@@ -69,7 +69,8 @@
     <string name="transport_details_coach_label">Wagen</string>
     <string name="transport_details_seat_label">Sitzplatz</string>
     <string name="transport_details_carrier_label">Busunternehmen</string>
-    <string name="transport_details_driver_phone_label">Fahrer</string>
+    <string name="transport_details_driver_phone_label">Telefon des Fahrers</string>
+    <string name="transport_details_driver_phone_short_label">Fahrer</string>
     <string name="transport_details_platform_label">Gleis</string>
     <string name="transport_details_terminal_label">Terminal</string>
     <string name="transport_details_gate_label">Gate</string>
@@ -149,6 +150,7 @@
     <string name="accommodation_details_documents_section_title">Dokumente</string>
     <string name="accommodation_details_delete_confirmation_title">Unterkunft löschen?</string>
     <string name="accommodation_details_duration_label">Dauer</string>
+    <string name="accommodation_details_contact_number_label">Kontaktnummer</string>
 
     <string name="notification_upcoming_transport">%1$s nach %2$s</string>
     <string name="notification_departure_time">Abfahrtszeit: %1$s</string>

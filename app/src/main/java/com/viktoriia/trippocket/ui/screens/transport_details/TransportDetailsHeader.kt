@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Hotel
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -99,19 +98,28 @@ fun TransportDetailsSection(transport: Transport) {
             )
 
             Column {
-                transport.carrier?.let {
-                    Text(
-                        "${stringResource(R.string.transport_details_carrier_label)}: ${transport.carrier ?: '-'}",
-                        style = typography.bodyLarge
-                    )
-                }
+                Text(
+                    text = transport.carrier
+                        ?: stringResource(R.string.transport_details_driver_phone_label),
+                    style = MaterialTheme.typography.titleSmall
+                )
 
-                transport.driverPhone?.let {
+                Spacer(
+                    modifier = Modifier.height(4.dp)
+                )
+
+                if (transport.driverPhone != null) {
                     PhoneLink(
-                        label = stringResource(
-                            R.string.transport_details_driver_phone_label
-                        ),
-                        phone = it
+                        label = if (transport.carrier != null)
+                            stringResource(R.string.transport_details_driver_phone_short_label)
+                        else null,
+                        phone = transport.driverPhone,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                } else {
+                    Text(
+                        "${stringResource(R.string.transport_details_driver_phone_label)}: -",
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }

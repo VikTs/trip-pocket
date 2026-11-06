@@ -69,7 +69,8 @@
     <string name="transport_details_coach_label">Coach</string>
     <string name="transport_details_seat_label">Seat</string>
     <string name="transport_details_carrier_label">Carrier</string>
-    <string name="transport_details_driver_phone_label">Driver</string>
+    <string name="transport_details_driver_phone_label" comment="Bus driver phone">Driver phone</string>
+    <string name="transport_details_driver_phone_short_label" comment="Bus driver phone">Driver</string>
     <string name="transport_details_terminal_label">Terminal</string>
     <string name="transport_details_platform_label">Plat.</string>
     <string name="transport_details_gate_label">Gate</string>
@@ -150,6 +151,7 @@
     <string name="accommodation_details_documents_section_title">Documents</string>
     <string name="accommodation_details_delete_confirmation_title">Delete the accommodation?</string>
     <string name="accommodation_details_duration_label">Duration</string>
+    <string name="accommodation_details_contact_number_label">Contact number</string>
 
     <string name="notification_upcoming_transport">%1$s to %2$s</string>
     <string name="notification_departure_time">Departure time: %1$s</string>

@@ -69,7 +69,8 @@
     <string name="transport_details_coach_label">Voiture</string>
     <string name="transport_details_seat_label">Place</string>
     <string name="transport_details_carrier_label">Compagnie</string>
-    <string name="transport_details_driver_phone_label">Conducteur</string>
+    <string name="transport_details_driver_phone_label">Téléphone du chauffeur</string>
+    <string name="transport_details_driver_phone_short_label">Chauffeur</string>
     <string name="transport_details_platform_label">Quai</string>
     <string name="transport_details_terminal_label">Terminal</string>
     <string name="transport_details_gate_label">Porte</string>
@@ -150,6 +151,7 @@
     <string name="accommodation_details_documents_section_title">Documents</string>
     <string name="accommodation_details_delete_confirmation_title">Supprimer l’hébergement?</string>
     <string name="accommodation_details_duration_label">Durée</string>
+    <string name="accommodation_details_contact_number_label">Numéro de contact</string>
 
     <string name="notification_upcoming_transport">%1$s vers %2$s</string>
     <string name="notification_departure_time">Heure de départ: %1$s</string>
