@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Hotel
-import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.data.model.Accommodation
 import com.viktoriia.trippocket.ui.components.AddressLink
-import com.viktoriia.trippocket.ui.components.PhoneLink
 
 @Composable
 fun AccommodationDetailsHeader(
@@ -31,7 +29,7 @@ fun AccommodationDetailsHeader(
         Icon(
             imageVector = Icons.Default.Hotel,
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.secondary,
+            tint = MaterialTheme.colorScheme.primary,
             modifier = Modifier
                 .padding(top = 2.dp)
                 .size(35.dp)
@@ -54,32 +52,6 @@ fun AccommodationDetailsHeader(
             AddressLink(
                 address = accommodation.address,
                 additionalInfo = accommodation.name
-            )
-        }
-    }
-
-    accommodation.contactPhone?.let {
-        Spacer(
-            modifier = Modifier.height(16.dp)
-        )
-
-        Row(
-            verticalAlignment = Alignment.Top
-        ) {
-            Icon(
-                imageVector = Icons.Default.PhoneAndroid,
-                contentDescription = "Phone",
-                modifier = Modifier
-                    .size(18.dp)
-            )
-
-            Spacer(
-                modifier = Modifier.width(12.dp)
-            )
-
-            PhoneLink(
-                phone = it,
-                style = MaterialTheme.typography.bodyMedium
             )
         }
     }

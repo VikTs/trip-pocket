@@ -150,6 +150,7 @@
     <string name="accommodation_details_documents_section_title">Documenti</string>
     <string name="accommodation_details_delete_confirmation_title">Eliminare l’alloggio?</string>
     <string name="accommodation_details_duration_label">Durata</string>
+    <string name="accommodation_details_call_label">Chiama</string>
 
     <string name="notification_upcoming_transport">%1$s per %2$s</string>
     <string name="notification_departure_time">Ora di partenza: %1$s</string>

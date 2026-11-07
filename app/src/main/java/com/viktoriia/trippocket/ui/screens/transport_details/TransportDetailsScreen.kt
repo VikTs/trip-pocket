@@ -14,11 +14,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
-import com.viktoriia.trippocket.data.model.TransportNotification
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportDocument
+import com.viktoriia.trippocket.data.model.TransportNotification
 import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.ui.components.ItemEditMenu
+import com.viktoriia.trippocket.ui.components.PhoneButton
 import com.viktoriia.trippocket.ui.components.TopBar
 import com.viktoriia.trippocket.ui.components.inputs.rememberFilePicker
 import com.viktoriia.trippocket.ui.screens.transport_details.transport_timeline.TransportTimelineSection
@@ -94,6 +95,17 @@ fun TransportDetailsScreen(
             TransportTimelineSection(
                 transport = transport,
             )
+
+            Spacer(
+                modifier = Modifier.height(12.dp)
+            )
+
+            transport.driverPhone?.let {
+                PhoneButton(
+                    phone = it,
+                    label = stringResource(R.string.transport_details_driver_phone_label)
+                )
+            }
 
             Spacer(
                 modifier = Modifier.height(24.dp)

@@ -40,8 +40,8 @@ import com.viktoriia.trippocket.data.model.TripEvent
 import com.viktoriia.trippocket.domain.model.TripStatus
 import com.viktoriia.trippocket.domain.model.getTripStatus
 import com.viktoriia.trippocket.ui.extensions.toDisplayName
-import com.viktoriia.trippocket.ui.utils.formatTripDates
-import com.viktoriia.trippocket.ui.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatDatesRange
+import com.viktoriia.trippocket.ui.utils.formatTime
 import java.time.temporal.ChronoUnit
 
 @Composable
@@ -108,7 +108,7 @@ fun TripCard(
         is TripEvent.AccommodationCheckOutItem -> stringResource(
             R.string.trips_trip_card_next_accommodation_check_out,
             event.accommodation.name,
-            formatTripTime(event.time)
+            formatTime(event.time)
         )
 
         null -> null
@@ -181,7 +181,7 @@ fun TripCard(
                         R.plurals.trips_trip_card_duration_and_dates_label,
                         tripDuration,
                         tripDuration,
-                        formatTripDates(
+                        formatDatesRange(
                             context,
                             startDate = trip.startDate,
                             endDate = trip.endDate

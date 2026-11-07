@@ -12,7 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.viktoriia.trippocket.ui.utils.formatTripTime
+import com.viktoriia.trippocket.ui.utils.formatTime
 import java.time.LocalTime
 import com.viktoriia.trippocket.R
 
@@ -31,7 +31,7 @@ fun TimeInput(
         modifier = modifier
     ) {
         OutlinedTextField(
-            value = selectedTime?.let { formatTripTime(it) } ?: "",
+            value = selectedTime?.let { formatTime(it) } ?: "",
             onValueChange = {},
             label = label,
             placeholder = {

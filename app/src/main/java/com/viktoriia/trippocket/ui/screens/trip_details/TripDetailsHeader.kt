@@ -20,7 +20,7 @@ import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
 import com.viktoriia.trippocket.domain.model.TripStatus
 import com.viktoriia.trippocket.domain.model.getTripStatus
-import com.viktoriia.trippocket.ui.utils.formatTripDatesWithYear
+import com.viktoriia.trippocket.ui.utils.formatDatesRangeWithYear
 
 @Composable
 fun TripDetailsHeader(
@@ -67,7 +67,7 @@ fun TripDetailsHeader(
         }
 
         Text(
-            text = formatTripDatesWithYear(
+            text = formatDatesRangeWithYear(
                 context,
                 trip.startDate,
                 trip.endDate
