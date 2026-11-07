@@ -1,5 +1,6 @@
 package com.viktoriia.trippocket.ui.screens.transport_details
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -7,8 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -20,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportType
-import com.viktoriia.trippocket.ui.components.PhoneLink
 import com.viktoriia.trippocket.ui.extensions.toDisplayName
 import com.viktoriia.trippocket.ui.extensions.toIcon
 
@@ -30,7 +28,7 @@ fun TransportDetailsSection(transport: Transport) {
     val transportType = transport.transportType
 
     Row(
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.Top
     ) {
         Icon(
             imageVector = transportType.toIcon(),
@@ -51,78 +49,46 @@ fun TransportDetailsSection(transport: Transport) {
                 style = typography.titleLarge
             )
 
-            if (transportType == TransportType.PLANE && transport.carrier != null) {
+            if (transport.carrier != null) {
                 Text(
                     transport.carrier,
                     style = typography.titleMedium
                 )
                 Spacer(
-                    modifier = Modifier.height(8.dp)
+                    modifier = Modifier.height(4.dp)
                 )
             }
 
-            if (transportType == TransportType.TRAIN) {
+            Spacer(
+                modifier = Modifier.height(4.dp)
+            )
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                if (transportType == TransportType.TRAIN) {
+                    Text(
+                        text = "${stringResource(R.string.transport_details_coach_label)}: ${transport.coach ?: '-'}",
+                        style = typography.bodyLarge
+                    )
+
+                    Text(
+                        text = "•",
+                        style = typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+
                 Text(
-                    "${stringResource(R.string.transport_details_coach_label)}: ${transport.coach ?: '-'}",
+                    text = "${stringResource(R.string.transport_details_seat_label)}: ${transport.place ?: '-'}",
                     style = typography.bodyLarge
                 )
             }
-
-            Text(
-                "${stringResource(R.string.transport_details_seat_label)}: ${transport.place ?: '-'}",
-                style = typography.bodyLarge
-            )
         }
     }
 
     Spacer(
         modifier = Modifier.height(16.dp)
     )
-
-    if (transportType == TransportType.BUS &&
-        (transport.carrier != null || transport.driverPhone != null)
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = Icons.Default.Person,
-                contentDescription = "Carrier",
-                tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier
-                    .size(35.dp)
-            )
-
-            Spacer(
-                modifier = Modifier.width(12.dp)
-            )
-
-            Column {
-                Text(
-                    text = transport.carrier
-                        ?: stringResource(R.string.transport_details_driver_phone_label),
-                    style = MaterialTheme.typography.titleSmall
-                )
-
-                Spacer(
-                    modifier = Modifier.height(4.dp)
-                )
-
-                if (transport.driverPhone != null) {
-                    PhoneLink(
-                        label = if (transport.carrier != null)
-                            stringResource(R.string.transport_details_driver_phone_short_label)
-                        else null,
-                        phone = transport.driverPhone,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                } else {
-                    Text(
-                        "${stringResource(R.string.transport_details_driver_phone_label)}: -",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
-            }
-        }
-    }
 }

@@ -15,6 +15,7 @@ private val fullDatePattern = "d MMM yyyy"
 private val dayOfWeekDatePattern = "EEEE, d MMM"
 private val timePattern = "HH:mm"
 private val datePattern = "d MMMM"
+private val dateTimePattern = "d MMMM, HH:mm"
 
 private val timeFormatter =
     DateTimeFormatter.ofPattern(timePattern)
@@ -118,6 +119,27 @@ fun formatDate(
     val formatter =
         SimpleDateFormat(
             datePattern,
+            locale
+        )
+
+    return formatter.format(
+        Date.from(
+            dateTime
+                .atZone(ZoneId.systemDefault())
+                .toInstant()
+        )
+    )
+}
+
+fun formatDateTime(
+    context: Context,
+    dateTime: LocalDateTime
+): String {
+    val locale = getAppLocale(context)
+
+    val formatter =
+        SimpleDateFormat(
+            dateTimePattern,
             locale
         )
 
