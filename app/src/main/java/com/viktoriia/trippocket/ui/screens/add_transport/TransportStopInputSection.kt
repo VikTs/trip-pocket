@@ -58,10 +58,7 @@ fun TransportStopInputSection(
             )
         },
         singleLine = true,
-        modifier = Modifier.fillMaxWidth(),
-        keyboardOptions = KeyboardOptions(
-            imeAction = ImeAction.Next
-        )
+        modifier = Modifier.fillMaxWidth()
     )
 
     Row(modifier = Modifier.fillMaxWidth()) {

@@ -101,7 +101,7 @@ fun CreateTripScreen(
                         text = stringResource(R.string.create_trip_name_label)
                     )
                 },
-                maxLines = 1,
+                singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
 

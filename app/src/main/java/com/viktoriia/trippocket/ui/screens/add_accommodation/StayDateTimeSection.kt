@@ -56,7 +56,8 @@ fun StayDateTimeSection(
             },
             selectedTime = selectedTime,
             onTimeSelected = onTimeSelected,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            moveFocusAfterSelection = false
         )
     }
 }

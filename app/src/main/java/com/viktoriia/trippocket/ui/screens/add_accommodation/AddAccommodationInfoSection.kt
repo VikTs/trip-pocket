@@ -77,7 +77,6 @@ fun AddAccommodationInfoSection(
         singleLine = true,
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Phone,
-            imeAction = ImeAction.Next
         )
     )
 }
