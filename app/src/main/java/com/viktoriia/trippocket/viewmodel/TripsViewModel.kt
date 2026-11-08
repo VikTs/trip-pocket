@@ -31,24 +31,20 @@ class TripsViewModel @Inject constructor(
     private val transportRepository: TransportRepository,
     private val accommodationRepository: AccommodationRepository
 ) : ViewModel() {
-    private val _isLoading = MutableStateFlow(true)
-    val isLoading: StateFlow<Boolean> =
-        _isLoading.asStateFlow()
+    private val tripEventsCache = mutableMapOf<Long, StateFlow<List<TripEvent>?>>()
 
-    val trips: StateFlow<List<Trip>> =
-        repository
-            .getTrips()
-            .onStart {
-                _isLoading.value = true
-            }
-            .onEach {
-                _isLoading.value = false
-            }
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(5_000),
-                initialValue = emptyList()
-            )
+    private val tripsOrNull: StateFlow<List<Trip>?> =
+        repository.getTrips()
+            .map<List<Trip>, List<Trip>?> { it }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    val trips: StateFlow<List<Trip>> = tripsOrNull
+        .map { it.orEmpty() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    val isLoading: StateFlow<Boolean> = tripsOrNull
+        .map { it == null }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
 
     fun getTripById(tripId: Long): Flow<Trip?> {
         return repository.getTripById(tripId)
@@ -67,21 +63,22 @@ class TripsViewModel @Inject constructor(
     }
 
     fun deleteTrip(tripId: Long) {
+        tripEventsCache.remove(tripId)
         viewModelScope.launch {
             repository.deleteTrip(tripId)
         }
     }
 
-    fun getTripEvents(
-        tripId: Long
-    ): StateFlow<List<TripEvent>?> =
-        observeTripEvents(tripId)
-            .map<List<TripEvent>, List<TripEvent>?> { it }
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(5_000),
-                initialValue = null
-            )
+    fun getTripEvents(tripId: Long): StateFlow<List<TripEvent>?> =
+        tripEventsCache.getOrPut(tripId) {
+            observeTripEvents(tripId)
+                .map<List<TripEvent>, List<TripEvent>?> { it }
+                .stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5_000),
+                    initialValue = null
+                )
+        }
 
     fun getTripEvents(
         tripIds: List<Long>

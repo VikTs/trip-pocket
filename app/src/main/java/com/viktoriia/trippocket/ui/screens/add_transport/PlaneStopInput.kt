@@ -12,9 +12,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -79,7 +79,10 @@ fun PlaneStopInput(
             RequiredFieldLabel(stringResource(R.string.add_transport_airport_name_label))
         },
         singleLine = true,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        keyboardOptions = KeyboardOptions(
+            imeAction = ImeAction.Next
+        )
     )
 
     Row(modifier = Modifier.fillMaxWidth()) {
@@ -90,7 +93,10 @@ fun PlaneStopInput(
                 Text(stringResource(R.string.add_transport_terminal_label))
             },
             singleLine = true,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            keyboardOptions = if (isDepartureStop) KeyboardOptions(
+                imeAction = ImeAction.Next
+            ) else KeyboardOptions()
         )
 
         Spacer(modifier = Modifier.width(12.dp))
@@ -103,7 +109,10 @@ fun PlaneStopInput(
                     Text(stringResource(R.string.add_transport_gate_label))
                 },
                 singleLine = true,
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                )
             )
         }
     }
