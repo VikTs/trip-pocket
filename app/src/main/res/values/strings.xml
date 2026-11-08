@@ -18,6 +18,7 @@
     <string name="language_selector_content_description">Language</string>
     <string name="delete_confirmation_title">Delete?</string>
     <string name="delete_confirmation_message">This action cannot be canceled</string>
+    <string name="required_fields_hint">Fields marked * are required</string>
 
     <string name="notifications_disabled_message">Notifications are disabled</string>
     <string name="notifications_enable_btn_label">Enable notifications</string>
@@ -68,7 +69,6 @@
     <string name="transport_details_plane_info_title">Plane info</string>
     <string name="transport_details_coach_label">Coach</string>
     <string name="transport_details_seat_label">Seat</string>
-    <string name="transport_details_carrier_label">Carrier</string>
     <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">Driver</string>
     <string name="transport_details_terminal_label">Terminal</string>
     <string name="transport_details_platform_label">Plat.</string>

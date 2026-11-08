@@ -21,8 +21,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Accommodation
-import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.ui.components.TopBar
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldsHint
+import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.viewmodel.AccommodationViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -141,6 +142,8 @@ fun AddAccommodationScreen(
                 ),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+            RequiredFieldsHint()
+
             AddAccommodationInfoSection(
                 name = state.name,
                 onNameChanged = {

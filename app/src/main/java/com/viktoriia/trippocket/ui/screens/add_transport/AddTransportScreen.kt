@@ -27,6 +27,7 @@ import com.viktoriia.trippocket.data.model.Transport
 import com.viktoriia.trippocket.data.model.TransportStop
 import com.viktoriia.trippocket.data.model.TransportType
 import com.viktoriia.trippocket.ui.components.TopBar
+import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldsHint
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.viewmodel.TransportsViewModel
 import java.time.LocalDate
@@ -160,6 +161,8 @@ fun AddTransportScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+            RequiredFieldsHint()
+
             TransportInputSection(
                 transportType = state.transportType,
                 transportNumber = state.transportNumber,
