@@ -1,0 +1,188 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Guardar cambios</string>
+    <string name="common_edit">Editar</string>
+    <string name="common_delete">Eliminar</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="transport_type_bus">Autobús</string>
+    <string name="transport_type_train">Tren</string>
+    <string name="transport_type_plane">Avión</string>
+    <string name="date_input_placeholder">Seleccionar fecha</string>
+    <string name="time_input_placeholder">Seleccionar hora</string>
+    <string name="address_copied_message">Dirección copiada</string>
+    <string name="upload_btn_label">Subir documento</string>
+    <string name="upload_image_btn_label">Subir imagen</string>
+    <string name="upload_another_image_btn_label">Subir otra imagen</string>
+    <string name="language_selector_content_description">Idioma</string>
+    <string name="delete_confirmation_title">¿Eliminar?</string>
+    <string name="delete_confirmation_message">Esta acción no se puede deshacer</string>
+    <string name="required_fields_hint">Los campos marcados con * son obligatorios</string>
+
+    <string name="notifications_disabled_message">Las notificaciones están desactivadas</string>
+    <string name="notifications_enable_btn_label">Activar notificaciones</string>
+    <string name="exact_reminders_disabled_message">Los recordatorios están desactivados</string>
+    <string name="exact_reminders_enable_btn_label">Activar recordatorios</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Las notificaciones y los recordatorios están desactivados</string>
+    <string name="notification_help_title">¿No recibes notificaciones?</string>
+    <string name="notification_help_body">Algunos teléfonos restringen la ejecución de las aplicaciones en segundo plano. Prueba lo siguiente:\n\n• En los ajustes de batería de la aplicación, selecciona «Sin restricciones» o desactiva la optimización de batería. Si tienes un dispositivo Samsung, quita la aplicación de la lista «Aplicaciones en suspensión».\n• Activa el «Inicio automático» para la aplicación (disponible en Xiaomi, Oppo, Vivo, Huawei y otros).\n• Asegúrate de que «Notificaciones» y «Alarmas y recordatorios» estén activados para la aplicación.\n\nLos nombres de los ajustes pueden variar según el modelo del teléfono y la versión del sistema.</string>
+    <string name="notification_help_open_settings">Ajustes de la aplicación</string>
+    <string name="notification_help_close">Cerrar</string>
+
+    <string name="edit_transport_title">Editar transporte</string>
+    <string name="add_transport_title">Añadir transporte</string>
+    <string name="add_transport_from_section_title">Desde</string>
+    <string name="add_transport_to_section_title">Hasta</string>
+    <string name="add_transport_btn_label">Añadir transporte</string>
+    <string name="add_transport_bus_number_label">Número de autobús</string>
+    <string name="add_transport_place_label">Asiento</string>
+    <string name="add_transport_documents_section_title">Documentos</string>
+    <string name="add_transport_train_number_label">Número de tren</string>
+    <string name="add_transport_plane_number_label">Número de vuelo</string>
+    <string name="add_transport_coach_label">Vagón</string>
+    <string name="add_transport_transport_section_title">Transporte</string>
+    <string name="add_transport_type_label">Tipo</string>
+    <string name="add_transport_date_label">Fecha</string>
+    <string name="add_transport_time_label">Hora</string>
+    <string name="add_transport_address_label">Nombre de la estación (o dirección)</string>
+    <string name="add_transport_airport_name_label">Nombre del aeropuerto (o dirección)</string>
+    <string name="add_transport_airport_code_label">Código del aeropuerto</string>
+    <string name="add_transport_platform_label">Andén</string>
+    <string name="add_transport_terminal_label">Terminal</string>
+    <string name="add_transport_gate_label">Puerta</string>
+    <string name="add_transport_city_label">Ciudad</string>
+    <string name="add_transport_private_bus_label">Este es un autobús privado</string>
+    <string name="add_transport_carrier_label">Transportista</string>
+    <string name="add_transport_airline_label">Aerolínea</string>
+    <string name="add_transport_driver_phone_label">Teléfono del conductor</string>
+
+    <string name="edit_trip_title">Editar viaje</string>
+    <string name="create_trip_title">Crear viaje</string>
+    <string name="create_trip_name_label">Nombre del viaje</string>
+    <string name="create_trip_start_date_label">Fecha de inicio</string>
+    <string name="create_trip_end_date_label">Fecha de fin</string>
+    <string name="create_trip_btn_label">Crear viaje</string>
+
+    <string name="transport_details_bus_info_title">Información del autobús</string>
+    <string name="transport_details_train_info_title">Información del tren</string>
+    <string name="transport_details_plane_info_title">Información del avión</string>
+    <string name="transport_details_coach_label">Vagón</string>
+    <string name="transport_details_seat_label">Asiento</string>
+    <string name="transport_details_driver_phone_label">Conductor</string>
+    <string name="transport_details_terminal_label">Terminal</string>
+    <string name="transport_details_platform_label">And.</string>
+    <string name="transport_details_gate_label">Puerta</string>
+    <string name="transport_details_documents_section_title">Documentos</string>
+    <string name="transport_details_notifications_section_title">Notificaciones</string>
+    <string name="transport_details_departure_notification_label">Avisar %1$s antes de la salida</string>
+    <string name="transport_details_plane_departure_notification_label">Avisar %1$s antes del despegue</string>
+    <string name="transport_details_delete_confirmation_title">¿Eliminar el transporte?</string>
+    <string name="transport_details_notifications_unavailable">Las notificaciones de este transporte no están disponibles</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Añadir al viaje</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Transporte</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Alojamiento</string>
+
+    <string name="trip_details_title">Detalles del viaje</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Tu viaje está vacío</string>
+    <string name="trip_details_add_btn_label">Añadir</string>
+    <string name="trip_details_transport_card_coach_label">Vagón</string>
+    <string name="trip_details_transport_card_seat_label">Asiento</string>
+    <string name="trip_details_departure_label">Sal.</string>
+    <string name="trip_details_plane_departure_label">Aeropuerto</string>
+    <string name="trip_details_terminal_label">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Llegada</string>
+    <string name="trip_details_transport_card_bus_departure">Salida del autobús</string>
+    <string name="trip_details_transport_card_train_departure">Salida del tren</string>
+    <string name="trip_details_delete_confirmation_title">¿Eliminar el viaje?</string>
+    <string name="trip_details_next_event_label">SIGUIENTE</string>
+    <string name="trip_details_day_filter_all_label">Todos</string>
+
+    <string name="trips_empty_message">No tienes viajes planificados</string>
+    <string name="trips_add_btn_label">Añadir viaje</string>
+    <string name="trips_trip_card_active_label">En curso</string>
+    <string name="trips_trip_card_next_label">Siguiente</string>
+    <string name="trips_trip_card_next_transport">Siguiente: %1$s a %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Siguiente: check-in en %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Siguiente: check-out en %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Queda %1$d día</item>
+        <item quantity="many">Quedan %1$d días</item>
+        <item quantity="other">Quedan %1$d días</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Finalizado</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d día  |  %2$s</item>
+        <item quantity="many">%1$d días  |  %2$s</item>
+        <item quantity="other">%1$d días  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">En %d día</item>
+        <item quantity="many">En %d días</item>
+        <item quantity="other">En %d días</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Pasados</string>
+    <string name="trips_toggle_upcoming_label">Próximos</string>
+    <string name="trips_toggle_empty_message">No se encontraron viajes</string>
+    <string name="trips_title">Mis viajes</string>
+
+
+    <string name="add_accommodation_title">Añadir alojamiento</string>
+    <string name="edit_accommodation_title">Editar alojamiento</string>
+    <string name="add_accommodation_general_section_title">Alojamiento</string>
+    <string name="add_accommodation_name_label">Nombre</string>
+    <string name="add_accommodation_address_label">Dirección</string>
+    <string name="add_accommodation_contact_phone_label">Teléfono de contacto</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Fecha</string>
+    <string name="add_accommodation_time_label">Hora</string>
+    <string name="add_accommodation_btn_label">Añadir alojamiento</string>
+    <string name="add_accommodation_documents_section_title">Documentos</string>
+
+    <string name="accommodation_details_title">Información del alojamiento</string>
+    <string name="accommodation_details_address_label">Dirección</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Notificaciones</string>
+    <string name="accommodation_details_check_in_notification_label">Avisar 1 hora antes del check-in</string>
+    <string name="accommodation_details_check_out_notification_label">Avisar 1 hora antes del check-out</string>
+    <string name="accommodation_details_documents_section_title">Documentos</string>
+    <string name="accommodation_details_delete_confirmation_title">¿Eliminar el alojamiento?</string>
+    <string name="accommodation_details_duration_label">Duración</string>
+    <string name="accommodation_details_call_label">Llamar</string>
+
+    <string name="notification_upcoming_transport">%1$s a %2$s</string>
+    <string name="notification_departure_time">Hora de salida: %1$s</string>
+    <string name="notification_upcoming_check_in">Check-in en %1$s</string>
+    <string name="notification_upcoming_check_out">Check-out en %1$s</string>
+    <string name="notification_accommodation_time">Hora: %1$s</string>
+    <string name="notification_transport_platform">Andén %1$s</string>
+    <string name="notification_transport_seat">Asiento %1$s</string>
+    <string name="notification_transport_coach">Vagón %1$s</string>
+
+    <string name="duration_hours_short">%d h</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d h %2$d min</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d hora</item>
+        <item quantity="many">%d horas</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="many">%d minutos</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d noche</item>
+        <item quantity="many">%d noches</item>
+        <item quantity="other">%d noches</item>
+    </plurals>
+</resources>

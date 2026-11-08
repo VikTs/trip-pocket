@@ -1,0 +1,182 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Değişiklikleri kaydet</string>
+    <string name="common_edit">Düzenle</string>
+    <string name="common_delete">Sil</string>
+    <string name="common_confirm">Tamam</string>
+    <string name="common_cancel">İptal</string>
+    <string name="transport_type_bus">Otobüs</string>
+    <string name="transport_type_train">Tren</string>
+    <string name="transport_type_plane">Uçak</string>
+    <string name="date_input_placeholder">Tarih seçin</string>
+    <string name="time_input_placeholder">Saat seçin</string>
+    <string name="address_copied_message">Adres kopyalandı</string>
+    <string name="upload_btn_label">Belge yükle</string>
+    <string name="upload_image_btn_label">Görsel yükle</string>
+    <string name="upload_another_image_btn_label">Başka bir görsel yükle</string>
+    <string name="language_selector_content_description">Dil</string>
+    <string name="delete_confirmation_title">Silinsin mi?</string>
+    <string name="delete_confirmation_message">Bu işlem geri alınamaz</string>
+    <string name="required_fields_hint">* ile işaretli alanlar zorunludur</string>
+
+    <string name="notifications_disabled_message">Bildirimler kapalı</string>
+    <string name="notifications_enable_btn_label">Bildirimleri aç</string>
+    <string name="exact_reminders_disabled_message">Hatırlatıcılar kapalı</string>
+    <string name="exact_reminders_enable_btn_label">Hatırlatıcıları aç</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Bildirimler ve hatırlatıcılar kapalı</string>
+    <string name="notification_help_title">Bildirim almıyor musunuz?</string>
+    <string name="notification_help_body">Bazı telefonlar uygulamaların arka planda çalışmasını kısıtlar. Şunları deneyin:\n\n• Uygulamanın pil ayarlarında “Kısıtlama yok” seçeneğini seçin veya pil optimizasyonunu kapatın. Samsung cihazınız varsa uygulamayı “Uyku modundaki uygulamalar” listesinden kaldırın.\n• Uygulama için “Otomatik başlatma” özelliğini açın (Xiaomi, Oppo, Vivo, Huawei ve diğerlerinde bulunur).\n• Uygulama için “Bildirimler” ile “Alarmlar ve hatırlatıcılar” izinlerinin açık olduğundan emin olun.\n\nAyar adları telefon modeline ve sistem sürümüne göre değişebilir.</string>
+    <string name="notification_help_open_settings">Uygulama ayarları</string>
+    <string name="notification_help_close">Kapat</string>
+
+    <string name="edit_transport_title">Ulaşımı düzenle</string>
+    <string name="add_transport_title">Ulaşım ekle</string>
+    <string name="add_transport_from_section_title">Nereden</string>
+    <string name="add_transport_to_section_title">Nereye</string>
+    <string name="add_transport_btn_label">Ulaşım ekle</string>
+    <string name="add_transport_bus_number_label">Otobüs numarası</string>
+    <string name="add_transport_place_label">Koltuk</string>
+    <string name="add_transport_documents_section_title">Belgeler</string>
+    <string name="add_transport_train_number_label">Tren numarası</string>
+    <string name="add_transport_plane_number_label">Uçuş numarası</string>
+    <string name="add_transport_coach_label">Vagon</string>
+    <string name="add_transport_transport_section_title">Ulaşım</string>
+    <string name="add_transport_type_label">Tür</string>
+    <string name="add_transport_date_label">Tarih</string>
+    <string name="add_transport_time_label">Saat</string>
+    <string name="add_transport_address_label">İstasyon adı (veya adres)</string>
+    <string name="add_transport_airport_name_label">Havalimanı adı (veya adres)</string>
+    <string name="add_transport_airport_code_label">Havalimanı kodu</string>
+    <string name="add_transport_platform_label">Peron</string>
+    <string name="add_transport_terminal_label">Terminal</string>
+    <string name="add_transport_gate_label">Kapı</string>
+    <string name="add_transport_city_label">Şehir</string>
+    <string name="add_transport_private_bus_label">Bu özel bir otobüs</string>
+    <string name="add_transport_carrier_label">Taşıyıcı firma</string>
+    <string name="add_transport_airline_label">Havayolu</string>
+    <string name="add_transport_driver_phone_label">Şoför telefonu</string>
+
+    <string name="edit_trip_title">Seyahati düzenle</string>
+    <string name="create_trip_title">Seyahat oluştur</string>
+    <string name="create_trip_name_label">Seyahat adı</string>
+    <string name="create_trip_start_date_label">Başlangıç tarihi</string>
+    <string name="create_trip_end_date_label">Bitiş tarihi</string>
+    <string name="create_trip_btn_label">Seyahat oluştur</string>
+
+    <string name="transport_details_bus_info_title">Otobüs bilgileri</string>
+    <string name="transport_details_train_info_title">Tren bilgileri</string>
+    <string name="transport_details_plane_info_title">Uçak bilgileri</string>
+    <string name="transport_details_coach_label">Vagon</string>
+    <string name="transport_details_seat_label">Koltuk</string>
+    <string name="transport_details_driver_phone_label">Şoför</string>
+    <string name="transport_details_terminal_label">Terminal</string>
+    <string name="transport_details_platform_label">Per.</string>
+    <string name="transport_details_gate_label">Kapı</string>
+    <string name="transport_details_documents_section_title">Belgeler</string>
+    <string name="transport_details_notifications_section_title">Bildirimler</string>
+    <string name="transport_details_departure_notification_label">Kalkıştan %1$s önce bildir</string>
+    <string name="transport_details_plane_departure_notification_label">Uçuştan %1$s önce bildir</string>
+    <string name="transport_details_delete_confirmation_title">Ulaşım silinsin mi?</string>
+    <string name="transport_details_notifications_unavailable">Bu ulaşım için bildirimler kullanılamıyor</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Seyahate ekle</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Ulaşım</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Konaklama</string>
+
+    <string name="trip_details_title">Seyahat ayrıntıları</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Seyahatiniz boş</string>
+    <string name="trip_details_add_btn_label">Ekle</string>
+    <string name="trip_details_transport_card_coach_label">Vagon</string>
+    <string name="trip_details_transport_card_seat_label">Koltuk</string>
+    <string name="trip_details_departure_label">Kalk.</string>
+    <string name="trip_details_plane_departure_label">Havalimanı</string>
+    <string name="trip_details_terminal_label">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Varış</string>
+    <string name="trip_details_transport_card_bus_departure">Otobüs kalkışı</string>
+    <string name="trip_details_transport_card_train_departure">Tren kalkışı</string>
+    <string name="trip_details_delete_confirmation_title">Seyahat silinsin mi?</string>
+    <string name="trip_details_next_event_label">SIRADAKİ</string>
+    <string name="trip_details_day_filter_all_label">Tümü</string>
+
+    <string name="trips_empty_message">Planlanmış seyahatiniz yok</string>
+    <string name="trips_add_btn_label">Seyahat ekle</string>
+    <string name="trips_trip_card_active_label">Devam ediyor</string>
+    <string name="trips_trip_card_next_label">Sıradaki</string>
+    <string name="trips_trip_card_next_transport">Sıradaki: %1$s – %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Sıradaki: check-in – %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Sıradaki: check-out – %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">%1$d gün kaldı</item>
+        <item quantity="other">%1$d gün kaldı</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Tamamlandı</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d gün  |  %2$s</item>
+        <item quantity="other">%1$d gün  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">%d gün sonra</item>
+        <item quantity="other">%d gün sonra</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Geçmiş</string>
+    <string name="trips_toggle_upcoming_label">Yaklaşan</string>
+    <string name="trips_toggle_empty_message">Seyahat bulunamadı</string>
+    <string name="trips_title">Seyahatlerim</string>
+
+
+    <string name="add_accommodation_title">Konaklama ekle</string>
+    <string name="edit_accommodation_title">Konaklamayı düzenle</string>
+    <string name="add_accommodation_general_section_title">Konaklama</string>
+    <string name="add_accommodation_name_label">Ad</string>
+    <string name="add_accommodation_address_label">Adres</string>
+    <string name="add_accommodation_contact_phone_label">İletişim telefonu</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Tarih</string>
+    <string name="add_accommodation_time_label">Saat</string>
+    <string name="add_accommodation_btn_label">Konaklama ekle</string>
+    <string name="add_accommodation_documents_section_title">Belgeler</string>
+
+    <string name="accommodation_details_title">Konaklama bilgileri</string>
+    <string name="accommodation_details_address_label">Adres</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Bildirimler</string>
+    <string name="accommodation_details_check_in_notification_label">Check-in saatinden 1 saat önce bildir</string>
+    <string name="accommodation_details_check_out_notification_label">Check-out saatinden 1 saat önce bildir</string>
+    <string name="accommodation_details_documents_section_title">Belgeler</string>
+    <string name="accommodation_details_delete_confirmation_title">Konaklama silinsin mi?</string>
+    <string name="accommodation_details_duration_label">Süre</string>
+    <string name="accommodation_details_call_label">Ara</string>
+
+    <string name="notification_upcoming_transport">%1$s – %2$s</string>
+    <string name="notification_departure_time">Kalkış saati: %1$s</string>
+    <string name="notification_upcoming_check_in">Check-in: %1$s</string>
+    <string name="notification_upcoming_check_out">Check-out: %1$s</string>
+    <string name="notification_accommodation_time">Saat: %1$s</string>
+    <string name="notification_transport_platform">Peron %1$s</string>
+    <string name="notification_transport_seat">Koltuk %1$s</string>
+    <string name="notification_transport_coach">Vagon %1$s</string>
+
+    <string name="duration_hours_short">%d sa</string>
+    <string name="duration_minutes_short">%d dk</string>
+    <string name="duration_hours_minutes_short">%1$d sa %2$d dk</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d saat</item>
+        <item quantity="other">%d saat</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d dakika</item>
+        <item quantity="other">%d dakika</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d gece</item>
+        <item quantity="other">%d gece</item>
+    </plurals>
+</resources>

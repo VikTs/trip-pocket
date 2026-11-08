@@ -45,15 +45,15 @@
     <string name="add_transport_type_label">Type</string>
     <string name="add_transport_date_label">Date</string>
     <string name="add_transport_time_label">Time</string>
-    <string name="add_transport_address_label">Station name (or address)</string>
+    <string name="add_transport_address_label" comment="Railway/bus station">Station name (or address)</string>
     <string name="add_transport_airport_name_label">Airport name (or address)</string>
     <string name="add_transport_airport_code_label">Airport code</string>
-    <string name="add_transport_platform_label">Platform</string>
-    <string name="add_transport_terminal_label">Terminal</string>
-    <string name="add_transport_gate_label">Gate</string>
+    <string name="add_transport_platform_label" comment="Bus/Train platform">Platform</string>
+    <string name="add_transport_terminal_label" comment="Airport terminal">Terminal</string>
+    <string name="add_transport_gate_label" comment="Airport gate">Gate</string>
     <string name="add_transport_city_label">City</string>
     <string name="add_transport_private_bus_label">This is a private bus</string>
-    <string name="add_transport_carrier_label">Carrier</string>
+    <string name="add_transport_carrier_label" comment="Bus/train carrier">Carrier</string>
     <string name="add_transport_airline_label">Airline</string>
     <string name="add_transport_driver_phone_label">Driver phone</string>
 
@@ -67,16 +67,16 @@
     <string name="transport_details_bus_info_title">Bus info</string>
     <string name="transport_details_train_info_title">Train info</string>
     <string name="transport_details_plane_info_title">Plane info</string>
-    <string name="transport_details_coach_label">Coach</string>
-    <string name="transport_details_seat_label">Seat</string>
+    <string name="transport_details_coach_label" comment="Train coach">Coach</string>
+    <string name="transport_details_seat_label" comment="Train/Bus/Plane seat">Seat</string>
     <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">Driver</string>
-    <string name="transport_details_terminal_label">Terminal</string>
-    <string name="transport_details_platform_label">Plat.</string>
-    <string name="transport_details_gate_label">Gate</string>
+    <string name="transport_details_terminal_label" comment="Airport terminal">Terminal</string>
+    <string name="transport_details_platform_label" comment="Short label. Bus/Train platform">Plat.</string>
+    <string name="transport_details_gate_label" comment="Airport gate">Gate</string>
     <string name="transport_details_documents_section_title">Documents</string>
     <string name="transport_details_notifications_section_title">Notifications</string>
-    <string name="transport_details_departure_notification_label">Notify %1$s before departure</string>
-    <string name="transport_details_plane_departure_notification_label">Notify %1$s before departure</string>
+    <string name="transport_details_departure_notification_label" comment="Notify 1h before departure">Notify %1$s before departure</string>
+    <string name="transport_details_plane_departure_notification_label" comment="Notify 3h before departure (for plane)">Notify %1$s before departure</string>
     <string name="transport_details_delete_confirmation_title">Delete the transport?</string>
     <string name="transport_details_notifications_unavailable">Notifications for this transport are unavailable</string>
 
@@ -88,12 +88,12 @@
     <string name="trip_details_accommodation_checkin_label">Check-in</string>
     <string name="trip_details_accommodation_checkout_label">Check-out</string>
     <string name="trip_details_empty_message">Your trip is empty</string>
-    <string name="trip_details_add_btn_label">Add</string>
+    <string name="trip_details_add_btn_label" comment="Add transport/accommodation to trip">Add</string>
     <string name="trip_details_transport_card_coach_label">Coach</string>
     <string name="trip_details_transport_card_seat_label">Seat</string>
-    <string name="trip_details_departure_label">Dep.</string>
+    <string name="trip_details_departure_label" comment="Short label for departure">Dep.</string>
     <string name="trip_details_plane_departure_label">Airport</string>
-    <string name="trip_details_terminal_label">term.</string>
+    <string name="trip_details_terminal_label" comment="Short label for terminal">term.</string>
     <string name="trip_details_transport_card_arrival_label">Arrival</string>
     <string name="trip_details_transport_card_bus_departure">Bus departure</string>
     <string name="trip_details_transport_card_train_departure">Train departure</string>
@@ -105,9 +105,9 @@
     <string name="trips_add_btn_label">Add trip</string>
     <string name="trips_trip_card_active_label" comment="Short label">Ongoing</string>
     <string name="trips_trip_card_next_label" comment="Short label">Next</string>
-    <string name="trips_trip_card_next_transport">Next: %1$s to %2$s</string>
-    <string name="trips_trip_card_next_accommodation_check_in">Next: Check in at %1$s</string>
-    <string name="trips_trip_card_next_accommodation_check_out">Next: Check out at %1$s</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv">Next: %1$s to %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">Next: Check in at %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">Next: Check out at %1$s</string>
     <plurals name="trips_trip_card_days_remaining_label">
         <item quantity="one">Left %1$d day</item>
         <item quantity="other">Left %1$d days</item>
@@ -121,11 +121,10 @@
         <item quantity="one">In %d day</item>
         <item quantity="other">In %d days</item>
     </plurals>
-    <string name="trips_toggle_past_label">Past</string>
-    <string name="trips_toggle_upcoming_label">Upcoming</string>
+    <string name="trips_toggle_past_label" comment="Past trips list">Past</string>
+    <string name="trips_toggle_upcoming_label" comment="Upcoming trips list">Upcoming</string>
     <string name="trips_toggle_empty_message">No trips found</string>
     <string name="trips_title">My trips</string>
-
 
     <string name="add_accommodation_title">Add accommodation</string>
     <string name="edit_accommodation_title">Edit accommodation</string>
@@ -152,14 +151,14 @@
     <string name="accommodation_details_duration_label">Duration</string>
     <string name="accommodation_details_call_label" comment="Middle size label before phone number">Call</string>
 
-    <string name="notification_upcoming_transport">%1$s to %2$s</string>
-    <string name="notification_departure_time">Departure time: %1$s</string>
-    <string name="notification_upcoming_check_in">Check-in at %1$s</string>
-    <string name="notification_upcoming_check_out">Check-out at %1$s</string>
-    <string name="notification_accommodation_time">Time: %1$s</string>
-    <string name="notification_transport_platform">Platform %1$s</string>
-    <string name="notification_transport_seat">Seat %1$s</string>
-    <string name="notification_transport_coach">Coach %1$s</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv">%1$s to %2$s</string>
+    <string name="notification_departure_time" comment="Departure time: 12:00">Departure time: %1$s</string>
+    <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">Check-in at %1$s</string>
+    <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">Check-out at %1$s</string>
+    <string name="notification_accommodation_time" comment="Time: 12:00">Time: %1$s</string>
+    <string name="notification_transport_platform" comment="Platform 1">Platform %1$s</string>
+    <string name="notification_transport_seat" comment="Seat 12">Seat %1$s</string>
+    <string name="notification_transport_coach" comment="Coach 3">Coach %1$s</string>
 
     <string name="duration_hours_short">%d h</string>
     <string name="duration_minutes_short">%d min</string>

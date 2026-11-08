@@ -3,6 +3,8 @@ package com.viktoriia.trippocket.ui.components
 import android.app.Activity
 import android.content.Context
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material3.DropdownMenu
@@ -16,12 +18,28 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.ui.utils.getAppLocale
 import com.viktoriia.trippocket.ui.utils.setAppLanguage
+
+private val languages = listOf(
+    "Čeština" to "cs",
+    "Deutsch" to "de",
+    "English" to "en",
+    "Español" to "es",
+    "Français" to "fr",
+    "Italiano" to "it",
+    "Magyar" to "hu",
+    "Polski" to "pl",
+    "Português" to "pt",
+    "Türkçe" to "tr",
+    "Українська" to "uk",
+)
 
 @Composable
 fun LanguageSelector() {
@@ -57,49 +75,18 @@ fun LanguageSelector() {
 
         DropdownMenu(
             expanded = expanded,
-            onDismissRequest = {
-                expanded = false
-            }
+            onDismissRequest = { expanded = false },
+            modifier = Modifier.width(180.dp)
         ) {
-            LanguageOption(
-                name = "English",
-                currentLanguage = currentLanguage,
-                languageTag = "en",
-                context = context,
-                onLanguageChanged = ::onLanguageChanged
-            )
-
-            LanguageOption(
-                name = "Deutsch",
-                currentLanguage = currentLanguage,
-                languageTag = "de",
-                context = context,
-                onLanguageChanged = ::onLanguageChanged
-            )
-
-            LanguageOption(
-                name = "Français",
-                currentLanguage = currentLanguage,
-                languageTag = "fr",
-                context = context,
-                onLanguageChanged = ::onLanguageChanged
-            )
-
-            LanguageOption(
-                name = "Italiano",
-                currentLanguage = currentLanguage,
-                languageTag = "it",
-                context = context,
-                onLanguageChanged = ::onLanguageChanged
-            )
-
-            LanguageOption(
-                name = "Українська",
-                currentLanguage = currentLanguage,
-                languageTag = "uk",
-                context = context,
-                onLanguageChanged = ::onLanguageChanged
-            )
+            languages.forEach { (name, languageTag) ->
+                LanguageOption(
+                    name = name,
+                    currentLanguage = currentLanguage,
+                    languageTag = languageTag,
+                    context = context,
+                    onLanguageChanged = ::onLanguageChanged
+                )
+            }
         }
     }
 }
@@ -116,6 +103,8 @@ fun LanguageOption(
         text = {
             Text(
                 text = name,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(start = 6.dp),
                 fontWeight = if (languageTag == currentLanguage) {
                     FontWeight.Bold
                 } else {

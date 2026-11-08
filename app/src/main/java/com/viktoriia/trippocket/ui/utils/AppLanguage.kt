@@ -5,16 +5,23 @@ import android.content.Context
 import android.os.Build
 import android.os.LocaleList
 import java.util.Locale
+import androidx.core.content.edit
 
 private const val PREFS_NAME = "app_preferences"
 private const val LANGUAGE_KEY = "language"
 private const val LANGUAGE_SELECTED_KEY = "language_selected"
 private val supportedLanguages = setOf(
-    "en",
-    "uk",
-    "it",
-    "de",
-    "fr"
+    "en",       // English
+    "uk",       // Ukrainian
+    "it",       // Italian
+    "de",       // Germain
+    "fr",       // French
+    "pl",       // Polish
+    "es",       // Spanish
+    "pt",       // Portuguese
+    "tr",       // Turkish
+    "cs",       // Czech
+    "hu",       // Hungarian
 )
 
 fun setAppLanguage(
@@ -33,10 +40,10 @@ fun setAppLanguage(
                 PREFS_NAME,
                 Context.MODE_PRIVATE
             )
-            .edit()
-            .putString(LANGUAGE_KEY, languageTag)
-            .putBoolean(LANGUAGE_SELECTED_KEY, true)
-            .apply()
+            .edit {
+                putString(LANGUAGE_KEY, languageTag)
+                    .putBoolean(LANGUAGE_SELECTED_KEY, true)
+            }
     }
 }
 
