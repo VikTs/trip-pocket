@@ -92,11 +92,10 @@ fun TripDetailsScreen(
         mutableStateOf(false)
     }
 
-    val selectedDay = if (hasSelectedDayOverride) {
-        selectedDayOverride
-    } else {
-        defaultSelectedDay
-    }
+    val tripDayStrings = remember(tripDays) { tripDays.map { it.toString() }.toSet() }
+
+    val selectedDay = (if (hasSelectedDayOverride) selectedDayOverride else defaultSelectedDay)
+        ?.takeIf { it in tripDayStrings }
 
     val filteredEvents = remember(tripEvents, selectedDay) {
         selectedDay?.let { day ->

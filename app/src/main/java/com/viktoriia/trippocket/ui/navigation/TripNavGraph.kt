@@ -42,6 +42,7 @@ fun NavGraphBuilder.tripNavGraph(
                 when (event) {
                     is TripEvent.TransportItem ->
                         navController.navigate("trip/$tripId/transport/${event.id}")
+
                     is TripEvent.AccommodationCheckInItem,
                     is TripEvent.AccommodationCheckOutItem ->
                         navController.navigate("trip/$tripId/accommodation/${event.id}")
