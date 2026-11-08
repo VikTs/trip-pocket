@@ -10,7 +10,7 @@ A travel organizer for keeping trips, transport tickets, and travel details in o
   <img src="screenshots/bus_details.png" width="200">
 </p>
 
-
+[ More screenshots ](screenshots/)
 ## Features
 
 - Create and manage trips
