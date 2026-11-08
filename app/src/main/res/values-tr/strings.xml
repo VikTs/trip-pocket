@@ -105,7 +105,7 @@
     <string name="trips_add_btn_label">Seyahat ekle</string>
     <string name="trips_trip_card_active_label">Devam ediyor</string>
     <string name="trips_trip_card_next_label">Sıradaki</string>
-    <string name="trips_trip_card_next_transport">Sıradaki: %1$s – %2$s</string>
+    <string name="trips_trip_card_next_transport">Sıradaki: %2$s şehrine %1$s</string>
     <string name="trips_trip_card_next_accommodation_check_in">Sıradaki: check-in – %1$s</string>
     <string name="trips_trip_card_next_accommodation_check_out">Sıradaki: check-out – %1$s</string>
     <plurals name="trips_trip_card_days_remaining_label">
@@ -152,7 +152,7 @@
     <string name="accommodation_details_duration_label">Süre</string>
     <string name="accommodation_details_call_label">Ara</string>
 
-    <string name="notification_upcoming_transport">%1$s – %2$s</string>
+    <string name="notification_upcoming_transport">%2$s şehrine %1$s</string>
     <string name="notification_departure_time">Kalkış saati: %1$s</string>
     <string name="notification_upcoming_check_in">Check-in: %1$s</string>
     <string name="notification_upcoming_check_out">Check-out: %1$s</string>

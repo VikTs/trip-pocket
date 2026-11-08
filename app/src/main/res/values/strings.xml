@@ -105,7 +105,7 @@
     <string name="trips_add_btn_label">Add trip</string>
     <string name="trips_trip_card_active_label" comment="Short label">Ongoing</string>
     <string name="trips_trip_card_next_label" comment="Short label">Next</string>
-    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv">Next: %1$s to %2$s</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv / Автобус до міста Львів">Next: %1$s to %2$s</string>
     <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">Next: Check in at %1$s</string>
     <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">Next: Check out at %1$s</string>
     <plurals name="trips_trip_card_days_remaining_label">
@@ -151,7 +151,7 @@
     <string name="accommodation_details_duration_label">Duration</string>
     <string name="accommodation_details_call_label" comment="Middle size label before phone number">Call</string>
 
-    <string name="notification_upcoming_transport" comment="Bus to Lviv">%1$s to %2$s</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv / Автобус до міста Львів">%1$s to %2$s</string>
     <string name="notification_departure_time" comment="Departure time: 12:00">Departure time: %1$s</string>
     <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">Check-in at %1$s</string>
     <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">Check-out at %1$s</string>
