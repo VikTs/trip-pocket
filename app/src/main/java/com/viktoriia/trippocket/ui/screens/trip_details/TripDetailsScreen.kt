@@ -39,6 +39,7 @@ import java.time.LocalDateTime
 fun TripDetailsScreen(
     trip: Trip,
     tripEvents: List<TripEvent>,
+    isLoading: Boolean,
     onBackClick: () -> Unit,
     onAddTransportClick: () -> Unit,
     onAddAccommodationClick: () -> Unit,
@@ -51,14 +52,6 @@ fun TripDetailsScreen(
 
     var showAddSheet by rememberSaveable {
         mutableStateOf(false)
-    }
-
-    var isLoading by remember {
-        mutableStateOf(true)
-    }
-
-    LaunchedEffect(tripEvents) {
-        isLoading = false
     }
 
     fun openAddSheet() {
