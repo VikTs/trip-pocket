@@ -30,6 +30,7 @@ import com.viktoriia.trippocket.ui.components.TopBar
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldsHint
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.viewmodel.TransportsViewModel
+import java.io.File
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -334,6 +335,7 @@ fun AddTransportScreen(
                             it.path == document.path
                         }
                     )
+                    File(document.path).delete()
                 }
             )
 

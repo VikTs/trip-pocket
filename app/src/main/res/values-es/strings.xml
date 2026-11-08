@@ -45,8 +45,8 @@
     <string name="add_transport_type_label">Tipo</string>
     <string name="add_transport_date_label">Fecha</string>
     <string name="add_transport_time_label">Hora</string>
-    <string name="add_transport_address_label">Nombre de la estación (o dirección)</string>
-    <string name="add_transport_airport_name_label">Nombre del aeropuerto (o dirección)</string>
+    <string name="add_transport_address_label">Estación o dirección</string>
+    <string name="add_transport_airport_name_label">Aeropuerto o dirección</string>
     <string name="add_transport_airport_code_label">Código del aeropuerto</string>
     <string name="add_transport_platform_label">Andén</string>
     <string name="add_transport_terminal_label">Terminal</string>

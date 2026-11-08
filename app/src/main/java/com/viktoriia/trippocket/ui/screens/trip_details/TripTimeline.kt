@@ -67,7 +67,8 @@ fun TripTimeline(
                             isLast = index == items.lastIndex,
                             isActive = isActive,
                             isPrevActive = isPrevActive,
-                            isNext = nextEvent?.id == item.id,
+                            isNext = (nextEvent?.id == item.id)
+                                    && (nextEvent is TripEvent.TransportItem),
                             onClick = {
                                 onTransportClick(
                                     item.id

@@ -78,12 +78,8 @@ fun TripDetailsScreen(
         trip.endDate
     ) is TripStatus.Ongoing
 
-    var selectedDay by rememberSaveable(trip.id) {
-        mutableStateOf<String?>(null)
-    }
-
-    LaunchedEffect(trip.id, tripDays, isTripActive) {
-        selectedDay = if (!isTripActive) {
+    val defaultSelectedDay = remember(tripDays, isTripActive, today) {
+        if (!isTripActive) {
             null
         } else {
             tripDays
@@ -95,6 +91,20 @@ fun TripDetailsScreen(
         }
     }
 
+    var selectedDayOverride by rememberSaveable(trip.id) {
+        mutableStateOf<String?>(null)
+    }
+
+    var hasSelectedDayOverride by rememberSaveable(trip.id) {
+        mutableStateOf(false)
+    }
+
+    val selectedDay = if (hasSelectedDayOverride) {
+        selectedDayOverride
+    } else {
+        defaultSelectedDay
+    }
+
     val filteredEvents = remember(tripEvents, selectedDay) {
         selectedDay?.let { day ->
             tripEvents.filter {
@@ -103,8 +113,10 @@ fun TripDetailsScreen(
         } ?: tripEvents
     }
 
-    val itemsByDay = filteredEvents.groupBy {
-        it.time.toLocalDate()
+    val itemsByDay = remember(filteredEvents) {
+        filteredEvents.groupBy {
+            it.time.toLocalDate()
+        }
     }
 
     val nextEvent = remember(tripEvents) {
@@ -147,7 +159,10 @@ fun TripDetailsScreen(
                 TripDayFilters(
                     days = tripDays,
                     selectedDay = selectedDay,
-                    onDaySelected = { selectedDay = it }
+                    onDaySelected = { day ->
+                        selectedDayOverride = day
+                        hasSelectedDayOverride = true
+                    }
                 )
             }
 

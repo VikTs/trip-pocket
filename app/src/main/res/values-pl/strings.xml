@@ -99,7 +99,7 @@
     <string name="trip_details_transport_card_train_departure">Odjazd pociągu</string>
     <string name="trip_details_delete_confirmation_title">Usunąć podróż?</string>
     <string name="trip_details_next_event_label">DALEJ</string>
-    <string name="trip_details_day_filter_all_label">Wszystkie</string>
+    <string name="trip_details_day_filter_all_label">Całość</string>
 
     <string name="trips_empty_message">Nie masz zaplanowanych podróży</string>
     <string name="trips_add_btn_label">Dodaj podróż</string>

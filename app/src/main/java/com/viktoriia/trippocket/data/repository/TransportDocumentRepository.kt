@@ -28,4 +28,9 @@ class TransportDocumentRepository @Inject constructor(
     ) {
         transportDocumentDao.deleteForTransport(transportId)
     }
+
+    suspend fun getFilePathsByTransportId(
+        transportId: Long
+    ): List<String> =
+        transportDocumentDao.getFilePathsByTransportId(transportId)
 }

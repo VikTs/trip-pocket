@@ -36,4 +36,13 @@ interface AccommodationDocumentDao {
     suspend fun deleteForAccommodation(
         accommodationId: Long
     )
+
+    @Query("""
+    SELECT path
+    FROM accommodation_documents
+    WHERE accommodationId = :accommodationId
+""")
+    suspend fun getFilePathsByAccommodationId(
+        accommodationId: Long
+    ): List<String>
 }

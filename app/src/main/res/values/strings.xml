@@ -99,7 +99,7 @@
     <string name="trip_details_transport_card_train_departure">Train departure</string>
     <string name="trip_details_delete_confirmation_title">Delete the trip?</string>
     <string name="trip_details_next_event_label">NEXT</string>
-    <string name="trip_details_day_filter_all_label">All</string>
+    <string name="trip_details_day_filter_all_label" comment="Short label">All</string>
 
     <string name="trips_empty_message">You don\'t have any planned trips</string>
     <string name="trips_add_btn_label">Add trip</string>
