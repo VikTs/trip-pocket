@@ -105,7 +105,7 @@
     <string name="trips_add_btn_label">Utazás hozzáadása</string>
     <string name="trips_trip_card_active_label">Folyamatban</string>
     <string name="trips_trip_card_next_label">Következő</string>
-    <string name="trips_trip_card_next_transport">Következő: %1$s – %2$s</string>
+    <string name="trips_trip_card_next_transport">Következő: %1$s %2$s városába</string>
     <string name="trips_trip_card_next_accommodation_check_in">Következő: bejelentkezés – %1$s</string>
     <string name="trips_trip_card_next_accommodation_check_out">Következő: kijelentkezés – %1$s</string>
     <plurals name="trips_trip_card_days_remaining_label">
@@ -151,7 +151,7 @@
     <string name="accommodation_details_duration_label">Időtartam</string>
     <string name="accommodation_details_call_label">Hívás</string>
 
-    <string name="notification_upcoming_transport">%1$s – %2$s</string>
+    <string name="notification_upcoming_transport">%1$s %2$s városába</string>
     <string name="notification_departure_time">Indulás ideje: %1$s</string>
     <string name="notification_upcoming_check_in">Bejelentkezés: %1$s</string>
     <string name="notification_upcoming_check_out">Kijelentkezés: %1$s</string>

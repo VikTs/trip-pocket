@@ -37,6 +37,7 @@ private val languages = listOf(
     "Magyar" to "hu",
     "Polski" to "pl",
     "Português" to "pt",
+    "Srpski" to "sr-Latn",
     "Türkçe" to "tr",
     "Українська" to "uk",
 )

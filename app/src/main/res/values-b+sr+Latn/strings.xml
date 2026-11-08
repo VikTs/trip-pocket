@@ -1,0 +1,188 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Sačuvaj promene</string>
+    <string name="common_edit">Izmeni</string>
+    <string name="common_delete">Obriši</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Otkaži</string>
+    <string name="transport_type_bus">Autobus</string>
+    <string name="transport_type_train">Voz</string>
+    <string name="transport_type_plane">Avion</string>
+    <string name="date_input_placeholder">Izaberi datum</string>
+    <string name="time_input_placeholder">Izaberi vreme</string>
+    <string name="address_copied_message">Adresa je kopirana</string>
+    <string name="upload_btn_label">Otpremi dokument</string>
+    <string name="upload_image_btn_label">Otpremi sliku</string>
+    <string name="upload_another_image_btn_label">Otpremi još jednu sliku</string>
+    <string name="language_selector_content_description">Jezik</string>
+    <string name="delete_confirmation_title">Obrisati?</string>
+    <string name="delete_confirmation_message">Ova radnja se ne može poništiti</string>
+    <string name="required_fields_hint">Polja označena sa * su obavezna</string>
+
+    <string name="notifications_disabled_message">Obaveštenja su isključena</string>
+    <string name="notifications_enable_btn_label">Uključi obaveštenja</string>
+    <string name="exact_reminders_disabled_message">Podsetnici su isključeni</string>
+    <string name="exact_reminders_enable_btn_label">Uključi podsetnike</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Obaveštenja i podsetnici su isključeni</string>
+    <string name="notification_help_title">Ne stižu ti obaveštenja?</string>
+    <string name="notification_help_body">Neki telefoni ograničavaju rad aplikacija u pozadini. Probaj sledeće:\n\n• U podešavanjima baterije aplikacije izaberi „Bez ograničenja“ ili isključi optimizaciju baterije. Ako imaš Samsung uređaj, ukloni aplikaciju sa liste „Uspavane aplikacije“.\n• Uključi „Automatsko pokretanje“ za aplikaciju (dostupno na Xiaomi, Oppo, Vivo, Huawei i drugim uređajima).\n• Proveri da su za aplikaciju uključena „Obaveštenja“ i „Alarmi i podsetnici“.\n\nNazivi podešavanja mogu se razlikovati u zavisnosti od modela telefona i verzije sistema.</string>
+    <string name="notification_help_open_settings">Podešavanja aplikacije</string>
+    <string name="notification_help_close">Zatvori</string>
+
+    <string name="edit_transport_title">Izmeni prevoz</string>
+    <string name="add_transport_title">Dodaj prevoz</string>
+    <string name="add_transport_from_section_title">Polazište</string>
+    <string name="add_transport_to_section_title">Odredište</string>
+    <string name="add_transport_btn_label">Dodaj prevoz</string>
+    <string name="add_transport_bus_number_label">Broj autobusa</string>
+    <string name="add_transport_place_label">Sedište</string>
+    <string name="add_transport_documents_section_title">Dokumenti</string>
+    <string name="add_transport_train_number_label">Broj voza</string>
+    <string name="add_transport_plane_number_label">Broj leta</string>
+    <string name="add_transport_coach_label">Vagon</string>
+    <string name="add_transport_transport_section_title">Prevoz</string>
+    <string name="add_transport_type_label">Tip</string>
+    <string name="add_transport_date_label">Datum</string>
+    <string name="add_transport_time_label">Vreme</string>
+    <string name="add_transport_address_label">Naziv stanice (ili adresa)</string>
+    <string name="add_transport_airport_name_label">Naziv aerodroma (ili adresa)</string>
+    <string name="add_transport_airport_code_label">Kod aerodroma</string>
+    <string name="add_transport_platform_label">Peron</string>
+    <string name="add_transport_terminal_label">Terminal</string>
+    <string name="add_transport_gate_label">Izlaz</string>
+    <string name="add_transport_city_label">Grad</string>
+    <string name="add_transport_private_bus_label">Ovo je privatni autobus</string>
+    <string name="add_transport_carrier_label">Prevoznik</string>
+    <string name="add_transport_airline_label">Avio-kompanija</string>
+    <string name="add_transport_driver_phone_label">Telefon vozača</string>
+
+    <string name="edit_trip_title">Izmeni putovanje</string>
+    <string name="create_trip_title">Napravi putovanje</string>
+    <string name="create_trip_name_label">Naziv putovanja</string>
+    <string name="create_trip_start_date_label">Datum početka</string>
+    <string name="create_trip_end_date_label">Datum završetka</string>
+    <string name="create_trip_btn_label">Napravi putovanje</string>
+
+    <string name="transport_details_bus_info_title">Podaci o autobusu</string>
+    <string name="transport_details_train_info_title">Podaci o vozu</string>
+    <string name="transport_details_plane_info_title">Podaci o avionu</string>
+    <string name="transport_details_coach_label">Vagon</string>
+    <string name="transport_details_seat_label">Sedište</string>
+    <string name="transport_details_driver_phone_label">Vozač</string>
+    <string name="transport_details_terminal_label">Terminal</string>
+    <string name="transport_details_platform_label">Per.</string>
+    <string name="transport_details_gate_label">Izlaz</string>
+    <string name="transport_details_documents_section_title">Dokumenti</string>
+    <string name="transport_details_notifications_section_title">Obaveštenja</string>
+    <string name="transport_details_departure_notification_label">Obavesti %1$s pre polaska</string>
+    <string name="transport_details_plane_departure_notification_label">Obavesti %1$s pre poletanja</string>
+    <string name="transport_details_delete_confirmation_title">Obrisati prevoz?</string>
+    <string name="transport_details_notifications_unavailable">Obaveštenja za ovaj prevoz nisu dostupna</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Dodaj na putovanje</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Prevoz</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Smeštaj</string>
+
+    <string name="trip_details_title">Detalji putovanja</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Putovanje je prazno</string>
+    <string name="trip_details_add_btn_label">Dodaj</string>
+    <string name="trip_details_transport_card_coach_label">Vagon</string>
+    <string name="trip_details_transport_card_seat_label">Sedište</string>
+    <string name="trip_details_departure_label">Pol.</string>
+    <string name="trip_details_plane_departure_label">Aerodrom</string>
+    <string name="trip_details_terminal_label">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Dolazak</string>
+    <string name="trip_details_transport_card_bus_departure">Polazak autobusa</string>
+    <string name="trip_details_transport_card_train_departure">Polazak voza</string>
+    <string name="trip_details_delete_confirmation_title">Obrisati putovanje?</string>
+    <string name="trip_details_next_event_label">SLEDEĆE</string>
+    <string name="trip_details_day_filter_all_label">Sve</string>
+
+    <string name="trips_empty_message">Nemaš planiranih putovanja</string>
+    <string name="trips_add_btn_label">Dodaj putovanje</string>
+    <string name="trips_trip_card_active_label">U toku</string>
+    <string name="trips_trip_card_next_label">Sledeće</string>
+    <string name="trips_trip_card_next_transport">Sledeće: %1$s do grada %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Sledeće: check-in – %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Sledeće: check-out – %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Preostaje %1$d dan</item>
+        <item quantity="few">Preostaju %1$d dana</item>
+        <item quantity="other">Preostaje %1$d dana</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Završeno</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d dan  |  %2$s</item>
+        <item quantity="few">%1$d dana  |  %2$s</item>
+        <item quantity="other">%1$d dana  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">Za %d dan</item>
+        <item quantity="few">Za %d dana</item>
+        <item quantity="other">Za %d dana</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Prošla</string>
+    <string name="trips_toggle_upcoming_label">Predstojeća</string>
+    <string name="trips_toggle_empty_message">Nije pronađeno nijedno putovanje</string>
+    <string name="trips_title">Moja putovanja</string>
+
+
+    <string name="add_accommodation_title">Dodaj smeštaj</string>
+    <string name="edit_accommodation_title">Izmeni smeštaj</string>
+    <string name="add_accommodation_general_section_title">Smeštaj</string>
+    <string name="add_accommodation_name_label">Naziv</string>
+    <string name="add_accommodation_address_label">Adresa</string>
+    <string name="add_accommodation_contact_phone_label">Kontakt telefon</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Datum</string>
+    <string name="add_accommodation_time_label">Vreme</string>
+    <string name="add_accommodation_btn_label">Dodaj smeštaj</string>
+    <string name="add_accommodation_documents_section_title">Dokumenti</string>
+
+    <string name="accommodation_details_title">Podaci o smeštaju</string>
+    <string name="accommodation_details_address_label">Adresa</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Obaveštenja</string>
+    <string name="accommodation_details_check_in_notification_label">Obavesti 1 sat pre vremena za check-in</string>
+    <string name="accommodation_details_check_out_notification_label">Obavesti 1 sat pre vremena za check-out</string>
+    <string name="accommodation_details_documents_section_title">Dokumenti</string>
+    <string name="accommodation_details_delete_confirmation_title">Obrisati smeštaj?</string>
+    <string name="accommodation_details_duration_label">Trajanje</string>
+    <string name="accommodation_details_call_label">Pozovi</string>
+
+    <string name="notification_upcoming_transport">%1$s do grada %2$s</string>
+    <string name="notification_departure_time">Vreme polaska: %1$s</string>
+    <string name="notification_upcoming_check_in">Check-in: %1$s</string>
+    <string name="notification_upcoming_check_out">Check-out: %1$s</string>
+    <string name="notification_accommodation_time">Vreme: %1$s</string>
+    <string name="notification_transport_platform">Peron %1$s</string>
+    <string name="notification_transport_seat">Sedište %1$s</string>
+    <string name="notification_transport_coach">Vagon %1$s</string>
+
+    <string name="duration_hours_short">%d h</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d h %2$d min</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d sat</item>
+        <item quantity="few">%d sata</item>
+        <item quantity="other">%d sati</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="few">%d minuta</item>
+        <item quantity="other">%d minuta</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d noć</item>
+        <item quantity="few">%d noći</item>
+        <item quantity="other">%d noći</item>
+    </plurals>
+</resources>
