@@ -1,0 +1,181 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Módosítások mentése</string>
+    <string name="common_edit">Szerkesztés</string>
+    <string name="common_delete">Törlés</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Mégse</string>
+    <string name="transport_type_bus">Busz</string>
+    <string name="transport_type_train">Vonat</string>
+    <string name="transport_type_plane">Repülő</string>
+    <string name="date_input_placeholder">Válasszon dátumot</string>
+    <string name="time_input_placeholder">Válasszon időpontot</string>
+    <string name="address_copied_message">Cím másolva</string>
+    <string name="upload_btn_label">Dokumentum feltöltése</string>
+    <string name="upload_image_btn_label">Kép feltöltése</string>
+    <string name="upload_another_image_btn_label">Másik kép feltöltése</string>
+    <string name="language_selector_content_description">Nyelv</string>
+    <string name="delete_confirmation_title">Törlés?</string>
+    <string name="delete_confirmation_message">Ez a művelet nem vonható vissza</string>
+    <string name="required_fields_hint">A *-gal jelölt mezők kitöltése kötelező</string>
+
+    <string name="notifications_disabled_message">Az értesítések ki vannak kapcsolva</string>
+    <string name="notifications_enable_btn_label">Értesítések bekapcsolása</string>
+    <string name="exact_reminders_disabled_message">Az emlékeztetők ki vannak kapcsolva</string>
+    <string name="exact_reminders_enable_btn_label">Emlékeztetők bekapcsolása</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Az értesítések és az emlékeztetők ki vannak kapcsolva</string>
+    <string name="notification_help_title">Nem érkeznek értesítések?</string>
+    <string name="notification_help_body">Egyes telefonok korlátozzák az alkalmazások háttérben futását. Próbálja ki a következőket:\n\n• Az alkalmazás akkumulátorbeállításaiban válassza a „Korlátlan” lehetőséget, vagy kapcsolja ki az akkumulátoroptimalizálást. Samsung eszköz esetén távolítsa el az alkalmazást az „Alvó alkalmazások” listájáról.\n• Kapcsolja be az „Automatikus indítás” funkciót az alkalmazáshoz (Xiaomi, Oppo, Vivo, Huawei és más készülékeken érhető el).\n• Győződjön meg róla, hogy az „Értesítések” és az „Ébresztők és emlékeztetők” engedélyezve vannak az alkalmazáshoz.\n\nA beállítások elnevezése a telefon típusától és a rendszer verziójától függően eltérhet.</string>
+    <string name="notification_help_open_settings">Alkalmazásbeállítások</string>
+    <string name="notification_help_close">Bezárás</string>
+
+    <string name="edit_transport_title">Járat szerkesztése</string>
+    <string name="add_transport_title">Járat hozzáadása</string>
+    <string name="add_transport_from_section_title">Honnan</string>
+    <string name="add_transport_to_section_title">Hová</string>
+    <string name="add_transport_btn_label">Járat hozzáadása</string>
+    <string name="add_transport_bus_number_label">Busz száma</string>
+    <string name="add_transport_place_label">Ülőhely</string>
+    <string name="add_transport_documents_section_title">Dokumentumok</string>
+    <string name="add_transport_train_number_label">Vonat száma</string>
+    <string name="add_transport_plane_number_label">Járatszám</string>
+    <string name="add_transport_coach_label">Kocsi</string>
+    <string name="add_transport_transport_section_title">Járat</string>
+    <string name="add_transport_type_label">Típus</string>
+    <string name="add_transport_date_label">Dátum</string>
+    <string name="add_transport_time_label">Időpont</string>
+    <string name="add_transport_address_label">Állomás neve (vagy címe)</string>
+    <string name="add_transport_airport_name_label">Repülőtér neve (vagy címe)</string>
+    <string name="add_transport_airport_code_label">Repülőtér kódja</string>
+    <string name="add_transport_platform_label">Vágány</string>
+    <string name="add_transport_terminal_label">Terminál</string>
+    <string name="add_transport_gate_label">Kapu</string>
+    <string name="add_transport_city_label">Város</string>
+    <string name="add_transport_private_bus_label">Ez egy magánbusz</string>
+    <string name="add_transport_carrier_label">Fuvarozó</string>
+    <string name="add_transport_airline_label">Légitársaság</string>
+    <string name="add_transport_driver_phone_label">Sofőr telefonszáma</string>
+
+    <string name="edit_trip_title">Utazás szerkesztése</string>
+    <string name="create_trip_title">Utazás létrehozása</string>
+    <string name="create_trip_name_label">Utazás neve</string>
+    <string name="create_trip_start_date_label">Kezdő dátum</string>
+    <string name="create_trip_end_date_label">Befejező dátum</string>
+    <string name="create_trip_btn_label">Utazás létrehozása</string>
+
+    <string name="transport_details_bus_info_title">Busz adatai</string>
+    <string name="transport_details_train_info_title">Vonat adatai</string>
+    <string name="transport_details_plane_info_title">Repülő adatai</string>
+    <string name="transport_details_coach_label">Kocsi</string>
+    <string name="transport_details_seat_label">Ülés</string>
+    <string name="transport_details_driver_phone_label">Sofőr</string>
+    <string name="transport_details_terminal_label">Terminál</string>
+    <string name="transport_details_platform_label">Vág.</string>
+    <string name="transport_details_gate_label">Kapu</string>
+    <string name="transport_details_documents_section_title">Dokumentumok</string>
+    <string name="transport_details_notifications_section_title">Értesítések</string>
+    <string name="transport_details_departure_notification_label">Értesítés %1$s indulás előtt</string>
+    <string name="transport_details_plane_departure_notification_label">Értesítés %1$s felszállás előtt</string>
+    <string name="transport_details_delete_confirmation_title">Törli a járatot?</string>
+    <string name="transport_details_notifications_unavailable">Ehhez a járathoz nem érhetők el értesítések</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Hozzáadás az utazáshoz</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Járat</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Szállás</string>
+
+    <string name="trip_details_title">Az utazás részletei</string>
+    <string name="trip_details_accommodation_checkin_label">Bejelentkezés</string>
+    <string name="trip_details_accommodation_checkout_label">Kijelentkezés</string>
+    <string name="trip_details_empty_message">Az utazás még üres</string>
+    <string name="trip_details_add_btn_label">Hozzáadás</string>
+    <string name="trip_details_transport_card_coach_label">Kocsi</string>
+    <string name="trip_details_transport_card_seat_label">Ülés</string>
+    <string name="trip_details_departure_label">Ind.</string>
+    <string name="trip_details_plane_departure_label">Repülőtér</string>
+    <string name="trip_details_terminal_label">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Érkezés</string>
+    <string name="trip_details_transport_card_bus_departure">Busz indulása</string>
+    <string name="trip_details_transport_card_train_departure">Vonat indulása</string>
+    <string name="trip_details_delete_confirmation_title">Törli az utazást?</string>
+    <string name="trip_details_next_event_label">KÖVETKEZŐ</string>
+    <string name="trip_details_day_filter_all_label">Mind</string>
+
+    <string name="trips_empty_message">Nincsenek tervezett utazásai</string>
+    <string name="trips_add_btn_label">Utazás hozzáadása</string>
+    <string name="trips_trip_card_active_label">Folyamatban</string>
+    <string name="trips_trip_card_next_label">Következő</string>
+    <string name="trips_trip_card_next_transport">Következő: %1$s – %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Következő: bejelentkezés – %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Következő: kijelentkezés – %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">%1$d nap van hátra</item>
+        <item quantity="other">%1$d nap van hátra</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Befejezett</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d nap  |  %2$s</item>
+        <item quantity="other">%1$d nap  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">%d nap múlva</item>
+        <item quantity="other">%d nap múlva</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Korábbi</string>
+    <string name="trips_toggle_upcoming_label">Közelgő</string>
+    <string name="trips_toggle_empty_message">Nem található utazás</string>
+    <string name="trips_title">Utazásaim</string>
+
+    <string name="add_accommodation_title">Szállás hozzáadása</string>
+    <string name="edit_accommodation_title">Szállás szerkesztése</string>
+    <string name="add_accommodation_general_section_title">Szállás</string>
+    <string name="add_accommodation_name_label">Név</string>
+    <string name="add_accommodation_address_label">Cím</string>
+    <string name="add_accommodation_contact_phone_label">Kapcsolattartó telefonszáma</string>
+    <string name="add_accommodation_check_in_section_title">Bejelentkezés</string>
+    <string name="add_accommodation_check_out_section_title">Kijelentkezés</string>
+    <string name="add_accommodation_date_label">Dátum</string>
+    <string name="add_accommodation_time_label">Időpont</string>
+    <string name="add_accommodation_btn_label">Szállás hozzáadása</string>
+    <string name="add_accommodation_documents_section_title">Dokumentumok</string>
+
+    <string name="accommodation_details_title">A szállás adatai</string>
+    <string name="accommodation_details_address_label">Cím</string>
+    <string name="accommodation_details_check_in_label">Bejelentkezés</string>
+    <string name="accommodation_details_check_out_label">Kijelentkezés</string>
+    <string name="accommodation_details_notifications_section_title">Értesítések</string>
+    <string name="accommodation_details_check_in_notification_label">Értesítés 1 órával a bejelentkezés előtt</string>
+    <string name="accommodation_details_check_out_notification_label">Értesítés 1 órával a kijelentkezés előtt</string>
+    <string name="accommodation_details_documents_section_title">Dokumentumok</string>
+    <string name="accommodation_details_delete_confirmation_title">Törli a szállást?</string>
+    <string name="accommodation_details_duration_label">Időtartam</string>
+    <string name="accommodation_details_call_label">Hívás</string>
+
+    <string name="notification_upcoming_transport">%1$s – %2$s</string>
+    <string name="notification_departure_time">Indulás ideje: %1$s</string>
+    <string name="notification_upcoming_check_in">Bejelentkezés: %1$s</string>
+    <string name="notification_upcoming_check_out">Kijelentkezés: %1$s</string>
+    <string name="notification_accommodation_time">Időpont: %1$s</string>
+    <string name="notification_transport_platform">%1$s. vágány</string>
+    <string name="notification_transport_seat">%1$s. ülés</string>
+    <string name="notification_transport_coach">%1$s. kocsi</string>
+
+    <string name="duration_hours_short">%d ó</string>
+    <string name="duration_minutes_short">%d p</string>
+    <string name="duration_hours_minutes_short">%1$d ó %2$d p</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d óra</item>
+        <item quantity="other">%d óra</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d perc</item>
+        <item quantity="other">%d perc</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d éjszaka</item>
+        <item quantity="other">%d éjszaka</item>
+    </plurals>
+</resources>

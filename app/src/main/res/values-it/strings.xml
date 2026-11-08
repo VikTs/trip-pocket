@@ -18,6 +18,7 @@
     <string name="language_selector_content_description">Lingua</string>
     <string name="delete_confirmation_title">Eliminare?</string>
     <string name="delete_confirmation_message">Questa azione non può essere annullata</string>
+    <string name="required_fields_hint">I campi contrassegnati con * sono obbligatori</string>
 
     <string name="notifications_disabled_message">Le notifiche sono disabilitate</string>
     <string name="notifications_enable_btn_label">Abilita notifiche</string>
@@ -68,7 +69,6 @@
     <string name="transport_details_plane_info_title">Informazioni sul volo</string>
     <string name="transport_details_coach_label">Carrozza</string>
     <string name="transport_details_seat_label">Posto</string>
-    <string name="transport_details_carrier_label">Compagnia</string>
     <string name="transport_details_driver_phone_label">Autista</string>
     <string name="transport_details_terminal_label">Terminal</string>
     <string name="transport_details_platform_label">Piattaforma</string>
@@ -104,10 +104,10 @@
     <string name="trips_empty_message">Non hai viaggi pianificati</string>
     <string name="trips_add_btn_label">Aggiungi viaggio</string>
     <string name="trips_trip_card_active_label">In corso</string>
-    <string name="trips_trip_card_next_label">Poi</string>
+    <string name="trips_trip_card_next_label">Prossimo</string>
     <string name="trips_trip_card_next_transport">Prossimo: %1$s per %2$s</string>
-    <string name="trips_trip_card_next_accommodation_check_in">Prossimo: Check-in - %1$s</string>
-    <string name="trips_trip_card_next_accommodation_check_out">Prossimo: Check-out - %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Prossimo: Check-in presso %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Prossimo: Check-out presso %1$s</string>
     <plurals name="trips_trip_card_days_remaining_label">
         <item quantity="one">Ancora %1$d giorno</item>
         <item quantity="other">Ancora %1$d giorni</item>

@@ -25,6 +25,7 @@ import com.viktoriia.trippocket.ui.extensions.toIcon
 @Composable
 fun TransportDetailsSection(transport: Transport) {
     val typography = MaterialTheme.typography
+    val colorScheme = MaterialTheme.colorScheme
     val transportType = transport.transportType
 
     Row(
@@ -32,7 +33,7 @@ fun TransportDetailsSection(transport: Transport) {
     ) {
         Icon(
             imageVector = transportType.toIcon(),
-            tint = MaterialTheme.colorScheme.primary,
+            tint = colorScheme.primary,
             contentDescription = "Transport type",
             modifier = Modifier
                 .padding(top = 2.dp)
@@ -52,7 +53,7 @@ fun TransportDetailsSection(transport: Transport) {
             if (transport.carrier != null) {
                 Text(
                     transport.carrier,
-                    style = typography.titleMedium
+                    style = typography.titleSmall,
                 )
                 Spacer(
                     modifier = Modifier.height(4.dp)
@@ -70,25 +71,21 @@ fun TransportDetailsSection(transport: Transport) {
                 if (transportType == TransportType.TRAIN) {
                     Text(
                         text = "${stringResource(R.string.transport_details_coach_label)}: ${transport.coach ?: '-'}",
-                        style = typography.bodyLarge
+                        style = typography.bodyLarge,
                     )
 
                     Text(
                         text = "•",
                         style = typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = colorScheme.onSurfaceVariant
                     )
                 }
 
                 Text(
                     text = "${stringResource(R.string.transport_details_seat_label)}: ${transport.place ?: '-'}",
-                    style = typography.bodyLarge
+                    style = typography.bodyLarge,
                 )
             }
         }
     }
-
-    Spacer(
-        modifier = Modifier.height(16.dp)
-    )
 }

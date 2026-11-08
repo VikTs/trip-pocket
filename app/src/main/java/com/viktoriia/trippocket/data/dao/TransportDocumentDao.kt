@@ -36,4 +36,13 @@ interface TransportDocumentDao {
     suspend fun deleteForTransport(
         transportId: Long
     )
+
+    @Query("""
+    SELECT path
+    FROM transport_documents
+    WHERE transportId = :transportId
+""")
+    suspend fun getFilePathsByTransportId(
+        transportId: Long
+    ): List<String>
 }

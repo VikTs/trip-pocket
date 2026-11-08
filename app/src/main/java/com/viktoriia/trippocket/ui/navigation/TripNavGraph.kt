@@ -1,6 +1,8 @@
 package com.viktoriia.trippocket.ui.navigation
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -103,13 +105,18 @@ fun NavGraphBuilder.tripNavGraph(
         }
 
         if (tripId != null && trip != null) {
-            val tripEvents by tripsViewModel
-                .getTripEvents(tripId)
-                .collectAsStateWithLifecycle(initialValue = emptyList())
+            val tripEventsFlow = remember(tripId) {
+                tripsViewModel.getTripEvents(tripId)
+            }
+
+            val tripEvents by tripEventsFlow.collectAsStateWithLifecycle(
+                lifecycle = LocalLifecycleOwner.current.lifecycle
+            )
 
             TripDetailsScreen(
                 trip = trip,
-                tripEvents = tripEvents,
+                tripEvents = tripEvents.orEmpty(),
+                isLoading = tripEvents == null,
                 onEditClick = {
                     navController.navigate(
                         "edit_trip/$tripId"

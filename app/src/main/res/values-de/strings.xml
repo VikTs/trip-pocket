@@ -18,6 +18,7 @@
     <string name="language_selector_content_description">Sprache</string>
     <string name="delete_confirmation_title">Löschen?</string>
     <string name="delete_confirmation_message">Diese Aktion kann nicht rückgängig gemacht werden</string>
+    <string name="required_fields_hint">Mit * gekennzeichnete Felder sind Pflichtfelder</string>
 
     <string name="notifications_disabled_message">Benachrichtigungen sind deaktiviert</string>
     <string name="notifications_enable_btn_label">Benachrichtigungen aktivieren</string>
@@ -68,7 +69,6 @@
     <string name="transport_details_plane_info_title">Fluginformationen</string>
     <string name="transport_details_coach_label">Wagen</string>
     <string name="transport_details_seat_label">Sitzplatz</string>
-    <string name="transport_details_carrier_label">Busunternehmen</string>
     <string name="transport_details_driver_phone_label">Fahrer</string>
     <string name="transport_details_platform_label">Gleis</string>
     <string name="transport_details_terminal_label">Terminal</string>

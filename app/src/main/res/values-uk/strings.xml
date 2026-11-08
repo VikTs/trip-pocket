@@ -18,6 +18,7 @@
     <string name="language_selector_content_description">Мова</string>
     <string name="delete_confirmation_title">Видалити?</string>
     <string name="delete_confirmation_message">Цю дію не можна скасувати</string>
+    <string name="required_fields_hint">Поля з * обов’язкові для заповнення</string>
 
     <string name="notifications_disabled_message">Сповіщення вимкнено</string>
     <string name="notifications_enable_btn_label">Увімкнути сповіщення</string>
@@ -68,7 +69,6 @@
     <string name="transport_details_plane_info_title">Інформація про літак</string>
     <string name="transport_details_coach_label">Вагон</string>
     <string name="transport_details_seat_label">Місце</string>
-    <string name="transport_details_carrier_label">Перевізник</string>
     <string name="transport_details_driver_phone_label">Водій</string>
     <string name="transport_details_terminal_label">Термінал</string>
     <string name="transport_details_platform_label">Платф.</string>
@@ -154,7 +154,7 @@
     <string name="accommodation_details_documents_section_title">Документи</string>
     <string name="accommodation_details_delete_confirmation_title">Видалити житло?</string>
     <string name="accommodation_details_duration_label">Тривалість</string>
-    <string name="accommodation_details_call_label">Дзвінок</string>
+    <string name="accommodation_details_call_label">Подзвонити</string>
 
     <string name="notification_upcoming_transport">%1$s до міста %2$s</string>
     <string name="notification_departure_time">Час відправлення: %1$s</string>

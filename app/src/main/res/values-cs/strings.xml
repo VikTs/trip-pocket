@@ -1,0 +1,193 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Uložit změny</string>
+    <string name="common_edit">Upravit</string>
+    <string name="common_delete">Smazat</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Zrušit</string>
+    <string name="transport_type_bus">Autobus</string>
+    <string name="transport_type_train">Vlak</string>
+    <string name="transport_type_plane">Letadlo</string>
+    <string name="date_input_placeholder">Vyberte datum</string>
+    <string name="time_input_placeholder">Vyberte čas</string>
+    <string name="address_copied_message">Adresa zkopírována</string>
+    <string name="upload_btn_label">Nahrát dokument</string>
+    <string name="upload_image_btn_label">Nahrát obrázek</string>
+    <string name="upload_another_image_btn_label">Nahrát další obrázek</string>
+    <string name="language_selector_content_description">Jazyk</string>
+    <string name="delete_confirmation_title">Smazat?</string>
+    <string name="delete_confirmation_message">Tuto akci nelze vrátit zpět</string>
+    <string name="required_fields_hint">Pole označená * jsou povinná</string>
+
+    <string name="notifications_disabled_message">Oznámení jsou vypnutá</string>
+    <string name="notifications_enable_btn_label">Zapnout oznámení</string>
+    <string name="exact_reminders_disabled_message">Připomenutí jsou vypnutá</string>
+    <string name="exact_reminders_enable_btn_label">Zapnout připomenutí</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Oznámení a připomenutí jsou vypnutá</string>
+    <string name="notification_help_title">Nechodí vám oznámení?</string>
+    <string name="notification_help_body">Některé telefony omezují běh aplikací na pozadí. Zkuste následující:\n\n• V nastavení baterie aplikace vyberte „Bez omezení“ nebo vypněte optimalizaci baterie. Pokud máte zařízení Samsung, odeberte aplikaci ze seznamu „Uspané aplikace“.\n• Zapněte pro aplikaci „Automatické spuštění“ (k dispozici na Xiaomi, Oppo, Vivo, Huawei a dalších).\n• Ujistěte se, že jsou pro aplikaci zapnutá „Oznámení“ a „Budíky a připomenutí“.\n\nNázvy nastavení se mohou lišit podle modelu telefonu a verze systému.</string>
+    <string name="notification_help_open_settings">Nastavení aplikace</string>
+    <string name="notification_help_close">Zavřít</string>
+
+    <string name="edit_transport_title">Upravit dopravu</string>
+    <string name="add_transport_title">Přidat dopravu</string>
+    <string name="add_transport_from_section_title">Odkud</string>
+    <string name="add_transport_to_section_title">Kam</string>
+    <string name="add_transport_btn_label">Přidat dopravu</string>
+    <string name="add_transport_bus_number_label">Číslo autobusu</string>
+    <string name="add_transport_place_label">Místo</string>
+    <string name="add_transport_documents_section_title">Dokumenty</string>
+    <string name="add_transport_train_number_label">Číslo vlaku</string>
+    <string name="add_transport_plane_number_label">Číslo letu</string>
+    <string name="add_transport_coach_label">Vůz</string>
+    <string name="add_transport_transport_section_title">Doprava</string>
+    <string name="add_transport_type_label">Typ</string>
+    <string name="add_transport_date_label">Datum</string>
+    <string name="add_transport_time_label">Čas</string>
+    <string name="add_transport_address_label">Název stanice (nebo adresa)</string>
+    <string name="add_transport_airport_name_label">Název letiště (nebo adresa)</string>
+    <string name="add_transport_airport_code_label">Kód letiště</string>
+    <string name="add_transport_platform_label">Nástupiště</string>
+    <string name="add_transport_terminal_label">Terminál</string>
+    <string name="add_transport_gate_label">Gate</string>
+    <string name="add_transport_city_label">Město</string>
+    <string name="add_transport_private_bus_label">Toto je soukromý autobus</string>
+    <string name="add_transport_carrier_label">Dopravce</string>
+    <string name="add_transport_airline_label">Letecká společnost</string>
+    <string name="add_transport_driver_phone_label">Telefon řidiče</string>
+
+    <string name="edit_trip_title">Upravit cestu</string>
+    <string name="create_trip_title">Vytvořit cestu</string>
+    <string name="create_trip_name_label">Název cesty</string>
+    <string name="create_trip_start_date_label">Datum začátku</string>
+    <string name="create_trip_end_date_label">Datum konce</string>
+    <string name="create_trip_btn_label">Vytvořit cestu</string>
+
+    <string name="transport_details_bus_info_title">Informace o autobusu</string>
+    <string name="transport_details_train_info_title">Informace o vlaku</string>
+    <string name="transport_details_plane_info_title">Informace o letadle</string>
+    <string name="transport_details_coach_label">Vůz</string>
+    <string name="transport_details_seat_label">Sedadlo</string>
+    <string name="transport_details_driver_phone_label">Řidič</string>
+    <string name="transport_details_terminal_label">Terminál</string>
+    <string name="transport_details_platform_label">Nást.</string>
+    <string name="transport_details_gate_label">Gate</string>
+    <string name="transport_details_documents_section_title">Dokumenty</string>
+    <string name="transport_details_notifications_section_title">Oznámení</string>
+    <string name="transport_details_departure_notification_label">Upozornit %1$s před odjezdem</string>
+    <string name="transport_details_plane_departure_notification_label">Upozornit %1$s před odletem</string>
+    <string name="transport_details_delete_confirmation_title">Smazat dopravu?</string>
+    <string name="transport_details_notifications_unavailable">Oznámení pro tuto dopravu nejsou k dispozici</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Přidat do cesty</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Doprava</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Ubytování</string>
+
+    <string name="trip_details_title">Podrobnosti cesty</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Vaše cesta je prázdná</string>
+    <string name="trip_details_add_btn_label">Přidat</string>
+    <string name="trip_details_transport_card_coach_label">Vůz</string>
+    <string name="trip_details_transport_card_seat_label">Sedadlo</string>
+    <string name="trip_details_departure_label">Odj.</string>
+    <string name="trip_details_plane_departure_label">Letiště</string>
+    <string name="trip_details_terminal_label">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Příjezd</string>
+    <string name="trip_details_transport_card_bus_departure">Odjezd autobusu</string>
+    <string name="trip_details_transport_card_train_departure">Odjezd vlaku</string>
+    <string name="trip_details_delete_confirmation_title">Smazat cestu?</string>
+    <string name="trip_details_next_event_label">DALŠÍ</string>
+    <string name="trip_details_day_filter_all_label">Vše</string>
+
+    <string name="trips_empty_message">Nemáte žádné plánované cesty</string>
+    <string name="trips_add_btn_label">Přidat cestu</string>
+    <string name="trips_trip_card_active_label">Probíhá</string>
+    <string name="trips_trip_card_next_label">Další</string>
+    <string name="trips_trip_card_next_transport">Další: %1$s do města %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Další: check-in – %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Další: check-out – %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Zbývá %1$d den</item>
+        <item quantity="few">Zbývají %1$d dny</item>
+        <item quantity="many">Zbývá %1$d dne</item>
+        <item quantity="other">Zbývá %1$d dní</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Dokončeno</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d den  |  %2$s</item>
+        <item quantity="few">%1$d dny  |  %2$s</item>
+        <item quantity="many">%1$d dne  |  %2$s</item>
+        <item quantity="other">%1$d dní  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">Za %d den</item>
+        <item quantity="few">Za %d dny</item>
+        <item quantity="many">Za %d dne</item>
+        <item quantity="other">Za %d dní</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Minulé</string>
+    <string name="trips_toggle_upcoming_label">Nadcházející</string>
+    <string name="trips_toggle_empty_message">Nebyly nalezeny žádné cesty</string>
+    <string name="trips_title">Moje cesty</string>
+
+    <string name="add_accommodation_title">Přidat ubytování</string>
+    <string name="edit_accommodation_title">Upravit ubytování</string>
+    <string name="add_accommodation_general_section_title">Ubytování</string>
+    <string name="add_accommodation_name_label">Název</string>
+    <string name="add_accommodation_address_label">Adresa</string>
+    <string name="add_accommodation_contact_phone_label">Kontaktní telefon</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Datum</string>
+    <string name="add_accommodation_time_label">Čas</string>
+    <string name="add_accommodation_btn_label">Přidat ubytování</string>
+    <string name="add_accommodation_documents_section_title">Dokumenty</string>
+
+    <string name="accommodation_details_title">Informace o ubytování</string>
+    <string name="accommodation_details_address_label">Adresa</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Oznámení</string>
+    <string name="accommodation_details_check_in_notification_label">Upozornit 1 hodinu před check-inem</string>
+    <string name="accommodation_details_check_out_notification_label">Upozornit 1 hodinu před check-outem</string>
+    <string name="accommodation_details_documents_section_title">Dokumenty</string>
+    <string name="accommodation_details_delete_confirmation_title">Smazat ubytování?</string>
+    <string name="accommodation_details_duration_label">Délka pobytu</string>
+    <string name="accommodation_details_call_label">Zavolat</string>
+
+    <string name="notification_upcoming_transport">%1$s do města %2$s</string>
+    <string name="notification_departure_time">Čas odjezdu: %1$s</string>
+    <string name="notification_upcoming_check_in">Check-in: %1$s</string>
+    <string name="notification_upcoming_check_out">Check-out: %1$s</string>
+    <string name="notification_accommodation_time">Čas: %1$s</string>
+    <string name="notification_transport_platform">Nástupiště %1$s</string>
+    <string name="notification_transport_seat">Sedadlo %1$s</string>
+    <string name="notification_transport_coach">Vůz %1$s</string>
+
+    <string name="duration_hours_short">%d h</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d h %2$d min</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d hodina</item>
+        <item quantity="few">%d hodiny</item>
+        <item quantity="many">%d hodiny</item>
+        <item quantity="other">%d hodin</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="many">%d minuty</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d noc</item>
+        <item quantity="few">%d noci</item>
+        <item quantity="many">%d noci</item>
+        <item quantity="other">%d nocí</item>
+    </plurals>
+</resources>
