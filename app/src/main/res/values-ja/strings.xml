@@ -1,0 +1,178 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">変更を保存</string>
+    <string name="common_edit">編集</string>
+    <string name="common_delete">削除</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">キャンセル</string>
+    <string name="transport_type_bus">バス</string>
+    <string name="transport_type_train">電車</string>
+    <string name="transport_type_plane">飛行機</string>
+    <string name="date_input_placeholder">日付を選択</string>
+    <string name="time_input_placeholder">時刻を選択</string>
+    <string name="address_copied_message">住所をコピーしました</string>
+    <string name="upload_btn_label">ドキュメントをアップロード</string>
+    <string name="upload_image_btn_label">画像をアップロード</string>
+    <string name="upload_another_image_btn_label">別の画像をアップロード</string>
+    <string name="language_selector_content_description">言語</string>
+    <string name="language_selector_search_hint">言語を検索</string>
+    <string name="language_selector_search_empty">言語が見つかりません</string>
+    <string name="delete_confirmation_title">削除しますか？</string>
+    <string name="delete_confirmation_message">この操作は元に戻せません</string>
+    <string name="required_fields_hint">* が付いた項目は必須です</string>
+
+    <string name="notifications_disabled_message">通知がオフになっています</string>
+    <string name="notifications_enable_btn_label">通知をオンにする</string>
+    <string name="exact_reminders_disabled_message">リマインダーがオフになっています</string>
+    <string name="exact_reminders_enable_btn_label">リマインダーをオンにする</string>
+    <string name="notifications_and_exact_reminders_disabled_message">通知とリマインダーがオフになっています</string>
+    <string name="notification_help_title">通知が届きませんか？</string>
+    <string name="notification_help_body">一部のスマートフォンでは、アプリのバックグラウンド動作が制限されます。次の方法をお試しください。\n\n• アプリのバッテリー設定で「制限なし」を選択するか、バッテリーの最適化をオフにしてください。Samsung 端末の場合は、「スリープ中のアプリ」リストからアプリを削除してください。\n• アプリの「自動起動」をオンにしてください（Xiaomi、Oppo、Vivo、Huawei などで利用可能）。\n• アプリの「通知」と「アラームとリマインダー」が許可されていることを確認してください。\n\n設定名は、スマートフォンの機種やOSのバージョンによって異なる場合があります。</string>
+    <string name="notification_help_open_settings">アプリの設定</string>
+    <string name="notification_help_close">閉じる</string>
+
+    <string name="edit_transport_title">移動手段を編集</string>
+    <string name="add_transport_title">移動手段を追加</string>
+    <string name="add_transport_from_section_title">出発地</string>
+    <string name="add_transport_to_section_title">目的地</string>
+    <string name="add_transport_btn_label">移動手段を追加</string>
+    <string name="add_transport_bus_number_label">バス番号</string>
+    <string name="add_transport_place_label">座席</string>
+    <string name="add_transport_documents_section_title">ドキュメント</string>
+    <string name="add_transport_train_number_label">列車番号</string>
+    <string name="add_transport_plane_number_label">便名</string>
+    <string name="add_transport_coach_label">号車</string>
+    <string name="add_transport_transport_section_title">移動手段</string>
+    <string name="add_transport_type_label">種類</string>
+    <string name="add_transport_date_label">日付</string>
+    <string name="add_transport_time_label">時刻</string>
+    <string name="add_transport_address_label">駅名（または住所）</string>
+    <string name="add_transport_airport_name_label">空港名（または住所）</string>
+    <string name="add_transport_airport_code_label">空港コード</string>
+    <string name="add_transport_platform_label">ホーム</string>
+    <string name="add_transport_terminal_label">ターミナル</string>
+    <string name="add_transport_gate_label">ゲート</string>
+    <string name="add_transport_city_label">都市</string>
+    <string name="add_transport_private_bus_label">貸切バスです</string>
+    <string name="add_transport_carrier_label">運行会社</string>
+    <string name="add_transport_airline_label">航空会社</string>
+    <string name="add_transport_driver_phone_label">運転手の電話番号</string>
+
+    <string name="edit_trip_title">旅行を編集</string>
+    <string name="create_trip_title">旅行を作成</string>
+    <string name="create_trip_name_label">旅行名</string>
+    <string name="create_trip_start_date_label">開始日</string>
+    <string name="create_trip_end_date_label">終了日</string>
+    <string name="create_trip_btn_label">旅行を作成</string>
+
+    <string name="transport_details_bus_info_title">バスの情報</string>
+    <string name="transport_details_train_info_title">電車の情報</string>
+    <string name="transport_details_plane_info_title">飛行機の情報</string>
+    <string name="transport_details_coach_label">号車</string>
+    <string name="transport_details_seat_label">座席</string>
+    <string name="transport_details_driver_phone_label">運転手</string>
+    <string name="transport_details_terminal_label">ターミナル</string>
+    <string name="transport_details_platform_label">ホーム</string>
+    <string name="transport_details_gate_label">ゲート</string>
+    <string name="transport_details_documents_section_title">ドキュメント</string>
+    <string name="transport_details_notifications_section_title">通知</string>
+    <string name="transport_details_departure_notification_label">出発の%1$s前に通知</string>
+    <string name="transport_details_plane_departure_notification_label">出発の%1$s前に通知</string>
+    <string name="transport_details_delete_confirmation_title">移動手段を削除しますか？</string>
+    <string name="transport_details_notifications_unavailable">この移動手段では通知を利用できません</string>
+
+    <string name="add_to_trip_bottom_sheet_title">旅行に追加</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">移動手段</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">宿泊</string>
+
+    <string name="trip_details_title">旅行の詳細</string>
+    <string name="trip_details_accommodation_checkin_label">チェックイン</string>
+    <string name="trip_details_accommodation_checkout_label">チェックアウト</string>
+    <string name="trip_details_empty_message">旅行はまだ空です</string>
+    <string name="trip_details_add_btn_label">追加</string>
+    <string name="trip_details_transport_card_coach_label">号車</string>
+    <string name="trip_details_transport_card_seat_label">座席</string>
+    <string name="trip_details_departure_label">出発</string>
+    <string name="trip_details_plane_departure_label">空港</string>
+    <string name="trip_details_terminal_label">ターミナル</string>
+    <string name="trip_details_transport_card_arrival_label">到着</string>
+    <string name="trip_details_transport_card_bus_departure">バスの出発</string>
+    <string name="trip_details_transport_card_train_departure">電車の出発</string>
+    <string name="trip_details_delete_confirmation_title">旅行を削除しますか？</string>
+    <string name="trip_details_next_event_label">次</string>
+    <string name="trip_details_day_filter_all_label">すべて</string>
+
+    <string name="trips_empty_message">予定されている旅行はありません</string>
+    <string name="trips_add_btn_label">旅行を追加</string>
+    <string name="trips_trip_card_active_label">進行中</string>
+    <string name="trips_trip_card_next_label">次</string>
+    <string name="trips_trip_card_next_transport">次：%2$s行きの%1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">次：%1$sにチェックイン</string>
+    <string name="trips_trip_card_next_accommodation_check_out">次：%1$sをチェックアウト</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="other">残り%1$d日</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">完了</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="other">%1$d日  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="other">%d日後</item>
+    </plurals>
+    <string name="trips_toggle_past_label">過去</string>
+    <string name="trips_toggle_upcoming_label">今後</string>
+    <string name="trips_toggle_empty_message">旅行が見つかりません</string>
+    <string name="trips_title">マイ旅行</string>
+
+
+    <string name="add_accommodation_title">宿泊先を追加</string>
+    <string name="edit_accommodation_title">宿泊先を編集</string>
+    <string name="add_accommodation_general_section_title">宿泊先</string>
+    <string name="add_accommodation_name_label">名称</string>
+    <string name="add_accommodation_address_label">住所</string>
+    <string name="add_accommodation_contact_phone_label">連絡先電話番号</string>
+    <string name="add_accommodation_check_in_section_title">チェックイン</string>
+    <string name="add_accommodation_check_out_section_title">チェックアウト</string>
+    <string name="add_accommodation_date_label">日付</string>
+    <string name="add_accommodation_time_label">時刻</string>
+    <string name="add_accommodation_btn_label">宿泊先を追加</string>
+    <string name="add_accommodation_documents_section_title">ドキュメント</string>
+
+    <string name="accommodation_details_title">宿泊先の情報</string>
+    <string name="accommodation_details_address_label">住所</string>
+    <string name="accommodation_details_check_in_label">チェックイン</string>
+    <string name="accommodation_details_check_out_label">チェックアウト</string>
+    <string name="accommodation_details_notifications_section_title">通知</string>
+    <string name="accommodation_details_check_in_notification_label">チェックインの1時間前に通知</string>
+    <string name="accommodation_details_check_out_notification_label">チェックアウトの1時間前に通知</string>
+    <string name="accommodation_details_documents_section_title">ドキュメント</string>
+    <string name="accommodation_details_delete_confirmation_title">宿泊先を削除しますか？</string>
+    <string name="accommodation_details_duration_label">滞在期間</string>
+    <string name="accommodation_details_call_label">電話する</string>
+
+    <string name="notification_upcoming_transport">%2$s行きの%1$s</string>
+    <string name="notification_departure_time">出発時刻：%1$s</string>
+    <string name="notification_upcoming_check_in">チェックイン：%1$s</string>
+    <string name="notification_upcoming_check_out">チェックアウト：%1$s</string>
+    <string name="notification_accommodation_time">時刻：%1$s</string>
+    <string name="notification_transport_platform">ホーム %1$s</string>
+    <string name="notification_transport_seat">座席 %1$s</string>
+    <string name="notification_transport_coach">%1$s号車</string>
+
+    <string name="duration_hours_short">%d時間</string>
+    <string name="duration_minutes_short">%d分</string>
+    <string name="duration_hours_minutes_short">%1$d時間%2$d分</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="other">%d時間</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="other">%d分</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="other">%d泊</item>
+    </plurals>
+</resources>

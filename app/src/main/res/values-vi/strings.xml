@@ -1,0 +1,178 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Lưu thay đổi</string>
+    <string name="common_edit">Chỉnh sửa</string>
+    <string name="common_delete">Xóa</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Hủy</string>
+    <string name="transport_type_bus">Xe buýt</string>
+    <string name="transport_type_train">Tàu hỏa</string>
+    <string name="transport_type_plane">Máy bay</string>
+    <string name="date_input_placeholder">Chọn ngày</string>
+    <string name="time_input_placeholder">Chọn giờ</string>
+    <string name="address_copied_message">Đã sao chép địa chỉ</string>
+    <string name="upload_btn_label">Tải lên tài liệu</string>
+    <string name="upload_image_btn_label">Tải lên hình ảnh</string>
+    <string name="upload_another_image_btn_label">Tải lên hình ảnh khác</string>
+    <string name="language_selector_content_description">Ngôn ngữ</string>
+    <string name="language_selector_search_hint">Tìm ngôn ngữ</string>
+    <string name="language_selector_search_empty">Không tìm thấy ngôn ngữ</string>
+    <string name="delete_confirmation_title">Xóa?</string>
+    <string name="delete_confirmation_message">Không thể hoàn tác thao tác này</string>
+    <string name="required_fields_hint">Các trường có dấu * là bắt buộc</string>
+
+    <string name="notifications_disabled_message">Thông báo đang tắt</string>
+    <string name="notifications_enable_btn_label">Bật thông báo</string>
+    <string name="exact_reminders_disabled_message">Lời nhắc đang tắt</string>
+    <string name="exact_reminders_enable_btn_label">Bật lời nhắc</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Thông báo và lời nhắc đang tắt</string>
+    <string name="notification_help_title">Không nhận được thông báo?</string>
+    <string name="notification_help_body">Một số điện thoại hạn chế ứng dụng chạy nền. Hãy thử các cách sau:\n\n• Trong cài đặt pin của ứng dụng, chọn “Không hạn chế” hoặc tắt tối ưu hóa pin. Nếu dùng thiết bị Samsung, hãy xóa ứng dụng khỏi danh sách “Ứng dụng ngủ”.\n• Bật “Tự động khởi chạy” cho ứng dụng (có trên Xiaomi, Oppo, Vivo, Huawei và các hãng khác).\n• Đảm bảo “Thông báo” và “Báo thức và lời nhắc” đã được bật cho ứng dụng.\n\nTên các cài đặt có thể khác nhau tùy theo mẫu điện thoại và phiên bản hệ thống.</string>
+    <string name="notification_help_open_settings">Cài đặt ứng dụng</string>
+    <string name="notification_help_close">Đóng</string>
+
+    <string name="edit_transport_title">Chỉnh sửa phương tiện</string>
+    <string name="add_transport_title">Thêm phương tiện</string>
+    <string name="add_transport_from_section_title">Điểm đi</string>
+    <string name="add_transport_to_section_title">Điểm đến</string>
+    <string name="add_transport_btn_label">Thêm phương tiện</string>
+    <string name="add_transport_bus_number_label">Số xe buýt</string>
+    <string name="add_transport_place_label">Ghế</string>
+    <string name="add_transport_documents_section_title">Tài liệu</string>
+    <string name="add_transport_train_number_label">Số tàu</string>
+    <string name="add_transport_plane_number_label">Số hiệu chuyến bay</string>
+    <string name="add_transport_coach_label">Toa</string>
+    <string name="add_transport_transport_section_title">Phương tiện</string>
+    <string name="add_transport_type_label">Loại</string>
+    <string name="add_transport_date_label">Ngày</string>
+    <string name="add_transport_time_label">Giờ</string>
+    <string name="add_transport_address_label">Tên ga (hoặc địa chỉ)</string>
+    <string name="add_transport_airport_name_label">Tên sân bay (hoặc địa chỉ)</string>
+    <string name="add_transport_airport_code_label">Mã sân bay</string>
+    <string name="add_transport_platform_label">Sân ga</string>
+    <string name="add_transport_terminal_label">Nhà ga</string>
+    <string name="add_transport_gate_label">Cổng</string>
+    <string name="add_transport_city_label">Thành phố</string>
+    <string name="add_transport_private_bus_label">Đây là xe buýt riêng</string>
+    <string name="add_transport_carrier_label">Đơn vị vận tải</string>
+    <string name="add_transport_airline_label">Hãng hàng không</string>
+    <string name="add_transport_driver_phone_label">Số điện thoại tài xế</string>
+
+    <string name="edit_trip_title">Chỉnh sửa chuyến đi</string>
+    <string name="create_trip_title">Tạo chuyến đi</string>
+    <string name="create_trip_name_label">Tên chuyến đi</string>
+    <string name="create_trip_start_date_label">Ngày bắt đầu</string>
+    <string name="create_trip_end_date_label">Ngày kết thúc</string>
+    <string name="create_trip_btn_label">Tạo chuyến đi</string>
+
+    <string name="transport_details_bus_info_title">Thông tin xe buýt</string>
+    <string name="transport_details_train_info_title">Thông tin tàu</string>
+    <string name="transport_details_plane_info_title">Thông tin máy bay</string>
+    <string name="transport_details_coach_label">Toa</string>
+    <string name="transport_details_seat_label">Ghế</string>
+    <string name="transport_details_driver_phone_label">Tài xế</string>
+    <string name="transport_details_terminal_label">Nhà ga</string>
+    <string name="transport_details_platform_label">Sân ga</string>
+    <string name="transport_details_gate_label">Cổng</string>
+    <string name="transport_details_documents_section_title">Tài liệu</string>
+    <string name="transport_details_notifications_section_title">Thông báo</string>
+    <string name="transport_details_departure_notification_label">Nhắc trước %1$s khi khởi hành</string>
+    <string name="transport_details_plane_departure_notification_label">Nhắc trước %1$s khi cất cánh</string>
+    <string name="transport_details_delete_confirmation_title">Xóa phương tiện?</string>
+    <string name="transport_details_notifications_unavailable">Không có thông báo cho phương tiện này</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Thêm vào chuyến đi</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Phương tiện</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Chỗ ở</string>
+
+    <string name="trip_details_title">Chi tiết chuyến đi</string>
+    <string name="trip_details_accommodation_checkin_label">Nhận phòng</string>
+    <string name="trip_details_accommodation_checkout_label">Trả phòng</string>
+    <string name="trip_details_empty_message">Chuyến đi của bạn đang trống</string>
+    <string name="trip_details_add_btn_label">Thêm</string>
+    <string name="trip_details_transport_card_coach_label">Toa</string>
+    <string name="trip_details_transport_card_seat_label">Ghế</string>
+    <string name="trip_details_departure_label">Đi</string>
+    <string name="trip_details_plane_departure_label">Sân bay</string>
+    <string name="trip_details_terminal_label">Nhà ga</string>
+    <string name="trip_details_transport_card_arrival_label">Đến</string>
+    <string name="trip_details_transport_card_bus_departure">Xe buýt khởi hành</string>
+    <string name="trip_details_transport_card_train_departure">Tàu khởi hành</string>
+    <string name="trip_details_delete_confirmation_title">Xóa chuyến đi?</string>
+    <string name="trip_details_next_event_label">TIẾP THEO</string>
+    <string name="trip_details_day_filter_all_label">Tất cả</string>
+
+    <string name="trips_empty_message">Bạn chưa có chuyến đi nào được lên kế hoạch</string>
+    <string name="trips_add_btn_label">Thêm chuyến đi</string>
+    <string name="trips_trip_card_active_label">Đang diễn ra</string>
+    <string name="trips_trip_card_next_label">Tiếp theo</string>
+    <string name="trips_trip_card_next_transport">Tiếp theo: %1$s đến %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Tiếp theo: nhận phòng tại %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Tiếp theo: trả phòng tại %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="other">Còn %1$d ngày</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Đã hoàn thành</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="other">%1$d ngày  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="other">Sau %d ngày</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Đã qua</string>
+    <string name="trips_toggle_upcoming_label">Sắp tới</string>
+    <string name="trips_toggle_empty_message">Không tìm thấy chuyến đi nào</string>
+    <string name="trips_title">Chuyến đi của tôi</string>
+
+
+    <string name="add_accommodation_title">Thêm chỗ ở</string>
+    <string name="edit_accommodation_title">Chỉnh sửa chỗ ở</string>
+    <string name="add_accommodation_general_section_title">Chỗ ở</string>
+    <string name="add_accommodation_name_label">Tên</string>
+    <string name="add_accommodation_address_label">Địa chỉ</string>
+    <string name="add_accommodation_contact_phone_label">Điện thoại liên hệ</string>
+    <string name="add_accommodation_check_in_section_title">Nhận phòng</string>
+    <string name="add_accommodation_check_out_section_title">Trả phòng</string>
+    <string name="add_accommodation_date_label">Ngày</string>
+    <string name="add_accommodation_time_label">Giờ</string>
+    <string name="add_accommodation_btn_label">Thêm chỗ ở</string>
+    <string name="add_accommodation_documents_section_title">Tài liệu</string>
+
+    <string name="accommodation_details_title">Thông tin chỗ ở</string>
+    <string name="accommodation_details_address_label">Địa chỉ</string>
+    <string name="accommodation_details_check_in_label">Nhận phòng</string>
+    <string name="accommodation_details_check_out_label">Trả phòng</string>
+    <string name="accommodation_details_notifications_section_title">Thông báo</string>
+    <string name="accommodation_details_check_in_notification_label">Nhắc trước giờ nhận phòng 1 giờ</string>
+    <string name="accommodation_details_check_out_notification_label">Nhắc trước giờ trả phòng 1 giờ</string>
+    <string name="accommodation_details_documents_section_title">Tài liệu</string>
+    <string name="accommodation_details_delete_confirmation_title">Xóa chỗ ở?</string>
+    <string name="accommodation_details_duration_label">Thời gian lưu trú</string>
+    <string name="accommodation_details_call_label">Gọi</string>
+
+    <string name="notification_upcoming_transport">%1$s đến %2$s</string>
+    <string name="notification_departure_time">Giờ khởi hành: %1$s</string>
+    <string name="notification_upcoming_check_in">Nhận phòng tại %1$s</string>
+    <string name="notification_upcoming_check_out">Trả phòng tại %1$s</string>
+    <string name="notification_accommodation_time">Giờ: %1$s</string>
+    <string name="notification_transport_platform">Sân ga %1$s</string>
+    <string name="notification_transport_seat">Ghế %1$s</string>
+    <string name="notification_transport_coach">Toa %1$s</string>
+
+    <string name="duration_hours_short">%d giờ</string>
+    <string name="duration_minutes_short">%d phút</string>
+    <string name="duration_hours_minutes_short">%1$d giờ %2$d phút</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="other">%d giờ</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="other">%d phút</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="other">%d đêm</item>
+    </plurals>
+</resources>

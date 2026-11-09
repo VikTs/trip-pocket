@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trip Pocket</string>
+    <string name="common_save_changes">บันทึกการเปลี่ยนแปลง</string>
+    <string name="common_edit">แก้ไข</string>
+    <string name="common_delete">ลบ</string>
+    <string name="common_confirm">ตกลง</string>
+    <string name="common_cancel">ยกเลิก</string>
+    <string name="transport_type_bus">รถบัส</string>
+    <string name="transport_type_train">รถไฟ</string>
+    <string name="transport_type_plane">เครื่องบิน</string>
+    <string name="date_input_placeholder">เลือกวันที่</string>
+    <string name="time_input_placeholder">เลือกเวลา</string>
+    <string name="address_copied_message">คัดลอกที่อยู่แล้ว</string>
+    <string name="upload_btn_label">อัปโหลดเอกสาร</string>
+    <string name="upload_image_btn_label">อัปโหลดรูปภาพ</string>
+    <string name="upload_another_image_btn_label">อัปโหลดรูปภาพอื่น</string>
+    <string name="language_selector_content_description">ภาษา</string>
+    <string name="language_selector_search_hint">ค้นหาภาษา</string>
+    <string name="language_selector_search_empty">ไม่พบภาษา</string>
+    <string name="delete_confirmation_title">ลบหรือไม่?</string>
+    <string name="delete_confirmation_message">ไม่สามารถยกเลิกการดำเนินการนี้ได้</string>
+    <string name="required_fields_hint">ต้องกรอกช่องที่มีเครื่องหมาย *</string>
+    <string name="notifications_disabled_message">ปิดการแจ้งเตือนแล้ว</string>
+    <string name="notifications_enable_btn_label">เปิดการแจ้งเตือน</string>
+    <string name="exact_reminders_disabled_message">ปิดการเตือนแล้ว</string>
+    <string name="exact_reminders_enable_btn_label">เปิดการเตือน</string>
+    <string name="notifications_and_exact_reminders_disabled_message">ปิดการแจ้งเตือนและการเตือนแล้ว</string>
+    <string name="notification_help_title">ไม่ได้รับการแจ้งเตือนใช่ไหม?</string>
+    <string name="notification_help_body">โทรศัพท์บางรุ่นจำกัดการทำงานของแอปในเบื้องหลัง โปรดลองทำดังนี้:\n\n• ในการตั้งค่าแบตเตอรี่ของแอป ให้เลือก “ไม่จำกัด” หรือปิดการปรับประสิทธิภาพแบตเตอรี่ หากใช้โทรศัพท์ Samsung ให้นำแอปออกจากรายการ “แอปที่พักการทำงาน”\n• เปิดใช้ “เริ่มอัตโนมัติ” สำหรับแอป (มีใน Xiaomi, Oppo, Vivo, Huawei และรุ่นอื่น ๆ)\n• ตรวจสอบว่าเปิด “การแจ้งเตือน” และ “นาฬิกาปลุกและการเตือนความจำ” สำหรับแอปแล้ว\n\nชื่อการตั้งค่าอาจแตกต่างกันไปตามรุ่นโทรศัพท์และเวอร์ชันระบบ</string>
+    <string name="notification_help_open_settings">การตั้งค่าแอป</string>
+    <string name="notification_help_close">ปิด</string>
+    <string name="edit_transport_title">แก้ไขการเดินทาง</string>
+    <string name="add_transport_title">เพิ่มการเดินทาง</string>
+    <string name="add_transport_from_section_title">จาก</string>
+    <string name="add_transport_to_section_title">ถึง</string>
+    <string name="add_transport_btn_label">เพิ่มการเดินทาง</string>
+    <string name="add_transport_bus_number_label">หมายเลขรถบัส</string>
+    <string name="add_transport_place_label">ที่นั่ง</string>
+    <string name="add_transport_documents_section_title">เอกสาร</string>
+    <string name="add_transport_train_number_label">หมายเลขรถไฟ</string>
+    <string name="add_transport_plane_number_label">หมายเลขเที่ยวบิน</string>
+    <string name="add_transport_coach_label">ตู้โดยสาร</string>
+    <string name="add_transport_transport_section_title">การเดินทาง</string>
+    <string name="add_transport_type_label">ประเภท</string>
+    <string name="add_transport_date_label">วันที่</string>
+    <string name="add_transport_time_label">เวลา</string>
+    <string name="add_transport_address_label" comment="Railway/bus station">ชื่อสถานี (หรือที่อยู่)</string>
+    <string name="add_transport_airport_name_label">ชื่อสนามบิน (หรือที่อยู่)</string>
+    <string name="add_transport_airport_code_label">รหัสสนามบิน</string>
+    <string name="add_transport_platform_label" comment="Bus/Train platform">ชานชาลา</string>
+    <string name="add_transport_terminal_label" comment="Airport terminal">อาคารผู้โดยสาร</string>
+    <string name="add_transport_gate_label" comment="Airport gate">ประตูขึ้นเครื่อง</string>
+    <string name="add_transport_city_label">เมือง</string>
+    <string name="add_transport_private_bus_label">นี่คือรถบัสส่วนตัว</string>
+    <string name="add_transport_carrier_label" comment="Bus/train carrier">ผู้ให้บริการขนส่ง</string>
+    <string name="add_transport_airline_label">สายการบิน</string>
+    <string name="add_transport_driver_phone_label">โทรศัพท์คนขับ</string>
+    <string name="edit_trip_title">แก้ไขทริป</string>
+    <string name="create_trip_title">สร้างทริป</string>
+    <string name="create_trip_name_label">ชื่อทริป</string>
+    <string name="create_trip_start_date_label">วันที่เริ่มต้น</string>
+    <string name="create_trip_end_date_label">วันที่สิ้นสุด</string>
+    <string name="create_trip_btn_label">สร้างทริป</string>
+    <string name="transport_details_bus_info_title">ข้อมูลรถบัส</string>
+    <string name="transport_details_train_info_title">ข้อมูลรถไฟ</string>
+    <string name="transport_details_plane_info_title">ข้อมูลเที่ยวบิน</string>
+    <string name="transport_details_coach_label" comment="Train coach">ตู้โดยสาร</string>
+    <string name="transport_details_seat_label" comment="Train/Bus/Plane seat">ที่นั่ง</string>
+    <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">คนขับ</string>
+    <string name="transport_details_terminal_label" comment="Airport terminal">อาคารผู้โดยสาร</string>
+    <string name="transport_details_platform_label" comment="Short label. Bus/Train platform">ชานชาลา</string>
+    <string name="transport_details_gate_label" comment="Airport gate">ประตูขึ้นเครื่อง</string>
+    <string name="transport_details_documents_section_title">เอกสาร</string>
+    <string name="transport_details_notifications_section_title">การแจ้งเตือน</string>
+    <string name="transport_details_departure_notification_label" comment="Notify 1h before departure">แจ้งเตือนก่อนออกเดินทาง %1$s</string>
+    <string name="transport_details_plane_departure_notification_label" comment="Notify 3h before departure (for plane)">แจ้งเตือนก่อนเครื่องออก %1$s</string>
+    <string name="transport_details_delete_confirmation_title">ลบการเดินทางหรือไม่?</string>
+    <string name="transport_details_notifications_unavailable">ไม่สามารถใช้การแจ้งเตือนสำหรับการเดินทางนี้ได้</string>
+    <string name="add_to_trip_bottom_sheet_title">เพิ่มในทริป</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">การเดินทาง</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">ที่พัก</string>
+    <string name="trip_details_title">รายละเอียดทริป</string>
+    <string name="trip_details_accommodation_checkin_label">เช็กอิน</string>
+    <string name="trip_details_accommodation_checkout_label">เช็กเอาต์</string>
+    <string name="trip_details_empty_message">ทริปของคุณยังว่างอยู่</string>
+    <string name="trip_details_add_btn_label" comment="Add transport/accommodation to trip">เพิ่ม</string>
+    <string name="trip_details_transport_card_coach_label">ตู้โดยสาร</string>
+    <string name="trip_details_transport_card_seat_label">ที่นั่ง</string>
+    <string name="trip_details_departure_label" comment="Short label for departure">ออกเดินทาง</string>
+    <string name="trip_details_plane_departure_label">สนามบิน</string>
+    <string name="trip_details_terminal_label" comment="Short label for terminal">อาคารฯ</string>
+    <string name="trip_details_transport_card_arrival_label">ถึง</string>
+    <string name="trip_details_transport_card_bus_departure">รถบัสออกเดินทาง</string>
+    <string name="trip_details_transport_card_train_departure">รถไฟออกเดินทาง</string>
+    <string name="trip_details_delete_confirmation_title">ลบทริปหรือไม่?</string>
+    <string name="trip_details_next_event_label">ถัดไป</string>
+    <string name="trip_details_day_filter_all_label" comment="Short label">ทั้งหมด</string>
+    <string name="trips_empty_message">คุณยังไม่มีทริปที่วางแผนไว้</string>
+    <string name="trips_add_btn_label">เพิ่มทริป</string>
+    <string name="trips_trip_card_active_label" comment="Short label">กำลังดำเนินอยู่</string>
+    <string name="trips_trip_card_next_label" comment="Short label">ถัดไป</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv / Автобус до міста Львів">ถัดไป: %1$s ไปยัง %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">ถัดไป: เช็กอินที่ %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">ถัดไป: เช็กเอาต์จาก %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="other">เหลืออีก %1$d วัน</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">เสร็จสิ้น</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="other">%1$d วัน  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="other">อีก %d วัน</item>
+    </plurals>
+    <string name="trips_toggle_past_label" comment="Past trips list">ที่ผ่านมา</string>
+    <string name="trips_toggle_upcoming_label" comment="Upcoming trips list">ที่กำลังจะมาถึง</string>
+    <string name="trips_toggle_empty_message">ไม่พบทริป</string>
+    <string name="trips_title">ทริปของฉัน</string>
+    <string name="add_accommodation_title">เพิ่มที่พัก</string>
+    <string name="edit_accommodation_title">แก้ไขที่พัก</string>
+    <string name="add_accommodation_general_section_title">ที่พัก</string>
+    <string name="add_accommodation_name_label">ชื่อ</string>
+    <string name="add_accommodation_address_label">ที่อยู่</string>
+    <string name="add_accommodation_contact_phone_label">โทรศัพท์ติดต่อ</string>
+    <string name="add_accommodation_check_in_section_title">เช็กอิน</string>
+    <string name="add_accommodation_check_out_section_title">เช็กเอาต์</string>
+    <string name="add_accommodation_date_label">วันที่</string>
+    <string name="add_accommodation_time_label">เวลา</string>
+    <string name="add_accommodation_btn_label">เพิ่มที่พัก</string>
+    <string name="add_accommodation_documents_section_title">เอกสาร</string>
+    <string name="accommodation_details_title">ข้อมูลที่พัก</string>
+    <string name="accommodation_details_address_label">ที่อยู่</string>
+    <string name="accommodation_details_check_in_label">เช็กอิน</string>
+    <string name="accommodation_details_check_out_label">เช็กเอาต์</string>
+    <string name="accommodation_details_notifications_section_title">การแจ้งเตือน</string>
+    <string name="accommodation_details_check_in_notification_label">แจ้งเตือนก่อนเช็กอิน 1 ชั่วโมง</string>
+    <string name="accommodation_details_check_out_notification_label">แจ้งเตือนก่อนเช็กเอาต์ 1 ชั่วโมง</string>
+    <string name="accommodation_details_documents_section_title">เอกสาร</string>
+    <string name="accommodation_details_delete_confirmation_title">ลบที่พักหรือไม่?</string>
+    <string name="accommodation_details_duration_label">ระยะเวลา</string>
+    <string name="accommodation_details_call_label" comment="Middle size label before phone number">โทร</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv / Автобус до міста Львів">%1$s ไปยัง %2$s</string>
+    <string name="notification_departure_time" comment="Departure time: 12:00">เวลาออกเดินทาง: %1$s</string>
+    <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">เช็กอิน: %1$s</string>
+    <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">เช็กเอาต์: %1$s</string>
+    <string name="notification_accommodation_time" comment="Time: 12:00">เวลา: %1$s</string>
+    <string name="notification_transport_platform" comment="Platform 1">ชานชาลา %1$s</string>
+    <string name="notification_transport_seat" comment="Seat 12">ที่นั่ง %1$s</string>
+    <string name="notification_transport_coach" comment="Coach 3">ตู้โดยสาร %1$s</string>
+    <string name="duration_hours_short">%d ชม.</string>
+    <string name="duration_minutes_short">%d นาที</string>
+    <string name="duration_hours_minutes_short">%1$d ชม. %2$d นาที</string>
+    <plurals name="transport_duration_hours">
+        <item quantity="other">%d ชั่วโมง</item>
+    </plurals>
+    <plurals name="transport_duration_minutes">
+        <item quantity="other">%d นาที</item>
+    </plurals>
+    <plurals name="accommodation_duration_nights">
+        <item quantity="other">%d คืน</item>
+    </plurals>
+</resources>

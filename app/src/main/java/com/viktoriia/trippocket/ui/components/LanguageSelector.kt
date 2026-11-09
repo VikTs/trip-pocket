@@ -36,17 +36,31 @@ import com.viktoriia.trippocket.ui.utils.setAppLanguage
 
 private val languages = listOf(
     "Čeština" to "cs",
-    "Deutsch" to "de",
     "English" to "en",
-    "Español" to "es",
+    "Filipino" to "fil",
+    "Suomi" to "fi",
     "Français" to "fr",
-    "Italiano" to "it",
+    "Deutsch" to "de",
     "Magyar" to "hu",
+    "Bahasa Indonesia" to "id",
+    "Italiano" to "it",
     "Polski" to "pl",
     "Português" to "pt",
+    "Română" to "ro",
     "Srpski" to "sr-Latn",
+    "Español" to "es",
     "Türkçe" to "tr",
+    "Tiếng Việt" to "vi",
+    "Қазақша" to "kk",
     "Українська" to "uk",
+    "Ελληνικά" to "el",
+    "العربية" to "ar",
+    "हिन्दी" to "hi",
+    "ไทย" to "th",
+    "简体中文" to "zh-Hans",
+    "繁體中文" to "zh-TW",
+    "日本語" to "ja",
+    "한국어" to "ko"
 )
 
 @Composable

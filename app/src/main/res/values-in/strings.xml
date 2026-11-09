@@ -1,0 +1,178 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">Simpan perubahan</string>
+    <string name="common_edit">Ubah</string>
+    <string name="common_delete">Hapus</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Batal</string>
+    <string name="transport_type_bus">Bus</string>
+    <string name="transport_type_train">Kereta</string>
+    <string name="transport_type_plane">Pesawat</string>
+    <string name="date_input_placeholder">Pilih tanggal</string>
+    <string name="time_input_placeholder">Pilih waktu</string>
+    <string name="address_copied_message">Alamat disalin</string>
+    <string name="upload_btn_label">Unggah dokumen</string>
+    <string name="upload_image_btn_label">Unggah gambar</string>
+    <string name="upload_another_image_btn_label">Unggah gambar lain</string>
+    <string name="language_selector_content_description">Bahasa</string>
+    <string name="language_selector_search_hint">Cari bahasa</string>
+    <string name="language_selector_search_empty">Bahasa tidak ditemukan</string>
+    <string name="delete_confirmation_title">Hapus?</string>
+    <string name="delete_confirmation_message">Tindakan ini tidak dapat dibatalkan</string>
+    <string name="required_fields_hint">Kolom bertanda * wajib diisi</string>
+
+    <string name="notifications_disabled_message">Notifikasi nonaktif</string>
+    <string name="notifications_enable_btn_label">Aktifkan notifikasi</string>
+    <string name="exact_reminders_disabled_message">Pengingat nonaktif</string>
+    <string name="exact_reminders_enable_btn_label">Aktifkan pengingat</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Notifikasi dan pengingat nonaktif</string>
+    <string name="notification_help_title">Tidak menerima notifikasi?</string>
+    <string name="notification_help_body">Beberapa ponsel membatasi aplikasi berjalan di latar belakang. Coba langkah berikut:\n\n• Di pengaturan baterai aplikasi, pilih “Tanpa batasan” atau nonaktifkan optimalisasi baterai. Jika Anda memakai perangkat Samsung, hapus aplikasi dari daftar “Aplikasi tidur”.\n• Aktifkan “Mulai otomatis” untuk aplikasi (tersedia di Xiaomi, Oppo, Vivo, Huawei, dan lainnya).\n• Pastikan “Notifikasi” serta “Alarm dan pengingat” sudah diaktifkan untuk aplikasi.\n\nNama pengaturan dapat berbeda tergantung model ponsel dan versi sistem.</string>
+    <string name="notification_help_open_settings">Pengaturan aplikasi</string>
+    <string name="notification_help_close">Tutup</string>
+
+    <string name="edit_transport_title">Ubah transportasi</string>
+    <string name="add_transport_title">Tambah transportasi</string>
+    <string name="add_transport_from_section_title">Dari</string>
+    <string name="add_transport_to_section_title">Ke</string>
+    <string name="add_transport_btn_label">Tambah transportasi</string>
+    <string name="add_transport_bus_number_label">Nomor bus</string>
+    <string name="add_transport_place_label">Kursi</string>
+    <string name="add_transport_documents_section_title">Dokumen</string>
+    <string name="add_transport_train_number_label">Nomor kereta</string>
+    <string name="add_transport_plane_number_label">Nomor penerbangan</string>
+    <string name="add_transport_coach_label">Gerbong</string>
+    <string name="add_transport_transport_section_title">Transportasi</string>
+    <string name="add_transport_type_label">Jenis</string>
+    <string name="add_transport_date_label">Tanggal</string>
+    <string name="add_transport_time_label">Waktu</string>
+    <string name="add_transport_address_label">Nama stasiun (atau alamat)</string>
+    <string name="add_transport_airport_name_label">Nama bandara (atau alamat)</string>
+    <string name="add_transport_airport_code_label">Kode bandara</string>
+    <string name="add_transport_platform_label">Peron</string>
+    <string name="add_transport_terminal_label">Terminal</string>
+    <string name="add_transport_gate_label">Gerbang</string>
+    <string name="add_transport_city_label">Kota</string>
+    <string name="add_transport_private_bus_label">Ini bus pribadi</string>
+    <string name="add_transport_carrier_label">Operator</string>
+    <string name="add_transport_airline_label">Maskapai</string>
+    <string name="add_transport_driver_phone_label">Nomor telepon pengemudi</string>
+
+    <string name="edit_trip_title">Ubah perjalanan</string>
+    <string name="create_trip_title">Buat perjalanan</string>
+    <string name="create_trip_name_label">Nama perjalanan</string>
+    <string name="create_trip_start_date_label">Tanggal mulai</string>
+    <string name="create_trip_end_date_label">Tanggal selesai</string>
+    <string name="create_trip_btn_label">Buat perjalanan</string>
+
+    <string name="transport_details_bus_info_title">Info bus</string>
+    <string name="transport_details_train_info_title">Info kereta</string>
+    <string name="transport_details_plane_info_title">Info pesawat</string>
+    <string name="transport_details_coach_label">Gerbong</string>
+    <string name="transport_details_seat_label">Kursi</string>
+    <string name="transport_details_driver_phone_label">Pengemudi</string>
+    <string name="transport_details_terminal_label">Terminal</string>
+    <string name="transport_details_platform_label">Peron</string>
+    <string name="transport_details_gate_label">Gerbang</string>
+    <string name="transport_details_documents_section_title">Dokumen</string>
+    <string name="transport_details_notifications_section_title">Notifikasi</string>
+    <string name="transport_details_departure_notification_label">Ingatkan %1$s sebelum keberangkatan</string>
+    <string name="transport_details_plane_departure_notification_label">Ingatkan %1$s sebelum penerbangan</string>
+    <string name="transport_details_delete_confirmation_title">Hapus transportasi?</string>
+    <string name="transport_details_notifications_unavailable">Notifikasi untuk transportasi ini tidak tersedia</string>
+
+    <string name="add_to_trip_bottom_sheet_title">Tambahkan ke perjalanan</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Transportasi</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Akomodasi</string>
+
+    <string name="trip_details_title">Detail perjalanan</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Perjalanan Anda masih kosong</string>
+    <string name="trip_details_add_btn_label">Tambah</string>
+    <string name="trip_details_transport_card_coach_label">Gerbong</string>
+    <string name="trip_details_transport_card_seat_label">Kursi</string>
+    <string name="trip_details_departure_label">Berangkat</string>
+    <string name="trip_details_plane_departure_label">Bandara</string>
+    <string name="trip_details_terminal_label">Terminal</string>
+    <string name="trip_details_transport_card_arrival_label">Tiba</string>
+    <string name="trip_details_transport_card_bus_departure">Keberangkatan bus</string>
+    <string name="trip_details_transport_card_train_departure">Keberangkatan kereta</string>
+    <string name="trip_details_delete_confirmation_title">Hapus perjalanan?</string>
+    <string name="trip_details_next_event_label">BERIKUTNYA</string>
+    <string name="trip_details_day_filter_all_label">Semua</string>
+
+    <string name="trips_empty_message">Tidak ada perjalanan yang direncanakan</string>
+    <string name="trips_add_btn_label">Tambah perjalanan</string>
+    <string name="trips_trip_card_active_label">Berlangsung</string>
+    <string name="trips_trip_card_next_label">Berikutnya</string>
+    <string name="trips_trip_card_next_transport">Berikutnya: %1$s ke %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">Berikutnya: check-in di %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">Berikutnya: check-out dari %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="other">Tersisa %1$d hari</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Selesai</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="other">%1$d hari  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="other">%d hari lagi</item>
+    </plurals>
+    <string name="trips_toggle_past_label">Lalu</string>
+    <string name="trips_toggle_upcoming_label">Mendatang</string>
+    <string name="trips_toggle_empty_message">Perjalanan tidak ditemukan</string>
+    <string name="trips_title">Perjalanan saya</string>
+
+
+    <string name="add_accommodation_title">Tambah akomodasi</string>
+    <string name="edit_accommodation_title">Ubah akomodasi</string>
+    <string name="add_accommodation_general_section_title">Akomodasi</string>
+    <string name="add_accommodation_name_label">Nama</string>
+    <string name="add_accommodation_address_label">Alamat</string>
+    <string name="add_accommodation_contact_phone_label">Telepon kontak</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Tanggal</string>
+    <string name="add_accommodation_time_label">Waktu</string>
+    <string name="add_accommodation_btn_label">Tambah akomodasi</string>
+    <string name="add_accommodation_documents_section_title">Dokumen</string>
+
+    <string name="accommodation_details_title">Info akomodasi</string>
+    <string name="accommodation_details_address_label">Alamat</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Notifikasi</string>
+    <string name="accommodation_details_check_in_notification_label">Ingatkan 1 jam sebelum check-in</string>
+    <string name="accommodation_details_check_out_notification_label">Ingatkan 1 jam sebelum check-out</string>
+    <string name="accommodation_details_documents_section_title">Dokumen</string>
+    <string name="accommodation_details_delete_confirmation_title">Hapus akomodasi?</string>
+    <string name="accommodation_details_duration_label">Durasi</string>
+    <string name="accommodation_details_call_label">Telepon</string>
+
+    <string name="notification_upcoming_transport">%1$s ke %2$s</string>
+    <string name="notification_departure_time">Waktu keberangkatan: %1$s</string>
+    <string name="notification_upcoming_check_in">Check-in: %1$s</string>
+    <string name="notification_upcoming_check_out">Check-out: %1$s</string>
+    <string name="notification_accommodation_time">Waktu: %1$s</string>
+    <string name="notification_transport_platform">Peron %1$s</string>
+    <string name="notification_transport_seat">Kursi %1$s</string>
+    <string name="notification_transport_coach">Gerbong %1$s</string>
+
+    <string name="duration_hours_short">%d j</string>
+    <string name="duration_minutes_short">%d mnt</string>
+    <string name="duration_hours_minutes_short">%1$d j %2$d mnt</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="other">%d jam</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="other">%d menit</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="other">%d malam</item>
+    </plurals>
+</resources>

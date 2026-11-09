@@ -1,0 +1,178 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">변경사항 저장</string>
+    <string name="common_edit">편집</string>
+    <string name="common_delete">삭제</string>
+    <string name="common_confirm">확인</string>
+    <string name="common_cancel">취소</string>
+    <string name="transport_type_bus">버스</string>
+    <string name="transport_type_train">기차</string>
+    <string name="transport_type_plane">비행기</string>
+    <string name="date_input_placeholder">날짜 선택</string>
+    <string name="time_input_placeholder">시간 선택</string>
+    <string name="address_copied_message">주소가 복사되었습니다</string>
+    <string name="upload_btn_label">문서 업로드</string>
+    <string name="upload_image_btn_label">이미지 업로드</string>
+    <string name="upload_another_image_btn_label">다른 이미지 업로드</string>
+    <string name="language_selector_content_description">언어</string>
+    <string name="language_selector_search_hint">언어 검색</string>
+    <string name="language_selector_search_empty">언어를 찾을 수 없습니다</string>
+    <string name="delete_confirmation_title">삭제하시겠습니까?</string>
+    <string name="delete_confirmation_message">이 작업은 되돌릴 수 없습니다</string>
+    <string name="required_fields_hint">*로 표시된 항목은 필수입니다</string>
+
+    <string name="notifications_disabled_message">알림이 꺼져 있습니다</string>
+    <string name="notifications_enable_btn_label">알림 켜기</string>
+    <string name="exact_reminders_disabled_message">리마인더가 꺼져 있습니다</string>
+    <string name="exact_reminders_enable_btn_label">리마인더 켜기</string>
+    <string name="notifications_and_exact_reminders_disabled_message">알림 및 리마인더가 꺼져 있습니다</string>
+    <string name="notification_help_title">알림이 오지 않나요?</string>
+    <string name="notification_help_body">일부 휴대전화는 앱의 백그라운드 실행을 제한합니다. 다음을 시도해 보세요.\n\n• 앱의 배터리 설정에서 “제한 없음”을 선택하거나 배터리 최적화를 끄세요. 삼성 기기를 사용 중이라면 “절전 모드 앱” 목록에서 앱을 제거하세요.\n• 앱의 “자동 시작”을 켜세요(샤오미, 오포, 비보, 화웨이 등에서 사용 가능).\n• 앱의 “알림”과 “알람 및 리마인더” 권한이 허용되어 있는지 확인하세요.\n\n설정 이름은 휴대전화 모델과 시스템 버전에 따라 다를 수 있습니다.</string>
+    <string name="notification_help_open_settings">앱 설정</string>
+    <string name="notification_help_close">닫기</string>
+
+    <string name="edit_transport_title">교통수단 편집</string>
+    <string name="add_transport_title">교통수단 추가</string>
+    <string name="add_transport_from_section_title">출발지</string>
+    <string name="add_transport_to_section_title">도착지</string>
+    <string name="add_transport_btn_label">교통수단 추가</string>
+    <string name="add_transport_bus_number_label">버스 번호</string>
+    <string name="add_transport_place_label">좌석</string>
+    <string name="add_transport_documents_section_title">문서</string>
+    <string name="add_transport_train_number_label">열차 번호</string>
+    <string name="add_transport_plane_number_label">항공편 번호</string>
+    <string name="add_transport_coach_label">객차</string>
+    <string name="add_transport_transport_section_title">교통수단</string>
+    <string name="add_transport_type_label">유형</string>
+    <string name="add_transport_date_label">날짜</string>
+    <string name="add_transport_time_label">시간</string>
+    <string name="add_transport_address_label">역 이름(또는 주소)</string>
+    <string name="add_transport_airport_name_label">공항 이름(또는 주소)</string>
+    <string name="add_transport_airport_code_label">공항 코드</string>
+    <string name="add_transport_platform_label">승강장</string>
+    <string name="add_transport_terminal_label">터미널</string>
+    <string name="add_transport_gate_label">게이트</string>
+    <string name="add_transport_city_label">도시</string>
+    <string name="add_transport_private_bus_label">전세 버스입니다</string>
+    <string name="add_transport_carrier_label">운송사</string>
+    <string name="add_transport_airline_label">항공사</string>
+    <string name="add_transport_driver_phone_label">기사 전화번호</string>
+
+    <string name="edit_trip_title">여행 편집</string>
+    <string name="create_trip_title">여행 만들기</string>
+    <string name="create_trip_name_label">여행 이름</string>
+    <string name="create_trip_start_date_label">시작일</string>
+    <string name="create_trip_end_date_label">종료일</string>
+    <string name="create_trip_btn_label">여행 만들기</string>
+
+    <string name="transport_details_bus_info_title">버스 정보</string>
+    <string name="transport_details_train_info_title">기차 정보</string>
+    <string name="transport_details_plane_info_title">항공기 정보</string>
+    <string name="transport_details_coach_label">객차</string>
+    <string name="transport_details_seat_label">좌석</string>
+    <string name="transport_details_driver_phone_label">기사</string>
+    <string name="transport_details_terminal_label">터미널</string>
+    <string name="transport_details_platform_label">승강장</string>
+    <string name="transport_details_gate_label">게이트</string>
+    <string name="transport_details_documents_section_title">문서</string>
+    <string name="transport_details_notifications_section_title">알림</string>
+    <string name="transport_details_departure_notification_label">출발 %1$s 전에 알림</string>
+    <string name="transport_details_plane_departure_notification_label">출발 %1$s 전에 알림</string>
+    <string name="transport_details_delete_confirmation_title">교통수단을 삭제하시겠습니까?</string>
+    <string name="transport_details_notifications_unavailable">이 교통수단은 알림을 사용할 수 없습니다</string>
+
+    <string name="add_to_trip_bottom_sheet_title">여행에 추가</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">교통수단</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">숙소</string>
+
+    <string name="trip_details_title">여행 상세 정보</string>
+    <string name="trip_details_accommodation_checkin_label">체크인</string>
+    <string name="trip_details_accommodation_checkout_label">체크아웃</string>
+    <string name="trip_details_empty_message">여행이 비어 있습니다</string>
+    <string name="trip_details_add_btn_label">추가</string>
+    <string name="trip_details_transport_card_coach_label">객차</string>
+    <string name="trip_details_transport_card_seat_label">좌석</string>
+    <string name="trip_details_departure_label">출발</string>
+    <string name="trip_details_plane_departure_label">공항</string>
+    <string name="trip_details_terminal_label">터미널</string>
+    <string name="trip_details_transport_card_arrival_label">도착</string>
+    <string name="trip_details_transport_card_bus_departure">버스 출발</string>
+    <string name="trip_details_transport_card_train_departure">기차 출발</string>
+    <string name="trip_details_delete_confirmation_title">여행을 삭제하시겠습니까?</string>
+    <string name="trip_details_next_event_label">다음</string>
+    <string name="trip_details_day_filter_all_label">전체</string>
+
+    <string name="trips_empty_message">예정된 여행이 없습니다</string>
+    <string name="trips_add_btn_label">여행 추가</string>
+    <string name="trips_trip_card_active_label">진행 중</string>
+    <string name="trips_trip_card_next_label">다음</string>
+    <string name="trips_trip_card_next_transport">다음: %2$s행 %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">다음: %1$s 체크인</string>
+    <string name="trips_trip_card_next_accommodation_check_out">다음: %1$s 체크아웃</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="other">%1$d일 남음</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">완료됨</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="other">%1$d일  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="other">%d일 후</item>
+    </plurals>
+    <string name="trips_toggle_past_label">지난 여행</string>
+    <string name="trips_toggle_upcoming_label">다가오는 여행</string>
+    <string name="trips_toggle_empty_message">여행을 찾을 수 없습니다</string>
+    <string name="trips_title">내 여행</string>
+
+
+    <string name="add_accommodation_title">숙소 추가</string>
+    <string name="edit_accommodation_title">숙소 편집</string>
+    <string name="add_accommodation_general_section_title">숙소</string>
+    <string name="add_accommodation_name_label">이름</string>
+    <string name="add_accommodation_address_label">주소</string>
+    <string name="add_accommodation_contact_phone_label">연락처</string>
+    <string name="add_accommodation_check_in_section_title">체크인</string>
+    <string name="add_accommodation_check_out_section_title">체크아웃</string>
+    <string name="add_accommodation_date_label">날짜</string>
+    <string name="add_accommodation_time_label">시간</string>
+    <string name="add_accommodation_btn_label">숙소 추가</string>
+    <string name="add_accommodation_documents_section_title">문서</string>
+
+    <string name="accommodation_details_title">숙소 정보</string>
+    <string name="accommodation_details_address_label">주소</string>
+    <string name="accommodation_details_check_in_label">체크인</string>
+    <string name="accommodation_details_check_out_label">체크아웃</string>
+    <string name="accommodation_details_notifications_section_title">알림</string>
+    <string name="accommodation_details_check_in_notification_label">체크인 1시간 전에 알림</string>
+    <string name="accommodation_details_check_out_notification_label">체크아웃 1시간 전에 알림</string>
+    <string name="accommodation_details_documents_section_title">문서</string>
+    <string name="accommodation_details_delete_confirmation_title">숙소를 삭제하시겠습니까?</string>
+    <string name="accommodation_details_duration_label">숙박 기간</string>
+    <string name="accommodation_details_call_label">전화</string>
+
+    <string name="notification_upcoming_transport">%2$s행 %1$s</string>
+    <string name="notification_departure_time">출발 시간: %1$s</string>
+    <string name="notification_upcoming_check_in">체크인: %1$s</string>
+    <string name="notification_upcoming_check_out">체크아웃: %1$s</string>
+    <string name="notification_accommodation_time">시간: %1$s</string>
+    <string name="notification_transport_platform">승강장 %1$s</string>
+    <string name="notification_transport_seat">좌석 %1$s</string>
+    <string name="notification_transport_coach">%1$s호차</string>
+
+    <string name="duration_hours_short">%d시간</string>
+    <string name="duration_minutes_short">%d분</string>
+    <string name="duration_hours_minutes_short">%1$d시간 %2$d분</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="other">%d시간</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="other">%d분</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="other">%d박</item>
+    </plurals>
+</resources>

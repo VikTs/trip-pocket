@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trip Pocket</string>
+    <string name="common_save_changes">Salvează modificările</string>
+    <string name="common_edit">Editează</string>
+    <string name="common_delete">Șterge</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Anulează</string>
+    <string name="transport_type_bus">Autobuz</string>
+    <string name="transport_type_train">Tren</string>
+    <string name="transport_type_plane">Avion</string>
+    <string name="date_input_placeholder">Selectați data</string>
+    <string name="time_input_placeholder">Selectați ora</string>
+    <string name="address_copied_message">Adresa a fost copiată</string>
+    <string name="upload_btn_label">Încarcă documentul</string>
+    <string name="upload_image_btn_label">Încarcă imaginea</string>
+    <string name="upload_another_image_btn_label">Încarcă o altă imagine</string>
+    <string name="language_selector_content_description">Limbă</string>
+    <string name="language_selector_search_hint">Caută o limbă</string>
+    <string name="language_selector_search_empty">Nu s-au găsit limbi</string>
+    <string name="delete_confirmation_title">Ștergeți?</string>
+    <string name="delete_confirmation_message">Această acțiune nu poate fi anulată</string>
+    <string name="required_fields_hint">Câmpurile marcate cu * sunt obligatorii</string>
+    <string name="notifications_disabled_message">Notificările sunt dezactivate</string>
+    <string name="notifications_enable_btn_label">Activează notificările</string>
+    <string name="exact_reminders_disabled_message">Mementourile sunt dezactivate</string>
+    <string name="exact_reminders_enable_btn_label">Activează mementourile</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Notificările și mementourile sunt dezactivate</string>
+    <string name="notification_help_title">Nu primiți notificări?</string>
+    <string name="notification_help_body">Unele telefoane restricționează funcționarea aplicațiilor în fundal. Încercați următoarele:\n\n• În setările bateriei aplicației, selectați „Fără restricții” sau dezactivați optimizarea bateriei. Dacă aveți un dispozitiv Samsung, eliminați aplicația din lista „Aplicații inactive”.\n• Activați „Pornirea automată” pentru aplicație (disponibilă pe Xiaomi, Oppo, Vivo, Huawei și altele).\n• Asigurați-vă că opțiunile „Notificări” și „Alarme și mementouri” sunt activate pentru aplicație.\n\nDenumirile setărilor pot varia în funcție de modelul telefonului și de versiunea sistemului.</string>
+    <string name="notification_help_open_settings">Setările aplicației</string>
+    <string name="notification_help_close">Închide</string>
+    <string name="edit_transport_title">Editează transportul</string>
+    <string name="add_transport_title">Adaugă transport</string>
+    <string name="add_transport_from_section_title">De la</string>
+    <string name="add_transport_to_section_title">Către</string>
+    <string name="add_transport_btn_label">Adaugă transport</string>
+    <string name="add_transport_bus_number_label">Numărul autobuzului</string>
+    <string name="add_transport_place_label">Loc</string>
+    <string name="add_transport_documents_section_title">Documente</string>
+    <string name="add_transport_train_number_label">Numărul trenului</string>
+    <string name="add_transport_plane_number_label">Numărul zborului</string>
+    <string name="add_transport_coach_label">Vagon</string>
+    <string name="add_transport_transport_section_title">Transport</string>
+    <string name="add_transport_type_label">Tip</string>
+    <string name="add_transport_date_label">Data</string>
+    <string name="add_transport_time_label">Ora</string>
+    <string name="add_transport_address_label" comment="Railway/bus station">Numele stației (sau adresa)</string>
+    <string name="add_transport_airport_name_label">Numele aeroportului (sau adresa)</string>
+    <string name="add_transport_airport_code_label">Codul aeroportului</string>
+    <string name="add_transport_platform_label" comment="Bus/Train platform">Peron</string>
+    <string name="add_transport_terminal_label" comment="Airport terminal">Terminal</string>
+    <string name="add_transport_gate_label" comment="Airport gate">Poartă</string>
+    <string name="add_transport_city_label">Oraș</string>
+    <string name="add_transport_private_bus_label">Acesta este un autobuz privat</string>
+    <string name="add_transport_carrier_label" comment="Bus/train carrier">Operator de transport</string>
+    <string name="add_transport_airline_label">Companie aeriană</string>
+    <string name="add_transport_driver_phone_label">Telefonul șoferului</string>
+    <string name="edit_trip_title">Editează călătoria</string>
+    <string name="create_trip_title">Creează o călătorie</string>
+    <string name="create_trip_name_label">Numele călătoriei</string>
+    <string name="create_trip_start_date_label">Data de început</string>
+    <string name="create_trip_end_date_label">Data de încheiere</string>
+    <string name="create_trip_btn_label">Creează călătoria</string>
+    <string name="transport_details_bus_info_title">Informații despre autobuz</string>
+    <string name="transport_details_train_info_title">Informații despre tren</string>
+    <string name="transport_details_plane_info_title">Informații despre avion</string>
+    <string name="transport_details_coach_label" comment="Train coach">Vagon</string>
+    <string name="transport_details_seat_label" comment="Train/Bus/Plane seat">Loc</string>
+    <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">Șofer</string>
+    <string name="transport_details_terminal_label" comment="Airport terminal">Terminal</string>
+    <string name="transport_details_platform_label" comment="Short label. Bus/Train platform">Peron</string>
+    <string name="transport_details_gate_label" comment="Airport gate">Poartă</string>
+    <string name="transport_details_documents_section_title">Documente</string>
+    <string name="transport_details_notifications_section_title">Notificări</string>
+    <string name="transport_details_departure_notification_label" comment="Notify 1h before departure">Anunță-mă cu %1$s înainte de plecare</string>
+    <string name="transport_details_plane_departure_notification_label" comment="Notify 3h before departure (for plane)">Anunță-mă cu %1$s înainte de plecare</string>
+    <string name="transport_details_delete_confirmation_title">Ștergeți transportul?</string>
+    <string name="transport_details_notifications_unavailable">Notificările pentru acest transport nu sunt disponibile</string>
+    <string name="add_to_trip_bottom_sheet_title">Adaugă la călătorie</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Transport</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Cazare</string>
+    <string name="trip_details_title">Detaliile călătoriei</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Călătoria dvs. este goală</string>
+    <string name="trip_details_add_btn_label" comment="Add transport/accommodation to trip">Adaugă</string>
+    <string name="trip_details_transport_card_coach_label">Vagon</string>
+    <string name="trip_details_transport_card_seat_label">Loc</string>
+    <string name="trip_details_departure_label" comment="Short label for departure">Plecare</string>
+    <string name="trip_details_plane_departure_label">Aeroport</string>
+    <string name="trip_details_terminal_label" comment="Short label for terminal">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Sosire</string>
+    <string name="trip_details_transport_card_bus_departure">Plecare autobuz</string>
+    <string name="trip_details_transport_card_train_departure">Plecare tren</string>
+    <string name="trip_details_delete_confirmation_title">Ștergeți călătoria?</string>
+    <string name="trip_details_next_event_label">URMĂTORUL</string>
+    <string name="trip_details_day_filter_all_label" comment="Short label">Toate</string>
+    <string name="trips_empty_message">Nu aveți călătorii planificate</string>
+    <string name="trips_add_btn_label">Adaugă o călătorie</string>
+    <string name="trips_trip_card_active_label" comment="Short label">Activă</string>
+    <string name="trips_trip_card_next_label" comment="Short label">Următorul</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv / Автобус до міста Львів">Următorul: %1$s către %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">Următorul: check-in la %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">Următorul: check-out la %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Mai este %1$d zi</item>
+        <item quantity="few">Mai sunt %1$d zile</item>
+        <item quantity="other">Mai sunt %1$d de zile</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Încheiată</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d zi  |  %2$s</item>
+        <item quantity="few">%1$d zile  |  %2$s</item>
+        <item quantity="other">%1$d de zile  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">Peste %d zi</item>
+        <item quantity="few">Peste %d zile</item>
+        <item quantity="other">Peste %d de zile</item>
+    </plurals>
+    <string name="trips_toggle_past_label" comment="Past trips list">Trecute</string>
+    <string name="trips_toggle_upcoming_label" comment="Upcoming trips list">Viitoare</string>
+    <string name="trips_toggle_empty_message">Nu s-au găsit călătorii</string>
+    <string name="trips_title">Călătoriile mele</string>
+    <string name="add_accommodation_title">Adaugă cazare</string>
+    <string name="edit_accommodation_title">Editează cazarea</string>
+    <string name="add_accommodation_general_section_title">Cazare</string>
+    <string name="add_accommodation_name_label">Nume</string>
+    <string name="add_accommodation_address_label">Adresă</string>
+    <string name="add_accommodation_contact_phone_label">Telefon de contact</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Data</string>
+    <string name="add_accommodation_time_label">Ora</string>
+    <string name="add_accommodation_btn_label">Adaugă cazare</string>
+    <string name="add_accommodation_documents_section_title">Documente</string>
+    <string name="accommodation_details_title">Informații despre cazare</string>
+    <string name="accommodation_details_address_label">Adresă</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Notificări</string>
+    <string name="accommodation_details_check_in_notification_label">Anunță-mă cu 1 oră înainte de check-in</string>
+    <string name="accommodation_details_check_out_notification_label">Anunță-mă cu 1 oră înainte de check-out</string>
+    <string name="accommodation_details_documents_section_title">Documente</string>
+    <string name="accommodation_details_delete_confirmation_title">Ștergeți cazarea?</string>
+    <string name="accommodation_details_duration_label">Durată</string>
+    <string name="accommodation_details_call_label" comment="Middle size label before phone number">Sună</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv / Автобус до міста Львів">%1$s către %2$s</string>
+    <string name="notification_departure_time" comment="Departure time: 12:00">Ora plecării: %1$s</string>
+    <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">Check-in la %1$s</string>
+    <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">Check-out de la %1$s</string>
+    <string name="notification_accommodation_time" comment="Time: 12:00">Ora: %1$s</string>
+    <string name="notification_transport_platform" comment="Platform 1">Peronul %1$s</string>
+    <string name="notification_transport_seat" comment="Seat 12">Locul %1$s</string>
+    <string name="notification_transport_coach" comment="Coach 3">Vagonul %1$s</string>
+    <string name="duration_hours_short">%d h</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d h %2$d min</string>
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d de ore</item>
+    </plurals>
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d de minute</item>
+    </plurals>
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d noapte</item>
+        <item quantity="few">%d nopți</item>
+        <item quantity="other">%d de nopți</item>
+    </plurals>
+</resources>

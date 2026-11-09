@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trip Pocket</string>
+    <string name="common_save_changes">儲存變更</string>
+    <string name="common_edit">編輯</string>
+    <string name="common_delete">刪除</string>
+    <string name="common_confirm">確定</string>
+    <string name="common_cancel">取消</string>
+    <string name="transport_type_bus">巴士</string>
+    <string name="transport_type_train">火車</string>
+    <string name="transport_type_plane">飛機</string>
+    <string name="date_input_placeholder">選擇日期</string>
+    <string name="time_input_placeholder">選擇時間</string>
+    <string name="address_copied_message">地址已複製</string>
+    <string name="upload_btn_label">上傳文件</string>
+    <string name="upload_image_btn_label">上傳圖片</string>
+    <string name="upload_another_image_btn_label">上傳另一張圖片</string>
+    <string name="language_selector_content_description">語言</string>
+    <string name="language_selector_search_hint">搜尋語言</string>
+    <string name="language_selector_search_empty">找不到語言</string>
+    <string name="delete_confirmation_title">要刪除嗎？</string>
+    <string name="delete_confirmation_message">此操作無法復原</string>
+    <string name="required_fields_hint">標有 * 的欄位為必填</string>
+    <string name="notifications_disabled_message">通知已關閉</string>
+    <string name="notifications_enable_btn_label">開啟通知</string>
+    <string name="exact_reminders_disabled_message">提醒已關閉</string>
+    <string name="exact_reminders_enable_btn_label">開啟提醒</string>
+    <string name="notifications_and_exact_reminders_disabled_message">通知和提醒已關閉</string>
+    <string name="notification_help_title">收不到通知嗎？</string>
+    <string name="notification_help_body">部分手機會限制應用程式在背景執行。請嘗試以下操作：\n\n• 在應用程式的電池設定中選擇「不受限制」，或關閉電池最佳化。如果您使用 Samsung 裝置，請將應用程式從「休眠應用程式」清單中移除。\n• 為應用程式開啟「自動啟動」（Xiaomi、Oppo、Vivo、Huawei 等裝置提供此功能）。\n• 確認應用程式已啟用「通知」及「鬧鐘與提醒」。\n\n設定名稱可能會因手機型號及系統版本而異。</string>
+    <string name="notification_help_open_settings">應用程式設定</string>
+    <string name="notification_help_close">關閉</string>
+    <string name="edit_transport_title">編輯交通資訊</string>
+    <string name="add_transport_title">新增交通資訊</string>
+    <string name="add_transport_from_section_title">出發地</string>
+    <string name="add_transport_to_section_title">目的地</string>
+    <string name="add_transport_btn_label">新增交通資訊</string>
+    <string name="add_transport_bus_number_label">巴士號碼</string>
+    <string name="add_transport_place_label">座位</string>
+    <string name="add_transport_documents_section_title">文件</string>
+    <string name="add_transport_train_number_label">火車車次</string>
+    <string name="add_transport_plane_number_label">航班號碼</string>
+    <string name="add_transport_coach_label">車廂</string>
+    <string name="add_transport_transport_section_title">交通資訊</string>
+    <string name="add_transport_type_label">類型</string>
+    <string name="add_transport_date_label">日期</string>
+    <string name="add_transport_time_label">時間</string>
+    <string name="add_transport_address_label" comment="Railway/bus station">車站名稱（或地址）</string>
+    <string name="add_transport_airport_name_label">機場名稱（或地址）</string>
+    <string name="add_transport_airport_code_label">機場代碼</string>
+    <string name="add_transport_platform_label" comment="Bus/Train platform">月台</string>
+    <string name="add_transport_terminal_label" comment="Airport terminal">航廈</string>
+    <string name="add_transport_gate_label" comment="Airport gate">登機門</string>
+    <string name="add_transport_city_label">城市</string>
+    <string name="add_transport_private_bus_label">這是私人巴士</string>
+    <string name="add_transport_carrier_label" comment="Bus/train carrier">運輸業者</string>
+    <string name="add_transport_airline_label">航空公司</string>
+    <string name="add_transport_driver_phone_label">司機電話</string>
+    <string name="edit_trip_title">編輯行程</string>
+    <string name="create_trip_title">建立行程</string>
+    <string name="create_trip_name_label">行程名稱</string>
+    <string name="create_trip_start_date_label">開始日期</string>
+    <string name="create_trip_end_date_label">結束日期</string>
+    <string name="create_trip_btn_label">建立行程</string>
+    <string name="transport_details_bus_info_title">巴士資訊</string>
+    <string name="transport_details_train_info_title">火車資訊</string>
+    <string name="transport_details_plane_info_title">飛機資訊</string>
+    <string name="transport_details_coach_label" comment="Train coach">車廂</string>
+    <string name="transport_details_seat_label" comment="Train/Bus/Plane seat">座位</string>
+    <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">司機</string>
+    <string name="transport_details_terminal_label" comment="Airport terminal">航廈</string>
+    <string name="transport_details_platform_label" comment="Short label. Bus/Train platform">月台</string>
+    <string name="transport_details_gate_label" comment="Airport gate">登機門</string>
+    <string name="transport_details_documents_section_title">文件</string>
+    <string name="transport_details_notifications_section_title">通知</string>
+    <string name="transport_details_departure_notification_label" comment="Notify 1h before departure">於出發前 %1$s 通知</string>
+    <string name="transport_details_plane_departure_notification_label" comment="Notify 3h before departure (for plane)">於起飛前 %1$s 通知</string>
+    <string name="transport_details_delete_confirmation_title">要刪除此交通資訊嗎？</string>
+    <string name="transport_details_notifications_unavailable">此交通資訊無法使用通知</string>
+    <string name="add_to_trip_bottom_sheet_title">新增至行程</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">交通</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">住宿</string>
+    <string name="trip_details_title">行程詳細資訊</string>
+    <string name="trip_details_accommodation_checkin_label">入住</string>
+    <string name="trip_details_accommodation_checkout_label">退房</string>
+    <string name="trip_details_empty_message">目前行程是空的</string>
+    <string name="trip_details_add_btn_label" comment="Add transport/accommodation to trip">新增</string>
+    <string name="trip_details_transport_card_coach_label">車廂</string>
+    <string name="trip_details_transport_card_seat_label">座位</string>
+    <string name="trip_details_departure_label" comment="Short label for departure">出發</string>
+    <string name="trip_details_plane_departure_label">機場</string>
+    <string name="trip_details_terminal_label" comment="Short label for terminal">航廈</string>
+    <string name="trip_details_transport_card_arrival_label">抵達</string>
+    <string name="trip_details_transport_card_bus_departure">巴士出發</string>
+    <string name="trip_details_transport_card_train_departure">火車出發</string>
+    <string name="trip_details_delete_confirmation_title">要刪除此行程嗎？</string>
+    <string name="trip_details_next_event_label">下一項</string>
+    <string name="trip_details_day_filter_all_label" comment="Short label">全部</string>
+    <string name="trips_empty_message">您沒有已規劃的行程</string>
+    <string name="trips_add_btn_label">新增行程</string>
+    <string name="trips_trip_card_active_label" comment="Short label">進行中</string>
+    <string name="trips_trip_card_next_label" comment="Short label">下一項</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv / Автобус до міста Львів">下一項：%1$s 前往 %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">下一項：於 %1$s 入住</string>
+    <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">下一項：從 %1$s 退房</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="other">還剩 %1$d 天</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">已完成</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="other">%1$d 天  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="other">%d 天後</item>
+    </plurals>
+    <string name="trips_toggle_past_label" comment="Past trips list">過去</string>
+    <string name="trips_toggle_upcoming_label" comment="Upcoming trips list">即將到來</string>
+    <string name="trips_toggle_empty_message">找不到行程</string>
+    <string name="trips_title">我的行程</string>
+    <string name="add_accommodation_title">新增住宿</string>
+    <string name="edit_accommodation_title">編輯住宿</string>
+    <string name="add_accommodation_general_section_title">住宿</string>
+    <string name="add_accommodation_name_label">名稱</string>
+    <string name="add_accommodation_address_label">地址</string>
+    <string name="add_accommodation_contact_phone_label">聯絡電話</string>
+    <string name="add_accommodation_check_in_section_title">入住</string>
+    <string name="add_accommodation_check_out_section_title">退房</string>
+    <string name="add_accommodation_date_label">日期</string>
+    <string name="add_accommodation_time_label">時間</string>
+    <string name="add_accommodation_btn_label">新增住宿</string>
+    <string name="add_accommodation_documents_section_title">文件</string>
+    <string name="accommodation_details_title">住宿資訊</string>
+    <string name="accommodation_details_address_label">地址</string>
+    <string name="accommodation_details_check_in_label">入住</string>
+    <string name="accommodation_details_check_out_label">退房</string>
+    <string name="accommodation_details_notifications_section_title">通知</string>
+    <string name="accommodation_details_check_in_notification_label">入住前 1 小時通知</string>
+    <string name="accommodation_details_check_out_notification_label">退房前 1 小時通知</string>
+    <string name="accommodation_details_documents_section_title">文件</string>
+    <string name="accommodation_details_delete_confirmation_title">要刪除此住宿嗎？</string>
+    <string name="accommodation_details_duration_label">住宿期間</string>
+    <string name="accommodation_details_call_label" comment="Middle size label before phone number">撥打電話</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv / Автобус до міста Львів">%1$s 前往 %2$s</string>
+    <string name="notification_departure_time" comment="Departure time: 12:00">出發時間：%1$s</string>
+    <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">入住：%1$s</string>
+    <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">退房：%1$s</string>
+    <string name="notification_accommodation_time" comment="Time: 12:00">時間：%1$s</string>
+    <string name="notification_transport_platform" comment="Platform 1">月台 %1$s</string>
+    <string name="notification_transport_seat" comment="Seat 12">座位 %1$s</string>
+    <string name="notification_transport_coach" comment="Coach 3">車廂 %1$s</string>
+    <string name="duration_hours_short">%d 小時</string>
+    <string name="duration_minutes_short">%d 分鐘</string>
+    <string name="duration_hours_minutes_short">%1$d 小時 %2$d 分鐘</string>
+    <plurals name="transport_duration_hours">
+        <item quantity="other">%d 小時</item>
+    </plurals>
+    <plurals name="transport_duration_minutes">
+        <item quantity="other">%d 分鐘</item>
+    </plurals>
+    <plurals name="accommodation_duration_nights">
+        <item quantity="other">%d 晚</item>
+    </plurals>
+</resources>

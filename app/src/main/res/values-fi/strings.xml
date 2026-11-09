@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trip Pocket</string>
+    <string name="common_save_changes">Tallenna muutokset</string>
+    <string name="common_edit">Muokkaa</string>
+    <string name="common_delete">Poista</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Peruuta</string>
+    <string name="transport_type_bus">Bussi</string>
+    <string name="transport_type_train">Juna</string>
+    <string name="transport_type_plane">Lentokone</string>
+    <string name="date_input_placeholder">Valitse päivämäärä</string>
+    <string name="time_input_placeholder">Valitse aika</string>
+    <string name="address_copied_message">Osoite kopioitu</string>
+    <string name="upload_btn_label">Lataa asiakirja</string>
+    <string name="upload_image_btn_label">Lataa kuva</string>
+    <string name="upload_another_image_btn_label">Lataa toinen kuva</string>
+    <string name="language_selector_content_description">Kieli</string>
+    <string name="language_selector_search_hint">Etsi kieltä</string>
+    <string name="language_selector_search_empty">Kieliä ei löytynyt</string>
+    <string name="delete_confirmation_title">Poistetaanko?</string>
+    <string name="delete_confirmation_message">Tätä toimintoa ei voi kumota</string>
+    <string name="required_fields_hint">* -merkityt kentät ovat pakollisia</string>
+    <string name="notifications_disabled_message">Ilmoitukset eivät ole käytössä</string>
+    <string name="notifications_enable_btn_label">Ota ilmoitukset käyttöön</string>
+    <string name="exact_reminders_disabled_message">Muistutukset eivät ole käytössä</string>
+    <string name="exact_reminders_enable_btn_label">Ota muistutukset käyttöön</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Ilmoitukset ja muistutukset eivät ole käytössä</string>
+    <string name="notification_help_title">Etkö saa ilmoituksia?</string>
+    <string name="notification_help_body">Jotkin puhelimet rajoittavat sovellusten toimintaa taustalla. Kokeile seuraavia toimia:\n\n• Valitse sovelluksen akkuasetuksista ”Rajoittamaton” tai poista akun optimointi käytöstä. Jos käytössäsi on Samsung-laite, poista sovellus ”Lepotilassa olevat sovellukset” -luettelosta.\n• Ota sovelluksen ”Automaattinen käynnistys” käyttöön (toiminto on saatavilla esimerkiksi Xiaomi-, Oppo-, Vivo- ja Huawei-laitteissa).\n• Varmista, että sovelluksen ”Ilmoitukset” ja ”Hälytykset ja muistutukset” ovat käytössä.\n\nAsetusten nimet voivat vaihdella puhelimen mallin ja järjestelmäversion mukaan.</string>
+    <string name="notification_help_open_settings">Sovelluksen asetukset</string>
+    <string name="notification_help_close">Sulje</string>
+    <string name="edit_transport_title">Muokkaa kuljetusta</string>
+    <string name="add_transport_title">Lisää kuljetus</string>
+    <string name="add_transport_from_section_title">Lähtöpaikka</string>
+    <string name="add_transport_to_section_title">Määränpää</string>
+    <string name="add_transport_btn_label">Lisää kuljetus</string>
+    <string name="add_transport_bus_number_label">Bussin numero</string>
+    <string name="add_transport_place_label">Istumapaikka</string>
+    <string name="add_transport_documents_section_title">Asiakirjat</string>
+    <string name="add_transport_train_number_label">Junan numero</string>
+    <string name="add_transport_plane_number_label">Lennon numero</string>
+    <string name="add_transport_coach_label">Vaunu</string>
+    <string name="add_transport_transport_section_title">Kuljetus</string>
+    <string name="add_transport_type_label">Tyyppi</string>
+    <string name="add_transport_date_label">Päivämäärä</string>
+    <string name="add_transport_time_label">Aika</string>
+    <string name="add_transport_address_label" comment="Railway/bus station">Aseman nimi (tai osoite)</string>
+    <string name="add_transport_airport_name_label">Lentoaseman nimi (tai osoite)</string>
+    <string name="add_transport_airport_code_label">Lentoaseman koodi</string>
+    <string name="add_transport_platform_label" comment="Bus/Train platform">Laituri</string>
+    <string name="add_transport_terminal_label" comment="Airport terminal">Terminaali</string>
+    <string name="add_transport_gate_label" comment="Airport gate">Portti</string>
+    <string name="add_transport_city_label">Kaupunki</string>
+    <string name="add_transport_private_bus_label">Tämä on tilausbussi</string>
+    <string name="add_transport_carrier_label" comment="Bus/train carrier">Liikennöitsijä</string>
+    <string name="add_transport_airline_label">Lentoyhtiö</string>
+    <string name="add_transport_driver_phone_label">Kuljettajan puhelin</string>
+    <string name="edit_trip_title">Muokkaa matkaa</string>
+    <string name="create_trip_title">Luo matka</string>
+    <string name="create_trip_name_label">Matkan nimi</string>
+    <string name="create_trip_start_date_label">Alkamispäivä</string>
+    <string name="create_trip_end_date_label">Päättymispäivä</string>
+    <string name="create_trip_btn_label">Luo matka</string>
+    <string name="transport_details_bus_info_title">Bussin tiedot</string>
+    <string name="transport_details_train_info_title">Junan tiedot</string>
+    <string name="transport_details_plane_info_title">Lentokoneen tiedot</string>
+    <string name="transport_details_coach_label" comment="Train coach">Vaunu</string>
+    <string name="transport_details_seat_label" comment="Train/Bus/Plane seat">Istumapaikka</string>
+    <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">Kuljettaja</string>
+    <string name="transport_details_terminal_label" comment="Airport terminal">Terminaali</string>
+    <string name="transport_details_platform_label" comment="Short label. Bus/Train platform">Lait.</string>
+    <string name="transport_details_gate_label" comment="Airport gate">Portti</string>
+    <string name="transport_details_documents_section_title">Asiakirjat</string>
+    <string name="transport_details_notifications_section_title">Ilmoitukset</string>
+    <string name="transport_details_departure_notification_label" comment="Notify 1h before departure">Ilmoita %1$s ennen lähtöä</string>
+    <string name="transport_details_plane_departure_notification_label" comment="Notify 3h before departure (for plane)">Ilmoita %1$s ennen lentoa</string>
+    <string name="transport_details_delete_confirmation_title">Poistetaanko kuljetus?</string>
+    <string name="transport_details_notifications_unavailable">Ilmoitukset eivät ole käytettävissä tälle kuljetukselle</string>
+    <string name="add_to_trip_bottom_sheet_title">Lisää matkaan</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Kuljetus</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Majoitus</string>
+    <string name="trip_details_title">Matkan tiedot</string>
+    <string name="trip_details_accommodation_checkin_label">Saapuminen</string>
+    <string name="trip_details_accommodation_checkout_label">Lähtö</string>
+    <string name="trip_details_empty_message">Matkasi on tyhjä</string>
+    <string name="trip_details_add_btn_label" comment="Add transport/accommodation to trip">Lisää</string>
+    <string name="trip_details_transport_card_coach_label">Vaunu</string>
+    <string name="trip_details_transport_card_seat_label">Istumapaikka</string>
+    <string name="trip_details_departure_label" comment="Short label for departure">Lähtö</string>
+    <string name="trip_details_plane_departure_label">Lentoasema</string>
+    <string name="trip_details_terminal_label" comment="Short label for terminal">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Saapuminen</string>
+    <string name="trip_details_transport_card_bus_departure">Bussin lähtö</string>
+    <string name="trip_details_transport_card_train_departure">Junan lähtö</string>
+    <string name="trip_details_delete_confirmation_title">Poistetaanko matka?</string>
+    <string name="trip_details_next_event_label">SEURAAVAKSI</string>
+    <string name="trip_details_day_filter_all_label" comment="Short label">Kaikki</string>
+    <string name="trips_empty_message">Sinulla ei ole suunniteltuja matkoja</string>
+    <string name="trips_add_btn_label">Lisää matka</string>
+    <string name="trips_trip_card_active_label" comment="Short label">Käynnissä</string>
+    <string name="trips_trip_card_next_label" comment="Short label">Seuraavaksi</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv / Автобус до міста Львів">Seuraavaksi: %1$s kohteeseen %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">Seuraavaksi: saapuminen kohteessa %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">Seuraavaksi: lähtö kohteesta %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">%1$d päivä jäljellä</item>
+        <item quantity="other">%1$d päivää jäljellä</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Päättynyt</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d päivä  |  %2$s</item>
+        <item quantity="other">%1$d päivää  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">%d päivän kuluttua</item>
+        <item quantity="other">%d päivän kuluttua</item>
+    </plurals>
+    <string name="trips_toggle_past_label" comment="Past trips list">Menneet</string>
+    <string name="trips_toggle_upcoming_label" comment="Upcoming trips list">Tulevat</string>
+    <string name="trips_toggle_empty_message">Matkoja ei löytynyt</string>
+    <string name="trips_title">Omat matkat</string>
+    <string name="add_accommodation_title">Lisää majoitus</string>
+    <string name="edit_accommodation_title">Muokkaa majoitusta</string>
+    <string name="add_accommodation_general_section_title">Majoitus</string>
+    <string name="add_accommodation_name_label">Nimi</string>
+    <string name="add_accommodation_address_label">Osoite</string>
+    <string name="add_accommodation_contact_phone_label">Yhteyspuhelin</string>
+    <string name="add_accommodation_check_in_section_title">Saapuminen</string>
+    <string name="add_accommodation_check_out_section_title">Lähtö</string>
+    <string name="add_accommodation_date_label">Päivämäärä</string>
+    <string name="add_accommodation_time_label">Aika</string>
+    <string name="add_accommodation_btn_label">Lisää majoitus</string>
+    <string name="add_accommodation_documents_section_title">Asiakirjat</string>
+    <string name="accommodation_details_title">Majoituksen tiedot</string>
+    <string name="accommodation_details_address_label">Osoite</string>
+    <string name="accommodation_details_check_in_label">Saapuminen</string>
+    <string name="accommodation_details_check_out_label">Lähtö</string>
+    <string name="accommodation_details_notifications_section_title">Ilmoitukset</string>
+    <string name="accommodation_details_check_in_notification_label">Ilmoita 1 tunti ennen sisäänkirjautumista</string>
+    <string name="accommodation_details_check_out_notification_label">Ilmoita 1 tunti ennen uloskirjautumista</string>
+    <string name="accommodation_details_documents_section_title">Asiakirjat</string>
+    <string name="accommodation_details_delete_confirmation_title">Poistetaanko majoitus?</string>
+    <string name="accommodation_details_duration_label">Kesto</string>
+    <string name="accommodation_details_call_label" comment="Middle size label before phone number">Soita</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv / Автобус до міста Львів">%1$s kohteeseen %2$s</string>
+    <string name="notification_departure_time" comment="Departure time: 12:00">Lähtöaika: %1$s</string>
+    <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">Saapuminen: %1$s</string>
+    <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">Lähtö: %1$s</string>
+    <string name="notification_accommodation_time" comment="Time: 12:00">Aika: %1$s</string>
+    <string name="notification_transport_platform" comment="Platform 1">Laituri %1$s</string>
+    <string name="notification_transport_seat" comment="Seat 12">Istumapaikka %1$s</string>
+    <string name="notification_transport_coach" comment="Coach 3">Vaunu %1$s</string>
+    <string name="duration_hours_short">%d t</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d t %2$d min</string>
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d tunti</item>
+        <item quantity="other">%d tuntia</item>
+    </plurals>
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minuutti</item>
+        <item quantity="other">%d minuuttia</item>
+    </plurals>
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d yö</item>
+        <item quantity="other">%d yötä</item>
+    </plurals>
+</resources>

@@ -1,0 +1,184 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">बदलाव सहेजें</string>
+    <string name="common_edit">संपादित करें</string>
+    <string name="common_delete">हटाएं</string>
+    <string name="common_confirm">ठीक है</string>
+    <string name="common_cancel">रद्द करें</string>
+    <string name="transport_type_bus">बस</string>
+    <string name="transport_type_train">ट्रेन</string>
+    <string name="transport_type_plane">विमान</string>
+    <string name="date_input_placeholder">तारीख चुनें</string>
+    <string name="time_input_placeholder">समय चुनें</string>
+    <string name="address_copied_message">पता कॉपी किया गया</string>
+    <string name="upload_btn_label">दस्तावेज़ अपलोड करें</string>
+    <string name="upload_image_btn_label">छवि अपलोड करें</string>
+    <string name="upload_another_image_btn_label">एक और छवि अपलोड करें</string>
+    <string name="language_selector_content_description">भाषा</string>
+    <string name="language_selector_search_hint">भाषा खोजें</string>
+    <string name="language_selector_search_empty">कोई भाषा नहीं मिली</string>
+    <string name="delete_confirmation_title">हटाएं?</string>
+    <string name="delete_confirmation_message">इस कार्रवाई को पूर्ववत नहीं किया जा सकता</string>
+    <string name="required_fields_hint">* से चिह्नित फ़ील्ड आवश्यक हैं</string>
+
+    <string name="notifications_disabled_message">सूचनाएं बंद हैं</string>
+    <string name="notifications_enable_btn_label">सूचनाएं चालू करें</string>
+    <string name="exact_reminders_disabled_message">रिमाइंडर बंद हैं</string>
+    <string name="exact_reminders_enable_btn_label">रिमाइंडर चालू करें</string>
+    <string name="notifications_and_exact_reminders_disabled_message">सूचनाएं और रिमाइंडर बंद हैं</string>
+    <string name="notification_help_title">सूचनाएं नहीं मिल रहीं?</string>
+    <string name="notification_help_body">कुछ फ़ोन ऐप्स को बैकग्राउंड में चलने से रोकते हैं। यह आज़माएं:\n\n• ऐप की बैटरी सेटिंग में “कोई प्रतिबंध नहीं” चुनें या बैटरी ऑप्टिमाइज़ेशन बंद करें। अगर आपके पास Samsung डिवाइस है, तो ऐप को “स्लीपिंग ऐप्स” सूची से हटाएं।\n• ऐप के लिए “ऑटो-स्टार्ट” चालू करें (Xiaomi, Oppo, Vivo, Huawei और अन्य में उपलब्ध)।\n• सुनिश्चित करें कि ऐप के लिए “सूचनाएं” और “अलार्म और रिमाइंडर” चालू हैं।\n\nसेटिंग के नाम फ़ोन के मॉडल और सिस्टम वर्शन के अनुसार अलग हो सकते हैं।</string>
+    <string name="notification_help_open_settings">ऐप सेटिंग</string>
+    <string name="notification_help_close">बंद करें</string>
+
+    <string name="edit_transport_title">परिवहन संपादित करें</string>
+    <string name="add_transport_title">परिवहन जोड़ें</string>
+    <string name="add_transport_from_section_title">कहाँ से</string>
+    <string name="add_transport_to_section_title">कहाँ तक</string>
+    <string name="add_transport_btn_label">परिवहन जोड़ें</string>
+    <string name="add_transport_bus_number_label">बस नंबर</string>
+    <string name="add_transport_place_label">सीट</string>
+    <string name="add_transport_documents_section_title">दस्तावेज़</string>
+    <string name="add_transport_train_number_label">ट्रेन नंबर</string>
+    <string name="add_transport_plane_number_label">फ़्लाइट नंबर</string>
+    <string name="add_transport_coach_label">कोच</string>
+    <string name="add_transport_transport_section_title">परिवहन</string>
+    <string name="add_transport_type_label">प्रकार</string>
+    <string name="add_transport_date_label">तारीख</string>
+    <string name="add_transport_time_label">समय</string>
+    <string name="add_transport_address_label">स्टेशन का नाम (या पता)</string>
+    <string name="add_transport_airport_name_label">हवाई अड्डे का नाम (या पता)</string>
+    <string name="add_transport_airport_code_label">हवाई अड्डे का कोड</string>
+    <string name="add_transport_platform_label">प्लेटफ़ॉर्म</string>
+    <string name="add_transport_terminal_label">टर्मिनल</string>
+    <string name="add_transport_gate_label">गेट</string>
+    <string name="add_transport_city_label">शहर</string>
+    <string name="add_transport_private_bus_label">यह एक निजी बस है</string>
+    <string name="add_transport_carrier_label">ऑपरेटर</string>
+    <string name="add_transport_airline_label">एयरलाइन</string>
+    <string name="add_transport_driver_phone_label">ड्राइवर का फ़ोन नंबर</string>
+
+    <string name="edit_trip_title">यात्रा संपादित करें</string>
+    <string name="create_trip_title">यात्रा बनाएं</string>
+    <string name="create_trip_name_label">यात्रा का नाम</string>
+    <string name="create_trip_start_date_label">आरंभ तिथि</string>
+    <string name="create_trip_end_date_label">समाप्ति तिथि</string>
+    <string name="create_trip_btn_label">यात्रा बनाएं</string>
+
+    <string name="transport_details_bus_info_title">बस की जानकारी</string>
+    <string name="transport_details_train_info_title">ट्रेन की जानकारी</string>
+    <string name="transport_details_plane_info_title">विमान की जानकारी</string>
+    <string name="transport_details_coach_label">कोच</string>
+    <string name="transport_details_seat_label">सीट</string>
+    <string name="transport_details_driver_phone_label">ड्राइवर</string>
+    <string name="transport_details_terminal_label">टर्मिनल</string>
+    <string name="transport_details_platform_label">प्लेटफ़ॉर्म</string>
+    <string name="transport_details_gate_label">गेट</string>
+    <string name="transport_details_documents_section_title">दस्तावेज़</string>
+    <string name="transport_details_notifications_section_title">सूचनाएं</string>
+    <string name="transport_details_departure_notification_label">प्रस्थान से %1$s पहले सूचित करें</string>
+    <string name="transport_details_plane_departure_notification_label">उड़ान से %1$s पहले सूचित करें</string>
+    <string name="transport_details_delete_confirmation_title">परिवहन हटाएं?</string>
+    <string name="transport_details_notifications_unavailable">इस परिवहन के लिए सूचनाएं उपलब्ध नहीं हैं</string>
+
+    <string name="add_to_trip_bottom_sheet_title">यात्रा में जोड़ें</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">परिवहन</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">ठहरने की जगह</string>
+
+    <string name="trip_details_title">यात्रा का विवरण</string>
+    <string name="trip_details_accommodation_checkin_label">चेक-इन</string>
+    <string name="trip_details_accommodation_checkout_label">चेक-आउट</string>
+    <string name="trip_details_empty_message">आपकी यात्रा खाली है</string>
+    <string name="trip_details_add_btn_label">जोड़ें</string>
+    <string name="trip_details_transport_card_coach_label">कोच</string>
+    <string name="trip_details_transport_card_seat_label">सीट</string>
+    <string name="trip_details_departure_label">प्रस्थान</string>
+    <string name="trip_details_plane_departure_label">हवाई अड्डा</string>
+    <string name="trip_details_terminal_label">टर्मिनल</string>
+    <string name="trip_details_transport_card_arrival_label">आगमन</string>
+    <string name="trip_details_transport_card_bus_departure">बस प्रस्थान</string>
+    <string name="trip_details_transport_card_train_departure">ट्रेन प्रस्थान</string>
+    <string name="trip_details_delete_confirmation_title">यात्रा हटाएं?</string>
+    <string name="trip_details_next_event_label">अगला</string>
+    <string name="trip_details_day_filter_all_label">सभी</string>
+
+    <string name="trips_empty_message">आपकी कोई यात्रा नियोजित नहीं है</string>
+    <string name="trips_add_btn_label">यात्रा जोड़ें</string>
+    <string name="trips_trip_card_active_label">जारी है</string>
+    <string name="trips_trip_card_next_label">अगला</string>
+    <string name="trips_trip_card_next_transport">अगला: %2$s शहर के लिए %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">अगला: %1$s में चेक-इन</string>
+    <string name="trips_trip_card_next_accommodation_check_out">अगला: %1$s से चेक-आउट</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">%1$d दिन शेष</item>
+        <item quantity="other">%1$d दिन शेष</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">पूर्ण</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d दिन  |  %2$s</item>
+        <item quantity="other">%1$d दिन  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">%d दिन में</item>
+        <item quantity="other">%d दिन में</item>
+    </plurals>
+    <string name="trips_toggle_past_label">पिछली</string>
+    <string name="trips_toggle_upcoming_label">आगामी</string>
+    <string name="trips_toggle_empty_message">कोई यात्रा नहीं मिली</string>
+    <string name="trips_title">मेरी यात्राएं</string>
+
+
+    <string name="add_accommodation_title">ठहरने की जगह जोड़ें</string>
+    <string name="edit_accommodation_title">ठहरने की जगह संपादित करें</string>
+    <string name="add_accommodation_general_section_title">ठहरने की जगह</string>
+    <string name="add_accommodation_name_label">नाम</string>
+    <string name="add_accommodation_address_label">पता</string>
+    <string name="add_accommodation_contact_phone_label">संपर्क फ़ोन नंबर</string>
+    <string name="add_accommodation_check_in_section_title">चेक-इन</string>
+    <string name="add_accommodation_check_out_section_title">चेक-आउट</string>
+    <string name="add_accommodation_date_label">तारीख</string>
+    <string name="add_accommodation_time_label">समय</string>
+    <string name="add_accommodation_btn_label">ठहरने की जगह जोड़ें</string>
+    <string name="add_accommodation_documents_section_title">दस्तावेज़</string>
+
+    <string name="accommodation_details_title">ठहरने की जगह की जानकारी</string>
+    <string name="accommodation_details_address_label">पता</string>
+    <string name="accommodation_details_check_in_label">चेक-इन</string>
+    <string name="accommodation_details_check_out_label">चेक-आउट</string>
+    <string name="accommodation_details_notifications_section_title">सूचनाएं</string>
+    <string name="accommodation_details_check_in_notification_label">चेक-इन से 1 घंटा पहले सूचित करें</string>
+    <string name="accommodation_details_check_out_notification_label">चेक-आउट से 1 घंटा पहले सूचित करें</string>
+    <string name="accommodation_details_documents_section_title">दस्तावेज़</string>
+    <string name="accommodation_details_delete_confirmation_title">ठहरने की जगह हटाएं?</string>
+    <string name="accommodation_details_duration_label">अवधि</string>
+    <string name="accommodation_details_call_label">कॉल करें</string>
+
+    <string name="notification_upcoming_transport">%2$s शहर के लिए %1$s</string>
+    <string name="notification_departure_time">प्रस्थान का समय: %1$s</string>
+    <string name="notification_upcoming_check_in">चेक-इन: %1$s</string>
+    <string name="notification_upcoming_check_out">चेक-आउट: %1$s</string>
+    <string name="notification_accommodation_time">समय: %1$s</string>
+    <string name="notification_transport_platform">प्लेटफ़ॉर्म %1$s</string>
+    <string name="notification_transport_seat">सीट %1$s</string>
+    <string name="notification_transport_coach">कोच %1$s</string>
+
+    <string name="duration_hours_short">%d घं</string>
+    <string name="duration_minutes_short">%d मि</string>
+    <string name="duration_hours_minutes_short">%1$d घं %2$d मि</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d घंटा</item>
+        <item quantity="other">%d घंटे</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d मिनट</item>
+        <item quantity="other">%d मिनट</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d रात</item>
+        <item quantity="other">%d रातें</item>
+    </plurals>
+</resources>

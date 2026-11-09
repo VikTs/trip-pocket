@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trip Pocket</string>
+    <string name="common_save_changes">I-save ang mga pagbabago</string>
+    <string name="common_edit">I-edit</string>
+    <string name="common_delete">Tanggalin</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Kanselahin</string>
+    <string name="transport_type_bus">Bus</string>
+    <string name="transport_type_train">Tren</string>
+    <string name="transport_type_plane">Eroplano</string>
+    <string name="date_input_placeholder">Pumili ng petsa</string>
+    <string name="time_input_placeholder">Pumili ng oras</string>
+    <string name="address_copied_message">Nakopya ang address</string>
+    <string name="upload_btn_label">Mag-upload ng dokumento</string>
+    <string name="upload_image_btn_label">Mag-upload ng larawan</string>
+    <string name="upload_another_image_btn_label">Mag-upload ng ibang larawan</string>
+    <string name="language_selector_content_description">Wika</string>
+    <string name="language_selector_search_hint">Maghanap ng wika</string>
+    <string name="language_selector_search_empty">Walang nakitang wika</string>
+    <string name="delete_confirmation_title">Tanggalin?</string>
+    <string name="delete_confirmation_message">Hindi na mababawi ang pagkilos na ito</string>
+    <string name="required_fields_hint">Kinakailangang punan ang mga field na may *</string>
+    <string name="notifications_disabled_message">Naka-disable ang mga notification</string>
+    <string name="notifications_enable_btn_label">I-enable ang mga notification</string>
+    <string name="exact_reminders_disabled_message">Naka-disable ang mga paalala</string>
+    <string name="exact_reminders_enable_btn_label">I-enable ang mga paalala</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Naka-disable ang mga notification at paalala</string>
+    <string name="notification_help_title">Hindi nakakatanggap ng mga notification?</string>
+    <string name="notification_help_body">Nililimitahan ng ilang telepono ang paggana ng mga app sa background. Subukan ang mga sumusunod:\n\n• Sa mga setting ng baterya ng app, piliin ang “Unrestricted” o i-disable ang battery optimization. Kung Samsung ang gamit mo, alisin ang app sa listahan ng “Sleeping apps”.\n• I-enable ang “Auto-start” para sa app (available ito sa Xiaomi, Oppo, Vivo, Huawei, at iba pa).\n• Tiyaking naka-enable ang “Notifications” at “Alarms &amp; reminders” para sa app.\n\nMaaaring mag-iba ang mga pangalan ng setting depende sa modelo ng telepono at bersyon ng system.</string>
+    <string name="notification_help_open_settings">Mga setting ng app</string>
+    <string name="notification_help_close">Isara</string>
+    <string name="edit_transport_title">I-edit ang transportasyon</string>
+    <string name="add_transport_title">Magdagdag ng transportasyon</string>
+    <string name="add_transport_from_section_title">Mula sa</string>
+    <string name="add_transport_to_section_title">Papunta sa</string>
+    <string name="add_transport_btn_label">Magdagdag ng transportasyon</string>
+    <string name="add_transport_bus_number_label">Numero ng bus</string>
+    <string name="add_transport_place_label">Upuan</string>
+    <string name="add_transport_documents_section_title">Mga dokumento</string>
+    <string name="add_transport_train_number_label">Numero ng tren</string>
+    <string name="add_transport_plane_number_label">Numero ng flight</string>
+    <string name="add_transport_coach_label">Karwahe</string>
+    <string name="add_transport_transport_section_title">Transportasyon</string>
+    <string name="add_transport_type_label">Uri</string>
+    <string name="add_transport_date_label">Petsa</string>
+    <string name="add_transport_time_label">Oras</string>
+    <string name="add_transport_address_label" comment="Railway/bus station">Pangalan ng istasyon (o address)</string>
+    <string name="add_transport_airport_name_label">Pangalan ng paliparan (o address)</string>
+    <string name="add_transport_airport_code_label">Code ng paliparan</string>
+    <string name="add_transport_platform_label" comment="Bus/Train platform">Platform</string>
+    <string name="add_transport_terminal_label" comment="Airport terminal">Terminal</string>
+    <string name="add_transport_gate_label" comment="Airport gate">Gate</string>
+    <string name="add_transport_city_label">Lungsod</string>
+    <string name="add_transport_private_bus_label">Pribadong bus ito</string>
+    <string name="add_transport_carrier_label" comment="Bus/train carrier">Tagapagdala</string>
+    <string name="add_transport_airline_label">Airline</string>
+    <string name="add_transport_driver_phone_label">Telepono ng drayber</string>
+    <string name="edit_trip_title">I-edit ang biyahe</string>
+    <string name="create_trip_title">Gumawa ng biyahe</string>
+    <string name="create_trip_name_label">Pangalan ng biyahe</string>
+    <string name="create_trip_start_date_label">Petsa ng pagsisimula</string>
+    <string name="create_trip_end_date_label">Petsa ng pagtatapos</string>
+    <string name="create_trip_btn_label">Gumawa ng biyahe</string>
+    <string name="transport_details_bus_info_title">Impormasyon ng bus</string>
+    <string name="transport_details_train_info_title">Impormasyon ng tren</string>
+    <string name="transport_details_plane_info_title">Impormasyon ng eroplano</string>
+    <string name="transport_details_coach_label" comment="Train coach">Karwahe</string>
+    <string name="transport_details_seat_label" comment="Train/Bus/Plane seat">Upuan</string>
+    <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">Drayber</string>
+    <string name="transport_details_terminal_label" comment="Airport terminal">Terminal</string>
+    <string name="transport_details_platform_label" comment="Short label. Bus/Train platform">Plat.</string>
+    <string name="transport_details_gate_label" comment="Airport gate">Gate</string>
+    <string name="transport_details_documents_section_title">Mga dokumento</string>
+    <string name="transport_details_notifications_section_title">Mga notification</string>
+    <string name="transport_details_departure_notification_label" comment="Notify 1h before departure">Abisuhan ako %1$s bago umalis</string>
+    <string name="transport_details_plane_departure_notification_label" comment="Notify 3h before departure (for plane)">Abisuhan ako %1$s bago lumipad</string>
+    <string name="transport_details_delete_confirmation_title">Tanggalin ang transportasyon?</string>
+    <string name="transport_details_notifications_unavailable">Hindi available ang mga notification para sa transportasyong ito</string>
+    <string name="add_to_trip_bottom_sheet_title">Idagdag sa biyahe</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Transportasyon</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Matutuluyan</string>
+    <string name="trip_details_title">Mga detalye ng biyahe</string>
+    <string name="trip_details_accommodation_checkin_label">Check-in</string>
+    <string name="trip_details_accommodation_checkout_label">Check-out</string>
+    <string name="trip_details_empty_message">Walang laman ang biyahe mo</string>
+    <string name="trip_details_add_btn_label" comment="Add transport/accommodation to trip">Idagdag</string>
+    <string name="trip_details_transport_card_coach_label">Karwahe</string>
+    <string name="trip_details_transport_card_seat_label">Upuan</string>
+    <string name="trip_details_departure_label" comment="Short label for departure">Alis</string>
+    <string name="trip_details_plane_departure_label">Paliparan</string>
+    <string name="trip_details_terminal_label" comment="Short label for terminal">term.</string>
+    <string name="trip_details_transport_card_arrival_label">Dating</string>
+    <string name="trip_details_transport_card_bus_departure">Pag-alis ng bus</string>
+    <string name="trip_details_transport_card_train_departure">Pag-alis ng tren</string>
+    <string name="trip_details_delete_confirmation_title">Tanggalin ang biyahe?</string>
+    <string name="trip_details_next_event_label">SUSUNOD</string>
+    <string name="trip_details_day_filter_all_label" comment="Short label">Lahat</string>
+    <string name="trips_empty_message">Wala ka pang nakaplanong biyahe</string>
+    <string name="trips_add_btn_label">Magdagdag ng biyahe</string>
+    <string name="trips_trip_card_active_label" comment="Short label">Kasalukuyan</string>
+    <string name="trips_trip_card_next_label" comment="Short label">Susunod</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv / Автобус до міста Львів">Susunod: %1$s papuntang %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">Susunod: mag-check in sa %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">Susunod: mag-check out sa %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">May %1$d araw pa</item>
+        <item quantity="other">May %1$d araw pa</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Tapos na</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d araw  |  %2$s</item>
+        <item quantity="other">%1$d araw  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">Sa loob ng %d araw</item>
+        <item quantity="other">Sa loob ng %d araw</item>
+    </plurals>
+    <string name="trips_toggle_past_label" comment="Past trips list">Nakaraan</string>
+    <string name="trips_toggle_upcoming_label" comment="Upcoming trips list">Paparating</string>
+    <string name="trips_toggle_empty_message">Walang nakitang biyahe</string>
+    <string name="trips_title">Mga biyahe ko</string>
+    <string name="add_accommodation_title">Magdagdag ng matutuluyan</string>
+    <string name="edit_accommodation_title">I-edit ang matutuluyan</string>
+    <string name="add_accommodation_general_section_title">Matutuluyan</string>
+    <string name="add_accommodation_name_label">Pangalan</string>
+    <string name="add_accommodation_address_label">Address</string>
+    <string name="add_accommodation_contact_phone_label">Contact number</string>
+    <string name="add_accommodation_check_in_section_title">Check-in</string>
+    <string name="add_accommodation_check_out_section_title">Check-out</string>
+    <string name="add_accommodation_date_label">Petsa</string>
+    <string name="add_accommodation_time_label">Oras</string>
+    <string name="add_accommodation_btn_label">Magdagdag ng matutuluyan</string>
+    <string name="add_accommodation_documents_section_title">Mga dokumento</string>
+    <string name="accommodation_details_title">Impormasyon ng matutuluyan</string>
+    <string name="accommodation_details_address_label">Address</string>
+    <string name="accommodation_details_check_in_label">Check-in</string>
+    <string name="accommodation_details_check_out_label">Check-out</string>
+    <string name="accommodation_details_notifications_section_title">Mga notification</string>
+    <string name="accommodation_details_check_in_notification_label">Abisuhan ako 1 oras bago ang check-in</string>
+    <string name="accommodation_details_check_out_notification_label">Abisuhan ako 1 oras bago ang check-out</string>
+    <string name="accommodation_details_documents_section_title">Mga dokumento</string>
+    <string name="accommodation_details_delete_confirmation_title">Tanggalin ang matutuluyan?</string>
+    <string name="accommodation_details_duration_label">Tagal</string>
+    <string name="accommodation_details_call_label" comment="Middle size label before phone number">Tumawag</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv / Автобус до міста Львів">%1$s papuntang %2$s</string>
+    <string name="notification_departure_time" comment="Departure time: 12:00">Oras ng pag-alis: %1$s</string>
+    <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">Check-in: %1$s</string>
+    <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">Check-out: %1$s</string>
+    <string name="notification_accommodation_time" comment="Time: 12:00">Oras: %1$s</string>
+    <string name="notification_transport_platform" comment="Platform 1">Platform %1$s</string>
+    <string name="notification_transport_seat" comment="Seat 12">Upuan %1$s</string>
+    <string name="notification_transport_coach" comment="Coach 3">Karwahe %1$s</string>
+    <string name="duration_hours_short">%d oras</string>
+    <string name="duration_minutes_short">%d min</string>
+    <string name="duration_hours_minutes_short">%1$d oras %2$d min</string>
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d oras</item>
+        <item quantity="other">%d oras</item>
+    </plurals>
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minuto</item>
+    </plurals>
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d gabi</item>
+        <item quantity="other">%d gabi</item>
+    </plurals>
+</resources>

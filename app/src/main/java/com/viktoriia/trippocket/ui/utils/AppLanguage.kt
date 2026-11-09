@@ -11,18 +11,32 @@ private const val PREFS_NAME = "app_preferences"
 private const val LANGUAGE_KEY = "language"
 private const val LANGUAGE_SELECTED_KEY = "language_selected"
 private val supportedLanguages = setOf(
-    "en",       // English
-    "uk",       // Ukrainian
-    "it",       // Italian
-    "de",       // Germain
-    "fr",       // French
-    "pl",       // Polish
-    "es",       // Spanish
-    "pt",       // Portuguese
-    "tr",       // Turkish
+    "ar",       // Arabic
+    "zh-Hans",  // Chinese (Simplified)
+    "zh-TW",    // Chinese (Traditional, Taiwan)
     "cs",       // Czech
+    "en",       // English
+    "fil",      // Filipino
+    "fi",       // Finnish
+    "fr",       // French
+    "de",       // German
+    "el",       // Greek
+    "hi",       // Hindi
     "hu",       // Hungarian
-    "sr-Latn",  // Serbian
+    "id",       // Indonesian
+    "it",       // Italian
+    "ja",       // Japanese
+    "kk",       // Kazakh
+    "ko",       // Korean
+    "pl",       // Polish
+    "pt",       // Portuguese
+    "ro",       // Romanian
+    "sr-Latn",  // Serbian (Latin)
+    "es",       // Spanish
+    "th",       // Thai
+    "tr",       // Turkish
+    "uk",       // Ukrainian
+    "vi"        // Vietnamese
 )
 
 fun setAppLanguage(
@@ -83,17 +97,29 @@ fun initializeAppLanguage(context: Context) {
         return
     }
 
-    val systemLanguage = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        context.resources.configuration.locales[0].language
+    val systemLocale = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        context.resources.configuration.locales[0]
     } else {
-        Locale.getDefault().language
+        Locale.getDefault()
     }
 
-    val language = if (systemLanguage in supportedLanguages) {
-        systemLanguage
-    } else {
-        "en"
+    val systemLanguage = when (systemLocale.language) {
+        "sr" -> "sr-Latn"
+
+        "zh" -> {
+            val isTraditionalChinese =
+                systemLocale.script == "Hant" ||
+                        systemLocale.country.uppercase() in setOf("TW", "HK", "MO")
+
+            if (isTraditionalChinese) "zh-TW" else "zh-Hans"
+        }
+
+        else -> systemLocale.language
     }
+
+    val language = systemLanguage
+        .takeIf { it in supportedLanguages }
+        ?: "en"
 
     setAppLanguage(
         context = context,

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trip Pocket</string>
+    <string name="common_save_changes">Αποθήκευση αλλαγών</string>
+    <string name="common_edit">Επεξεργασία</string>
+    <string name="common_delete">Διαγραφή</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Ακύρωση</string>
+    <string name="transport_type_bus">Λεωφορείο</string>
+    <string name="transport_type_train">Τρένο</string>
+    <string name="transport_type_plane">Αεροπλάνο</string>
+    <string name="date_input_placeholder">Επιλέξτε ημερομηνία</string>
+    <string name="time_input_placeholder">Επιλέξτε ώρα</string>
+    <string name="address_copied_message">Η διεύθυνση αντιγράφηκε</string>
+    <string name="upload_btn_label">Μεταφόρτωση εγγράφου</string>
+    <string name="upload_image_btn_label">Μεταφόρτωση εικόνας</string>
+    <string name="upload_another_image_btn_label">Μεταφόρτωση άλλης εικόνας</string>
+    <string name="language_selector_content_description">Γλώσσα</string>
+    <string name="language_selector_search_hint">Αναζήτηση γλώσσας</string>
+    <string name="language_selector_search_empty">Δεν βρέθηκαν γλώσσες</string>
+    <string name="delete_confirmation_title">Διαγραφή;</string>
+    <string name="delete_confirmation_message">Αυτή η ενέργεια δεν μπορεί να αναιρεθεί</string>
+    <string name="required_fields_hint">Τα πεδία με * είναι υποχρεωτικά</string>
+    <string name="notifications_disabled_message">Οι ειδοποιήσεις είναι απενεργοποιημένες</string>
+    <string name="notifications_enable_btn_label">Ενεργοποίηση ειδοποιήσεων</string>
+    <string name="exact_reminders_disabled_message">Οι υπενθυμίσεις είναι απενεργοποιημένες</string>
+    <string name="exact_reminders_enable_btn_label">Ενεργοποίηση υπενθυμίσεων</string>
+    <string name="notifications_and_exact_reminders_disabled_message">Οι ειδοποιήσεις και οι υπενθυμίσεις είναι απενεργοποιημένες</string>
+    <string name="notification_help_title">Δεν λαμβάνετε ειδοποιήσεις;</string>
+    <string name="notification_help_body">Ορισμένα τηλέφωνα περιορίζουν τη λειτουργία των εφαρμογών στο παρασκήνιο. Δοκιμάστε τα εξής:\n\n• Στις ρυθμίσεις μπαταρίας της εφαρμογής, επιλέξτε «Χωρίς περιορισμούς» ή απενεργοποιήστε τη βελτιστοποίηση μπαταρίας. Αν έχετε συσκευή Samsung, αφαιρέστε την εφαρμογή από τη λίστα «Εφαρμογές σε αναστολή λειτουργίας».\n• Ενεργοποιήστε την «Αυτόματη εκκίνηση» για την εφαρμογή (διατίθεται σε Xiaomi, Oppo, Vivo, Huawei και άλλες συσκευές).\n• Βεβαιωθείτε ότι οι επιλογές «Ειδοποιήσεις» και «Ξυπνητήρια και υπενθυμίσεις» είναι ενεργοποιημένες για την εφαρμογή.\n\nΟι ονομασίες των ρυθμίσεων ενδέχεται να διαφέρουν ανάλογα με το μοντέλο του τηλεφώνου και την έκδοση του συστήματος.</string>
+    <string name="notification_help_open_settings">Ρυθμίσεις εφαρμογής</string>
+    <string name="notification_help_close">Κλείσιμο</string>
+    <string name="edit_transport_title">Επεξεργασία μεταφοράς</string>
+    <string name="add_transport_title">Προσθήκη μεταφοράς</string>
+    <string name="add_transport_from_section_title">Από</string>
+    <string name="add_transport_to_section_title">Προς</string>
+    <string name="add_transport_btn_label">Προσθήκη μεταφοράς</string>
+    <string name="add_transport_bus_number_label">Αριθμός λεωφορείου</string>
+    <string name="add_transport_place_label">Θέση</string>
+    <string name="add_transport_documents_section_title">Έγγραφα</string>
+    <string name="add_transport_train_number_label">Αριθμός τρένου</string>
+    <string name="add_transport_plane_number_label">Αριθμός πτήσης</string>
+    <string name="add_transport_coach_label">Βαγόνι</string>
+    <string name="add_transport_transport_section_title">Μεταφορά</string>
+    <string name="add_transport_type_label">Τύπος</string>
+    <string name="add_transport_date_label">Ημερομηνία</string>
+    <string name="add_transport_time_label">Ώρα</string>
+    <string name="add_transport_address_label" comment="Railway/bus station">Όνομα σταθμού (ή διεύθυνση)</string>
+    <string name="add_transport_airport_name_label">Όνομα αεροδρομίου (ή διεύθυνση)</string>
+    <string name="add_transport_airport_code_label">Κωδικός αεροδρομίου</string>
+    <string name="add_transport_platform_label" comment="Bus/Train platform">Αποβάθρα</string>
+    <string name="add_transport_terminal_label" comment="Airport terminal">Τερματικός σταθμός</string>
+    <string name="add_transport_gate_label" comment="Airport gate">Πύλη</string>
+    <string name="add_transport_city_label">Πόλη</string>
+    <string name="add_transport_private_bus_label">Πρόκειται για ιδιωτικό λεωφορείο</string>
+    <string name="add_transport_carrier_label" comment="Bus/train carrier">Μεταφορέας</string>
+    <string name="add_transport_airline_label">Αεροπορική εταιρεία</string>
+    <string name="add_transport_driver_phone_label">Τηλέφωνο οδηγού</string>
+    <string name="edit_trip_title">Επεξεργασία ταξιδιού</string>
+    <string name="create_trip_title">Δημιουργία ταξιδιού</string>
+    <string name="create_trip_name_label">Όνομα ταξιδιού</string>
+    <string name="create_trip_start_date_label">Ημερομηνία έναρξης</string>
+    <string name="create_trip_end_date_label">Ημερομηνία λήξης</string>
+    <string name="create_trip_btn_label">Δημιουργία ταξιδιού</string>
+    <string name="transport_details_bus_info_title">Πληροφορίες λεωφορείου</string>
+    <string name="transport_details_train_info_title">Πληροφορίες τρένου</string>
+    <string name="transport_details_plane_info_title">Πληροφορίες αεροπλάνου</string>
+    <string name="transport_details_coach_label" comment="Train coach">Βαγόνι</string>
+    <string name="transport_details_seat_label" comment="Train/Bus/Plane seat">Θέση</string>
+    <string name="transport_details_driver_phone_label" comment="Short label. Bus driver phone">Οδηγός</string>
+    <string name="transport_details_terminal_label" comment="Airport terminal">Τερματικός σταθμός</string>
+    <string name="transport_details_platform_label" comment="Short label. Bus/Train platform">Αποβ.</string>
+    <string name="transport_details_gate_label" comment="Airport gate">Πύλη</string>
+    <string name="transport_details_documents_section_title">Έγγραφα</string>
+    <string name="transport_details_notifications_section_title">Ειδοποιήσεις</string>
+    <string name="transport_details_departure_notification_label" comment="Notify 1h before departure">Ειδοποίηση %1$s πριν από την αναχώρηση</string>
+    <string name="transport_details_plane_departure_notification_label" comment="Notify 3h before departure (for plane)">Ειδοποίηση %1$s πριν από την αναχώρηση</string>
+    <string name="transport_details_delete_confirmation_title">Διαγραφή μεταφοράς;</string>
+    <string name="transport_details_notifications_unavailable">Οι ειδοποιήσεις για αυτή τη μεταφορά δεν είναι διαθέσιμες</string>
+    <string name="add_to_trip_bottom_sheet_title">Προσθήκη στο ταξίδι</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">Μεταφορά</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">Διαμονή</string>
+    <string name="trip_details_title">Λεπτομέρειες ταξιδιού</string>
+    <string name="trip_details_accommodation_checkin_label">Άφιξη</string>
+    <string name="trip_details_accommodation_checkout_label">Αναχώρηση</string>
+    <string name="trip_details_empty_message">Το ταξίδι σας είναι άδειο</string>
+    <string name="trip_details_add_btn_label" comment="Add transport/accommodation to trip">Προσθήκη</string>
+    <string name="trip_details_transport_card_coach_label">Βαγόνι</string>
+    <string name="trip_details_transport_card_seat_label">Θέση</string>
+    <string name="trip_details_departure_label" comment="Short label for departure">Αναχ.</string>
+    <string name="trip_details_plane_departure_label">Αεροδρόμιο</string>
+    <string name="trip_details_terminal_label" comment="Short label for terminal">τερμ.</string>
+    <string name="trip_details_transport_card_arrival_label">Άφιξη</string>
+    <string name="trip_details_transport_card_bus_departure">Αναχώρηση λεωφορείου</string>
+    <string name="trip_details_transport_card_train_departure">Αναχώρηση τρένου</string>
+    <string name="trip_details_delete_confirmation_title">Διαγραφή ταξιδιού;</string>
+    <string name="trip_details_next_event_label">ΕΠΟΜΕΝΟ</string>
+    <string name="trip_details_day_filter_all_label" comment="Short label">Όλα</string>
+    <string name="trips_empty_message">Δεν έχετε προγραμματισμένα ταξίδια</string>
+    <string name="trips_add_btn_label">Προσθήκη ταξιδιού</string>
+    <string name="trips_trip_card_active_label" comment="Short label">Σε εξέλιξη</string>
+    <string name="trips_trip_card_next_label" comment="Short label">Επόμενο</string>
+    <string name="trips_trip_card_next_transport" comment="Next: Bus to Lviv / Автобус до міста Львів">Επόμενο: %1$s προς %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in" comment="Next: Check in at Hotel Arizzo">Επόμενο: άφιξη στο %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out" comment="Next: Check out at Hotel Arizzo">Επόμενο: αναχώρηση από το %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="one">Απομένει %1$d ημέρα</item>
+        <item quantity="other">Απομένουν %1$d ημέρες</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">Ολοκληρώθηκε</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="one">%1$d ημέρα  |  %2$s</item>
+        <item quantity="other">%1$d ημέρες  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="one">Σε %d ημέρα</item>
+        <item quantity="other">Σε %d ημέρες</item>
+    </plurals>
+    <string name="trips_toggle_past_label" comment="Past trips list">Προηγούμενα</string>
+    <string name="trips_toggle_upcoming_label" comment="Upcoming trips list">Επερχόμενα</string>
+    <string name="trips_toggle_empty_message">Δεν βρέθηκαν ταξίδια</string>
+    <string name="trips_title">Τα ταξίδια μου</string>
+    <string name="add_accommodation_title">Προσθήκη διαμονής</string>
+    <string name="edit_accommodation_title">Επεξεργασία διαμονής</string>
+    <string name="add_accommodation_general_section_title">Διαμονή</string>
+    <string name="add_accommodation_name_label">Όνομα</string>
+    <string name="add_accommodation_address_label">Διεύθυνση</string>
+    <string name="add_accommodation_contact_phone_label">Τηλέφωνο επικοινωνίας</string>
+    <string name="add_accommodation_check_in_section_title">Άφιξη</string>
+    <string name="add_accommodation_check_out_section_title">Αναχώρηση</string>
+    <string name="add_accommodation_date_label">Ημερομηνία</string>
+    <string name="add_accommodation_time_label">Ώρα</string>
+    <string name="add_accommodation_btn_label">Προσθήκη διαμονής</string>
+    <string name="add_accommodation_documents_section_title">Έγγραφα</string>
+    <string name="accommodation_details_title">Πληροφορίες διαμονής</string>
+    <string name="accommodation_details_address_label">Διεύθυνση</string>
+    <string name="accommodation_details_check_in_label">Άφιξη</string>
+    <string name="accommodation_details_check_out_label">Αναχώρηση</string>
+    <string name="accommodation_details_notifications_section_title">Ειδοποιήσεις</string>
+    <string name="accommodation_details_check_in_notification_label">Ειδοποίηση 1 ώρα πριν από την άφιξη</string>
+    <string name="accommodation_details_check_out_notification_label">Ειδοποίηση 1 ώρα πριν από την αναχώρηση</string>
+    <string name="accommodation_details_documents_section_title">Έγγραφα</string>
+    <string name="accommodation_details_delete_confirmation_title">Διαγραφή διαμονής;</string>
+    <string name="accommodation_details_duration_label">Διάρκεια</string>
+    <string name="accommodation_details_call_label" comment="Middle size label before phone number">Κλήση</string>
+    <string name="notification_upcoming_transport" comment="Bus to Lviv / Автобус до міста Львів">%1$s προς %2$s</string>
+    <string name="notification_departure_time" comment="Departure time: 12:00">Ώρα αναχώρησης: %1$s</string>
+    <string name="notification_upcoming_check_in" comment="Check-in at Hotel Arizzo">Άφιξη: %1$s</string>
+    <string name="notification_upcoming_check_out" comment="Check-out at Hotel Arizzo">Αναχώρηση: %1$s</string>
+    <string name="notification_accommodation_time" comment="Time: 12:00">Ώρα: %1$s</string>
+    <string name="notification_transport_platform" comment="Platform 1">Αποβάθρα %1$s</string>
+    <string name="notification_transport_seat" comment="Seat 12">Θέση %1$s</string>
+    <string name="notification_transport_coach" comment="Coach 3">Βαγόνι %1$s</string>
+    <string name="duration_hours_short">%d ώ.</string>
+    <string name="duration_minutes_short">%d λεπ.</string>
+    <string name="duration_hours_minutes_short">%1$d ώ. %2$d λεπ.</string>
+    <plurals name="transport_duration_hours">
+        <item quantity="one">%d ώρα</item>
+        <item quantity="other">%d ώρες</item>
+    </plurals>
+    <plurals name="transport_duration_minutes">
+        <item quantity="one">%d λεπτό</item>
+        <item quantity="other">%d λεπτά</item>
+    </plurals>
+    <plurals name="accommodation_duration_nights">
+        <item quantity="one">%d νύχτα</item>
+        <item quantity="other">%d νύχτες</item>
+    </plurals>
+</resources>

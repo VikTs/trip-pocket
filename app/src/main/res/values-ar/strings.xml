@@ -1,0 +1,208 @@
+<resources>
+    <string name="app_name">Trip Pocket</string>
+
+    <string name="common_save_changes">حفظ التغييرات</string>
+    <string name="common_edit">تعديل</string>
+    <string name="common_delete">حذف</string>
+    <string name="common_confirm">موافق</string>
+    <string name="common_cancel">إلغاء</string>
+    <string name="transport_type_bus">حافلة</string>
+    <string name="transport_type_train">قطار</string>
+    <string name="transport_type_plane">طائرة</string>
+    <string name="date_input_placeholder">اختر التاريخ</string>
+    <string name="time_input_placeholder">اختر الوقت</string>
+    <string name="address_copied_message">تم نسخ العنوان</string>
+    <string name="upload_btn_label">رفع مستند</string>
+    <string name="upload_image_btn_label">رفع صورة</string>
+    <string name="upload_another_image_btn_label">رفع صورة أخرى</string>
+    <string name="language_selector_content_description">اللغة</string>
+    <string name="language_selector_search_hint">ابحث عن لغة</string>
+    <string name="language_selector_search_empty">لم يتم العثور على لغات</string>
+    <string name="delete_confirmation_title">هل تريد الحذف؟</string>
+    <string name="delete_confirmation_message">لا يمكن التراجع عن هذا الإجراء</string>
+    <string name="required_fields_hint">الحقول المميزة بعلامة * إلزامية</string>
+
+    <string name="notifications_disabled_message">الإشعارات متوقفة</string>
+    <string name="notifications_enable_btn_label">تفعيل الإشعارات</string>
+    <string name="exact_reminders_disabled_message">التذكيرات متوقفة</string>
+    <string name="exact_reminders_enable_btn_label">تفعيل التذكيرات</string>
+    <string name="notifications_and_exact_reminders_disabled_message">الإشعارات والتذكيرات متوقفة</string>
+    <string name="notification_help_title">لا تصلك إشعارات؟</string>
+    <string name="notification_help_body">تقيّد بعض الهواتف تشغيل التطبيقات في الخلفية. جرّب ما يلي:\n\n• في إعدادات البطارية الخاصة بالتطبيق، اختر «بلا قيود» أو أوقف تحسين البطارية. إذا كنت تستخدم جهاز Samsung، فأزل التطبيق من قائمة «التطبيقات النائمة».\n• فعّل «التشغيل التلقائي» للتطبيق (متاح في أجهزة Xiaomi وOppo وVivo وHuawei وغيرها).\n• تأكد من تفعيل «الإشعارات» و«المنبّهات والتذكيرات» للتطبيق.\n\nقد تختلف أسماء الإعدادات حسب طراز الهاتف وإصدار النظام.</string>
+    <string name="notification_help_open_settings">إعدادات التطبيق</string>
+    <string name="notification_help_close">إغلاق</string>
+
+    <string name="edit_transport_title">تعديل وسيلة النقل</string>
+    <string name="add_transport_title">إضافة وسيلة نقل</string>
+    <string name="add_transport_from_section_title">من</string>
+    <string name="add_transport_to_section_title">إلى</string>
+    <string name="add_transport_btn_label">إضافة وسيلة نقل</string>
+    <string name="add_transport_bus_number_label">رقم الحافلة</string>
+    <string name="add_transport_place_label">المقعد</string>
+    <string name="add_transport_documents_section_title">المستندات</string>
+    <string name="add_transport_train_number_label">رقم القطار</string>
+    <string name="add_transport_plane_number_label">رقم الرحلة الجوية</string>
+    <string name="add_transport_coach_label">العربة</string>
+    <string name="add_transport_transport_section_title">وسيلة النقل</string>
+    <string name="add_transport_type_label">النوع</string>
+    <string name="add_transport_date_label">التاريخ</string>
+    <string name="add_transport_time_label">الوقت</string>
+    <string name="add_transport_address_label">اسم المحطة (أو العنوان)</string>
+    <string name="add_transport_airport_name_label">اسم المطار (أو العنوان)</string>
+    <string name="add_transport_airport_code_label">رمز المطار</string>
+    <string name="add_transport_platform_label">الرصيف</string>
+    <string name="add_transport_terminal_label">الصالة</string>
+    <string name="add_transport_gate_label">البوابة</string>
+    <string name="add_transport_city_label">المدينة</string>
+    <string name="add_transport_private_bus_label">هذه حافلة خاصة</string>
+    <string name="add_transport_carrier_label">الناقل</string>
+    <string name="add_transport_airline_label">شركة الطيران</string>
+    <string name="add_transport_driver_phone_label">رقم هاتف السائق</string>
+
+    <string name="edit_trip_title">تعديل الرحلة</string>
+    <string name="create_trip_title">إنشاء رحلة</string>
+    <string name="create_trip_name_label">اسم الرحلة</string>
+    <string name="create_trip_start_date_label">تاريخ البدء</string>
+    <string name="create_trip_end_date_label">تاريخ الانتهاء</string>
+    <string name="create_trip_btn_label">إنشاء رحلة</string>
+
+    <string name="transport_details_bus_info_title">معلومات الحافلة</string>
+    <string name="transport_details_train_info_title">معلومات القطار</string>
+    <string name="transport_details_plane_info_title">معلومات الطائرة</string>
+    <string name="transport_details_coach_label">العربة</string>
+    <string name="transport_details_seat_label">المقعد</string>
+    <string name="transport_details_driver_phone_label">السائق</string>
+    <string name="transport_details_terminal_label">الصالة</string>
+    <string name="transport_details_platform_label">الرصيف</string>
+    <string name="transport_details_gate_label">البوابة</string>
+    <string name="transport_details_documents_section_title">المستندات</string>
+    <string name="transport_details_notifications_section_title">الإشعارات</string>
+    <string name="transport_details_departure_notification_label">نبّهني قبل المغادرة بـ %1$s</string>
+    <string name="transport_details_plane_departure_notification_label">نبّهني قبل الإقلاع بـ %1$s</string>
+    <string name="transport_details_delete_confirmation_title">هل تريد حذف وسيلة النقل؟</string>
+    <string name="transport_details_notifications_unavailable">الإشعارات غير متاحة لوسيلة النقل هذه</string>
+
+    <string name="add_to_trip_bottom_sheet_title">إضافة إلى الرحلة</string>
+    <string name="add_to_trip_bottom_sheet_transport_label">وسيلة نقل</string>
+    <string name="add_to_trip_bottom_sheet_accommodation_label">إقامة</string>
+
+    <string name="trip_details_title">تفاصيل الرحلة</string>
+    <string name="trip_details_accommodation_checkin_label">تسجيل الوصول</string>
+    <string name="trip_details_accommodation_checkout_label">تسجيل المغادرة</string>
+    <string name="trip_details_empty_message">رحلتك فارغة</string>
+    <string name="trip_details_add_btn_label">إضافة</string>
+    <string name="trip_details_transport_card_coach_label">العربة</string>
+    <string name="trip_details_transport_card_seat_label">المقعد</string>
+    <string name="trip_details_departure_label">المغادرة</string>
+    <string name="trip_details_plane_departure_label">المطار</string>
+    <string name="trip_details_terminal_label">الصالة</string>
+    <string name="trip_details_transport_card_arrival_label">الوصول</string>
+    <string name="trip_details_transport_card_bus_departure">مغادرة الحافلة</string>
+    <string name="trip_details_transport_card_train_departure">مغادرة القطار</string>
+    <string name="trip_details_delete_confirmation_title">هل تريد حذف الرحلة؟</string>
+    <string name="trip_details_next_event_label">التالي</string>
+    <string name="trip_details_day_filter_all_label">الكل</string>
+
+    <string name="trips_empty_message">لا توجد رحلات مخطط لها</string>
+    <string name="trips_add_btn_label">إضافة رحلة</string>
+    <string name="trips_trip_card_active_label">جارية</string>
+    <string name="trips_trip_card_next_label">التالي</string>
+    <string name="trips_trip_card_next_transport">التالي: %1$s إلى %2$s</string>
+    <string name="trips_trip_card_next_accommodation_check_in">التالي: تسجيل الوصول في %1$s</string>
+    <string name="trips_trip_card_next_accommodation_check_out">التالي: تسجيل المغادرة من %1$s</string>
+    <plurals name="trips_trip_card_days_remaining_label">
+        <item quantity="zero">لم يتبقَّ أي يوم</item>
+        <item quantity="one">متبقٍ يوم واحد</item>
+        <item quantity="two">متبقٍ يومان</item>
+        <item quantity="few">متبقٍ %1$d أيام</item>
+        <item quantity="many">متبقٍ %1$d يومًا</item>
+        <item quantity="other">متبقٍ %1$d يوم</item>
+    </plurals>
+    <string name="trips_trip_card_completed_label">مكتملة</string>
+    <plurals name="trips_trip_card_duration_and_dates_label">
+        <item quantity="zero">%1$d يوم  |  %2$s</item>
+        <item quantity="one">يوم واحد  |  %2$s</item>
+        <item quantity="two">يومان  |  %2$s</item>
+        <item quantity="few">%1$d أيام  |  %2$s</item>
+        <item quantity="many">%1$d يومًا  |  %2$s</item>
+        <item quantity="other">%1$d يوم  |  %2$s</item>
+    </plurals>
+    <plurals name="trips_trip_card_in_days_label">
+        <item quantity="zero">بعد %d يوم</item>
+        <item quantity="one">بعد يوم واحد</item>
+        <item quantity="two">بعد يومين</item>
+        <item quantity="few">بعد %d أيام</item>
+        <item quantity="many">بعد %d يومًا</item>
+        <item quantity="other">بعد %d يوم</item>
+    </plurals>
+    <string name="trips_toggle_past_label">السابقة</string>
+    <string name="trips_toggle_upcoming_label">القادمة</string>
+    <string name="trips_toggle_empty_message">لم يتم العثور على رحلات</string>
+    <string name="trips_title">رحلاتي</string>
+
+
+    <string name="add_accommodation_title">إضافة إقامة</string>
+    <string name="edit_accommodation_title">تعديل الإقامة</string>
+    <string name="add_accommodation_general_section_title">الإقامة</string>
+    <string name="add_accommodation_name_label">الاسم</string>
+    <string name="add_accommodation_address_label">العنوان</string>
+    <string name="add_accommodation_contact_phone_label">هاتف التواصل</string>
+    <string name="add_accommodation_check_in_section_title">تسجيل الوصول</string>
+    <string name="add_accommodation_check_out_section_title">تسجيل المغادرة</string>
+    <string name="add_accommodation_date_label">التاريخ</string>
+    <string name="add_accommodation_time_label">الوقت</string>
+    <string name="add_accommodation_btn_label">إضافة إقامة</string>
+    <string name="add_accommodation_documents_section_title">المستندات</string>
+
+    <string name="accommodation_details_title">معلومات الإقامة</string>
+    <string name="accommodation_details_address_label">العنوان</string>
+    <string name="accommodation_details_check_in_label">تسجيل الوصول</string>
+    <string name="accommodation_details_check_out_label">تسجيل المغادرة</string>
+    <string name="accommodation_details_notifications_section_title">الإشعارات</string>
+    <string name="accommodation_details_check_in_notification_label">نبّهني قبل تسجيل الوصول بساعة</string>
+    <string name="accommodation_details_check_out_notification_label">نبّهني قبل تسجيل المغادرة بساعة</string>
+    <string name="accommodation_details_documents_section_title">المستندات</string>
+    <string name="accommodation_details_delete_confirmation_title">هل تريد حذف الإقامة؟</string>
+    <string name="accommodation_details_duration_label">المدة</string>
+    <string name="accommodation_details_call_label">اتصال</string>
+
+    <string name="notification_upcoming_transport">%1$s إلى %2$s</string>
+    <string name="notification_departure_time">وقت المغادرة: %1$s</string>
+    <string name="notification_upcoming_check_in">تسجيل الوصول: %1$s</string>
+    <string name="notification_upcoming_check_out">تسجيل المغادرة: %1$s</string>
+    <string name="notification_accommodation_time">الوقت: %1$s</string>
+    <string name="notification_transport_platform">الرصيف %1$s</string>
+    <string name="notification_transport_seat">المقعد %1$s</string>
+    <string name="notification_transport_coach">العربة %1$s</string>
+
+    <string name="duration_hours_short">%d س</string>
+    <string name="duration_minutes_short">%d د</string>
+    <string name="duration_hours_minutes_short">%1$d س %2$d د</string>
+
+    <plurals name="transport_duration_hours">
+        <item quantity="zero">%d ساعة</item>
+        <item quantity="one">ساعة واحدة</item>
+        <item quantity="two">ساعتان</item>
+        <item quantity="few">%d ساعات</item>
+        <item quantity="many">%d ساعة</item>
+        <item quantity="other">%d ساعة</item>
+    </plurals>
+
+    <plurals name="transport_duration_minutes">
+        <item quantity="zero">%d دقيقة</item>
+        <item quantity="one">دقيقة واحدة</item>
+        <item quantity="two">دقيقتان</item>
+        <item quantity="few">%d دقائق</item>
+        <item quantity="many">%d دقيقة</item>
+        <item quantity="other">%d دقيقة</item>
+    </plurals>
+
+    <plurals name="accommodation_duration_nights">
+        <item quantity="zero">%d ليلة</item>
+        <item quantity="one">ليلة واحدة</item>
+        <item quantity="two">ليلتان</item>
+        <item quantity="few">%d ليالٍ</item>
+        <item quantity="many">%d ليلة</item>
+        <item quantity="other">%d ليلة</item>
+    </plurals>
+</resources>
