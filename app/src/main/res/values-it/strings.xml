@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Carica immagine</string>
     <string name="upload_another_image_btn_label">Carica un\'altra immagine</string>
     <string name="language_selector_content_description">Lingua</string>
+    <string name="language_selector_search_hint">Cerca una lingua</string>
+    <string name="language_selector_search_empty">Nessuna lingua trovata</string>
     <string name="delete_confirmation_title">Eliminare?</string>
     <string name="delete_confirmation_message">Questa azione non può essere annullata</string>
     <string name="required_fields_hint">I campi contrassegnati con * sono obbligatori</string>

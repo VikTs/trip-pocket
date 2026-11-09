@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Subir imagen</string>
     <string name="upload_another_image_btn_label">Subir otra imagen</string>
     <string name="language_selector_content_description">Idioma</string>
+    <string name="language_selector_search_hint">Buscar idioma</string>
+    <string name="language_selector_search_empty">No se encontraron idiomas</string>
     <string name="delete_confirmation_title">¿Eliminar?</string>
     <string name="delete_confirmation_message">Esta acción no se puede deshacer</string>
     <string name="required_fields_hint">Los campos marcados con * son obligatorios</string>

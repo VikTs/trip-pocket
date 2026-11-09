@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Otpremi sliku</string>
     <string name="upload_another_image_btn_label">Otpremi još jednu sliku</string>
     <string name="language_selector_content_description">Jezik</string>
+    <string name="language_selector_search_hint">Pretraži jezik</string>
+    <string name="language_selector_search_empty">Nijedan jezik nije pronađen</string>
     <string name="delete_confirmation_title">Obrisati?</string>
     <string name="delete_confirmation_message">Ova radnja se ne može poništiti</string>
     <string name="required_fields_hint">Polja označena sa * su obavezna</string>

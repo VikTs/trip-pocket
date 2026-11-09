@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Upload image</string>
     <string name="upload_another_image_btn_label">Upload another image</string>
     <string name="language_selector_content_description">Language</string>
+    <string name="language_selector_search_hint">Search language</string>
+    <string name="language_selector_search_empty">No languages found</string>
     <string name="delete_confirmation_title">Delete?</string>
     <string name="delete_confirmation_message">This action cannot be canceled</string>
     <string name="required_fields_hint">Fields marked * are required</string>
