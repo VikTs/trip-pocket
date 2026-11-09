@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Importer une image</string>
     <string name="upload_another_image_btn_label">Importer une autre image</string>
     <string name="language_selector_content_description">Langue</string>
+    <string name="language_selector_search_hint">Recherche</string>
+    <string name="language_selector_search_empty">Aucune langue trouvée</string>
     <string name="delete_confirmation_title">Supprimer?</string>
     <string name="delete_confirmation_message">Cette action ne peut pas être annulée</string>
     <string name="required_fields_hint">Les champs marqués d’un * sont obligatoires</string>

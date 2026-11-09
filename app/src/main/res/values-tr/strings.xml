@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Görsel yükle</string>
     <string name="upload_another_image_btn_label">Başka bir görsel yükle</string>
     <string name="language_selector_content_description">Dil</string>
+    <string name="language_selector_search_hint">Dil ara</string>
+    <string name="language_selector_search_empty">Dil bulunamadı</string>
     <string name="delete_confirmation_title">Silinsin mi?</string>
     <string name="delete_confirmation_message">Bu işlem geri alınamaz</string>
     <string name="required_fields_hint">* ile işaretli alanlar zorunludur</string>

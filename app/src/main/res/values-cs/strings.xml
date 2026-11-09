@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Nahrát obrázek</string>
     <string name="upload_another_image_btn_label">Nahrát další obrázek</string>
     <string name="language_selector_content_description">Jazyk</string>
+    <string name="language_selector_search_hint">Hledat jazyk</string>
+    <string name="language_selector_search_empty">Nebyly nalezeny žádné jazyky</string>
     <string name="delete_confirmation_title">Smazat?</string>
     <string name="delete_confirmation_message">Tuto akci nelze vrátit zpět</string>
     <string name="required_fields_hint">Pole označená * jsou povinná</string>

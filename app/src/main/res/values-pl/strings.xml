@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Prześlij obraz</string>
     <string name="upload_another_image_btn_label">Prześlij kolejny obraz</string>
     <string name="language_selector_content_description">Język</string>
+    <string name="language_selector_search_hint">Szukaj języka</string>
+    <string name="language_selector_search_empty">Nie znaleziono języków</string>
     <string name="delete_confirmation_title">Usunąć?</string>
     <string name="delete_confirmation_message">Tej czynności nie można cofnąć</string>
     <string name="required_fields_hint">Pola oznaczone * są wymagane</string>

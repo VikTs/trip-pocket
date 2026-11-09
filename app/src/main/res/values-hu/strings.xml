@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Kép feltöltése</string>
     <string name="upload_another_image_btn_label">Másik kép feltöltése</string>
     <string name="language_selector_content_description">Nyelv</string>
+    <string name="language_selector_search_hint">Nyelv keresése</string>
+    <string name="language_selector_search_empty">Nem található nyelv</string>
     <string name="delete_confirmation_title">Törlés?</string>
     <string name="delete_confirmation_message">Ez a művelet nem vonható vissza</string>
     <string name="required_fields_hint">A *-gal jelölt mezők kitöltése kötelező</string>

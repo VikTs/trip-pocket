@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Bild hochladen</string>
     <string name="upload_another_image_btn_label">Ein anderes Bild hochladen</string>
     <string name="language_selector_content_description">Sprache</string>
+    <string name="language_selector_search_hint">Sprache suchen</string>
+    <string name="language_selector_search_empty">Keine Sprachen gefunden</string>
     <string name="delete_confirmation_title">Löschen?</string>
     <string name="delete_confirmation_message">Diese Aktion kann nicht rückgängig gemacht werden</string>
     <string name="required_fields_hint">Mit * gekennzeichnete Felder sind Pflichtfelder</string>

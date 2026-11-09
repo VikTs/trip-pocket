@@ -16,6 +16,8 @@
     <string name="upload_image_btn_label">Завантажити зображення</string>
     <string name="upload_another_image_btn_label">Завантажити інше зображення</string>
     <string name="language_selector_content_description">Мова</string>
+    <string name="language_selector_search_hint">Пошук мови</string>
+    <string name="language_selector_search_empty">Мови не знайдено</string>
     <string name="delete_confirmation_title">Видалити?</string>
     <string name="delete_confirmation_message">Цю дію не можна скасувати</string>
     <string name="required_fields_hint">Поля з * обов’язкові для заповнення</string>
