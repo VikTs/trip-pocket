@@ -103,7 +103,7 @@
 
     <string name="trips_empty_message">Planlanmış seyahatiniz yok</string>
     <string name="trips_add_btn_label">Seyahat ekle</string>
-    <string name="trips_trip_card_active_label">Devam ediyor</string>
+    <string name="trips_trip_card_active_label">Sürüyor</string>
     <string name="trips_trip_card_next_label">Sıradaki</string>
     <string name="trips_trip_card_next_transport">Sıradaki: %2$s şehrine %1$s</string>
     <string name="trips_trip_card_next_accommodation_check_in">Sıradaki: check-in – %1$s</string>

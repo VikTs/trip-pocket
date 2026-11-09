@@ -103,7 +103,7 @@
 
     <string name="trips_empty_message">Não tem viagens agendadas</string>
     <string name="trips_add_btn_label">Adicionar viagem</string>
-    <string name="trips_trip_card_active_label">Em andamento</string>
+    <string name="trips_trip_card_active_label">Em viagem</string>
     <string name="trips_trip_card_next_label">Próximo</string>
     <string name="trips_trip_card_next_transport">Próximo: %1$s para %2$s</string>
     <string name="trips_trip_card_next_accommodation_check_in">Próximo: check-in em %1$s</string>
