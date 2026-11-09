@@ -22,6 +22,7 @@ private val supportedLanguages = setOf(
     "tr",       // Turkish
     "cs",       // Czech
     "hu",       // Hungarian
+    "sr-Latn",  // Serbian
 )
 
 fun setAppLanguage(

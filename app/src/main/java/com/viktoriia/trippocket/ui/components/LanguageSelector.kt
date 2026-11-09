@@ -46,8 +46,7 @@ private val languages = listOf(
 fun LanguageSelector() {
     val context = LocalContext.current
     val colorScheme = MaterialTheme.colorScheme
-    val currentLanguage =
-        getAppLocale(context).language
+    val currentLanguage = getAppLocale(context).toLanguageTag()
 
     var expanded by remember {
         mutableStateOf(false)
@@ -73,6 +72,7 @@ fun LanguageSelector() {
                 )
             )
         }
+
 
         DropdownMenu(
             expanded = expanded,
