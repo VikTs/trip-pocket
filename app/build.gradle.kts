@@ -17,8 +17,8 @@ android {
         applicationId = "com.viktoriia.trippocket"
         minSdk = 24
         targetSdk = 36
-        versionCode = 10
-        versionName = "1.1.2"
+        versionCode = 13
+        versionName = "1.1.3_beta"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

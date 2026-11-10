@@ -25,10 +25,10 @@ import com.viktoriia.trippocket.data.model.Accommodation
 import com.viktoriia.trippocket.ui.components.TopBar
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldsHint
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
+import com.viktoriia.trippocket.ui.utils.deleteFiles
 import com.viktoriia.trippocket.viewmodel.AccommodationViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.File
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -80,13 +80,8 @@ fun AddAccommodationScreen(
         val temporaryPaths = state.documents
             .map { it.path }
             .filterNot { it in originalDocumentPaths }
-            .distinct()
 
-        withContext(Dispatchers.IO) {
-            temporaryPaths.forEach { path ->
-                File(path).delete()
-            }
-        }
+        deleteFiles(temporaryPaths)
     }
 
     fun handleBackClick() {
@@ -131,10 +126,14 @@ fun AddAccommodationScreen(
             checkOut = checkOut
         )
 
+        val removedDocumentPaths = originalDocumentPaths -
+                state.documents.map { it.path }.toSet()
+
         if (isEditMode) {
             viewModel.updateAccommodation(
                 accommodation = accommodation,
-                documents = state.documents
+                documents = state.documents,
+                removedDocumentPaths = removedDocumentPaths
             )
         } else {
             viewModel.addAccommodation(
