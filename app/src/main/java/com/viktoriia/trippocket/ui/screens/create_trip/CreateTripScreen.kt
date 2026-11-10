@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
@@ -17,11 +16,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.viktoriia.trippocket.R
 import com.viktoriia.trippocket.data.model.Trip
@@ -30,6 +29,10 @@ import com.viktoriia.trippocket.ui.components.inputs.DateInput
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldLabel
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.ui.components.inputs.rememberFilePicker
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.File
 import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,8 +66,43 @@ fun CreateTripScreen(
         }
     }
 
+    val scope = rememberCoroutineScope()
+
+    suspend fun deleteTemporaryImage(
+        path: String?,
+        keepPath: String? = null
+    ) {
+        if (
+            path == null ||
+            path == editTrip?.imagePath ||
+            path == keepPath
+        ) return
+
+        withContext(Dispatchers.IO) {
+            File(path).delete()
+        }
+    }
+
     fun onFilePicked(file: SelectedDocument) {
+        val previousPath = selectedImage?.path
         selectedImage = file
+
+        scope.launch {
+            deleteTemporaryImage(
+                path = previousPath,
+                keepPath = file.path
+            )
+        }
+    }
+
+    fun handleBackClick() {
+        scope.launch {
+            deleteTemporaryImage(
+                path = selectedImage?.path
+            )
+
+            onBackClick()
+        }
     }
 
     val pickFile = rememberFilePicker(
@@ -81,7 +119,7 @@ fun CreateTripScreen(
                 else stringResource(
                     R.string.create_trip_title
                 ),
-                onBackClick = onBackClick
+                onBackClick = ::handleBackClick
             )
         }
     ) { innerPadding ->
