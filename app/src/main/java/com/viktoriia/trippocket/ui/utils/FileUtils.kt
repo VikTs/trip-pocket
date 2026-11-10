@@ -9,11 +9,9 @@ import android.net.Uri
 import android.os.ParcelFileDescriptor
 import android.provider.OpenableColumns
 import androidx.core.content.FileProvider
-import org.json.JSONArray
-import org.json.JSONException
-import org.json.JSONObject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.IOException
 import kotlin.io.copyTo
 import kotlin.io.extension
 import kotlin.io.outputStream
@@ -104,6 +102,14 @@ fun getFileName(
             )
         } else {
             null
+        }
+    }
+}
+
+suspend fun deleteFiles(paths: Collection<String>) {
+    withContext(Dispatchers.IO) {
+        paths.distinct().forEach { path ->
+            File(path).delete()
         }
     }
 }

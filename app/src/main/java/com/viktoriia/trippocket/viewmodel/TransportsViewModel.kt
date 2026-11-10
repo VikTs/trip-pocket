@@ -12,6 +12,7 @@ import com.viktoriia.trippocket.data.repository.TransportNotificationRepository
 import com.viktoriia.trippocket.data.repository.TransportRepository
 import com.viktoriia.trippocket.notification.NotificationScheduler
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
+import com.viktoriia.trippocket.ui.utils.deleteFiles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -105,23 +106,11 @@ class TransportsViewModel @Inject constructor(
 
     fun updateTransport(
         transport: Transport,
-        documents: List<SelectedDocument>
+        documents: List<SelectedDocument>,
+        removedDocumentPaths: Set<String>
     ) {
         viewModelScope.launch {
-            val notification =
-                notificationRepository
-                    .getByTransportId(transport.id)
-                    .firstOrNull()
-
-            if (notification != null) {
-                notificationScheduler.cancelTransport(
-                    notification.id
-                )
-            }
-
-            repository.updateTransport(
-                transport
-            )
+            repository.updateTransport(transport)
 
             transportDocumentRepository.deleteForTransport(
                 transport.id
@@ -137,12 +126,7 @@ class TransportsViewModel @Inject constructor(
                 )
             }
 
-            if (notification?.enabled == true) {
-                notificationScheduler.scheduleTransport(
-                    notification = notification,
-                    transport = transport
-                )
-            }
+            deleteFiles(removedDocumentPaths)
         }
     }
 
