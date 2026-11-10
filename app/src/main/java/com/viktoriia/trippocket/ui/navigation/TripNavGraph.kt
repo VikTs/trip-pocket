@@ -77,19 +77,21 @@ fun NavGraphBuilder.tripNavGraph(
                     initialValue = null
                 )
 
-            CreateTripScreen(
-                editTrip = trip,
-                onTripSaved = { updatedTrip ->
-                    tripsViewModel.updateTrip(
-                        updatedTrip
-                    )
+            if (trip != null) {
+                CreateTripScreen(
+                    editTrip = trip,
+                    onTripSaved = { updatedTrip ->
+                        tripsViewModel.updateTrip(
+                            updatedTrip
+                        )
 
-                    navController.popBackStack()
-                },
-                onBackClick = {
-                    navController.popBackStack()
-                }
-            )
+                        navController.popBackStack()
+                    },
+                    onBackClick = {
+                        navController.popBackStack()
+                    }
+                )
+            }
         }
     }
 
