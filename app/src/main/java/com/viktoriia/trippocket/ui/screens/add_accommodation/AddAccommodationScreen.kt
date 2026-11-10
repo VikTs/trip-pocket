@@ -15,6 +15,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -25,6 +26,9 @@ import com.viktoriia.trippocket.ui.components.TopBar
 import com.viktoriia.trippocket.ui.components.inputs.RequiredFieldsHint
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
 import com.viktoriia.trippocket.viewmodel.AccommodationViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -44,6 +48,10 @@ fun AddAccommodationScreen(
             .collectAsState(initial = emptyList())
             .value
     } ?: emptyList()
+
+    val originalDocumentPaths = remember(accommodation?.id, documents) {
+        documents.map { it.path }.toSet()
+    }
 
     var state by remember(accommodation, documents) {
         mutableStateOf(
@@ -65,6 +73,27 @@ fun AddAccommodationScreen(
                 )
             } ?: AddAccommodationState()
         )
+    }
+
+    val scope = rememberCoroutineScope()
+    suspend fun deleteTemporaryDocuments() {
+        val temporaryPaths = state.documents
+            .map { it.path }
+            .filterNot { it in originalDocumentPaths }
+            .distinct()
+
+        withContext(Dispatchers.IO) {
+            temporaryPaths.forEach { path ->
+                File(path).delete()
+            }
+        }
+    }
+
+    fun handleBackClick() {
+        scope.launch {
+            deleteTemporaryDocuments()
+            onBackClick()
+        }
     }
 
     fun onSaveAccommodation() {
@@ -129,7 +158,7 @@ fun AddAccommodationScreen(
                         R.string.add_accommodation_title
                     )
                 },
-                onBackClick = onBackClick
+                onBackClick = ::handleBackClick
             )
         }
     ) { innerPadding ->
@@ -220,7 +249,11 @@ fun AddAccommodationScreen(
                             it.path == document.path
                         }
                     )
-                    File(document.path).delete()
+                    if (document.path !in originalDocumentPaths) {
+                        scope.launch(Dispatchers.IO) {
+                            File(document.path).delete()
+                        }
+                    }
                 }
             )
 
