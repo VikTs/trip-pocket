@@ -12,6 +12,7 @@ import com.viktoriia.trippocket.data.repository.AccommodationNotificationReposit
 import com.viktoriia.trippocket.data.repository.AccommodationRepository
 import com.viktoriia.trippocket.notification.NotificationScheduler
 import com.viktoriia.trippocket.ui.components.inputs.SelectedDocument
+import com.viktoriia.trippocket.ui.utils.deleteFiles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -139,14 +140,13 @@ class AccommodationViewModel @Inject constructor(
 
     fun updateAccommodation(
         accommodation: Accommodation,
-        documents: List<SelectedDocument>
+        documents: List<SelectedDocument>,
+        removedDocumentPaths: Set<String>
     ) {
         viewModelScope.launch {
             val notifications =
                 notificationRepository
-                    .getByAccommodationId(
-                        accommodation.id
-                    )
+                    .getByAccommodationId(accommodation.id)
                     .first()
 
             notifications?.forEach { notification ->
@@ -155,9 +155,7 @@ class AccommodationViewModel @Inject constructor(
                 )
             }
 
-            repository.updateAccommodation(
-                accommodation
-            )
+            repository.updateAccommodation(accommodation)
 
             notifications?.forEach { notification ->
                 if (notification.enabled) {
@@ -168,10 +166,9 @@ class AccommodationViewModel @Inject constructor(
                 }
             }
 
-            accommodationDocumentRepository
-                .deleteForAccommodation(
-                    accommodation.id
-                )
+            accommodationDocumentRepository.deleteForAccommodation(
+                accommodation.id
+            )
 
             documents.forEach { document ->
                 accommodationDocumentRepository.addDocument(
@@ -182,6 +179,8 @@ class AccommodationViewModel @Inject constructor(
                     )
                 )
             }
+
+            deleteFiles(removedDocumentPaths)
         }
     }
 

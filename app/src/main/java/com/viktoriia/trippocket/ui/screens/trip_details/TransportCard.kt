@@ -102,7 +102,7 @@ fun TransportCard(
             text = "${stringResource(R.string.trip_details_departure_label)}: $departureInfo",
             maxLines = if (transportInfo.isNotBlank()) 1 else 2,
             overflow = TextOverflow.Ellipsis,
-            style = typography.bodyMedium
+            style = typography.bodySmall
         )
 
         if (transportInfo.isNotBlank()) {
@@ -110,7 +110,7 @@ fun TransportCard(
                 text = transportInfo,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-                style = typography.bodyMedium
+                style = typography.bodySmall
             )
         }
     }

@@ -69,7 +69,7 @@ fun AccommodationCard(
             text = accommodation.address,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            style = typography.bodyMedium
+            style = typography.bodySmall
         )
     }
 }

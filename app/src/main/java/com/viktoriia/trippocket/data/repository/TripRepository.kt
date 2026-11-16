@@ -34,7 +34,24 @@ class TripRepository @Inject constructor(
     }
 
     suspend fun updateTrip(trip: Trip) {
+        val oldImagePath = tripDao.getTripById(trip.id)
+            .first()
+            ?.imagePath
+
         tripDao.updateTrip(trip)
+
+        if (
+            oldImagePath != null &&
+            oldImagePath != trip.imagePath
+        ) {
+            withContext(Dispatchers.IO) {
+                val file = File(oldImagePath)
+
+                if (file.exists() && !file.delete()) {
+                    Log.w("TripRepository", "Failed to delete old image: $oldImagePath")
+                }
+            }
+        }
     }
 
     suspend fun deleteTrip(tripId: Long) {
